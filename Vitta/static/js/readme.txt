@@ -1,0 +1,1 @@
+javascript base do projeto
