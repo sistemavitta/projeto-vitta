@@ -26,7 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+#lista com administradores do sistema
 ADMINS = (
     (u'bruce_alex2006@hotmail.com'),
 )
