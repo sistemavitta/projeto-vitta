@@ -23,8 +23,7 @@ SECRET_KEY = 'h77t50*%1)lg_5r*=#@!85)(%c^&0i@xc(d2koluik(tpfb+=)'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True
-
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -64,12 +63,11 @@ WSGI_APPLICATION = 'Vitta.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 # Banco de dados local
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'vitta.db'),
-    }
-}
+
+
+
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -105,7 +103,7 @@ MEDIA_URL = '/media/'
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static_files')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 STATIC_URL = '/static/'
 
@@ -132,3 +130,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
 )
+
+try:
+    from settings_local import *
+except ImportError:
+    pass
