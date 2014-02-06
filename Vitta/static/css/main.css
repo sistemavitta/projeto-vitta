@@ -1,0 +1,26 @@
+/* CSS Login */
+
+.login-full {
+	background: url(../img/login-background.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+.login-vertical-offset {
+    padding-top: 150px;
+}
+.login-panel {
+	background-color: rgba(0, 0, 0, 0.20);
+	border-radius: 0;
+}
+.login-input, .login-btn {
+	border-radius: 0;
+}
+
+/* CSS Admin */
+
+.admin-logo {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

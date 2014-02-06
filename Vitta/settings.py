@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 ADMINS = (
     (u'bruce_alex2006@hotmail.com'),
-    
+    (u'william-urias@hotmail.com'),
 )
 
 # Application definition
