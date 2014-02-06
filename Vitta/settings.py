@@ -22,10 +22,16 @@ SECRET_KEY = 'h77t50*%1)lg_5r*=#@!85)(%c^&0i@xc(d2koluik(tpfb+=)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # Administradores do sistema
 
@@ -64,7 +70,11 @@ WSGI_APPLICATION = 'Vitta.wsgi.application'
 # Banco de dados local
 
 
-
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES= {
+    'default': dj_database_url.config(default='postgres://localhost')
+}
 
 
 
@@ -106,6 +116,11 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'Vitta/static'),
+)
+
 
 # List of finder classes that know how to find static files in
 # various locations.
