@@ -76,9 +76,6 @@ DATABASES= {
     'default': dj_database_url.config(default='postgres://localhost')
 }
 
-
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -120,7 +117,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'Vitta/static'),
 )
-
 
 # List of finder classes that know how to find static files in
 # various locations.

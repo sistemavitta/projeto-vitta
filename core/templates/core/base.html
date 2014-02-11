@@ -21,17 +21,24 @@
         <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
         <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css"> -->
-        
+        {% block css %}
+            
+        {% endblock css %}
         <!-- <script src="{{STATIC_URL}}js/libs/modernizr.min.js"></script> -->
         <!-- <script src="{{STATIC_URL}}js/libs/angular.min.js"></script> -->
     </head>
-    <body>
+    <body class="login-full">
 
-        <h1>Hello World Vitta!</h1>
-
-        <!-- <script src="{{STATIC_URL}}js/libs/jquery.min.js"></script> -->
-        <!-- <script src="{{STATIC_URL}}js/libs/bootstrap.min.js"></script> -->
-        <!-- <script src="{{STATIC_URL}}js/libs/holder.js"></script> -->
+        {% block content %}
+            
+        {% endblock content %}
+        
+        <script src="{{STATIC_URL}}js/libs/jquery.min.js"></script>
+        <script src="{{STATIC_URL}}js/libs/bootstrap.min.js"></script>
+        <script src="{{STATIC_URL}}js/libs/holder.js"></script>
         <!-- <script src="{{STATIC_URL}}js/main.js"></script> -->
+        {% block js %}
+            
+        {% endblock js %}
     </body>
 </html>

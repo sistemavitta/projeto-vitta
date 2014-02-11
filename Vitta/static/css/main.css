@@ -17,10 +17,3 @@
 .login-input, .login-btn {
 	border-radius: 0;
 }
-
-/* CSS Admin */
-
-.admin-logo {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
