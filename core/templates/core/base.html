@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
+        
         <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css"> -->
         {% block css %}
             
@@ -29,9 +29,9 @@
     </head>
     <body class="login-full">
 
-        {% block content %}
+        {% block content-base %}
             
-        {% endblock content %}
+        {% endblock content-base %}
         
         <script src="{{STATIC_URL}}js/libs/jquery.min.js"></script>
         <script src="{{STATIC_URL}}js/libs/bootstrap.min.js"></script>

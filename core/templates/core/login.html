@@ -1,6 +1,10 @@
 {% extends "core/base.html" %}
 
-{% block content %}
+{% block css %}
+<link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
+{% endblock css %}
+
+{% block content-base %}
 
         <div class="container">
             <div class="row vertical-offset-100 login-vertical-offset">
@@ -10,21 +14,31 @@
                             <img src="holder.js/150x50" alt="">
                         </div>
                         <div class="panel-body">
-                            <form accept-charset="UTF-8" role="form">
+
+                            <form accept-charset="UTF-8" role="form" action="" method="post" >
                             <fieldset>
+
                                 <div class="form-group">
-                                    <input class="form-control login-input" placeholder="Nome do usuário" name="email" type="text" required>
+                                    {% csrf_token %}
                                 </div>
+
+                                <div class="form-group">
+                                    <input class="form-control login-input" placeholder="Nome do usuário" name="username" type="text" required>
+                                </div>
+
                                 <div class="form-group">
                                     <input class="form-control login-input" placeholder="Senha" name="password" type="password" required>
                                 </div>
+
                                 <input class="btn btn-lg btn-success btn-block login-btn" type="submit" value="Fazer Login">
+
                             </fieldset>
                             </form>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-{% endblock content %}
+{% endblock content-base %}

@@ -2,4 +2,5 @@ vitta.db
 *.pyc
 staticfiles
 Vitta/settings_local.py
+Makefile
 
