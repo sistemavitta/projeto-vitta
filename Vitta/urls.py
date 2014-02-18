@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
@@ -23,8 +25,9 @@ urlpatterns = patterns('',
 
     url(r'^$', AdministrationHomePageView.as_view(), name='administration-home'),
 
-    # Class-based views para renderizar templates (William usar aqui para testar um template)
-    #url(r'^nomedotemplateaqui$', TemplateView.as_view(template_name='core/templatenome'), name='nome'),
+    # Class-Based Views para renderização de templates
+
+    url(r'^admin-home/$', TemplateView.as_view(template_name='administration/admin-home.html'), name='admin-home'),
 
     url(r'^admin/', include(admin.site.urls)),
 )
