@@ -3,9 +3,14 @@
 {% block css %}
 
     <style type="text/css">
-
+		
+		body {
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+		}
     	.navbar {
+    		background: #428bca;
 			margin-left: 180px;
+			border: none;
 		}
 
     </style>
@@ -28,7 +33,7 @@
 
 			<div class="col-md-8">
 
-				<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 					<div class="container">
 
 						<ul class="nav navbar-nav">
@@ -50,9 +55,9 @@
 							<a href="#"><img src="holder.js/150x50" alt=""></a>
 							<a href="#">
 								<img src="holder.js/45x45" alt="" class="img-circle">
-								<span class="label label-primary">13</span>
+								<span class="label label-danger">13</span>
 							</a>
-							<a href="#"><span class="glyphicon glyphicon-off"></a>
+							<span class="glyphicon glyphicon-off">
 						</ul>
 
 					</div>
@@ -64,9 +69,9 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3 left">
+			<div class="col-md-3">
 
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 	            	<div class="panel-heading">
 	            		<h4 class="panel-title">
 	            		<a data-toggle="collapse" data-parent="#accordion" href="#collapsePerfil" class="">Perfil</a>
@@ -80,7 +85,7 @@
 	            	</div>
             	</div>
 
-            	<div class="panel panel-default">
+            	<div class="panel panel-primary">
 	            	<div class="panel-heading">
 	            		<h4 class="panel-title">
 	            		<a data-toggle="collapse" data-parent="#accordion" href="#collapseFichas" class="">Fichas</a>
@@ -93,7 +98,7 @@
 	            	</div>
             	</div>
 
-            	<div class="panel panel-default">
+            	<div class="panel panel-primary">
 	            	<div class="panel-heading">
 	            		<h4 class="panel-title">
 	            		<a data-toggle="collapse" data-parent="#accordion" href="#collapseAtividades" class="">Atividades</a>
@@ -105,7 +110,7 @@
 	            	</div>
             	</div>
 
-            	<div class="panel panel-default">
+            	<div class="panel panel-primary">
 	            	<div class="panel-heading">
 	            		<h4 class="panel-title">
 	            		<a data-toggle="collapse" data-parent="#accordion" href="#collapseRelatorios" class="">Relatórios</a>
@@ -119,6 +124,68 @@
             	</div>
 
 			</div>
+
+			<div class="col-md-9">
+
+				<div class="panel panel-primary">
+				  <div class="panel-heading">Ficha de Treino</div>
+				  	<div class="panel-body">
+				    	<ul id="myTab" class="nav nav-tabs">
+		      				<li class="active"><a href="#home" data-toggle="tab">Treino A</a></li>
+		      				<li><a href="#profile" data-toggle="tab">Treino B</a></li>
+		      				<li><a href="#messages" data-toggle="tab">Treino C</a></li>
+		      				<li><a href="#settings" data-toggle="tab">Atividade A</a></li>
+		    			</ul>
+
+						<div class="tab-content">
+
+							<div class="tab-pane active" id="home">
+								<table class="table table-striped">
+
+							      <thead>
+							        <tr>
+							          <th><span class="glyphicon glyphicon-time"></span></th>
+							          <th>Exercício</th>
+							          <th>Série</th>
+							          <th>Repetição</th>
+							          <th>Peso</th>
+							        </tr>
+							      </thead>
+
+							      <tbody>
+							        <tr>
+							          <td>1</td>
+							          <td>Supino</td>
+							          <td>4</td>
+							          <td>8</td>
+							          <td>36</td>
+							        </tr>
+							        <tr>
+							          <td>2</td>
+							          <td>Supino Declinado</td>
+							          <td>4</td>
+							          <td>8</td>
+							          <td>30</td>
+							        </tr>
+							        <tr>
+							          <td>3</td>
+							          <td>Rosca Barra</td>
+							          <td>3</td>
+							          <td>8</td>
+							          <td>15</td>
+							        </tr>
+							      </tbody>
+		    					</table>
+							</div>
+
+						  	<div class="tab-pane" id="profile">Conteúdo Treino B</div>
+						  	<div class="tab-pane" id="messages">Conteúdo Treino C</div>
+						  	<div class="tab-pane" id="settings">Conteúdo Atividade A</div>
+						</div>
+				  	</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 
