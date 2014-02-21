@@ -3,5 +3,5 @@ vitta.db
 staticfiles
 Vitta/settings_local.py
 Makefile
-
+Vitta/media/uploads
 
