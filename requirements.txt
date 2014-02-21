@@ -2,7 +2,7 @@ Django==1.6.1
 Pillow==2.3.0
 argparse==1.2.1
 dj-database-url==0.2.2
--e git://github.com/kennethreitz/dj-static.git@e79582483a976c76511244b3f236f7c68991e1ae#egg=dj_static-master
+git+https://github.com/kennethreitz/dj-static.git
 django-filebrowser==3.5.3
 django-grappelli==2.5.2
 django-toolbelt==0.0.1
