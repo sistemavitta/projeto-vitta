@@ -1,12 +1,14 @@
-Django==1.6.1
+Django==1.6.2
 Pillow==2.3.0
 argparse==1.2.1
 dj-database-url==0.2.2
-git+https://github.com/kennethreitz/dj-static.git
+-e git://github.com/kennethreitz/dj-static.git@e79582483a976c76511244b3f236f7c68991e1ae#egg=dj_static-master
 django-filebrowser==3.5.3
 django-grappelli==2.5.2
 django-toolbelt==0.0.1
+djangorestframework==2.3.12
 gunicorn==18.0
+ipython==1.2.0
 psycopg2==2.5.2
 pystache==0.5.3
 static==1.0.2
