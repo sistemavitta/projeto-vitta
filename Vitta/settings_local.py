@@ -1,4 +1,4 @@
-'''
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -13,5 +13,4 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
-'''
 
