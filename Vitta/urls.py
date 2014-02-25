@@ -11,14 +11,20 @@ from filebrowser.sites import site
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+
 urlpatterns = patterns('',
 
     (r'^admin/filebrowser/', include(site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
+
     url(r'^admin/', include(admin.site.urls)),
     # Examples:
     # url(r'^$', 'Vitta.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),       
+    # url(r'^blog/', include('blog.urls')),     
+
+    url(r'^talks/', include('talks.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     url(r'^login/',"django.contrib.auth.views.login",
             {'template_name':'core/login.html'},name='login'),

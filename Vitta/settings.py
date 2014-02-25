@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for Vitta project.
 
@@ -54,6 +55,8 @@ INSTALLED_APPS = (
     'core',
     'administration',
     'perfil',
+    'rest_framework',
+    'talks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -153,6 +156,19 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGINATE_BY': 10,
+
+    # Coloquei aqui, mas são os defaults
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication'
+        # poderia adicionar aqui por exemplo, o oauth2:
+        # 'rest_framework.authentication.OAuth2Authentication'
+    ),
+}
 
 try:
     from settings_local import *
