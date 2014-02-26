@@ -1,3 +1,10 @@
+/* CSS Geral */
+
+@font-face {
+	font-family: 'Museo100';
+	src: url('../fonts/Museo100-Regular.otf');
+}
+
 /* CSS Login */
 
 .login-full {
@@ -6,6 +13,7 @@
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
+  	font-family: Museo100;
 }
 .login-vertical-offset {
     padding-top: 150px;
@@ -15,5 +23,50 @@
 	border-radius: 0;
 }
 .login-input, .login-btn {
+	border-radius: 0;
+}
+
+/* CSS Admin */
+
+.admin-nav {
+	border: none;
+	border-radius: 0;
+	background: url(../img/admin-background-nav.png);
+}
+.admin-navbar-toggle {
+	margin-top: 29px;
+}
+.admin-logo {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.admin-user {
+	right: 15px;
+}
+.admin-user-notification {
+	background: #ff0000;
+	position: relative;
+	top: 20px;
+	left: -25px;
+	border-radius: 50%;
+	font-weight: bold;
+}
+.admin-user-logout {
+	font-size: 30px;
+	color: #fff;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	right: 55px;
+}
+.user-assets {
+	border-width: 2px;
+	border-style: solid;
+	border-color: #00ff00;
+}
+.admin-search {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.admin-input-search, .admin-button-search {
 	border-radius: 0;
 }
