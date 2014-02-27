@@ -1,10 +1,3 @@
-/* CSS Geral */
-
-@font-face {
-	font-family: 'Museo100';
-	src: url('../fonts/Museo100-Regular.otf');
-}
-
 /* CSS Login */
 
 .login-full {
@@ -13,7 +6,6 @@
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
-  	font-family: Museo100;
 }
 .login-vertical-offset {
     padding-top: 150px;
@@ -27,7 +19,9 @@
 }
 
 /* CSS Admin */
-
+.admin-full {
+	background: url(../img/admin-background.png);
+}
 .admin-nav {
 	border: none;
 	border-radius: 0;
@@ -69,4 +63,28 @@
 }
 .admin-input-search, .admin-button-search {
 	border-radius: 0;
+}
+.admin-modal-header {
+	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #5cb85c;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.admin-user-search {
+    margin-bottom: 15px;
+}
+.admin-user-name {
+	padding-top: 18px;
+}
+.admin-user-category {
+	padding-top: 18px;
+}
+.admin-user-viewprofile {
+	padding-top: 12px;
 }

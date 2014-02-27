@@ -1,5 +1,9 @@
 {% extends "core/base.html" %}
 
+{% block image-backgroud %}
+    class="admin-full"
+{% endblock image-backgroud %}
+
 {% block css %}
     <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
 {% endblock css %}
@@ -42,23 +46,174 @@
                         <li><a href="#"><img src="holder.js/60x60" alt="" class="img-circle user-assets"></a></li>
                         <li><a href="#"><img src="holder.js/60x60" alt="" class="img-circle user-assets"></a></li>
                         <li><a href="#"><img src="holder.js/60x60" alt="" class="img-circle user-assets"></a></li>
+                        <a class="btn btn-success" href="#success" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i></a>
                     </ul>
-
-                    <div class="col-sm-4 col-md-4">
-                        <form class="navbar-form admin-search" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control admin-input-search" placeholder="Buscar Aluno">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default admin-button-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </nav>
 
-<!--<div class="container-fluid">
+        <!-- Modal -->
+       	<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+            <!-- Modal-Dialog -->
+        	<div class="modal-dialog">
+
+                <!-- Modal-Content -->
+                <div class="modal-content">
+
+                    <!-- Modal-Header -->
+                    <div class="modal-header admin-modal-header">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Buscar Aluno">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!--/ .Modal-Header -->
+                    
+                    <!-- Modal-Body -->
+                    <div class="modal-body">
+
+                        <!-- Usuário -->
+                        <div class="row admin-user-search">
+
+                            <div class="col-xs-3 text-center">
+                                <img src="holder.js/60x60" alt="" class="img-circle">
+                            </div>
+
+                            <div class="col-xs-3 admin-user-name">
+                                <strong>Bruno Alexandre</strong>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-category">
+                                <span class="text-muted">Categoria: Aluno</span>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-viewprofile">
+                                <button class="btn btn-default" type="button">
+                                    Ver Perfil
+                                </button>
+                            </div>
+
+                        </div> <!--/ .Usuário -->
+
+                        <!-- Usuário -->
+                        <div class="row admin-user-search">
+
+                            <div class="col-xs-3 text-center">
+                                <img src="holder.js/60x60" alt="" class="img-circle">
+                            </div>
+
+                            <div class="col-xs-3 admin-user-name">
+                                <strong>Bruno Alexandre</strong>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-category">
+                                <span class="text-muted">Categoria: Aluno</span>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-viewprofile">
+                                <button class="btn btn-default" type="button">
+                                    Ver Perfil
+                                </button>
+                            </div>
+
+                        </div> <!--/ .Usuário -->
+
+                        <!-- Usuário -->
+                        <div class="row admin-user-search">
+
+                            <div class="col-xs-3 text-center">
+                                <img src="holder.js/60x60" alt="" class="img-circle">
+                            </div>
+
+                            <div class="col-xs-3 admin-user-name">
+                                <strong>Bruno Alexandre</strong>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-category">
+                                <span class="text-muted">Categoria: Aluno</span>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-viewprofile">
+                                <button class="btn btn-default" type="button">
+                                    Ver Perfil
+                                </button>
+                            </div>
+
+                        </div> <!--/ .Usuário -->
+
+                        <!-- Usuário -->
+                        <div class="row admin-user-search">
+
+                            <div class="col-xs-3 text-center">
+                                <img src="holder.js/60x60" alt="" class="img-circle">
+                            </div>
+
+                            <div class="col-xs-3 admin-user-name">
+                                <strong>Bruno Alexandre</strong>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-category">
+                                <span class="text-muted">Categoria: Aluno</span>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-viewprofile">
+                                <button class="btn btn-default" type="button">
+                                    Ver Perfil
+                                </button>
+                            </div>
+
+                        </div> <!--/ .Usuário -->
+
+                        <!-- Usuário -->
+                        <div class="row admin-user-search">
+
+                            <div class="col-xs-3 text-center">
+                                <img src="holder.js/60x60" alt="" class="img-circle">
+                            </div>
+
+                            <div class="col-xs-3 admin-user-name">
+                                <strong>Bruno Alexandre</strong>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-category">
+                                <span class="text-muted">Categoria: Aluno</span>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-viewprofile">
+                                <button class="btn btn-default" type="button">
+                                    Ver Perfil
+                                </button>
+                            </div>
+
+                        </div> <!--/ .Usuário -->
+
+                    </div> <!--/ .Modal-Body -->
+
+                    <!-- Modal-Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                    </div> <!--/ .Modal-Footer -->
+
+                </div> <!--/. Modal-Content -->
+
+            </div> <!--/ .Modal-dialog -->
+
+        </div> <!--/ .Modal -->
+
+
+<!-- Estrutura do template
+
+<div class="container-fluid">
 		<div class="row-fluid">
 
 			<div class="col-md-4">
