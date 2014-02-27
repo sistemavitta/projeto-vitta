@@ -25,7 +25,6 @@
 .admin-nav {
 	border: none;
 	border-radius: 0;
-	background: url(../img/admin-background-nav.png);
 }
 .admin-navbar-toggle {
 	margin-top: 29px;
@@ -88,3 +87,7 @@
 .admin-user-viewprofile {
 	padding-top: 12px;
 }
+
+width="60px"
+
+height="60px"
