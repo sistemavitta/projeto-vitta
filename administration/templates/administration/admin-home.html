@@ -91,11 +91,11 @@
                         <div class="row admin-user-search" ng-repeat="usuario in usuarios | filter:searchText track by usuario.username">
 
                             <div class="col-xs-3 text-center">
-                                <img src="{{ MEDIA_URL }}{% verbatim %}{{usuario.perfil.image}}" alt="" class="img-circle">
+                                <img src="{{ MEDIA_URL }}[[usuario.perfil.image]]" alt="" class="img-circle">
                             </div>
                         
                             <div class="col-xs-3 admin-user-name">
-                                <strong>{{usuario.username}}</strong>
+                                <strong>[[usuario.username]]</strong>
                             </div>
 
                             <div class="col-xs-3 admin-user-category">
@@ -109,7 +109,7 @@
                             </div>
 
                         </div> <!--/ .Usuário -->
-                        {% endverbatim %}
+                    
 
 
                         
