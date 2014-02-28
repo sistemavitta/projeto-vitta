@@ -1,12 +1,16 @@
 {% extends "core/base.html" %}
 
 {% block image-backgroud %}
-    class="admin-full"
+    class="admin-full" ng-app="home" ng-controller="BuscarAluno"
 {% endblock image-backgroud %}
 
 {% block css %}
     <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
 {% endblock css %}
+
+{% block js %}
+    <script src="{{STATIC_URL}}js/libs/controllers.js"></script>
+{% endblock js %}
 
 {% block content-base %}
 
@@ -26,17 +30,17 @@
                 </div>
 
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
-                	<ul class="nav navbar-nav navbar-left text-center">
+                    <ul class="nav navbar-nav navbar-left text-center">
                         <li class="admin-user">
-                        	<a href="#">
-                        		<img src="holder.js/60x60" alt="" class="img-circle">
-                        		<span class="label label-danger admin-user-notification">3</span>
-                        	</a>
+                            <a href="#">
+                                <img src="holder.js/60x60" alt="" class="img-circle">
+                                <span class="label label-danger admin-user-notification">3</span>
+                            </a>
                         </li>
                         <li>
-                        	<a href="#">
-                        		<span class="glyphicon glyphicon-off admin-user-logout"></span>
-                        	</a>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-off admin-user-logout"></span>
+                            </a>
                         </li>
                     </ul>
 
@@ -46,17 +50,17 @@
                         <li><a href="#"><img src="holder.js/60x60" alt="" class="img-circle user-assets"></a></li>
                         <li><a href="#"><img src="holder.js/60x60" alt="" class="img-circle user-assets"></a></li>
                         <li><a href="#"><img src="holder.js/60x60" alt="" class="img-circle user-assets"></a></li>
-                        <li><a href="#success" data-toggle="modal"><img src="http://localhost:8000/static/img/admin-add-user.png" alt=""></a></li>
+                        <li><a href="#success" data-toggle="modal" ng-click="buscar()"><img src="{{STATIC_URL}}/img/admin-add-user.png" alt=""></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         
         <!-- Modal -->
-       	<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
             <!-- Modal-Dialog -->
-        	<div class="modal-dialog">
+            <div class="modal-dialog">
 
                 <!-- Modal-Content -->
                 <div class="modal-content">
@@ -67,9 +71,9 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Buscar Aluno">
+                                    <input type="text" class="form-control" placeholder="Buscar Aluno" ng-model="searchText" >
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
+                                        <button class="btn btn-default" type="button" >
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
                                     </span>
@@ -82,15 +86,16 @@
                     <!-- Modal-Body -->
                     <div class="modal-body">
 
+                       
                         <!-- Usuário -->
-                        <div class="row admin-user-search">
+                        <div class="row admin-user-search" ng-repeat="usuario in usuarios | filter:searchText track by usuario.username">
 
                             <div class="col-xs-3 text-center">
-                                <img src="holder.js/60x60" alt="" class="img-circle">
+                                <img src="{{ MEDIA_URL }}{% verbatim %}{{usuario.perfil.image}}" alt="" class="img-circle">
                             </div>
-
+                        
                             <div class="col-xs-3 admin-user-name">
-                                <strong>Bruno Alexandre</strong>
+                                <strong>{{usuario.username}}</strong>
                             </div>
 
                             <div class="col-xs-3 admin-user-category">
@@ -104,98 +109,10 @@
                             </div>
 
                         </div> <!--/ .Usuário -->
+                        {% endverbatim %}
 
-                        <!-- Usuário -->
-                        <div class="row admin-user-search">
 
-                            <div class="col-xs-3 text-center">
-                                <img src="holder.js/60x60" alt="" class="img-circle">
-                            </div>
-
-                            <div class="col-xs-3 admin-user-name">
-                                <strong>Bruno Alexandre</strong>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-category">
-                                <span class="text-muted">Categoria: Aluno</span>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-viewprofile">
-                                <button class="btn btn-default" type="button">
-                                    Ver Perfil
-                                </button>
-                            </div>
-
-                        </div> <!--/ .Usuário -->
-
-                        <!-- Usuário -->
-                        <div class="row admin-user-search">
-
-                            <div class="col-xs-3 text-center">
-                                <img src="holder.js/60x60" alt="" class="img-circle">
-                            </div>
-
-                            <div class="col-xs-3 admin-user-name">
-                                <strong>Bruno Alexandre</strong>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-category">
-                                <span class="text-muted">Categoria: Aluno</span>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-viewprofile">
-                                <button class="btn btn-default" type="button">
-                                    Ver Perfil
-                                </button>
-                            </div>
-
-                        </div> <!--/ .Usuário -->
-
-                        <!-- Usuário -->
-                        <div class="row admin-user-search">
-
-                            <div class="col-xs-3 text-center">
-                                <img src="holder.js/60x60" alt="" class="img-circle">
-                            </div>
-
-                            <div class="col-xs-3 admin-user-name">
-                                <strong>Bruno Alexandre</strong>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-category">
-                                <span class="text-muted">Categoria: Aluno</span>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-viewprofile">
-                                <button class="btn btn-default" type="button">
-                                    Ver Perfil
-                                </button>
-                            </div>
-
-                        </div> <!--/ .Usuário -->
-
-                        <!-- Usuário -->
-                        <div class="row admin-user-search">
-
-                            <div class="col-xs-3 text-center">
-                                <img src="holder.js/60x60" alt="" class="img-circle">
-                            </div>
-
-                            <div class="col-xs-3 admin-user-name">
-                                <strong>Bruno Alexandre</strong>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-category">
-                                <span class="text-muted">Categoria: Aluno</span>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-viewprofile">
-                                <button class="btn btn-default" type="button">
-                                    Ver Perfil
-                                </button>
-                            </div>
-
-                        </div> <!--/ .Usuário -->
+                        
 
                     </div> <!--/ .Modal-Body -->
 
@@ -280,63 +197,63 @@
 
 <!-- <div class="col-md-9">
 
-				<div class="panel panel-primary">
-				  <div class="panel-heading">Ficha de Treino</div>
-				  	<div class="panel-body">
-				    	<ul id="myTab" class="nav nav-tabs">
-		      				<li class="active"><a href="#home" data-toggle="tab">Treino A</a></li>
-		      				<li><a href="#profile" data-toggle="tab">Treino B</a></li>
-		      				<li><a href="#messages" data-toggle="tab">Treino C</a></li>
-		      				<li><a href="#settings" data-toggle="tab">Atividade A</a></li>
-		    			</ul>
+                <div class="panel panel-primary">
+                  <div class="panel-heading">Ficha de Treino</div>
+                    <div class="panel-body">
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active"><a href="#home" data-toggle="tab">Treino A</a></li>
+                            <li><a href="#profile" data-toggle="tab">Treino B</a></li>
+                            <li><a href="#messages" data-toggle="tab">Treino C</a></li>
+                            <li><a href="#settings" data-toggle="tab">Atividade A</a></li>
+                        </ul>
 
-						<div class="tab-content">
+                        <div class="tab-content">
 
-							<div class="tab-pane active" id="home">
-								<table class="table table-striped">
+                            <div class="tab-pane active" id="home">
+                                <table class="table table-striped">
 
-							      <thead>
-							        <tr>
-							          <th><span class="glyphicon glyphicon-time"></span></th>
-							          <th>Exercício</th>
-							          <th>Série</th>
-							          <th>Repetição</th>
-							          <th>Peso</th>
-							        </tr>
-							      </thead>
+                                  <thead>
+                                    <tr>
+                                      <th><span class="glyphicon glyphicon-time"></span></th>
+                                      <th>Exercício</th>
+                                      <th>Série</th>
+                                      <th>Repetição</th>
+                                      <th>Peso</th>
+                                    </tr>
+                                  </thead>
 
-							      <tbody>
-							        <tr>
-							          <td>1</td>
-							          <td>Supino</td>
-							          <td>4</td>
-							          <td>8</td>
-							          <td>36</td>
-							        </tr>
-							        <tr>
-							          <td>2</td>
-							          <td>Supino Declinado</td>
-							          <td>4</td>
-							          <td>8</td>
-							          <td>30</td>
-							        </tr>
-							        <tr>
-							          <td>3</td>
-							          <td>Rosca Barra</td>
-							          <td>3</td>
-							          <td>8</td>
-							          <td>15</td>
-							        </tr>
-							      </tbody>
-		    					</table>
-							</div>
+                                  <tbody>
+                                    <tr>
+                                      <td>1</td>
+                                      <td>Supino</td>
+                                      <td>4</td>
+                                      <td>8</td>
+                                      <td>36</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2</td>
+                                      <td>Supino Declinado</td>
+                                      <td>4</td>
+                                      <td>8</td>
+                                      <td>30</td>
+                                    </tr>
+                                    <tr>
+                                      <td>3</td>
+                                      <td>Rosca Barra</td>
+                                      <td>3</td>
+                                      <td>8</td>
+                                      <td>15</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                            </div>
 
-						  	<div class="tab-pane" id="profile">Conteúdo Treino B</div>
-						  	<div class="tab-pane" id="messages">Conteúdo Treino C</div>
-						  	<div class="tab-pane" id="settings">Conteúdo Atividade A</div>
-						</div>
-				  	</div>
-				</div>
+                            <div class="tab-pane" id="profile">Conteúdo Treino B</div>
+                            <div class="tab-pane" id="messages">Conteúdo Treino C</div>
+                            <div class="tab-pane" id="settings">Conteúdo Atividade A</div>
+                        </div>
+                    </div>
+                </div>
 </div> -->
 
 {% endblock content-base %}

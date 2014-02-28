@@ -4,6 +4,8 @@ from django.contrib.auth.models import User, Group
 from perfil.models import Perfil
 from rest_framework import viewsets
 from serializers import UserSerializer, GroupSerializer, PerfilSerializer
+from rest_framework import generics
+from rest_framework import filters
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -28,3 +30,8 @@ class PerfilViewSet(viewsets.ModelViewSet):
     """
     queryset = Perfil.objects.all()
     serializer_class = PerfilSerializer
+
+class UserListView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer = UserSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
