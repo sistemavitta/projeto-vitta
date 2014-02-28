@@ -1,3 +1,9 @@
+/* CSS Geral */
+
+body {
+	padding-top: 120px;
+}
+
 /* CSS Login */
 
 .login-full {
@@ -87,7 +93,10 @@
 .admin-user-viewprofile {
 	padding-top: 12px;
 }
-
-width="60px"
-
-height="60px"
+.admin-user-panel, .admin-user-heading {
+	border-radius: 0;
+	border: none;
+}
+.admin-user-list  {
+	border: 1px solid #eee;
+}
