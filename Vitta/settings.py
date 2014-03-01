@@ -127,6 +127,28 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'Vitta/static'),
 )
 
+
+
+
+FILEBROWSER_VERSIONS = {
+    'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'thumbnail': {'verbose_name': 'Pesquisa', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'small': {'verbose_name': 'Perfil', 'width': 140, 'height': '', 'opts': ''},
+    'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '', 'opts': ''},
+    'big': {'verbose_name': 'Big (6 col)', 'width': 460, 'height': '', 'opts': ''},
+    'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
+}
+
+
+FILEBROWSER_ADMIN_VERSIONS = ['thumbnail','small']
+
+FILEBROWSER_MAX_UPLOAD_SIZE = 1048576
+
+
+FILEBROWSER_NORMALIZE_FILENAME = True
+
+
+
 # List of finder classes that know how to find static files in
 # various locations.
 
