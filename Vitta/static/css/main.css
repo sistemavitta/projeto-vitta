@@ -1,7 +1,7 @@
 /* CSS Geral */
 
 body {
-	padding-top: 120px;
+	font-family: "Ubuntu";
 }
 
 /* CSS Login */
@@ -24,79 +24,32 @@ body {
 	border-radius: 0;
 }
 
-/* CSS Admin */
+/* CSS Navbar */
+
 .admin-full {
 	background: url(../img/admin-background.png);
 }
-.admin-nav {
+.admin-navbar-bottom {
+	background-color: #000;
 	border: none;
-	border-radius: 0;
 }
-.admin-navbar-toggle {
-	margin-top: 29px;
-}
-.admin-logo {
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-.admin-user {
-	right: 15px;
-}
-.admin-user-notification {
-	background: #ff0000;
-	position: relative;
-	top: 20px;
-	left: -25px;
-	border-radius: 50%;
-	font-weight: bold;
-}
-.admin-user-logout {
-	font-size: 30px;
-	color: #fff;
-	padding-top: 15px;
+.admin-navbar-search {
+	padding-top: 8px;
 	padding-bottom: 15px;
-	right: 55px;
+	width: 220px;
 }
-.user-assets {
-	border-width: 2px;
-	border-style: solid;
-	border-color: #00ff00;
+.admin-btn-search {
+	margin-left: 18px;
 }
-.admin-search {
-	padding-top: 20px;
-	padding-bottom: 20px;
+.admin-navbar-assets {
+	border-left: 1px solid #eee;
 }
-.admin-input-search, .admin-button-search {
-	border-radius: 0;
+.admin-label-assets {
+	border-radius: 10px;
 }
-.admin-modal-header {
-	color:#fff;
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #5cb85c;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
+.admin-navbar-logout {
+	border-left: 1px solid #eee;
 }
-.admin-user-search {
-    margin-bottom: 15px;
-}
-.admin-user-name {
-	padding-top: 18px;
-}
-.admin-user-category {
-	padding-top: 18px;
-}
-.admin-user-viewprofile {
-	padding-top: 12px;
-}
-.admin-user-panel, .admin-user-heading {
-	border-radius: 0;
-	border: none;
-}
-.admin-user-list  {
-	border: 1px solid #eee;
+.badge {
+	background-color: #f00;
 }
