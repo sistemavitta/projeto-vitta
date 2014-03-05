@@ -2,6 +2,7 @@
 
 body {
 	font-family: "Ubuntu";
+	font-size: 15px;
 }
 
 /* CSS Login */
@@ -33,6 +34,12 @@ body {
 	background-color: #000;
 	border: none;
 }
+.navbar-inverse .navbar-nav > li > a {
+	color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+	color: #bbb;
+}
 .admin-navbar-search {
 	padding-top: 8px;
 	padding-bottom: 15px;
@@ -44,12 +51,12 @@ body {
 .admin-navbar-assets {
 	border-left: 1px solid #eee;
 }
-.admin-label-assets {
-	border-radius: 10px;
+.admin-badge-assets {
+	background-color: #5cb85c;
 }
 .admin-navbar-logout {
 	border-left: 1px solid #eee;
 }
-.badge {
+.admin-badge-logout {
 	background-color: #f00;
 }
