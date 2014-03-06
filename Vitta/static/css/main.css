@@ -1,8 +1,9 @@
 /* CSS Geral */
 
+@import url(http://fonts.googleapis.com/css?family=Voces);
+
 body {
-	font-family: "Ubuntu";
-	font-size: 15px;
+  font-family: 'Voces', cursive;
 }
 
 /* CSS Login */
@@ -14,13 +15,16 @@ body {
   	-o-background-size: cover;
   	background-size: cover;
 }
+
 .login-vertical-offset {
     padding-top: 150px;
 }
+
 .login-panel {
 	background-color: rgba(0, 0, 0, 0.20);
 	border-radius: 0;
 }
+
 .login-input, .login-btn {
 	border-radius: 0;
 }
@@ -30,33 +34,193 @@ body {
 .admin-full {
 	background: url(../img/admin-background.png);
 }
+
 .admin-navbar-bottom {
 	background-color: #000;
 	border: none;
 }
+
 .navbar-inverse .navbar-nav > li > a {
 	color: #fff;
 }
+
 .navbar-inverse .navbar-nav > li > a:hover {
 	color: #bbb;
 }
+
 .admin-navbar-search {
 	padding-top: 8px;
 	padding-bottom: 15px;
 	width: 220px;
 }
+
 .admin-btn-search {
-	margin-left: 18px;
+	margin-left: 15px;
 }
+
 .admin-navbar-assets {
 	border-left: 1px solid #eee;
 }
+
 .admin-badge-assets {
 	background-color: #5cb85c;
 }
+
 .admin-navbar-logout {
 	border-left: 1px solid #eee;
 }
+
 .admin-badge-logout {
 	background-color: #f00;
+}
+
+/* CSS Modal */
+
+.admin-modal-header {
+    color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #428bca;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+
+.admin-user-search {
+    margin-bottom: 15px;
+}
+
+.admin-user-name {
+  padding-top: 18px;
+}
+
+.admin-user-category {
+  padding-top: 18px;
+}
+
+.admin-user-viewprofile {
+  padding-top: 12px;
+}
+
+/* Importação CSS Simple Sidebar */
+
+#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 220px;
+  background: #000;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  line-height: 40px;
+  text-indent: 20px;
+}
+
+.sidebar-nav li a {
+  color: #999999;
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+.content-header {
+  height: 65px;
+  line-height: 65px;
+}
+
+.content-header h1 {
+  margin: 0;
+  margin-left: 20px;
+  line-height: 65px;
+  display: inline-block;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.inset {
+  padding: 20px;
+}
+
+@media (max-width:767px) {
+
+#wrapper {
+  padding-left: 0;
+}
+
+#sidebar-wrapper {
+  left: 0;
+}
+
+#wrapper.active {
+  position: relative;
+  left: 250px;
+}
+
+#wrapper.active #sidebar-wrapper {
+  left: 250px;
+  width: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#menu-toggle {
+  display: inline-block;
+}
+
+.inset {
+  padding: 15px;
+}
+
 }
