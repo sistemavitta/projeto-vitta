@@ -1,37 +1,63 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from perfil.models import Perfil
-from rest_framework import viewsets
 from serializers import UserSerializer, GroupSerializer, PerfilSerializer
-from rest_framework import generics
-from rest_framework import filters
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, ListAPIView
+from rest_framework import permissions
+from rest_framework.exceptions import ParseError
+from rest_framework.reverse import reverse
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
+#import django_filters
+#from django.utils.timezone import now
+#from rest_framework import filters, viewsets
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
+class UserMixim():
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
-class GroupViewSet(viewsets.ModelViewSet):
+class UserList(UserMixim,ListAPIView):
     """
-    API endpoint that allows groups to be viewed or edited.
+    Listar todos usuários:
+
+    Ao passar o parametro `username` na url, sera aplicado o filtro para buscar o usuário pelo nome
+
     """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        # Vamos adicionar a possibilidade de filtrar:
+        qs = super(UserList, self).get_queryset(*args, **kwargs)
+
+        search = self.request.QUERY_PARAMS.get('username')
+        if search is not None:
+            qs = qs.filter(username__icontains=search)
+            if not qs:
+                # Aspecto muito interessante do rest framework, ao levantar
+                # certas exceções, ele atribui o código correto, assim como
+                # o Http404 do django
+                raise ParseError(u'Nenhum usuario encontrado')
+
+        # Poderíamos porém ter usado a api de filtros do rf.
+        return qs
 
 
-class PerfilViewSet(viewsets.ModelViewSet):
+class UserDetail(UserMixim,RetrieveUpdateAPIView):
     """
-    API endpoint that allows perfil to be viewed or edited.
+    Exibe o usuário e permite atualizá-lo
     """
-    queryset = Perfil.objects.all()
-    serializer_class = PerfilSerializer
 
-class UserListView(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer = UserSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
+
+
+class APIRootView(APIView):
+    def get(self, request):
+        data = {
+            
+            'users': reverse('user-list',request=request),
+        }
+        return Response(data)

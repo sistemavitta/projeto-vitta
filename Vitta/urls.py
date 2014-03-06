@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'Vitta.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),     
 
-    url(r'^talks/', include('talks.urls')),
+    url(r'^api/', include('talks.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     url(r'^login/',"django.contrib.auth.views.login",
