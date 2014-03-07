@@ -5,17 +5,22 @@ from rest_framework import serializers
 
 
 
-class PerfilSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Perfil
-        fields = ('phone', 'level','image')
-        
+class PerfilSerializer(serializers.ModelSerializer):
+	level = serializers.CharField(source='get_level_display')
+	class Meta:
+		model = Perfil
+		fields = ('level','image')
+    
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):    
-    class Meta:
-        model = User
-        fields = ('id','username', 'first_name','last_name','email', 'groups')
-       
+
+class UserSerializer(serializers.ModelSerializer):
+	perfil = PerfilSerializer()
+
+	class Meta:
+		model = User
+		fields = ('id','username', 'first_name','perfil')
+
+
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):

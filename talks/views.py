@@ -17,7 +17,7 @@ from rest_framework.response import Response
 
 class UserMixim():
 
-    queryset = User.objects.all()
+    queryset = User.objects.all().filter(is_active=True)
     serializer_class = UserSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
