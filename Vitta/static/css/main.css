@@ -1,9 +1,11 @@
 /* CSS Geral */
 
-@import url(http://fonts.googleapis.com/css?family=Voces);
+@import url(http://fonts.googleapis.com/css?family=Amaranth);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 body {
-  font-family: 'Voces', cursive;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
 }
 
 /* CSS Login */
@@ -105,6 +107,24 @@ body {
   padding-top: 12px;
 }
 
+/* CSS Perfil */
+
+.thumbnail {
+  width: 220px;
+  background: url(../img/admin-background.png);
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding-right: 15px;
+}
+
+.thumbnail > img, .thumbnail a > img {
+  margin-top: 15px;
+}
+.information {
+  font-size: 13px;
+}
+
 /* Importação CSS Simple Sidebar */
 
 #wrapper {
@@ -143,14 +163,14 @@ body {
 }
 
 .sidebar-nav li a {
-  color: #999999;
+  color: #fff;
   display: block;
   text-decoration: none;
 }
 
 .sidebar-nav li a:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.2);
+  color: #bbb;
+  background: #428bca;
   text-decoration: none;
 }
 
@@ -160,17 +180,18 @@ body {
 }
 
 .sidebar-nav > .sidebar-brand {
-  height: 65px;
+  height: 60px;
   line-height: 60px;
-  font-size: 18px;
+  font-size: 25px;
+  font-family: 'Amaranth', sans-serif;
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #999999;
+  color: #fff;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
+  color: #bbb;
   background: none;
 }
 
@@ -221,6 +242,10 @@ body {
 
 .inset {
   padding: 15px;
+}
+
+.thumbnail {
+  width: 250px;
 }
 
 }
