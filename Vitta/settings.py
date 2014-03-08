@@ -182,7 +182,7 @@ LOGOUT_URL = '/logout/'
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGINATE_BY': 10,
+    'PAGINATE_BY': 30,
 
     # Coloquei aqui, mas são os defaults
     'DEFAULT_AUTHENTICATION_CLASSES': (
