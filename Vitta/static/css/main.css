@@ -125,6 +125,48 @@ body {
   font-size: 13px;
 }
 
+/* CSS Treinos */
+
+.tabs-right > .nav-tabs,
+.tabs-left > .nav-tabs {
+  border-bottom: 0;
+}
+
+.tabs-right > .nav-tabs > li {
+  float: left;
+}
+
+.tabs-right > .nav-tabs > li > a {
+  min-width: 74px;
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+.tabs-right > .nav-tabs {
+  float: right;
+  margin-left: 19px;
+  border-left: 1px solid #ddd;
+}
+
+.tabs-right > .nav-tabs > li > a {
+  margin-left: -1px;
+  -webkit-border-radius: 0 4px 4px 0;
+     -moz-border-radius: 0 4px 4px 0;
+          border-radius: 0 4px 4px 0;
+}
+
+.tabs-right > .nav-tabs > li > a:hover,
+.tabs-right > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #eeeeee #eeeeee #dddddd;
+}
+
+.tabs-right > .nav-tabs .active > a,
+.tabs-right > .nav-tabs .active > a:hover,
+.tabs-right > .nav-tabs .active > a:focus {
+  border-color: #ddd #ddd #ddd transparent;
+  *border-left-color: #ffffff;
+}
+
 /* Importação CSS Simple Sidebar */
 
 #wrapper {
@@ -196,16 +238,15 @@ body {
 }
 
 .content-header {
-  height: 65px;
-  line-height: 65px;
+  margin-left: 32px;
 }
 
-.content-header h1 {
+/* .content-header h1 {
   margin: 0;
   margin-left: 20px;
   line-height: 65px;
   display: inline-block;
-}
+} */
 
 #menu-toggle {
   display: none;
