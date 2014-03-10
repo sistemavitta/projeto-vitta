@@ -13,7 +13,7 @@ function BuscarAluno($scope,$http,$window){
 
 
     $scope.buscar = function(){
-        $scope.searchText = ''
+        $scope.searchText = '';
         $scope.usuarios = '';
         $scope.loading = true;
         var path = '/api/users/';
