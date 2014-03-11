@@ -10,16 +10,46 @@
 
 {% block js %}
         <script src="{{STATIC_URL}}js/libs/controllers.js"></script>
-
-        <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("active");
-        });
-        </script>
+        <script src="{{STATIC_URL}}js/main.js"></script>
 {% endblock js %}
 
 {% block content-base %}
+
+        <nav class="menubar">
+            <div class="">
+                <ul>
+                    <li><a href="#">Treinos</a></li>
+                    <li><a href="#">Presenças</a></li>
+                    <li><a href="#">Avaliações</a></li>
+                    <li><a href="#">Item 4</a></li>
+                    <li><a href="#">Item 5</a></li>
+                    <li><a href="#">Item 6</a></li>
+                    <li><a href="#">Item 7</a></li>
+                    <li><a href="#">Item 8</a></li>
+                    <li><a href="#">Item 9</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container treinos">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Header
+                        </div>
+                        <div class="panel-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, dolores, accusantium in dolore illo aliquid modi possimus cumque blanditiis rem laudantium aspernatur distinctio vero dolorem deserunt excepturi itaque id ipsum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, dicta, quidem magnam quis provident voluptate vero nulla repellendus numquam possimus libero error fuga delectus laboriosam eligendi accusantium corporis ullam recusandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, magni non consequatur fugiat laborum. Maxime similique ea ut amet reiciendis nostrum fuga illo. Earum aliquam sint quisquam quis dolorum illo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, illum, optio, dolor minima sit necessitatibus sequi rerum amet dicta dolorem repudiandae voluptatibus eius suscipit error provident ut vitae est cupiditate! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, et, illo quibusdam architecto rerum assumenda facilis unde provident ab quaerat non commodi cumque a pariatur iusto ullam molestiae magnam facere!
+                        </div>
+                        <div class="panel-footer">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ <!-- barra antiga
 
         <div id="wrapper">
             <div id="sidebar-wrapper">
@@ -60,9 +90,9 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="panel panel-default"> <!-- panel -->
-                                    <div class="panel-heading"> <!-- panel-heading -->
-                                        <div class="btn-group"> <!-- group -->
+                                <div class="panel panel-default"> 
+                                    <div class="panel-heading"> 
+                                        <div class="btn-group"> 
                                             <button type="button" class="btn btn-danger btn-sm">Trocar Ficha</button>
                                             <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">
                                                 <span class="caret"></span>
@@ -75,12 +105,12 @@
                                                 <li class="divider"></li>
                                                 <li><a href="#">Ficha 3</a></li>
                                             </ul>
-                                        </div> <!-- /.group -->
-                                    </div> <!-- /.panel-heading -->
-                                    <div class="panel-body"> <!-- panel-body -->
+                                        </div> 
+                                    </div> 
+                                    <div class="panel-body"
                                         <h1>Ficha de Treinos e menus</h1>
-                                    </div> <!-- /.panel-body -->
-                                </div> <!-- /.panel -->
+                                    </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,13 +119,13 @@
                     <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <!-- navbar-bottom -->
+        <!-- navbar-bottom 
         <nav class="navbar navbar-inverse navbar-fixed-bottom admin-navbar-bottom" role="navigation">
-            <!-- container --> 
+            
             <div class="container-fluid">
-                <!-- navbar-header -->
+                
                 <div class="navbar-header"> 
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-admin-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -103,14 +133,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <!-- search-records -->
+                    
                     <a class="navbar-brand admin-navbar-search" href="#success" data-toggle="modal" ng-click="buscar()">
                         <button type="button" class="btn btn-primary admin-btn-search">Abrir Ficha do Aluno</button>
-                    </a> <!-- /.search-records -->
-                </div> <!-- /.navbar-header -->
-                <!-- navbar-collapse -->
+                    </a> 
+                </div> 
+                
                 <div class="collapse navbar-collapse navbar-admin-collapse">
-                    <!-- navbar-assets -->
+                    
                     <ul class="nav navbar-nav navbar-left admin-navbar-assets">
                         <li>
                             <a href="#">Aluno 1 <span class="badge admin-badge-assets">T</span></a>
@@ -122,8 +152,8 @@
                             <a href="#">Aluno 3 <span class="badge admin-badge-assets">T</span></a>
                         </li>
           
-                    </ul> <!-- /.navbar-assets -->
-                    <!-- navbar-logout -->
+                    </ul> 
+                    
                     <ul class="nav navbar-nav navbar-right admin-navbar-logout">
                         <li>
                             <a href="#">Bruno <span class="badge admin-badge-logout">5</span></a>
@@ -131,10 +161,10 @@
                         <li>
                             <a href="#">Sair do Sistema</a>
                         </li>
-                    </ul> <!-- /.navbar-logout -->
-                </div> <!-- /.navbar-collapse -->
-            </div> <!-- /.container -->
-        </nav> <!-- /.navbar-bottom -->
+                    </ul> 
+                </div> 
+            </div> 
+        </nav> 
         
         <!-- Modal -->
         <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
