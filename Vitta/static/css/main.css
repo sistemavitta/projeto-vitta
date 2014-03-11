@@ -1,6 +1,7 @@
 /* CSS Geral */
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -105,24 +106,6 @@ body {
 .admin-user-viewprofile {
   padding-top: 12px;
 }
-
-/* CSS Perfil 
-
-.thumbnail {
-  width: 220px;
-  background: url(../img/admin-background.png);
-  border: none;
-  border-radius: 0;
-  margin-bottom: 0;
-  padding-right: 15px;
-}
-
-.thumbnail > img, .thumbnail a > img {
-  margin-top: 15px;
-}
-.information {
-  font-size: 13px;
-} */
 
 /* CSS Treinos 
 
@@ -334,6 +317,12 @@ a:hover {
   text-decoration: none;
 }
 
+.user-options a.active{
+  color: #fff;
+  background: #fa4f48;
+  text-decoration: none;
+}
+
 .menubar-toggle {
   display: none;
 }
@@ -401,3 +390,32 @@ li a {
 }
 
 }
+
+/* Perfil do Usuário */
+
+.profile {
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 0;
+}
+
+.profile-name-user {
+  font-family: 'Oswald', sans-serif;
+}
+
+.profile-btn-close {
+  background: #fa4f48;
+  border-color: #eee;
+}
+
+.profile-btn-close:hover {
+  background: #444;
+  border-color: #eee;
+}
+
+.profile-information-user {
+  font-size: 13px;
+}
+
+
+
