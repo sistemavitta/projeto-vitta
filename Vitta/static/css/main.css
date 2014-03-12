@@ -108,6 +108,16 @@ body {
   padding-top: 12px;
 }
 
+.search-btn-close{
+  background: #fa4f48;
+  border-color: #eee;
+}
+
+.search-btn-close:hover {
+  background: #444;
+  border-color: #eee;
+}
+
 /* CSS Treinos 
 
 .tabs-right > .nav-tabs,
@@ -350,6 +360,27 @@ a:hover {
   background: none;
 }
 
+.search {
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+  background-color: #428bca;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.search a {
+  color: #fff;
+}
+
+.search a:hover {
+  color: #bbb;
+  background: none;
+}
+.text {
+  padding-left: 22px;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 800px) {
@@ -413,6 +444,10 @@ li a {
   font-family: 'Julius Sans One', sans-serif;
 }
 
+.text {
+  padding-left: 9px;
+}
+
 }
 
 /* Perfil do Usuário */
@@ -444,6 +479,4 @@ li a {
 .profile-information-user {
   font-size: 13px;
 }
-
-
 
