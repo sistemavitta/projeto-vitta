@@ -2,6 +2,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -105,6 +106,16 @@ body {
 
 .admin-user-viewprofile {
   padding-top: 12px;
+}
+
+.search-btn-close{
+  background: #fa4f48;
+  border-color: #eee;
+}
+
+.search-btn-close:hover {
+  background: #444;
+  border-color: #eee;
 }
 
 /* CSS Treinos 
@@ -333,6 +344,43 @@ a:hover {
     float: right;
 }
 
+.menu-brand {
+  height: 45px;
+  line-height: 45px;
+  font-size: 22px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.menu-brand a {
+  color: #fff;
+}
+
+.menu-brand a:hover {
+  color: #bbb;
+  background: none;
+}
+
+.search {
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+  background-color: #428bca;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.search a {
+  color: #fff;
+}
+
+.search a:hover {
+  color: #bbb;
+  background: none;
+}
+.text {
+  padding-left: 22px;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 800px) {
@@ -364,7 +412,7 @@ li {
 li a {
   padding: 0em;
   display: block;
-    color: #fff;
+  color: #fff;
 }
 
 .menubar-toggle {
@@ -389,6 +437,17 @@ li a {
   float: none;
 }
 
+.menu-brand {
+  height: 45px;
+  line-height: 45px;
+  font-size: 18px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.text {
+  padding-left: 9px;
+}
+
 }
 
 /* Perfil do Usuário */
@@ -397,6 +456,10 @@ li a {
   border-radius: 0;
   border: 0;
   margin-bottom: 0;
+}
+
+.profile-img-user {
+  margin-top: 10px;
 }
 
 .profile-name-user {
@@ -416,6 +479,4 @@ li a {
 .profile-information-user {
   font-size: 13px;
 }
-
-
 
