@@ -2,6 +2,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -333,6 +334,22 @@ a:hover {
     float: right;
 }
 
+.menu-brand {
+  height: 45px;
+  line-height: 45px;
+  font-size: 22px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.menu-brand a {
+  color: #fff;
+}
+
+.menu-brand a:hover {
+  color: #bbb;
+  background: none;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 800px) {
@@ -364,7 +381,7 @@ li {
 li a {
   padding: 0em;
   display: block;
-    color: #fff;
+  color: #fff;
 }
 
 .menubar-toggle {
@@ -389,6 +406,13 @@ li a {
   float: none;
 }
 
+.menu-brand {
+  height: 45px;
+  line-height: 45px;
+  font-size: 18px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
 }
 
 /* Perfil do Usuário */
@@ -397,6 +421,10 @@ li a {
   border-radius: 0;
   border: 0;
   margin-bottom: 0;
+}
+
+.profile-img-user {
+  margin-top: 10px;
 }
 
 .profile-name-user {
