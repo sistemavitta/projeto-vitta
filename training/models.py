@@ -26,3 +26,20 @@ class Fichas(models.Model):
     class Meta:
         verbose_name_plural=u"Fichas"
         ordering = ['criado_em']
+
+
+class TipoTreino(models.Model):
+
+    tipo=models.CharField(verbose_name=u"Tipo de Treino",
+                          max_length=50)
+    descricao=models.TextField(verbose_name=u'Descrição',
+                                blank=True)
+    criado_em=models.DateTimeField(verbose_name=u'Data de Criação',
+                                    auto_now_add=True)
+
+    def __unicode__(self):
+        return unicode(self.tipo)
+
+    class Meta:
+        verbose_name_plural=u'Nome Treino'
+        ordering=['tipo']
