@@ -70,7 +70,7 @@ class Treinos(models.Model):
                             related_name=u"treinos")
     nome=models.CharField(verbose_name=u"Nome do Treino",
                               max_length=50)
-    tipo_treino=models.OneToOneField(TiposTreino,
+    tipo_treino=models.ForeignKey(TiposTreino,
                            verbose_name=u'Tipo de Treino',
                            related_name=u'treino')
     volume=models.IntegerField(choices=SERIE_REPETICAO,
@@ -92,7 +92,7 @@ class Treinos(models.Model):
 
 
 
-class Nomesexercicio(models.Model):
+class NomesExercicio(models.Model):
 
     TIPO_MUSCULO=(
                   (1,u"Abdome"),
@@ -123,3 +123,31 @@ class Nomesexercicio(models.Model):
 
     class Meta:
         verbose_name_plural=u"Nomes dos Exercícios"
+
+
+
+class Exerciciosaluno(models.Model):
+
+    treino=models.ForeignKey(Treinos,
+                             verbose_name=u"Treino",
+                             related_name=u"exercicios")
+    #ordem=models.AutoField(verbose_name=u"Ordem")
+    nome=models.ForeignKey(NomesExercicio,
+                            verbose_name=u"Exercício",
+                            related_name=u"exerciciosaluno")
+    serie=models.CharField(verbose_name=u"Série",max_length=50,
+                              null=True,blank=True )
+    repeticao=models.CharField(verbose_name=u"Repetição",max_length=50,
+                                  null=True,blank=True)
+    criado_em=models.DateTimeField(verbose_name=u'Data de Criação',
+                                    auto_now_add=True)
+    ativo=models.BooleanField(verbose_name=u"Ativo",
+                              default=True)
+
+    def __unicode__(self):
+        return unicode(self.nome)
+
+    class meta:
+        verbose_name_plural=u"Exercícios dos Alunos"
+        ordering=['criado_em']
+        #db_table=u"exercicios"
