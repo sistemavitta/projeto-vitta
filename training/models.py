@@ -28,7 +28,7 @@ class Fichas(models.Model):
         ordering = ['criado_em']
 
 
-class TipoTreino(models.Model):
+class TiposTreino(models.Model):
 
     tipo=models.CharField(verbose_name=u"Tipo de Treino",
                           max_length=50)
@@ -41,5 +41,48 @@ class TipoTreino(models.Model):
         return unicode(self.tipo)
 
     class Meta:
-        verbose_name_plural=u'Nome Treino'
+        verbose_name_plural=u'Tipo de Treinos'
         ordering=['tipo']
+
+class Treinos(models.Model):
+    SERIE_REPETICAO=(
+                  (1,"2 x 15"),
+                  (2,"3 x 6"),
+                  (3,"3 x 8"),
+                  (4,"3 x 10"),
+                  (5,"3 x 12"),
+                  (6,"3 x 15"),
+                  (7,"3 x 20"),
+                  (8,"3 x 30"),
+                  (9,"4 x 6"),
+                  (10,"4 x 8"),
+                  (11,"4 x 10"),
+                  (12,"4 x 12"),
+                  (13,"4 x 15"),
+                  (14,"4 x 20"),
+                  )
+
+    ficha=models.ForeignKey(Fichas,
+                            verbose_name=u"Ficha",
+                            related_name=u"treinos")
+    nome=models.CharField(verbose_name=u"Nome do Treino",
+                              max_length=50)
+    tipo_treino=models.OneToOneField(TiposTreino,
+                           verbose_name=u'Tipo de Treino',
+                           related_name=u'treino')
+    volume=models.IntegerField(choices=SERIE_REPETICAO,
+                                verbose_name="Série/Repetição",
+                                blank=True,
+                                null=True)
+    criado_em=models.DateTimeField(verbose_name=u'Data de Criação',
+                                    auto_now_add=True)
+    ativo=models.BooleanField(verbose_name=u"Ativo",
+                              default=True)
+
+
+    def __unicode__(self):
+        return unicode(self.nome)
+
+    class Meta:
+        verbose_name_plural=u'Treinos'
+        ordering=['criado_em']
