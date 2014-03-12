@@ -25,7 +25,7 @@ class Fichas(models.Model):
 
     class Meta:
         verbose_name_plural=u"Fichas"
-        #ordering = ['criado_em']
+        ordering = ['criado_em']
 
 
 

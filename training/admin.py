@@ -13,7 +13,7 @@ class FichasAdmin(admin.ModelAdmin):
     search_fields=['aluno__username']
     raw_id_fields = ("aluno",)
     list_filter=['ativo']
-    #date_hierarchy='criado_em'
+    date_hierarchy='criado_em'
 
 
 
