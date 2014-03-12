@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'talks',
     'south',
+    'training',
 )
 
 MIDDLEWARE_CLASSES = (

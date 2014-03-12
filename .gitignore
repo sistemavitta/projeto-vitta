@@ -4,4 +4,6 @@ staticfiles
 Vitta/settings_local.py
 Makefile
 Vitta/staticfiles
+vitta.sublime-project
+vitta.sublime-workspace
 
