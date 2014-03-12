@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 
 class Fichas(models.Model):
 
-
     aluno=models.ForeignKey(User,
                            verbose_name=u"Aluno",
                            related_name=u"fichas")
@@ -28,6 +27,7 @@ class Fichas(models.Model):
         ordering = ['criado_em']
 
 
+
 class TiposTreino(models.Model):
 
     tipo=models.CharField(verbose_name=u"Tipo de Treino",
@@ -44,7 +44,10 @@ class TiposTreino(models.Model):
         verbose_name_plural=u'Tipo de Treinos'
         ordering=['tipo']
 
+
+
 class Treinos(models.Model):
+
     SERIE_REPETICAO=(
                   (1,"2 x 15"),
                   (2,"3 x 6"),
@@ -86,3 +89,37 @@ class Treinos(models.Model):
     class Meta:
         verbose_name_plural=u'Treinos'
         ordering=['criado_em']
+
+
+
+class Nomesexercicio(models.Model):
+
+    TIPO_MUSCULO=(
+                  (1,u"Abdome"),
+                  (2,u"Antebraço"),
+                  (3,u"Bíceps"),
+                  (4,u"Costas"),
+                  (5,u"Coxa"),
+                  (6,u"Glúteo"),
+                  (7,u"Inferior"),
+                  (8,u"Ombro"),
+                  (9,u"Panturrilha"),
+                  (10,u"Peitoral"),
+                  (11,u"Quadríceps"),
+                  (12,u"Trapézio"),
+                  (13,u"Tríceps"),
+                  )
+    nome=models.CharField(verbose_name=u"Nome do Exercício",
+                          max_length=50)
+    musculo=models.IntegerField(choices=TIPO_MUSCULO,
+                                verbose_name="Região Muscular")
+    criado_em=models.DateTimeField(verbose_name=u'Data de Criação',
+                                    auto_now_add=True)
+    ativo=models.BooleanField(verbose_name=u"Ativo",
+                              default=True)
+
+    def __unicode__(self):
+        return unicode(self.nome)
+
+    class Meta:
+        verbose_name_plural=u"Nomes dos Exercícios"
