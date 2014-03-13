@@ -13,17 +13,36 @@ function BuscarAluno($scope,$http,$window){
 
 
     $scope.buscar = function(){
+        if ($scope.searchText.length>0){
+            $scope.usuarios = '';
+            $scope.loading = true;
+            $scope.informar = false;
+            var path = '/api/users/?username=' + $scope.searchText;
+            $http.get(path).success(function(data){
+                $scope.loading = false;
+                $scope.usuarios = data.results;
+            }).error(function(data){
+                if (data.detail == "Nenhum usuario encontrado") {
+                    $scope.loading = false;
+                    $scope.informar = true;
+                    $scope.alerta = data.detail;
+                } else {
+                $window.alert("Erro ao buscar alunos: Verificar conexão com a internet!");
+                console.log(data);
+                };
+            });
+        }else{
+            $scope.usuarios = '';
+            $scope.informar = false;
+        }
+
+    };
+
+    $scope.reset = function(){
         $scope.searchText = '';
         $scope.usuarios = '';
-        $scope.loading = true;
-        var path = '/api/users/';
-        $http.get(path).success(function(data){
-            $scope.loading = false;
-            $scope.usuarios = data.results;
-        }).error(function(data){            
-            $window.alert("Erro ao buscar alunos");
-            console.log(data);
-        });
+
+
     };
 
 }

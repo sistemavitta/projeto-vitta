@@ -29,11 +29,11 @@
 
             <div class="thumbnail profile text-center">
                 <img src="holder.js/120x120" alt="" class="profile-img-user">
-                <h4 class="profile-name-user">William Alonço</h4>  
+                <h4 class="profile-name-user">William Alonço</h4>
                 <div>
                     <p class="profile-information-user">
                         william-urias@hotmail.com<br>
-                        (35) 9176-4917 
+                        (35) 9176-4917
                     </p>
                     <p>
                         <a href="#" class="btn btn-danger profile-btn-close" role="button">Fechar Ficha</a>
@@ -48,10 +48,10 @@
                     <li><a href="#">Avaliações</a></li>
                 </ul>
             </div>
-            
+
             <div class="thumbnail search">
                 <div class="link-search">
-                    <a class="text" href="#success" data-toggle="modal" ng-click="buscar()"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;&nbsp;Abrir Ficha do Aluno</a>
+                    <a class="text" href="#success" data-toggle="modal" ng-click="reset()" ><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;&nbsp;Abrir Ficha do Aluno</a>
                 </div>
             </div>
 
@@ -188,7 +188,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <!-- /.table -->   
+                                        <!-- /.table -->
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>
@@ -299,123 +299,8 @@
             </div>
         </div>
 
- <!-- barra antiga
 
-        <div id="wrapper">
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
 
-                    <li class="sidebar-brand">
-                        <a href="#">Dalton Moraes</a>
-                    </li>
-
-                    <div class="thumbnail text-center">
-                        <img src="holder.js/120x120/sky" alt="" class="img-circle">
-                        <h4 class="name-user">William Alonço</h4>  
-                        <div class="caption">
-                            <p class="information">
-                                william-urias@hotmail.com<br>
-                                (35) 9176-4917 
-                            </p>
-                            <p>
-                                <a href="#" class="btn btn-danger" role="button">Fechar Ficha</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <li>
-                        <a href="#">Treinos</a>
-                    </li>
-                    <li>
-                        <a href="#">Presenças</a>
-                    </li>
-                    <li>
-                        <a href="#">Avaliações</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div id="page-content-wrapper">
-                <div class="page-content inset">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="panel panel-default"> 
-                                    <div class="panel-heading"> 
-                                        <div class="btn-group"> 
-                                            <button type="button" class="btn btn-danger btn-sm">Trocar Ficha</button>
-                                            <button type="button" class="btn btn-danger btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Ficha 1</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Ficha 2</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Ficha 3</a></li>
-                                            </ul>
-                                        </div> 
-                                    </div> 
-                                    <div class="panel-body"
-                                        <h1>Ficha de Treinos e menus</h1>
-                                    </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-header">
-                    <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
-                </div>
-            </div>
-        </div> -->
-
-        <!--
-        <nav class="navbar navbar-inverse navbar-fixed-bottom admin-navbar-bottom" role="navigation">
-            
-            <div class="container-fluid">
-                
-                <div class="navbar-header"> 
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-admin-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    
-                    <a class="navbar-brand admin-navbar-search" href="#success" data-toggle="modal" ng-click="buscar()">
-                        <button type="button" class="btn btn-primary admin-btn-search">Abrir Ficha do Aluno</button>
-                    </a> 
-                </div> 
-                
-                <div class="collapse navbar-collapse navbar-admin-collapse">
-                    
-                    <ul class="nav navbar-nav navbar-left admin-navbar-assets">
-                        <li>
-                            <a href="#">Aluno 1 <span class="badge admin-badge-assets">T</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Aluno 2 <span class="badge admin-badge-assets">T</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Aluno 3 <span class="badge admin-badge-assets">T</span></a>
-                        </li>
-          
-                    </ul> 
-                    
-                    <ul class="nav navbar-nav navbar-right admin-navbar-logout">
-                        <li>
-                            <a href="#">Bruno <span class="badge admin-badge-logout">5</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Sair do Sistema</a>
-                        </li>
-                    </ul> 
-                </div> 
-            </div> 
-        </nav> -->
-        
         <!-- Modal -->
         <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
@@ -431,9 +316,9 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Digite o nome do aluno" ng-model="searchText" >
+                                    <input type="text" ng-keyup="buscar()" class="form-control" placeholder="Digite o nome do aluno" ng-model="searchText" >
                                     <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" >
+                                        <button class="btn btn-default" type="button"  ng-click="buscar()" >
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
                                     </span>
@@ -442,23 +327,25 @@
                         </div>
 
                     </div> <!--/ .Modal-Header -->
-                    
+
                     <!-- Modal-Body -->
                     <div class="modal-body">
 
-                       
+                        <div class="alert alert-info conta" ng-show="informar">
+                               Nenhum usuário encontrado com a busca: <strong>[[searchText]]</strong>
+                            </div>
                         <!-- Usuário -->
-                       
+
                         <img class="center-block"  src="{{STATIC_URL}}img/buscando.gif" ng-show="loading" >
-                        
-                        <div class="row admin-user-search" ng-repeat="usuario in usuarios | filter:searchText track by usuario.username">
+
+                        <div class="row admin-user-search" ng-repeat="usuario in usuarios ">
 
 
 
                             <div class="col-xs-3 text-center">
                                 <img ng-src="{{ MEDIA_URL }}[[usuario.perfil.image]]" alt="" class="img-responsive img-circle">
                             </div>
-                        
+
                             <div class="col-xs-3 admin-user-name">
                                 <strong>[[usuario.username]]</strong>
                             </div>
