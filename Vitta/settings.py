@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'talks',
     'south',
     'training',
+    'adminsortable',
 )
 
 MIDDLEWARE_CLASSES = (
