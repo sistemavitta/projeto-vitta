@@ -45,4 +45,10 @@ function BuscarAluno($scope,$http,$window){
 
     };
 
+    $scope.enter = function(ev){
+        if (ev.which==13) {
+           $scope.buscar();
+        };
+    };
+
 }
