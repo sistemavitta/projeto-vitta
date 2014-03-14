@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'south',
     'training',
     'adminsortable',
+    'pyuploadcare.dj',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -175,6 +176,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
 )
+
+UPLOADCARE = {
+    'pub_key': '4d196208cb0bb2bef1e6',
+    'secret': '3ddfcb1f3cc197ff4b0d',
+}
 
 
 LOGIN_REDIRECT_URL = '/'
