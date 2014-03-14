@@ -14,8 +14,11 @@ gunicorn==18.0
 ipython==1.2.0
 psycopg2==2.5.2
 pystache==0.5.3
+python-dateutil==2.2
 pytz==2013.9
+pyuploadcare==1.2.3
 requests==2.2.1
+six==1.6.1
 static==1.0.2
 static3==0.5
 wsgiref==0.1.2
