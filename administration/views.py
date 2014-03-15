@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 
 class AdministrationHomePageView(TemplateView):
 
-    template_name = "administration/admin-home.html"
+    template_name = "training/treinos.html"
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

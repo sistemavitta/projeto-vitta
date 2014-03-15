@@ -1,0 +1,39 @@
+        <nav class="menubar">
+
+            <div class="thumbnail brand">
+                <div class="menu-brand">
+                    <a href="#">Dalton Moraes</a>
+                </div>
+            </div>
+
+            <div class="thumbnail profile text-center">
+                <img src="holder.js/120x120" alt="" class="profile-img-user img-circle">
+                <h4 class="profile-name-user">William Alonço</h4>
+                <div>
+                    <p class="profile-information-user">
+                        william-urias@hotmail.com<br>
+                        (35) 9176-4917
+                    </p>
+                    <p>
+                        <a href="#" class="btn btn-danger profile-btn-close" role="button">Fechar Ficha</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="user-options">
+                <ul>
+                    <li><a href="#">Treinos</a></li>
+                    <li><a href="#" class="active">Presenças</a></li>
+                    <li><a href="#">Avaliações</a></li>
+                </ul>
+            </div>
+
+            <div class="thumbnail search">
+                <div class="link-search">
+                    <a class="text" href="#success" data-toggle="modal" ng-click="reset()" ><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;&nbsp;Abrir Ficha do Aluno</a>
+                </div>
+            </div>
+
+        </nav>
+
+    {% include "administration/modal-buscar-aluno.html" %}
