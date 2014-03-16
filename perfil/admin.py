@@ -9,7 +9,7 @@ from filebrowser.widgets import FileInput
 
 class PerfilInline(admin.StackedInline):
     model = Perfil
-    can_delete = False    
+    can_delete = False
     inline_classes = ('grp-collapse grp-open',)
     verbose_name_plural = u'Informações'
 
@@ -17,6 +17,10 @@ class PerfilInline(admin.StackedInline):
 class UserAdmin(UserAdmin):
 
     inlines = (PerfilInline, )
+    class Media:
+        js = (
+            '/static/js/libs/widget.js',
+        )
 
 
 admin.site.unregister(User)

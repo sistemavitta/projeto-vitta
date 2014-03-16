@@ -180,6 +180,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 UPLOADCARE = {
     'pub_key': '4d196208cb0bb2bef1e6',
     'secret': '3ddfcb1f3cc197ff4b0d',
+    'widget_version': '0.18.3',
 }
 
 
