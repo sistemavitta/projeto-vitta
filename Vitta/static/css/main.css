@@ -50,6 +50,11 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+/* Pesquisa de usuários */
+.admin-nav-search {
+  margin-top: 12px;
+  margin-bottom: 5px;
+}
 /* Alunos treinando */
 .admin-nav-users-active {
   border: 2px solid #17c740;
@@ -249,6 +254,7 @@ body {
   color: #bbb;
   background: none;
 }
+
 
 /* Treinos */
 
