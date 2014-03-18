@@ -1,39 +1,36 @@
 {% extends "core/base.html" %}
 
 {% block image-backgroud %}
-        class="admin-full" ng-app="home" ng-controller="BuscarAluno"
+    class="admin-full" ng-app="home" ng-controller="BuscarAluno"
 {% endblock image-backgroud %}
 
 {% block css %}
-        <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
 {% endblock css %}
 
 {% block js %}
-        <script src="{{STATIC_URL}}js/libs/controllers.js"></script>
-        <script src="{{STATIC_URL}}js/main.js"></script>
+    <script src="{{STATIC_URL}}js/libs/controllers.js"></script>
+    <script src="{{STATIC_URL}}js/main.js"></script>
 
-        <script type="text/javascript">
-            $('#myTab').tabCollapse();
-        </script>
+    <script type="text/javascript">
+        $('#myTab').tabCollapse();
+    </script>
 {% endblock js %}
 
 {% block content-base %}
 
-        {% include "administration/menu-vertical.html" %}
-
-        <div class="container treinos">
-            <div class="row">
-                <div class="col-md-12">
-
+    {% include "administration/menu-vertical.html" %}
+        <div class="container general-content"> <!-- general-content -->
+            <div class="row"> <!-- row -->
+                <div class="col-md-12"> <!-- col-md-12 -->
                     {% block content-ficha %}
 
                     {% endblock content-ficha %}
 
                     {% include "administration/menu-horizontal.html" %}
-
-                </div>
-            </div>
-        </div>
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.general-content -->
 
 {% endblock content-base %}
 

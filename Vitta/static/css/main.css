@@ -8,6 +8,9 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 15px;
 }
+.admin-full {
+  background: url(../img/admin-background.png);
+}
 
 /* CSS Login */
 
@@ -32,42 +35,30 @@ body {
 	border-radius: 0;
 }
 
-/* CSS Navbar */
-
-.admin-full {
-	background: url(../img/admin-background.png);
+ /* Navbar Admin Users */
+.admin-navbar-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-
- /* Navbar user */
-
-.navbar {
+.admin-navbar {
   background: #444;
+  margin-left: 15%;
 }
-.user-active {
+.admin-nav-users > li > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+/* Alunos treinando */
+.admin-nav-users-active {
   border: 2px solid #17c740;
 }
-
-.navbar-nav > li > a {
-  padding-top: 10px;
-  padding-bottom: 10px;
+/* Alunos não treinando */
+.admin-nav-users-noactive {
+  border: 2px solid #444;
 }
-
-.navbar-default .navbar-nav > li > a {
-  color: #fff;
-}
-
-.navbar-default .navbar-nav > li > a:hover {
-  color: #bbb;
-}
-
-.admin-navbar-logout {
-	border-left: 1px solid #eee;
-  margin-top: 10px;
-}
-
-.admin-badge-logout {
-	background-color: #fa4f48;
-}
+/* /.Navbar Admin Users */
 
 /* CSS Modal */
 
@@ -164,7 +155,7 @@ body {
   display: none;
 }
 
-.treinos {
+.general-content {
     width: 85%;
     margin-top: 10px;
     float: right;
@@ -275,7 +266,7 @@ body {
   width: 15%;
 }
 
-.treinos {
+.general-content {
     width: 85%;
 }
 
@@ -342,7 +333,7 @@ body {
   padding: 12px 6px 6px 6px;
 }
 
-.treinos {
+.general-content {
   width: 100%;
   padding-left: 60px;
   margin-top: 10px;
