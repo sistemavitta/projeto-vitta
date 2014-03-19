@@ -35,7 +35,7 @@ body {
 	border-radius: 0;
 }
 
- /* Navbar Admin Users */
+ /* CSS Navbar Admin Users */
 .admin-navbar-footer {
   position: fixed;
   bottom: 0;
@@ -44,10 +44,19 @@ body {
 }
 .admin-navbar {
   background: #444;
+  border-top: none;
   margin-left: 15%;
 }
+.admin-navbar-toggle {
+  background: #333;
+  border: none;
+}
+.admin-navbar-toggle-icon {
+  font-size: 20px;
+  color: #fa4f48;  
+}
 .admin-nav-users > li > a {
-  padding-top: 5px;
+  padding-top: 4px;
   padding-bottom: 5px;
 }
 /* Pesquisa de usuários */
@@ -62,8 +71,41 @@ body {
 /* Alunos não treinando */
 .admin-nav-users-noactive {
   border: 2px solid #444;
+} 
+/* #CSS Navbar Admin Users */
+
+/* Media Queries */
+@media (min-width:240px) and (max-width: 320px) {
+  .admin-navbar {
+    margin-left: 0;
+  } 
 }
-/* /.Navbar Admin Users */
+@media (min-width:321px) and (max-width: 480px) {
+  .admin-navbar {
+    margin-left: 0;
+  } 
+}
+@media (min-width:481px) and (max-width: 600px) {
+  .admin-navbar {
+    margin-left: 0;
+  }
+}
+@media (min-width:601px) and (max-width: 768px) {
+  .admin-navbar {
+    margin-left: 0;
+  } 
+}
+@media screen and (min-width:769px) and (max-width: 992px) {
+  .admin-navbar {
+    margin-left: 15%;
+  } 
+}
+@media screen and (min-width:993px) and (max-width: 1382px) {
+  .admin-navbar {
+    margin-left: 15%;
+  } 
+} 
+/* #Media Queries */
 
 /* CSS Modal */
 
