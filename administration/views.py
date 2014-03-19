@@ -8,7 +8,14 @@ from django.utils.decorators import method_decorator
 
 class HomeRedirectView(RedirectView):
 
-   url = 'perfil/1'
+    url= ''
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            self.url = request.user.get_absolute_url()
+        return super(HomeRedirectView, self).dispatch(request, *args, **kwargs)
+
 
 
 # class AdministrationHomePageView(TemplateView):

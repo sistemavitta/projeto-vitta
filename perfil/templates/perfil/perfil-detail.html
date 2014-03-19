@@ -2,6 +2,7 @@
 
 {% block content-ficha %}
 
-        <h1>Perfil do usuário -  {{ user.get_absolute_url}} </h1>
+        <h1>Perfil do usuário -  {{ usuario.username}} </h1>
+        {{ user.get_absolute_url }}
 
 {% endblock content-ficha %}
