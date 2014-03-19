@@ -24,5 +24,5 @@ class UserAdmin(UserAdmin):
 
 
 admin.site.unregister(User)
-#admin.site.register(Perfil)
+admin.site.register(Perfil)
 admin.site.register(User, UserAdmin)

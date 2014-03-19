@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic.base import RedirectView, TemplateView
-from django.contrib.auth.decorators import login_required
+from django.views.generic.base import RedirectView
 from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 
 class HomeRedirectView(RedirectView):
@@ -15,6 +15,7 @@ class HomeRedirectView(RedirectView):
         if request.user.is_authenticated:
             self.url = request.user.get_absolute_url()
         return super(HomeRedirectView, self).dispatch(request, *args, **kwargs)
+
 
 
 

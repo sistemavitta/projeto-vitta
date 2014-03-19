@@ -4,7 +4,7 @@ from views import PerfilDetailView
 
 urlpatterns = patterns('perfil.views',
 
-    url(r'(?P<pk>\d+)/', PerfilDetailView.as_view(), name='perfil-detail'),
+    url(r'(?P<pk>\d+)/$', PerfilDetailView.as_view(), name='perfil-detail'),
 
 
 )
