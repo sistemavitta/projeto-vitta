@@ -52,7 +52,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
     'administration',
     'perfil',
     'training',
@@ -187,6 +186,10 @@ UPLOADCARE = {
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: "/perfil/%s/" % u.pk
+}
 
 
 REST_FRAMEWORK = {
