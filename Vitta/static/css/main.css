@@ -169,14 +169,22 @@ body {
   font-size: 12px;
   text-align: center;
 }
-a.admin-vertical-link-logout {
-  font-size: 13px;
+a.admin-vertical-link-instructor {
   color: #bbb;
   text-decoration: none;
-  margin-left: 7%;
+  display: block;
+  float: left;
+}
+a.admin-vertical-link-logout {
+  font-size: 14px;
+  color: #bbb;
+  text-decoration: none;
+  display: block;
+  float: left;
+  margin-left: 10%;
+  margin-top: 10px;
 }
 /* #CSS Navbar Vertical Admin */
-
 
 
 /* Menu de navegação */
