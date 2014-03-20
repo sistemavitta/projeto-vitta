@@ -5,12 +5,18 @@
         </div>
     </div>
     <div class="thumbnail profile text-center">
-        <img src="http://www.ucarecdn.com/48e1d870-cbd1-44d2-9b4a-813a28e3525d/-/crop/209x243/525,451/-/scale_crop/120x120/center/" alt="" class="profile-img-user img-circle">
-        <h4 class="profile-name-user">William Alonço</h4>
+        <img    {% if  usuario.perfil.image %}
+                    src="{{ usuario.perfil.image }}-/crop/209x243/525,451/-/scale_crop/120x120/center/"
+                {% else %}
+                     src="holder.js/120x120/"
+                {% endif %}
+         alt="" class="profile-img-user img-circle">
+
+        <h4 class="profile-name-user">{{ usuario.username }}</h4>
         <div>
             <p class="profile-information-user">
-                william-urias@hotmail.com<br>
-                (35) 9176-4917
+                {{ usuario.email }}<br>
+                {{ usuario.phone }}
             </p>
             <p>
                 <a href="#" class="btn btn-danger profile-btn-close" role="button">Fechar Ficha</a>

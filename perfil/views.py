@@ -5,9 +5,11 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 
+
+
 class PerfilDetailView(DetailView):
 
-    template_name = 'perfil/perfil-detail.html'
+    template_name = 'perfil/perfil-home.html'
     model = User
     context_object_name = 'usuario'
 

@@ -10,6 +10,7 @@ class AdministrationTemp(models.Model):
                            verbose_name=u"Responsável",
                            related_name=u"menu")
     usuario=models.PositiveSmallIntegerField(verbose_name=u"usuario")
+    imagem = models.URLField(verbose_name=u'Imagem',max_length=300)
     ficha=models.PositiveSmallIntegerField(verbose_name=u"ficha")
     aberta_em=models.DateTimeField(verbose_name=u'Aberta em',
                                     auto_now_add=True)

@@ -15,6 +15,8 @@ from django.core.urlresolvers import reverse
 #return HttpResponseRedirect(reverse('author-detail', kwargs={'pk': self.object.pk}))
 #return HttpResponseRedirect('/success/')
 
+
+
 class HomeRedirectView(RedirectView):
 
     url= ''
@@ -29,13 +31,20 @@ class HomeRedirectView(RedirectView):
 
 class AbrirTreinoView(View):
 
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(AbrirTreinoView, self).dispatch(request, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
 
         usuario=get_object_or_404(User.objects.all().filter(is_active=True),pk=request.POST.get('abrir',''))
-        if usuario.fichas.count():
-            AdministrationTemp.objects.get_or_create(responsavel=request.user,usuario=usuario.pk,ficha=usuario.fichas.count())
-            return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': usuario.pk}))
-        return HttpResponseRedirect('/')
+        try:
+            imagem = usuario.perfil.image
+        except:
+            imagem = "holder.js/43x43/text:" + usuario.username
+        AdministrationTemp.objects.get_or_create(responsavel=request.user,usuario=usuario.pk,imagem=imagem,ficha=usuario.fichas.count())
+        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': usuario.pk}))
+
 
 
 '''
