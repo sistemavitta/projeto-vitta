@@ -1,19 +1,17 @@
 /* CSS Geral */
-
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 @import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 15px;
 }
 .admin-full {
   background: url(../img/admin-background.png);
 }
+/* #CSS Geral */
 
 /* CSS Login */
-
 .login-full {
 	background: url(../img/login-background.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -21,19 +19,17 @@ body {
   	-o-background-size: cover;
   	background-size: cover;
 }
-
 .login-vertical-offset {
     padding-top: 150px;
 }
-
 .login-panel {
 	background-color: rgba(0, 0, 0, 0.20);
 	border-radius: 0;
 }
-
 .login-input, .login-btn {
 	border-radius: 0;
 }
+/* #CSS Login */
 
  /* CSS Navbar Admin Users */
 .admin-navbar-footer {
@@ -108,7 +104,6 @@ body {
 /* #Media Queries */
 
 /* CSS Modal */
-
 .admin-modal-header {
     color:#fff;
     padding:9px 15px;
@@ -121,32 +116,68 @@ body {
      border-top-left-radius: 5px;
      border-top-right-radius: 5px;
 }
-
 .admin-user-search {
     margin-bottom: 15px;
 }
-
 .admin-user-name {
   padding-top: 18px;
 }
-
 .admin-user-category {
   padding-top: 18px;
 }
-
 .admin-user-viewprofile {
   padding-top: 12px;
 }
-
 .search-btn-close{
   background: #fa4f48;
   border-color: #eee;
 }
-
 .search-btn-close:hover {
   background: #444;
   border-color: #eee;
 }
+/* #CSS Modal */
+
+/* CSS Navbar Vertical Admin */
+.admin-vertical-instructor {
+  height: 53px;
+  background: #000;
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.admin-vertical-instructor-active {
+  position: relative;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  margin-left: 10%;
+}
+.admin-vertical-notifications {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 50%;
+  background-color: #e73e2c;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+a.admin-vertical-link-logout {
+  font-size: 13px;
+  color: #bbb;
+  text-decoration: none;
+  margin-left: 7%;
+}
+/* #CSS Navbar Vertical Admin */
+
+
 
 /* Menu de navegação */
 
@@ -187,12 +218,6 @@ body {
 }
 
 .user-options a:hover {
-  color: #fff;
-  background: #fa4f48;
-  text-decoration: none;
-}
-
-.user-options a.active{
   color: #fff;
   background: #fa4f48;
   text-decoration: none;
@@ -272,29 +297,12 @@ body {
   margin-bottom: 0;
   border-radius: 0;
   border: 0;
-  height: 45px;
+  height: 53px;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
 
-}
-
-.link-search {
-  line-height: 40px;
-  padding-left: 10px;
-  text-transform: uppercase;
-  font-size: 15px;
-}
-
-.link-search a {
-  color: #fff;
-  text-decoration: none; 
-}
-
-.link-search a:hover {
-  color: #bbb;
-  background: none;
 }
 
 
