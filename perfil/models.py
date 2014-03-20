@@ -3,7 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from filebrowser.fields import FileBrowseField
 from pyuploadcare.dj import ImageField
-# Create your models here.
+
+
 class Perfil(models.Model):
 
     LEVEL_CHOICES=(

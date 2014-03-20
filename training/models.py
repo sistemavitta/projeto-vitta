@@ -20,7 +20,6 @@ class Fichas(models.Model):
                               default=True)
 
 
-    #get_treino_display
     def __unicode__(self):
         return unicode(self.aluno)
 

@@ -54,9 +54,12 @@
                             </div>
 
                             <div class="col-xs-3 admin-user-viewprofile">
-                                <button class="btn btn-primary" type="button">
-                                    Abrir Ficha
-                                </button>
+                                <form action="/abrir/" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary"  name="abrir" value=[[usuario.id]]>
+                                            Abrir Ficha
+                                        </button>
+                                </form>
                             </div>
 
                         </div> <!--/ .Usuário -->
