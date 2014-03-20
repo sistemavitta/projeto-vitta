@@ -41,7 +41,7 @@ class AbrirTreinoView(View):
         try:
             imagem = usuario.perfil.image
         except:
-            imagem = "holder.js/43x43/text:" + usuario.username
+            imagem = "holder.js/43x43/text:-" + usuario.username
         AdministrationTemp.objects.get_or_create(responsavel=request.user,usuario=usuario.pk,imagem=imagem,ficha=usuario.fichas.count())
         return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': usuario.pk}))
 
