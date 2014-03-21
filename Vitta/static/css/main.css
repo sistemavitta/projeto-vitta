@@ -1,10 +1,8 @@
 /* CSS Geral */
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
-@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
-
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 .admin-full {
   background: url(../img/admin-background.png);
@@ -13,21 +11,21 @@ body {
 
 /* CSS Login */
 .login-full {
-	background: url(../img/login-background.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
+  background: url(../img/login-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .login-vertical-offset {
     padding-top: 150px;
 }
 .login-panel {
-	background-color: rgba(0, 0, 0, 0.20);
-	border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.20);
+  border-radius: 0;
 }
 .login-input, .login-btn {
-	border-radius: 0;
+  border-radius: 0;
 }
 /* #CSS Login */
 
@@ -70,39 +68,6 @@ body {
 } 
 /* #CSS Navbar Admin Users */
 
-/* Media Queries */
-@media (min-width:240px) and (max-width: 320px) {
-  .admin-navbar {
-    margin-left: 0;
-  } 
-}
-@media (min-width:321px) and (max-width: 480px) {
-  .admin-navbar {
-    margin-left: 0;
-  } 
-}
-@media (min-width:481px) and (max-width: 600px) {
-  .admin-navbar {
-    margin-left: 0;
-  }
-}
-@media (min-width:601px) and (max-width: 768px) {
-  .admin-navbar {
-    margin-left: 0;
-  } 
-}
-@media screen and (min-width:769px) and (max-width: 992px) {
-  .admin-navbar {
-    margin-left: 15%;
-  } 
-}
-@media screen and (min-width:993px) and (max-width: 1382px) {
-  .admin-navbar {
-    margin-left: 15%;
-  } 
-} 
-/* #Media Queries */
-
 /* CSS Modal */
 .admin-modal-header {
     color:#fff;
@@ -139,9 +104,70 @@ body {
 /* #CSS Modal */
 
 /* CSS Navbar Vertical Admin */
+
+/* CSS Brand */
+.admin-nav-brand ul {
+  margin-bottom: 0;
+}
+.admin-nav-brand  li{
+  display: block;
+  width: 100%;
+  line-height: 50px;
+  text-indent: 10px;
+}
+.admin-nav-brand a {
+  display: block;
+  text-decoration: none;
+  color: #eee;
+  background: #e72b8c;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+/* #CSS Brand */
+
+/* CSS User Profile */
+.admin-nav-profile {
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 0;
+}
+.admin-nav-profile-img-user {
+  margin-top: 8px;
+}
+.admin-nav-profile-name-user {
+  font-family: 'Oswald', sans-serif;
+}
+.admin-nav-profile-information-user {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.admin-nav-user a.active{
+  background: #e73e2c;
+  color: #000;
+}
+/* #CSS User Profile */
+
+/* CSS Nav Options */
+.admin-nav-user li{
+  display: block;
+  width: 100%;
+  line-height: 40px;
+  text-indent: 10px;
+  border-bottom: 1px solid #444;
+}
+.admin-nav-user a {
+  display: block;
+  text-decoration: none;
+  color: #bbb;
+  background: slategray;
+  font-size: 16px;
+}
+/* #CSS Nav Options */
+
+/* CSS Instructor */
 .admin-vertical-instructor {
   height: 53px;
-  background: #000;
+  background: slategray;
   border-radius: 0;
   border: 0;
   margin-bottom: 0;
@@ -170,7 +196,6 @@ body {
   text-align: center;
 }
 a.admin-vertical-link-instructor {
-  color: #bbb;
   text-decoration: none;
   display: block;
   float: left;
@@ -184,8 +209,42 @@ a.admin-vertical-link-logout {
   margin-left: 10%;
   margin-top: 10px;
 }
+/* #CSS Instructor */
+
 /* #CSS Navbar Vertical Admin */
 
+/* Media Queries */
+@media (min-width:240px) and (max-width: 320px) {
+  .admin-navbar {
+    margin-left: 0;
+  } 
+}
+@media (min-width:321px) and (max-width: 480px) {
+  .admin-navbar {
+    margin-left: 0;
+  } 
+}
+@media (min-width:481px) and (max-width: 600px) {
+  .admin-navbar {
+    margin-left: 0;
+  }
+}
+@media (min-width:601px) and (max-width: 768px) {
+  .admin-navbar {
+    margin-left: 0;
+  } 
+}
+@media screen and (min-width:769px) and (max-width: 992px) {
+  .admin-navbar {
+    margin-left: 15%;
+  } 
+}
+@media screen and (min-width:993px) and (max-width: 1382px) {
+  .admin-navbar {
+    margin-left: 15%;
+  } 
+} 
+/* #Media Queries */
 
 /* Menu de navegação */
 
@@ -207,28 +266,6 @@ a.admin-vertical-link-logout {
   height: 100%;
   float: left;
   background: #444;
-}
-.menubar .user-options ul {
-  padding: 0em;
-}
-
-.user-options  li{
-  display: block;
-  width: 100%;
-  line-height: 40px;
-  text-indent: 10px;
-}
-
-.user-options a {
-  display: block;
-  text-decoration: none;
-  color: #eee;
-}
-
-.user-options a:hover {
-  color: #fff;
-  background: #fa4f48;
-  text-decoration: none;
 }
 
 .menubar-toggle {
@@ -257,62 +294,6 @@ a.admin-vertical-link-logout {
   font-family: 'Julius Sans One', sans-serif;
   padding-left: 10px;
 }
-
-.menu-brand a {
-  color: #fff;
-  text-decoration: none; 
-}
-
-.menu-brand a:hover {
-  color: #bbb;
-  background: none;
-}
-
-/* Perfil do Usuário */
-
-.profile {
-  border-radius: 0;
-  border: 0;
-  margin-bottom: 0;
-}
-
-.profile-img-user {
-  margin-top: 10px;
-}
-
-.profile-name-user {
-  font-family: 'Oswald', sans-serif;
-}
-
-.profile-btn-close {
-  background: #fa4f48;
-  border-color: #eee;
-}
-
-.profile-btn-close:hover {
-  background: #444;
-  border-color: #eee;
-}
-
-.profile-information-user {
-  font-size: 13px;
-}
-
-/* Search */
-
-.search {
-  background: #428bca;
-  margin-bottom: 0;
-  border-radius: 0;
-  border: 0;
-  height: 53px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-}
-
 
 /* Treinos */
 
@@ -419,7 +400,7 @@ a.admin-vertical-link-logout {
 
 }
 
-/* Custom Tabs */
+/* Custom Tabs 
 
 .tabs-below > .nav-tabs,
 .tabs-right > .nav-tabs,
@@ -526,3 +507,5 @@ a.admin-vertical-link-logout {
   border-color: #ddd #ddd #ddd transparent;
   *border-left-color: #ffffff;
 }
+
+*/

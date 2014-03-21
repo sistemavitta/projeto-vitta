@@ -1,40 +1,49 @@
 <nav class="menubar">
-    <div class="thumbnail brand">
-        <div class="menu-brand">
-            <a href="#">Dalton Moraes</a>
-        </div>
-    </div>
-    <div class="thumbnail profile text-center">
+    <div class="admin-nav-brand"> <!-- admin-nav-brand -->
+        <ul>
+            <li>
+                <a href="#">Dalton Moraes</a>
+            </li>
+        </ul>
+    </div> <!-- /.admin-nav-brand -->
+    <div class="thumbnail admin-nav-profile text-center"> <!-- admin-nav-profile -->
         <img    {% if  usuario.perfil.image %}
                     src="{{ usuario.perfil.image }}-/crop/209x243/525,451/-/scale_crop/120x120/center/"
                 {% else %}
-                     src="holder.js/120x120/"
+                    src="holder.js/120x120/"
                 {% endif %}
-         alt="" class="profile-img-user img-circle">
-
-        <h4 class="profile-name-user">{{ usuario.username }}</h4>
+        alt="" class="admin-nav-profile-img-user img-circle"> <!-- /.admin-nav-profile-img-user -->
+        <h4 class="admin-nav-profile-name-user">{{ usuario.username }}</h4> <!-- /.admin-nav-profile-name-user -->
         <div>
-            <p class="profile-information-user">
+            <p class="admin-nav-profile-information-user"> <!-- admin-nav-profile-information-user -->
                 {{ usuario.email }}<br>
                 {{ usuario.phone }}
-            </p>
-            <p>
-                <a href="#" class="btn btn-danger profile-btn-close" role="button">Fechar Ficha</a>
-            </p>
+            </p> <!-- /.admin-nav-profile-information-user -->
         </div>
-    </div>
-    <div class="user-options">
+    </div> <!-- /.admin-nav-profile -->
+    <div class="admin-nav-user"> <!-- admin-nav-user -->
         <ul>
             <li>
                 <a href="#">Treinos</a>
             </li>
+            <li>
+                <a href="#">Link</a>
+            </li>
+            <li>
+                <a href="#">Link</a>
+            </li>
+            <li >
+                <a href="#" class="active">Fechar Ficha</a>
+            </li>
         </ul>
-    </div>
+    </div> <!-- /.admin-nav-user -->
     <div class="thumbnail admin-vertical-instructor"> <!-- admin-vertical-instructor -->
         <div class="admin-vertical-instructor-active"> <!-- admin-vertical-instructor-active -->
-            <div class="admin-vertical-notifications">3</div> <!-- admin-vertical-notifications -->
-            <a href="{% url 'administration-home' %}" class="admin-vertical-link-instructor"><img src="http://www.ucarecdn.com/3922c3af-f159-47cc-883a-dd7ce11ec1b9/-/scale_crop/40x40/center/-/effect/grayscale/" alt="" class="img-circle"></a>
-            <a href="{% url 'logout' %}" class="admin-vertical-link-logout">Sair do Sistema</a>
-        </div> <!-- admin-vertical-instructor-active -->
-    </div> <!-- admin-vertical-instructor -->
+            <div class="admin-vertical-notifications">3</div> <!-- /.admin-vertical-notifications -->
+            <a href="{% url 'administration-home' %}" class="admin-vertical-link-instructor"> <!-- admin-vertical-link-instructor -->
+                <img src="http://www.ucarecdn.com/3922c3af-f159-47cc-883a-dd7ce11ec1b9/-/scale_crop/40x40/center/-/effect/grayscale/" alt="" class="img-circle">
+            </a> <!-- /.admin-vertical-link-instructor -->
+            <a href="{% url 'logout' %}" class="admin-vertical-link-logout">Sair do Sistema</a> <!-- /.admin-vertical-link-logout -->
+        </div> <!-- /.admin-vertical-instructor-active -->
+    </div> <!-- /.admin-vertical-instructor -->
 </nav>
