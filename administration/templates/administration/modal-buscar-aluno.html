@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="col-xs-3 admin-user-viewprofile">
-                                <form action="/abrir/" method="post">
+                                <form action="{% url 'abrir-treino' %}" method="post">
                                         {% csrf_token %}
                                         <button type="submit" class="btn btn-primary"  name="abrir" value=[[usuario.id]]>
                                             Abrir Ficha

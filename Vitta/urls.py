@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
 admin.autodiscover()
 
@@ -32,6 +31,7 @@ urlpatterns = patterns('',
             {'next_page':'/'},name='logout'),
 
     url(r'^', include('administration.urls')),
+    url(r'^ficha/', include('training.urls')),
 
 
 
