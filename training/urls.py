@@ -7,7 +7,7 @@ urlpatterns = patterns('training.views',
 
     #url(r'(?P<pk>\d+)/$', PerfilDetailView.as_view(), name='perfil-detail'),
     url(r'abrir/$', AbrirTreinoView.as_view(), name='abrir-treino'),
-    url(r'treinos/(?P<pk>\d+)/$', TreinosListView.as_view(), name='list-treinos'),
+    url(r'perfil/(?P<pk>\d+)/treinos/(?P<ficha>\d+)/$', TreinosListView.as_view(), name='list-treinos'),
 
 
 )

@@ -1,6 +1,8 @@
 {% extends "administration/admin-base.html" %}
 
+
 {% block content-ficha %}
+
 
 <div class="panel panel-default"> <!-- panel-default -->
     <div class="panel-heading"> <!-- panel-heading -->
@@ -8,24 +10,21 @@
     <div class="panel-body"> <!-- panel-body -->
         <div class="col-md-12"> <!-- col-md-12 -->
             <ul id="myTab" class="nav nav-tabs">
-                <li class="active">
-                    <a href="#treino-a" data-toggle="tab"><h5>Treino A</h5></a>
+
+                {% for treino in ficha.treinos.all %}
+                <li {% if forloop.first %}class="active"{% endif %} >
+                    <a href="#treino-{{ treino.pk }}" data-toggle="tab"><h5>{{ treino.nome }}</h5></a>
                 </li>
-                <li>
-                    <a href="#treino-a" data-toggle="tab"><h5>Treino B</h5></a>
-                </li>
-                <li>
-                    <a href="#treino-a" data-toggle="tab"><h5>Treino C</h5></a>
-                </li>
-                <li>
-                    <a href="#treino-a" data-toggle="tab"><h5>Atividade A</h5></a>
-                </li>
-                <li>
-                    <a href="#treino-a" data-toggle="tab"><h5>Atividade B</h5></a>
-                </li>
+                {% endfor %}
+
             </ul>
+
+
             <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade active in" id="treino-a">
+
+            {% for treino in  ficha.treinos.all %}
+
+                <div class="tab-pane  {% if forloop.first %}fade active in{% endif %}" id="treino-{{ treino.pk }}">
                     <div class="table-responsive">
                         <div class="col-xs-10">
                             <table class="table table-striped">
@@ -38,41 +37,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                                    {% for exerc in treino.exercicios.all %}
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Supino Reto</td>
-                                        <td class="text-center">4</td>
-                                        <td class="text-center">8</td>
+                                        <td class="text-center">{{forloop.counter}}</td>
+                                        <td>{{ exerc.nome }}</td>
+                                        <td class="text-center">{{ exerc.serie }}</td>
+                                        <td class="text-center">{{ exerc.repeticao }}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="text-center">2</td>
-                                        <td>Rosca Direta</td>
-                                        <td class="text-center">3</td>
-                                        <td class="text-center">10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">3</td>
-                                        <td>Pullover</td>
-                                        <td class="text-center">4</td>
-                                        <td class="text-center">8</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">4</td>
-                                        <td>Martelo</td>
-                                        <td class="text-center">3</td>
-                                        <td class="text-center">10</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">5</td>
-                                        <td>Leg Press</td>
-                                        <td class="text-center">3</td>
-                                        <td class="text-center">8</td>
-                                    </tr>
+                                    {% endfor %}
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
+            {% endfor %}
             </div>
         </div> <!-- /.col-md-12 -->
     </div> <!-- /.panel-body -->

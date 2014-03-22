@@ -8,7 +8,7 @@
     </div> <!-- /.admin-nav-brand -->
     <div class="thumbnail admin-nav-profile text-center"> <!-- admin-nav-profile -->
         <img    {% if  usuario.perfil.image %}
-                    src="{{ usuario.perfil.image }}-/crop/209x243/525,451/-/scale_crop/120x120/center/"
+                    src="{{ usuario.perfil.image }}-/scale_crop/120x120/center/"
                 {% else %}
                     src="holder.js/120x120/"
                 {% endif %}
@@ -24,13 +24,13 @@
     <div class="admin-nav-user"> <!-- admin-nav-user -->
         <ul>
             <li>
-                <a href="{% url 'list-treinos' 1 %}">Treinos</a>
+                <a href="{% url 'list-treinos' pk=usuario.pk ficha=admin.ficha %}">Treinos</a>
             </li>
             <li>
-                <a href="#">Link</a>
+                <a href="#">{{ usuario.pk }}u</a>
             </li>
             <li>
-                <a href="#">Link</a>
+                <a href="#">{{ admin.ficha }}a</a>
             </li>
             <li >
                 <a href="#" class="active">Fechar Ficha</a>

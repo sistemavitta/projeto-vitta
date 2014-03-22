@@ -11,7 +11,7 @@ class AdministrationTemp(models.Model):
                            related_name=u"menu")
     usuario=models.PositiveSmallIntegerField(verbose_name=u"usuario")
     imagem = models.CharField(verbose_name=u'Imagem',max_length=300)
-    ficha=models.PositiveSmallIntegerField(verbose_name=u"ficha")
+    ficha=models.PositiveSmallIntegerField(verbose_name=u"ficha", default=0)
     aberta_em=models.DateTimeField(verbose_name=u'Aberta em',
                                     auto_now_add=True)
     treino=models.PositiveSmallIntegerField(verbose_name=u"treino", blank=True , null=True)

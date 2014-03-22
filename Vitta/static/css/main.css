@@ -48,7 +48,7 @@ body {
 }
 .admin-navbar-toggle-icon {
   font-size: 20px;
-  color: #fa4f48;  
+  color: #fa4f48;
 }
 .admin-nav-users > li > a {
   padding-top: 4px;
@@ -66,7 +66,7 @@ body {
 /* Alunos não treinando */
 .admin-nav-users-noactive {
   border: 2px solid #444;
-} 
+}
 /* #CSS Navbar Admin Users */
 
 /* CSS Modal */
@@ -240,12 +240,12 @@ a.admin-vertical-link-logout {
 @media (min-width:240px) and (max-width: 320px) {
   .admin-navbar {
     margin-left: 0;
-  } 
+  }
 }
 @media (min-width:321px) and (max-width: 480px) {
   .admin-navbar {
     margin-left: 0;
-  } 
+  }
 }
 @media (min-width:481px) and (max-width: 600px) {
   .admin-navbar {
@@ -255,18 +255,18 @@ a.admin-vertical-link-logout {
 @media (min-width:601px) and (max-width: 768px) {
   .admin-navbar {
     margin-left: 0;
-  } 
+  }
 }
 @media screen and (min-width:769px) and (max-width: 992px) {
   .admin-navbar {
     margin-left: 15%;
-  } 
+  }
 }
 @media screen and (min-width:993px) and (max-width: 1382px) {
   .admin-navbar {
     margin-left: 15%;
-  } 
-} 
+  }
+}
 /* #Media Queries */
 
 /* Menu de navegação */
@@ -349,12 +349,12 @@ a.admin-vertical-link-logout {
   top: 0;
   left: 0;
 }
-         
+
 .menubar ul {
   padding: 0em;
   margin: 0;
   background: #444;
-}   
+}
 
 .user-options li {
   margin: 0;
@@ -405,7 +405,7 @@ a.admin-vertical-link-logout {
 
 }
 
-/* Custom Tabs 
+/* Custom Tabs
 
 .tabs-below > .nav-tabs,
 .tabs-right > .nav-tabs,
