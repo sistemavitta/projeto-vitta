@@ -1,8 +1,9 @@
 /* CSS Geral */
 @import url(http://fonts.googleapis.com/css?family=Lato:300);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Gilda+Display);
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Gilda Display', serif;
 }
 .admin-full {
   background: url(../img/admin-background.png);
@@ -213,6 +214,28 @@ a.admin-vertical-link-logout {
 
 /* #CSS Navbar Vertical Admin */
 
+/* CSS Training */
+.nav-tabs {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+.nav-tabs > li > a {
+  color: #000;
+}
+.table > thead > tr > th {
+  font-size: 16px;
+  font-weight: bold;
+}
+.table > tbody > tr > td {
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  font-size: 16px;
+}
+.table > thead:first-child > tr:first-child > th {
+  border-bottom: 1px solid #444;
+}
+/* CSS Training */
+
 /* Media Queries */
 @media (min-width:240px) and (max-width: 320px) {
   .admin-navbar {
@@ -277,24 +300,6 @@ a.admin-vertical-link-logout {
     margin-top: 10px;
     float: right;
 }
-
-/* Brand */
-
-.brand {
-  background: #444;
-  margin-bottom: 0;
-  border-radius: 0;
-  border: 0;
-  height: 53px;
-}
-
-.menu-brand {
-  line-height: 48px;
-  font-size: 20px;
-  font-family: 'Julius Sans One', sans-serif;
-  padding-left: 10px;
-}
-
 /* Treinos */
 
 .panel >.treinos-panel-heading, .treinos-panel-footer {

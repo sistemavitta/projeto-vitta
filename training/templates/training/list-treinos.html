@@ -1,92 +1,82 @@
-
 {% extends "administration/admin-base.html" %}
 
 {% block content-ficha %}
 
-
-                    <div class="panel panel-default">
-
-                        <div class="panel-heading treinos-panel-heading">
-                            Ficha de Treino
+<div class="panel panel-default"> <!-- panel-default -->
+    <div class="panel-heading"> <!-- panel-heading -->
+    </div> <!-- /.panel-heading -->
+    <div class="panel-body"> <!-- panel-body -->
+        <div class="col-md-12"> <!-- col-md-12 -->
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#treino-a" data-toggle="tab"><h5>Treino A</h5></a>
+                </li>
+                <li>
+                    <a href="#treino-a" data-toggle="tab"><h5>Treino B</h5></a>
+                </li>
+                <li>
+                    <a href="#treino-a" data-toggle="tab"><h5>Treino C</h5></a>
+                </li>
+                <li>
+                    <a href="#treino-a" data-toggle="tab"><h5>Atividade A</h5></a>
+                </li>
+                <li>
+                    <a href="#treino-a" data-toggle="tab"><h5>Atividade B</h5></a>
+                </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active in" id="treino-a">
+                    <div class="table-responsive">
+                        <div class="col-xs-10">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Ordem</th>
+                                        <th>Exercício</th>
+                                        <th class="text-center">Série</th>
+                                        <th class="text-center">Repetição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td>Supino Reto</td>
+                                        <td class="text-center">4</td>
+                                        <td class="text-center">8</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2</td>
+                                        <td>Rosca Direta</td>
+                                        <td class="text-center">3</td>
+                                        <td class="text-center">10</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">3</td>
+                                        <td>Pullover</td>
+                                        <td class="text-center">4</td>
+                                        <td class="text-center">8</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">4</td>
+                                        <td>Martelo</td>
+                                        <td class="text-center">3</td>
+                                        <td class="text-center">10</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">5</td>
+                                        <td>Leg Press</td>
+                                        <td class="text-center">3</td>
+                                        <td class="text-center">8</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-
-                        <!-- panel-body -->
-                        <div class="panel-body">
-                            <!-- col-md-12 -->
-                            <div class="col-md-12">
-                                <!-- Nav Tabs -->
-                                <ul id="myTab" class="nav nav-tabs">
-                                    <li class="active">
-                                        <a href="#treino-a" data-toggle="tab">Treino A</a>
-                                    </li>
-
-                                </ul>
-                                <!-- /.Nav Tabs -->
-
-                                <!-- tab-content -->
-                                <div id="myTabContent" class="tab-content">
-
-                                    <div class="tab-pane fade active in" id="treino-a">
-                                        <!-- table-responsive -->
-                                        <div class="table-responsive">
-                                            <!-- col-md-10 -->
-                                            <div class="col-xs-10">
-                                                <!-- table -->
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Exercício</th>
-                                                            <th>Série</th>
-                                                            <th>Repetição</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>Supino Reto</td>
-                                                            <td>4</td>
-                                                            <td>8</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>Rosca Direta</td>
-                                                            <td>3</td>
-                                                            <td>10</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>Pullover</td>
-                                                            <td>4</td>
-                                                            <td>8</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>4</td>
-                                                            <td>Tríceps Corda</td>
-                                                            <td>3</td>
-                                                            <td>10</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>5</td>
-                                                            <td>Leg Press</td>
-                                                            <td>3</td>
-                                                            <td>8</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table> <!-- /.table -->
-                                            </div> <!-- /.col-md-10 -->
-                                            <!-- col-md-2 -->
-
-                                        </div> <!-- table-responsive -->
-                                    </div>
-
-
-                                </div> <!-- /.tab-content -->
-                            </div> <!-- /.col-md-12 -->
-                        </div> <!-- /.panel-body -->
-
-                        <div class="panel-footer treinos-panel-footer">
-                        </div>
-
-                    </div> <!-- /.panel-default -->
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.col-md-12 -->
+    </div> <!-- /.panel-body -->
+    <div class="panel-footer"> <!-- panel-footer -->
+    </div> <!-- /.panel-footer -->
+</div> <!-- /.panel-default -->
 {% endblock content-ficha %}
