@@ -194,14 +194,14 @@ body {
   font-size: 16px;
 }
 .admin-nav-user a.active {
-  border-right: 15px solid #428bca;
+  border-right: 5px solid #e73e2c;
 }
 /* #CSS Nav Options */
 
 /* CSS Instructor */
 .admin-vertical-instructor {
   height: 53px;
-  background: rgb(250, 79, 72);
+  background: #000;
   border-radius: 0;
   border: 0;
   margin-bottom: 0;
@@ -279,7 +279,7 @@ a.admin-vertical-link-logout {
   }
   .admin-navbar {
     margin-left: 15%;
-  } 
+  }
 }
 @media only screen and (max-width: 1024px) {
   .admin-nav-brand a {
@@ -289,7 +289,7 @@ a.admin-vertical-link-logout {
     font-size: 15px;
     }
   .admin-vertical-instructor-active {
-    margin-left: 2%; 
+    margin-left: 2%;
   }
   a.admin-vertical-link-logout {
     margin-left: 6%;
@@ -339,12 +339,12 @@ a.admin-vertical-link-logout {
   height: 60px;
   }
   .admin-vertical-instructor-active {
-    margin-left: 8%; 
+    margin-left: 8%;
   }
   a.admin-vertical-link-logout {
     margin-left: 5%;
   }
   .admin-navbar {
-    margin-left: 0; 
-  } 
+    margin-left: 0;
+  }
 }

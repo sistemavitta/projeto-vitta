@@ -9,10 +9,10 @@
 	font-style: normal;
 }
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after { 
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
 	font-family: Flaticon;
 	font-size: 30px;
-	color: #64ce83;
+	color: #000;
 	font-style: normal;
 	margin-left: 0;
 }
