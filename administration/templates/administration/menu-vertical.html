@@ -24,16 +24,13 @@
     <div class="admin-nav-user"> <!-- admin-nav-user -->
         <ul>
             <li>
-                <a href="{% url 'list-treinos' pk=usuario.pk ficha=admin.ficha %}">Treinos</a>
+                <a href="{% url 'list-treinos' pk=usuario.pk ficha=admin.ficha %}" class="active">Treinos</a>
             </li>
             <li>
                 <a href="#">{{ usuario.pk }}u</a>
             </li>
             <li>
                 <a href="#">{{ admin.ficha }}a</a>
-            </li>
-            <li >
-                <a href="#" class="active">Fechar Ficha</a>
             </li>
         </ul>
     </div> <!-- /.admin-nav-user -->
