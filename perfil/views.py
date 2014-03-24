@@ -33,13 +33,12 @@ class PerfilDetailView(LoginRequiredMixin,DetailView):
     def get_context_data(self, **kwargs):
 
         context = super(PerfilDetailView, self).get_context_data(**kwargs)
-        if self.user.pk == int(self.kwargs.get('pk')):
-            context['admin']={'ficha':0}
-            return context
+        # if self.user.pk == int(self.kwargs.get('pk')):
+        #     context['admin']={'ficha':0}
+        #     return context
         #context['usuario']=User.objects.get(pk=2)
         #context['admin'] = AdministrationTemp.objects.get(usuario=self.kwargs.get('pk'))
-        ad=AdministrationTemp.objects.all().filter(responsavel=self.user.pk).filter(usuario=self.kwargs.get('pk'))
-        context['admin'] = AdministrationTemp.objects.get(pk=ad)
+        context['admin'] = AdministrationTemp.objects.all().filter(responsavel=self.user.pk).filter(usuario=self.kwargs.get('pk'))[0]
         return context
 
 

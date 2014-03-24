@@ -6,7 +6,7 @@ from adminsortable.admin import SortableAdminMixin, SortableInlineAdminMixin
 
 class FichasAdmin(admin.ModelAdmin):
     #raw_id_fields = ("aluno",)
-    list_display=['aluno','objetivo','criado_em','data_inicio','data_fim','ativo']
+    list_display=['pk','aluno','objetivo','criado_em','data_inicio','data_fim','ativo']
     fieldsets=(
                (u'Informações',{'fields':['aluno','objetivo','data_inicio','data_fim','ativo']}),
 
