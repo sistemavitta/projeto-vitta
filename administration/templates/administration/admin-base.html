@@ -23,6 +23,15 @@
         <div class="container general-content"> <!-- general-content -->
             <div class="row"> <!-- row -->
                 <div class="col-md-12"> <!-- col-md-12 -->
+
+                    <ol class="breadcrumb admin-breadcrumb">
+                    {% block breadcrumb %}
+                        <li><a href="#">Dalton Moraes</a></li>
+                        <li class="active">{{ usuario.username }}</li>
+                    {% endblock breadcrumb  %}
+                    </ol>
+
+
                     {% block content-ficha %}
 
                     {% endblock content-ficha %}

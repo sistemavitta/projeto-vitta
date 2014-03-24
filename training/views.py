@@ -51,13 +51,13 @@ class TreinosListView(ListView):
 
     def get_queryset(self):
         self.user = self.request.user
-
-        context={}
         try:
-            Fichas.objects.get(pk=self.kwargs.get('ficha'))
+            return Fichas.objects.get(pk=self.kwargs.get('ficha'))
         except:
-            pass
-        return context
+            context={}
+            return context
+
+
     def get_context_data(self, **kwargs):
 
         context = super(TreinosListView, self).get_context_data(**kwargs)
