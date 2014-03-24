@@ -8,7 +8,6 @@ from administration.models import AdministrationTemp
 from django.views.generic.base import ContextMixin
 
 
-
 class PerfilDetailView(LoginRequiredMixin,DetailView):
 
     template_name = 'perfil/perfil-detail.html'
@@ -19,7 +18,6 @@ class PerfilDetailView(LoginRequiredMixin,DetailView):
     # def dispatch(self, request, *args, **kwargs):
     #     self.user = request.user
     #     return super(PerfilDetailView, self).dispatch(request, *args, **kwargs)
-
 
     def get_queryset(self):
         users_admin=AdministrationTemp.objects.all().filter(responsavel=self.request.user)

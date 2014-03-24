@@ -3,20 +3,15 @@
 
 {% block content-ficha %}
 
-{% block active %}
-    class="active"
-{% endblock active %}
-
+<ol class="breadcrumb admin-breadcrumb">
+    <li><a href="#">Dalton Moraes</a></li>
+    <li><a href="#">Bruno</a></li>
+    <li class="active">Treinos</li>
+</ol>
 
 <div class="panel panel-default"> <!-- panel-default -->
-    <div class="panel-heading"> <!-- panel-heading -->
-    </div> <!-- /.panel-heading -->
     <div class="panel-body"> <!-- panel-body -->
         <div class="col-md-12"> <!-- col-md-12 -->
-
-        {% if ficha %}
-
-
             <ul id="myTab" class="nav nav-tabs">
 
                 {% for treino in ficha.treinos.all %}
@@ -63,19 +58,7 @@
 
             {% endfor %}
             </div>
-
-
-        {% else %}
-
-        <div class="alert alert-info alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Cadastrar Treino!</strong> Não há nenhum treino para o {{ usuario.username }}.
-        </div>
-
-        {% endif %}
         </div> <!-- /.col-md-12 -->
     </div> <!-- /.panel-body -->
-    <div class="panel-footer"> <!-- panel-footer -->
-    </div> <!-- /.panel-footer -->
 </div> <!-- /.panel-default -->
 {% endblock content-ficha %}

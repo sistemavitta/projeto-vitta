@@ -16,6 +16,8 @@ from django.core.urlresolvers import reverse
 from django.views.generic.list import ListView
 from braces.views import LoginRequiredMixin
 
+
+
 class AbrirTreinoView(LoginRequiredMixin,View):
 
     def post(self, request, *args, **kwargs):
@@ -42,8 +44,6 @@ class TreinosListView(ListView):
     context_object_name = 'ficha'
     ficha = None
     user = None
-
-
     # def get(self, request, *args, **kwargs):
     #     self.ficha = request.GET.get('pk','')
 
@@ -58,7 +58,6 @@ class TreinosListView(ListView):
         except:
             pass
         return context
-
     def get_context_data(self, **kwargs):
 
         context = super(TreinosListView, self).get_context_data(**kwargs)

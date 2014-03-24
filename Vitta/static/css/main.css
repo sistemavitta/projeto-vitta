@@ -248,6 +248,21 @@ a.admin-vertical-link-logout {
 
 /* #CSS Navbar Vertical Admin */
 
+/* CSS Breadcrumb */
+.admin-breadcrumb {
+  background: #444;
+}
+.admin-breadcrumb a {
+  font-weight: bold;
+  color: #bbb;
+  text-decoration: none;
+}
+.admin-breadcrumb li.active {
+  font-weight: bold;
+  color: #e73e2c;
+}
+/* #CSS Breadcrumb */
+
 /* CSS Training */
 .nav-tabs {
   margin-left: 15px;
