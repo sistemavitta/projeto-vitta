@@ -2,7 +2,7 @@
 
 {% block breadcrumb %}
     <li><a href="#">Dalton Moraes</a></li>
-    <li><a href="#">Bruno</a></li>
+    <li><a href="{% url 'perfil-detail' usuario.pk %}">{{ usuario.username }}</a></li>
     <li class="active">Treinos</li>
 {% endblock breadcrumb  %}
 

@@ -31,7 +31,7 @@ urlpatterns = patterns('',
             {'next_page':'/'},name='logout'),
 
     url(r'^', include('administration.urls')),
-    url(r'^ficha/', include('training.urls')),
+    #url(r'^ficha/', include('training.urls')),
 
 
 
