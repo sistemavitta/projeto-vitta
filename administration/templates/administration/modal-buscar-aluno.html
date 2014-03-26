@@ -37,6 +37,30 @@
 
                         <img class="center-block"  src="{{STATIC_URL}}img/buscando.gif" ng-show="loading" >
 
+                        {% for item in menu %}
+                        <div class="row admin-user-search">
+                            <div class="col-xs-3 text-center">
+                                <img src="{{ item.imagem }}-/scale_crop/60x60/center/" alt="" class="img-responsive img-circle">
+                            </div>
+
+                            <div class="col-xs-3 admin-user-name">
+                                <strong>{{ item.aluno.username }}</strong>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-category">
+                                <span class="text-muted">Ficha Aberta</span>
+                            </div>
+
+                            <div class="col-xs-3 admin-user-viewprofile">
+
+                                        <a href="{% url 'fechar-treino' item.aluno.pk %}" class="btn btn-danger "  >
+                                            Fechar Ficha
+                                        </a>
+                                </form>
+                            </div>
+                        </div>
+                        {% endfor %}
+
                         <div class="row admin-user-search" ng-repeat="usuario in usuarios ">
 
 
