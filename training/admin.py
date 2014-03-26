@@ -20,7 +20,7 @@ class FichasAdmin(admin.ModelAdmin):
 
 class ExerciciosAlunoInline(SortableInlineAdminMixin,admin.TabularInline):
     model=ExerciciosAluno
-    extra=2
+    extra=6
 
 
 

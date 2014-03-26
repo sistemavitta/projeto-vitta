@@ -15,7 +15,7 @@
                 </li> <!-- /.admin-nav-search -->
                 {% for item in menu %}
                 <li>
-                    <a href="{% url 'perfil-detail' item.usuario %}">
+                    <a href="{% url 'perfil-detail' item.aluno.pk %}">
                         <img src="{{ item.imagem }}-/scale_crop/40x40/center/-/effect/grayscale/" alt="" class="admin-nav-users-active img-circle">
                     </a>
                 </li>

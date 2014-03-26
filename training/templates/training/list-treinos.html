@@ -2,7 +2,7 @@
 
 {% block breadcrumb %}
     <li><a href="#">Dalton Moraes</a></li>
-    <li><a href="{% url 'perfil-detail' usuario.pk %}">{{ usuario.username }}</a></li>
+    <li><a href="{% url 'perfil-detail' usuario.aluno.pk %}">{{ usuario.aluno.username }}</a></li>
     <li class="active">Treinos</li>
 {% endblock breadcrumb  %}
 
@@ -13,11 +13,11 @@
 <div class="panel panel-default"> <!-- panel-default -->
     <div class="panel-body"> <!-- panel-body -->
         <div class="col-md-12"> <!-- col-md-12 -->
-        {% if ficha %}
+        {% if usuario.ficha %}
 
             <ul id="myTab" class="nav nav-tabs">
 
-                {% for treino in ficha.treinos.all %}
+                {% for treino in usuario.ficha.treinos.all %}
                 <li {% if forloop.first %}class="active"{% endif %} >
                     <a href="#treino-{{ treino.pk }}" data-toggle="tab"><h5>{{ treino.nome }}</h5></a>
                 </li>
@@ -28,7 +28,7 @@
 
             <div id="myTabContent" class="tab-content">
 
-            {% for treino in  ficha.treinos.all %}
+            {% for treino in  usuario.ficha.treinos.all %}
 
                 <div class="tab-pane  {% if forloop.first %}fade active in{% endif %}" id="treino-{{ treino.pk }}">
                     <div class="table-responsive">

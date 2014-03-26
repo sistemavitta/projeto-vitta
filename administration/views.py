@@ -1,31 +1,36 @@
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-from django.views.generic.base import RedirectView , View
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.views.generic.base import ContextMixin
-from models import AdministrationTemp
-from training.models import Fichas
-from django.contrib.auth.models import User
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from django.views.generic.base import TemplateResponseMixin
+from django.views.generic.base import RedirectView
+#from django.views.generic.base import  View
+# from django.utils.decorators import method_decorator
+# from django.contrib.auth.decorators import login_required
+# from django.views.generic.base import ContextMixin
+# from models import AdministrationTemp
+#from training.models import Fichas
+# from django.contrib.auth.models import User
+# from django.http import HttpResponse
+# from django.http import HttpResponseRedirect
+# from django.views.generic.base import TemplateResponseMixin
 from django.core.urlresolvers import reverse
+from braces.views import LoginRequiredMixin
 #return HttpResponseRedirect(reverse('author-detail', kwargs={'pk': self.object.pk}))
 #return HttpResponseRedirect('/success/')
 
 
 
-class HomeRedirectView(RedirectView):
+class HomeRedirectView(LoginRequiredMixin,RedirectView):
 
-    url= ''
 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            self.url = request.user.get_absolute_url()
-        return super(HomeRedirectView, self).dispatch(request, *args, **kwargs)
+
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('abrir-treino', kwargs={'ficha': self.request.user.pk})
+
+    #     @method_decorator(login_required)
+    # def dispatch(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated:
+    #         self.url = request.user.get_absolute_url()
+    #     return super(HomeRedirectView, self).dispatch(request, *args, **kwargs)
 
 
 
