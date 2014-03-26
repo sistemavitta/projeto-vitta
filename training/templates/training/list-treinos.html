@@ -13,6 +13,23 @@
 <div class="panel panel-default"> <!-- panel-default -->
     <div class="panel-body"> <!-- panel-body -->
         <div class="col-md-12"> <!-- col-md-12 -->
+
+            <div class="alert-message alert-message-info">
+                <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><span class="glyphicon glyphicon-share-alt"></span>&nbsp;&nbsp;Última Presença</h4>
+                <hr class="message-inner-separator">
+                <div class="row feedback">
+                    <div class="col-md-6">
+                        <strong class="feedback-information">Professor&nbsp;:</strong>&nbsp;&nbsp;Bruno Alexandre<br><br>
+                        <strong class="feedback-information">Data&nbsp;/&nbsp;Hora&nbsp;:</strong>&nbsp;&nbsp;Terça-feira,&nbsp;25/03/2014&nbsp;-&nbsp;12:30
+                    </div>
+                    <div class="col-md-6">
+                        <strong class="feedback-information">Treino&nbsp;:</strong>&nbsp;&nbsp;Treino A<br><br>
+                        <strong class="feedback-information">Duração&nbsp;:</strong>&nbsp;&nbsp;45&nbsp;minutos
+                    </div>
+                </div>
+            </div>
+
         {% if usuario.ficha %}
 
             <ul id="myTab" class="nav nav-tabs">
@@ -69,7 +86,7 @@
 
         <div class="alert alert-info alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Cadastrar Treino!</strong> Não há nenhum treino para o {{ usuario.username }}.
+            <strong>Cadastrar Treino!</strong> Não há nenhum treino para o {{ usuario.aluno.username }}.
         </div>
 
         {% endif %}
