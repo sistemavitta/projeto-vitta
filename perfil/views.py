@@ -24,14 +24,15 @@ class AbrirFichaView(LoginRequiredMixin,View):
             imagem = aluno.perfil.image
         except:
             imagem = "holder.js/43x43/text:-" + aluno.username
-        AdministrationTemp.objects.get_or_create(professor=request.user,aluno=aluno,imagem=imagem,ficha=ficha)
+
+        if not AdministrationTemp.objects.all().filter(professor=request.user).filter(aluno=self.kwargs.get('ficha')).exists():
+            AdministrationTemp.objects.get_or_create(professor=request.user,aluno=aluno,imagem=imagem,ficha=ficha)
         return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.pk}))
 
 class FecharFichaView(LoginRequiredMixin,View):
 
     def get(self, request, *args, **kwargs):
         aluno=AdministrationTemp.objects.all().filter(professor=request.user).filter(aluno=self.kwargs.get('ficha')).get()
-
         if not aluno.treinando:
             aluno.delete()
         return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': request.user.pk}))
