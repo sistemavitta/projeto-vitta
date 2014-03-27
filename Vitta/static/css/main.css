@@ -2,7 +2,6 @@
 /* CSS Geral */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
-@import url(http://fonts.googleapis.com/css?family=Gilda+Display);
 body {
   font-family: 'Lato', sans-serif;
 }
@@ -320,9 +319,65 @@ hr.message-inner-separator {
   font-size: 16px;
 }
 .table > thead:first-child > tr:first-child > th {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #bbb;
 }
-/* CSS Training */
+/* #CSS Training */
+
+/* CSS Attendance */
+.admin-panel-attendance {
+  border: none;
+}
+.panel > .admin-panel-heading-attendance {
+  background: #444;
+  border: none;
+}
+.panel > .admin-panel-heading-attendance > .admin-panel-title {
+  font-size: 16px;
+  color: #eee;
+  font-weight: normal;
+}
+.table {
+  border: none;
+}
+.attendance-header-title {
+  font-weight: normal;
+  color: #eee;
+}
+.attendance-header-one {
+  background: #3498db;
+}
+.attendance-start {
+  color: #3498db;
+}
+.attendance-header-two {
+  background: #e74c3c;
+}
+.attendance-stop {    
+  color: #d9534f;
+}
+.attendance-header-three {
+  background: #2ecc71;
+}
+.attendance-time {
+  color: #5cb85c;
+}
+.attendance-header-four {
+  background: #e67e22;
+}
+.attendance-training {
+  color: #e67e22;
+}
+.attendance-header-five {
+  background: #7f8c8d;
+}
+.attendance-instrutor {
+  color: #969696;
+}
+.table > tbody > tr > td {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+/* #CSS Attendance*/
 
 @media screen and (min-width:993px) and (max-width: 1382px) {
   .menubar {
