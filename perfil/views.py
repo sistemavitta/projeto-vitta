@@ -77,4 +77,6 @@ class PerfilDetailView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
     #     return context
 
 
+class PresencasListView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
 
+    template_name = 'perfil/list-presencas.html'
