@@ -52,7 +52,7 @@ class ContextalunoMixim(object):
 class PerfilDetailView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
 
     template_name = 'perfil/perfil-detail.html'
-    context_object_name = 'usuario'
+    #context_object_name = 'usuario'
 
 
 
