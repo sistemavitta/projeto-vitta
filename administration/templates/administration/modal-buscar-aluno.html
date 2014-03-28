@@ -1,6 +1,6 @@
 {% load tags_extras %}
 <!-- Modal -->
-        <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 
             <!-- Modal-Dialog -->
             <div class="modal-dialog">
@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Escreva o nome do aluno para abrir a sua ficha" ng-model="searchText" ng-keydown="enter($event)" >
+                                    <input id="busca" class="form-control" placeholder="Escreva o nome do aluno para abrir a sua ficha" ng-model="searchText" ng-keydown="enter($event)" >
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button"  ng-click="buscar()" >
                                             <span class="glyphicon glyphicon-search"></span> Buscar

@@ -43,6 +43,9 @@ function BuscarAluno($scope,$http,$window){
         $scope.usuarios = '';
         $scope.informar = false;
 
+        $('#success').on('shown.bs.modal', function () {
+            $('#busca').focus();
+        });
 
     };
 

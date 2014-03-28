@@ -26,7 +26,7 @@ class AbrirFichaView(LoginRequiredMixin,View):
             imagem = "holder.js/43x43/text:-" + aluno.username
 
         if not AdministrationTemp.objects.all().filter(professor=request.user).filter(aluno=self.kwargs.get('ficha')).exists():
-            AdministrationTemp.objects.get_or_create(professor=request.user,aluno=aluno,imagem=imagem,ficha=ficha)
+            AdministrationTemp.objects.create(professor=request.user,aluno=aluno,imagem=imagem,ficha=ficha)
         return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.pk}))
 
 class FecharFichaView(LoginRequiredMixin,View):
