@@ -8,8 +8,6 @@
 
 {% block content-ficha %}
 
-
-
 <div class="panel panel-default"> <!-- panel-default -->
     <div class="panel-body"> <!-- panel-body -->
         <div class="col-md-12"> <!-- col-md-12 -->
@@ -42,7 +40,6 @@
 
             </ul>
 
-
             <div id="myTabContent" class="tab-content">
 
             {% for treino in  usuario.ficha.treinos.all %}
@@ -57,6 +54,7 @@
                                         <th>Exercício</th>
                                         <th class="text-center">Série</th>
                                         <th class="text-center">Repetição</th>
+                                        <th>Peso</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,9 +65,23 @@
                                         <td>{{ exerc.nome }}</td>
                                         <td class="text-center">{{ exerc.serie }}</td>
                                         <td class="text-center">{{ exerc.repeticao }}</td>
+                                        <td style="width: 1px;">
+                                            <div class="input-group weight-control"> <!-- input-group -->
+                                                <span class="input-group-btn"> <!-- input-group-btn-minus -->
+                                                    <button type="button" class="btn btn-danger btn-sm btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                    </button>
+                                                </span> <!-- /.input-group-btn-minus -->
+                                                <input type="text" name="quant[1]" class="form-control input-sm input-number" value="0" min="1" max="100">
+                                                <span class="input-group-btn"> <!-- input-group-btn-plus -->
+                                                    <button type="button" class="btn btn-primary btn-sm btn-number" data-type="plus" data-field="quant[1]">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </button>
+                                                </span> <!-- /.input-group-btn-plus -->
+                                            </div> <!-- /.input-group -->
+                                        </td>
                                     </tr>
                                     {% endfor %}
-
                                 </tbody>
                             </table>
                             <form action="" method="">

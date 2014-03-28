@@ -321,6 +321,9 @@ hr.message-inner-separator {
 .table > thead:first-child > tr:first-child > th {
   border-bottom: 1px solid #bbb;
 }
+.weight-control {
+  width: 105px;
+}
 /* #CSS Training */
 
 /* CSS Attendance */
