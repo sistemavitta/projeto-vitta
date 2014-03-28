@@ -95,12 +95,12 @@ body {
   padding-top: 12px;
 }
 .search-btn-close{
-  background: #fa4f48;
-  border-color: #eee;
+  background: #e73e2c;
+  border-color: none;
 }
 .search-btn-close:hover {
-  background: #444;
-  border-color: #eee;
+  background: #e73e2c;
+  border-color: none
 }
 /* #CSS Modal */
 
