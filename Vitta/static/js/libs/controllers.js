@@ -41,6 +41,7 @@ function BuscarAluno($scope,$http,$window){
     $scope.reset = function(){
         $scope.searchText = '';
         $scope.usuarios = '';
+        $scope.informar = false;
 
 
     };
@@ -50,5 +51,18 @@ function BuscarAluno($scope,$http,$window){
            $scope.buscar();
         };
     };
+
+    $scope.contem =function (list, obj, user) {
+        list.push(user);
+        for(var i=0; i<list.length; i++) {
+            if (list[i] == obj){
+                return true;
+            };
+        };
+        return false;
+    };
+
+
+
 
 }
