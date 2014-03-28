@@ -17,17 +17,13 @@
         <title>Vitta - Sistema de gestão de treinos dinâmica e inteligente para academias, studios e personal!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0">
-
-        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/flaticon.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
         <script type="text/javascript" src="{{ STATIC_URL }}js/libs/angular.js"></script>
-        
-        <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css"> -->
+
         {% block css %}
             
         {% endblock css %}
-        <!-- <script src="{{STATIC_URL}}js/libs/modernizr.min.js"></script> -->
-        <!-- <script src="{{STATIC_URL}}js/libs/angular.min.js"></script> -->
+
     </head>
     <body {% block image-backgroud %}{% endblock image-backgroud %} >
 
@@ -36,12 +32,12 @@
         {% endblock content-base %}
 
         <script src="{{STATIC_URL}}js/libs/jquery.min.js"></script>
-        <script src="{{STATIC_URL}}js/libs/bootstrap.js"></script>
-        <script src="{{STATIC_URL}}js/libs/bootstrap-tabcollapse.js"></script>
+        <script src="{{STATIC_URL}}js/libs/bootstrap.min.js"></script>
         <script src="{{STATIC_URL}}js/libs/holder.js"></script>
-        <!-- <script src="{{STATIC_URL}}js/main.js"></script> -->
+
         {% block js %}
             
         {% endblock js %}
+
     </body>
 </html>
