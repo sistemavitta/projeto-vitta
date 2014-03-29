@@ -192,7 +192,7 @@ body {
 
 /* CSS Nav Options */
 .admin-nav-user {
-  height: 56%;
+  height: 48%;
   overflow: auto;
 }
 .admin-nav-user li{
@@ -214,6 +214,22 @@ body {
   border-right: 5px solid #e73e2c;
 }
 /* #CSS Nav Options */
+
+/* CSS Closing Record */
+.closing-record {
+  text-align: center;
+  margin-left: -4px;
+}
+.btn-close-record {
+  background: #e73e2c;
+  border: none;
+  font-size: 14px;
+}
+.btn-close-record:hover {
+  background: #e73e2c;
+  border: none;
+}
+/* #CSS Closing Record */
 
 /* CSS Instructor */
 .admin-vertical-instructor {
