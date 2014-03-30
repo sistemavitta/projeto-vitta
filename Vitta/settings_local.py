@@ -1,4 +1,4 @@
-
+'''
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -14,5 +14,5 @@ DATABASES = {
 }
 
 
-
+'''
 

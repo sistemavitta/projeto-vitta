@@ -5,7 +5,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 from django.views.generic import TemplateView
-from filebrowser.sites import site
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -13,7 +12,6 @@ from django.conf.urls.static import static
 
 urlpatterns = patterns('',
 
-    (r'^admin/filebrowser/', include(site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
