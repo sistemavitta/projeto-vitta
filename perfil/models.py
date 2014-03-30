@@ -1,7 +1,6 @@
 #encoding: utf-8
 from django.db import models
 from django.contrib.auth.models import User
-from filebrowser.fields import FileBrowseField
 from pyuploadcare.dj import ImageField
 
 
