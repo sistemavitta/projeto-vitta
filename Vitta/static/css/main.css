@@ -192,7 +192,7 @@ body {
 
 /* CSS Nav Options */
 .admin-nav-user {
-  height: 48%;
+  height: 45%;
   overflow: auto;
 }
 .admin-nav-user li{
@@ -218,7 +218,9 @@ body {
 /* CSS Closing Record */
 .closing-record {
   text-align: center;
-  margin-left: -4px;
+  position: absolute;
+  bottom: 70px;
+  margin-left: 25%;
 }
 .btn-close-record {
   background: #e73e2c;
@@ -271,7 +273,6 @@ a.admin-vertical-link-logout {
   font-size: 14px;
   color: #bbb;
   text-decoration: none;
-  font-weight: bold;
   display: block;
   float: left;
   margin-left: 10%;
@@ -419,37 +420,17 @@ hr.message-inner-separator {
 }
 /* #CSS Attendance*/
 
-@media screen and (min-width:993px) and (max-width: 1382px) {
-  .menubar {
-    width: 15%;
-  }
-  .general-content {
-    width: 85%;
-  }
-  .admin-navbar {
-    margin-left: 15%;
-  }
+/* CSS Media Queries */
+@media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+
 }
-@media only screen and (max-width: 1024px) {
-  .admin-nav-brand a {
-    font-size: 16px;
-  }
-  .admin-nav-user a {
-    font-size: 15px;
-    }
-  .admin-vertical-instructor-active {
-    margin-left: 2%;
-  }
-  a.admin-vertical-link-logout {
-    margin-left: 6%;
-    margin-top: 8%;
-    font-size: 12px;
-  }
+@media (min-width:480px) { /* smartphones, Android phones, landscape iPhone */
+
 }
-@media only screen and (max-width: 768px) {
+@media (min-width:600px) and (max-width: 800px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
   .wrap {
-    max-width: 100%;
-    margin: 0;
+   max-width: 100%;
+   margin: 0;
   }
   .menubar {
     width: 175px;
@@ -459,41 +440,76 @@ hr.message-inner-separator {
   }
   .general-content {
     width: 100%;
-    padding-left: 60px;
-    margin-top: 10px;
     position: relative;
     float: none;
+    padding-left: 50px;
   }
   .menubar-toggle {
     position: absolute;
     top: 0;
-    right: -51px;
+    right: -47px;
     color: #fff;
     cursor: pointer;
     width: auto;
-    height: 53px;
+    height: 50px;
     line-height: 25px;
     z-index: 1000;
     display: block;
-    background: rgba(0, 0, 0, 0.70);
+    background: #e73e2c;
     padding: 12px 6px 6px 6px;
-  }
-  .admin-nav-brand  li{
-    line-height: 50px;
   }
   .admin-nav-brand a {
     font-size: 18px;
   }
-  .admin-vertical-instructor {
-  height: 60px;
-  }
   .admin-vertical-instructor-active {
     margin-left: 8%;
   }
+  .closing-record {
+    margin-left: 22%;
+  }
   a.admin-vertical-link-logout {
-    margin-left: 5%;
+    font-size: 13px;
+    margin-left: 7%;
   }
   .admin-navbar {
     margin-left: 0;
   }
 }
+@media (min-width: 801px) and (max-width: 1024px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .menubar {
+    width: 15%;
+  }
+  .general-content {
+    width: 85%;
+  }
+  .admin-navbar {
+    margin-left: 15%;
+  }
+  .admin-nav-brand a {
+    font-size: 16px;
+  }
+  .admin-nav-profile-information-user {
+    font-size: 12px;
+  }
+  .admin-vertical-instructor-active {
+    margin-left: 5%;
+  }
+  .closing-record {
+    margin-left: 18%;
+  }
+  a.admin-vertical-link-logout {
+    font-size: 12px;
+    margin-left: 7%;
+  }
+  .admin-nav-user {
+    height: 35%;
+  }
+}
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
+
+
+}
+@media (min-width:1281px) { /* hi-res laptops and desktops */
+
+}
+/* #CSS Media Queries */

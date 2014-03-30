@@ -6,7 +6,7 @@ function menu() {
 				}, 100, function() {
 				    $(".menubar").removeClass("side-fechado");
 				});
-				$('.treinos').animate({
+				$('.general-content').animate({
 				    left: "175px",
 				}, 100);
 			}
@@ -16,7 +16,7 @@ function menu() {
 				}, 100, function() {
 				    $(".menubar").addClass("side-fechado");
 				});
-				$('.treinos').animate({
+				$('.general-content').animate({
 				    left: "0px",
 				}, 100);
 			}
@@ -29,8 +29,8 @@ function menu() {
 		
 		if (tamanhoJanela < 800) { 
 			$('.menubar').css('left', '-175px').addClass('side-fechado');
-			$('.menubar').append( "<div class='menubar-toggle'>Menu</div>" );
-      $('.treinos').css("left", 0);
+			$('.menubar').append( "<div class='menubar-toggle'>Perfil</div>" );
+      $('.general-content').css("left", 0);
 		} else {
 			$('.menubar').css('left', '0px').addClass('side-fechado');
 		}
