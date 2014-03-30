@@ -10,7 +10,7 @@ mod.config(function($interpolateProvider) {
 
 function BuscarAluno($scope,$http,$window){
 
-
+    // $scope.peso=10;
 
     $scope.buscar = function(){
         if ($scope.searchText.length>0){

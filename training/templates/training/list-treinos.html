@@ -68,13 +68,13 @@
                                         <td style="width: 1px;">
                                             <div class="input-group weight-control"> <!-- input-group -->
                                                 <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                    <button type="button" class="btn btn-danger btn-sm btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                    <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </button>
                                                 </span> <!-- /.input-group-btn-minus -->
-                                                <input type="text" name="quant[1]" class="form-control input-sm input-number" value="0" min="1" max="100">
+                                                <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
                                                 <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                    <button type="button" class="btn btn-primary btn-sm btn-number" data-type="plus" data-field="quant[1]">
+                                                    <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
                                                         <span class="glyphicon glyphicon-plus"></span>
                                                     </button>
                                                 </span> <!-- /.input-group-btn-plus -->
