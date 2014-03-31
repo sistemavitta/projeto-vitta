@@ -1,6 +1,6 @@
 #encoding: utf-8
 from django.contrib import admin
-from models import Fichas, Treinos , ExerciciosAluno , TiposTreino, NomesExercicio
+from models import Fichas, Treinos , ExerciciosAluno , TiposTreino, NomesExercicio, PesoExercicio
 from adminsortable.admin import SortableAdminMixin, SortableInlineAdminMixin
 # Register your models here.
 
@@ -20,7 +20,7 @@ class FichasAdmin(admin.ModelAdmin):
 
 class ExerciciosAlunoInline(SortableInlineAdminMixin,admin.TabularInline):
     model=ExerciciosAluno
-    extra=6
+    extra=10
 
 
 
@@ -48,9 +48,12 @@ class ExerciciosAlunoAdmin(admin.ModelAdmin):
     list_filter=['ativo']
     #inlines=[PesosexerciciosInline]
 
+class PesoExercicioAdmin(admin.ModelAdmin):
+    list_display = ['exercicio','peso','ativo']
 
 admin.site.register(Fichas,FichasAdmin)
 admin.site.register(Treinos,TreinosAdmin)
 admin.site.register(NomesExercicio,NomesExercicioAdmin)
 admin.site.register(ExerciciosAluno,ExerciciosAlunoAdmin)
 admin.site.register(TiposTreino)
+admin.site.register(PesoExercicio,PesoExercicioAdmin)

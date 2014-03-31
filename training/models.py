@@ -153,3 +153,21 @@ class ExerciciosAluno(models.Model):
         verbose_name_plural=u"Exercícios dos Alunos"
         ordering = ['my_order']
         #db_table=u"exercicios"
+
+class PesoExercicio(models.Model):
+
+    exercicio=models.ForeignKey(ExerciciosAluno,
+                             verbose_name=u"Exercício",
+                             related_name=u"pesos")
+    peso=models.SmallIntegerField(verbose_name=u"Peso")
+    cadastrado_em=models.DateTimeField(verbose_name=u'Cadastrado em',
+                                    auto_now_add=True)
+    ativo=models.BooleanField(verbose_name=u"Ativo",
+                               default=True)
+
+    def __unicode__(self):
+        return unicode(self.peso)
+
+    class Meta:
+        verbose_name_plural=u'Pesos Exercícios'
+        ordering=['cadastrado_em']
