@@ -11,13 +11,17 @@ from django.shortcuts import render, get_object_or_404
 # from training.models import Fichas
 # from django.contrib.auth.models import User
 # from django.http import HttpResponse
-# from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect
 # from django.views.generic.base import TemplateResponseMixin
-# from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse
 # from django.views.generic.list import ListView
 from braces.views import LoginRequiredMixin
 from django.views.generic import TemplateView
 from perfil.views import ContextalunoMixim
+from django.views.generic.base import View
+from administration.models import AdministrationTemp
+from datetime import datetime
+#from django.utils.timezone import utc
 
 
 
@@ -72,3 +76,15 @@ class TreinosListView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
     #     context = super(TreinosListView, self).get_context_data(**kwargs)
     #     context['now'] = 'timezone.now()'
     #     return context
+
+class TreinarView(LoginRequiredMixin,View):
+
+    def get(self, request, *args, **kwargs):
+        alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
+        aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
+        if not aluno.treinando:
+            aluno.treinando = True
+            aluno.treino=get_object_or_404(aluno.ficha.treinos,pk=self.kwargs.get('treino'))
+            aluno.inicio_treino = datetime.now()
+            aluno.save()
+        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.pk}))

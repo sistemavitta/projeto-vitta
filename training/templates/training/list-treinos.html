@@ -84,9 +84,9 @@
                                     {% endfor %}
                                 </tbody>
                             </table>
-                            <form action="" method="">
-                                <button type="button" class="btn btn-success btn-sm">Iniciar Treinamento</button>
-                            </form>
+
+                                <a href="{% url 'iniciar-treinamento' pk=usuario.aluno.pk treino=treino.pk %}" type="button" class="btn btn-success btn-sm">Iniciar Treinamento</a>
+
                         </div>
                     </div>
                 </div>

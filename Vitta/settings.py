@@ -92,7 +92,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+
 
 USE_I18N = True
 
