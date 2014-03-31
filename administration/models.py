@@ -54,6 +54,10 @@ class Presenca(models.Model):
                                   null=True, blank=True)
     feedback=models.TextField(verbose_name=u"Feedback do Treino",
                                blank=True, null=True)
+    ativo=models.BooleanField(verbose_name=u"Ativo",
+                              default=True)
+
+
 
     # def horas(self,dias = 0, horas = 0, minutos = 0, segundos = 0, microssegundos= 0, intervalo = None, tempo = None):
     #     total_horas = dias * 24 + horas + minutos / 60.00 + segundos / 3600.00 + microssegundos / 3600000000.00
