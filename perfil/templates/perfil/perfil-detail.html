@@ -1,5 +1,15 @@
 {% extends "administration/admin-base.html" %}
 
+{% block alerta %}
+{% if alerta %}
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Alerta!</strong> {{ alerta }}
+    </div>
+{% endif %}
+
+{% endblock alerta %}
+
 {% block breadcrumb %}
     <li><a href="#">Dalton Moraes</a></li>
     <li class="active">{{ usuario.aluno.username }}</li>

@@ -87,4 +87,4 @@ class TreinarView(LoginRequiredMixin,View):
             aluno.treino=get_object_or_404(aluno.ficha.treinos,pk=self.kwargs.get('treino'))
             aluno.inicio_treino = datetime.now()
             aluno.save()
-        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.pk}))
+        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.aluno.pk}))

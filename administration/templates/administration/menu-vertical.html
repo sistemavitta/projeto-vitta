@@ -53,7 +53,7 @@
             <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor"> <!-- admin-vertical-link-instructor -->
                 <img src="http://www.ucarecdn.com/3922c3af-f159-47cc-883a-dd7ce11ec1b9/-/scale_crop/40x40/center/-/effect/grayscale/" alt="" class="img-circle">
             </a> <!-- /.admin-vertical-link-instructor -->
-            <a href="{% url 'fechar-ficha' user.pk %}" class="admin-vertical-link-logout">Sair do Sistema</a> <!-- /.admin-vertical-link-logout -->
+            <a href="{% url 'fechar-ficha' user.pk %}" class="admin-vertical-link-logout" ng-click="window.alert('la')">Sair do Sistema</a> <!-- /.admin-vertical-link-logout -->
         </div> <!-- /.admin-vertical-instructor-active -->
     </div> <!-- /.admin-vertical-instructor -->
 </nav>

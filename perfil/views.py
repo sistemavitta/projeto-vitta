@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render
 # from django.views.generic import DetailView
 # from django.views.generic.base import RedirectView
 from django.views.generic.base import View
@@ -7,11 +8,23 @@ from django.contrib.auth.models import User
 # from django.utils.decorators import method_decorator
 from braces.views import LoginRequiredMixin
 from administration.models import AdministrationTemp
-# from django.views.generic.base import ContextMixin
+from django.views.generic.base import ContextMixin
+from django.views.generic.base import TemplateResponseMixin
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views.generic import TemplateView
 
+
+
+class ContextalunoMixim(object):
+
+
+    def get_context_data(self,**kwargs):
+        context = super(ContextalunoMixim, self).get_context_data(**kwargs)
+        alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
+        aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
+        context['usuario']= aluno
+        return context
 
 
 class AbrirFichaView(LoginRequiredMixin,View):
@@ -29,26 +42,23 @@ class AbrirFichaView(LoginRequiredMixin,View):
             AdministrationTemp.objects.create(professor=request.user,aluno=aluno,imagem=imagem,ficha=ficha)
         return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.pk}))
 
-class FecharFichaView(LoginRequiredMixin,View):
+class FecharFichaView(LoginRequiredMixin,ContextalunoMixim,View,ContextMixin):
+
+    template_name = 'perfil/perfil-detail.html'
 
     def get(self, request, *args, **kwargs):
-        aluno=AdministrationTemp.objects.all().filter(professor=request.user).filter(aluno=self.kwargs.get('ficha')).get()
+        aluno=get_object_or_404(AdministrationTemp.objects.all().filter(professor=request.user),aluno=self.kwargs.get('pk'))
         if not aluno.treinando:
             aluno.delete()
             if  aluno.aluno.pk == request.user.pk:
                 return HttpResponseRedirect(reverse('logout'))
-        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': request.user.pk}))
+            return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': request.user.pk}))
+
+        context = self.get_context_data(**kwargs)
+        context['alerta']='Aluno Treinando: Finalize o treinamento para fechar a ficha.'
+        return render (request,self.template_name, context)
 
 
-class ContextalunoMixim(object):
-
-
-    def get_context_data(self,**kwargs):
-        context = super(ContextalunoMixim, self).get_context_data(**kwargs)
-        alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
-        aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
-        context['usuario']= aluno
-        return context
 
 
 class PerfilDetailView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
