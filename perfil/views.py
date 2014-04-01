@@ -35,6 +35,8 @@ class FecharFichaView(LoginRequiredMixin,View):
         aluno=AdministrationTemp.objects.all().filter(professor=request.user).filter(aluno=self.kwargs.get('ficha')).get()
         if not aluno.treinando:
             aluno.delete()
+            if  aluno.aluno.pk == request.user.pk:
+                return HttpResponseRedirect(reverse('logout'))
         return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': request.user.pk}))
 
 

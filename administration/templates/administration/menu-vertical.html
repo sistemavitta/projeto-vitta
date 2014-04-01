@@ -29,23 +29,31 @@
             <li>
                 <a href="{% url 'list-presencas' usuario.aluno.pk %}">Presenças</a>
             </li>
-            <li>
+
+            {% if  usuario.treinando %}
+             <li>
                 <a href="#">Treinamento</a>
             </li>
+            {% endif %}
+
         </ul>
     </div> <!-- /.admin-nav-user -->
+
+    {% if request.user != usuario.aluno %}
     <div class="closing-record"> <!-- closing-record -->
         <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
             <button type="button" class="btn btn-danger btn-sm btn-close-record">Fechar Ficha</button>
         </a> <!-- /.closing-record -->
     </div>
+    {% endif %}
+
     <div class="thumbnail admin-vertical-instructor"> <!-- admin-vertical-instructor -->
         <div class="admin-vertical-instructor-active"> <!-- admin-vertical-instructor-active -->
             <div class="admin-vertical-notifications">3</div> <!-- /.admin-vertical-notifications -->
             <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor"> <!-- admin-vertical-link-instructor -->
                 <img src="http://www.ucarecdn.com/3922c3af-f159-47cc-883a-dd7ce11ec1b9/-/scale_crop/40x40/center/-/effect/grayscale/" alt="" class="img-circle">
             </a> <!-- /.admin-vertical-link-instructor -->
-            <a href="{% url 'logout' %}" class="admin-vertical-link-logout">Sair do Sistema</a> <!-- /.admin-vertical-link-logout -->
+            <a href="{% url 'fechar-ficha' user.pk %}" class="admin-vertical-link-logout">Sair do Sistema</a> <!-- /.admin-vertical-link-logout -->
         </div> <!-- /.admin-vertical-instructor-active -->
     </div> <!-- /.admin-vertical-instructor -->
 </nav>
