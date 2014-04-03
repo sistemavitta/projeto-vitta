@@ -8,602 +8,133 @@
 
 {% block content-ficha %}
 
-<div class="panel panel-default"> <!-- panel-default -->
-    <div class="panel-body"> <!-- panel-body -->
-        <div class="col-md-12"> <!-- col-md-12 -->
-
-            <div class="alert-message alert-message-info">
-                <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><span class="glyphicon glyphicon-share-alt"></span>&nbsp;&nbsp;Última Presença</h4>
-                <hr class="message-inner-separator">
-                <div class="row feedback">
-                    <div class="col-md-6">
-                        <strong class="feedback-information">Professor&nbsp;:</strong>&nbsp;&nbsp;Bruno Alexandre<br>
-                        <strong class="feedback-information">Data&nbsp;/&nbsp;Hora&nbsp;:</strong>&nbsp;&nbsp;Terça-feira,&nbsp;25/03/2014&nbsp;-&nbsp;12:30
-                    </div>
-                    <div class="col-md-6">
-                        <strong class="feedback-information">Treino&nbsp;:</strong>&nbsp;&nbsp;Treino A<br>
-                        <strong class="feedback-information">Duração&nbsp;:</strong>&nbsp;&nbsp;45&nbsp;minutos
-                    </div>
-                </div>
-            </div>
-
-        {% if usuario.ficha %}
-
-            <ul id="myTab" class="nav nav-tabs">
-
-                {% for treino in usuario.ficha.treinos.all %}
-                <li {% if forloop.first %}class="active"{% endif %} >
-                    <a href="#treino-{{ treino.pk }}" data-toggle="tab"><h5>{{ treino.nome }}</h5></a>
-                </li>
-                {% endfor %}
-
-            </ul>
-
-            <div id="myTabContent" class="tab-content">
-
-            {% for treino in  usuario.ficha.treinos.all %}
-
-                <div class="tab-pane  {% if forloop.first %}fade active in{% endif %}" id="treino-{{ treino.pk }}">
-                    <div class="table-responsive">
-                        <div class="col-xs-10">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">Ordem</th>
-                                        <th>Exercício</th>
-                                        <th class="text-center">Série</th>
-                                        <th class="text-center">Repetição</th>
-                                        <th>Peso</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    {% for exerc in treino.exercicios.all %}
-                                    <tr>
-                                        <td class="text-center">{{forloop.counter}}</td>
-                                        <td>{{ exerc.nome }}</td>
-                                        <td class="text-center">{{ exerc.serie }}</td>
-                                        <td class="text-center">{{ exerc.repeticao }}</td>
-                                        <td style="width: 1px;">
-                                            <div class="input-group weight-control"> <!-- input-group -->
-                                                <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                    <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                        <span class="glyphicon glyphicon-minus"></span>
-                                                    </button>
-                                                </span> <!-- /.input-group-btn-minus -->
-                                                <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm" disabled>
-                                                <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                    <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                        <span class="glyphicon glyphicon-plus"></span>
-                                                    </button>
-                                                </span> <!-- /.input-group-btn-plus -->
-                                            </div> <!-- /.input-group -->
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-
-                                <a href="{% url 'iniciar-treinamento' pk=usuario.aluno.pk treino=treino.pk %}" type="button" class="btn btn-success btn-sm">Iniciar Treinamento</a>
-
-                        </div>
-                    </div>
-                </div>
-
-            {% endfor %}
-            </div>
-
-        {% else %}
-
-        {% endif %}
-        </div> <!-- /.col-md-12 -->
-    </div> <!-- /.panel-body -->
-</div> <!-- /.panel-default -->
-
         <div class="panel panel-primary admin-panel-attendance">
+
             <div class="panel-heading admin-panel-heading-attendance">
                 <strong class="admin-panel-title">Informações da Ficha</strong>
             </div>
+
             <div class="panel-body">
                 <div class="col-md-12">
 
-                    <div class="alert alert-purple alert-dismissable">
+                    <div class="panel-group" id="accordion"> <!-- panel-group-accordion -->
+
+                    {% for treino in usuario.ficha.treinos.all %}
+
+                        <div class="panel panel-default"> <!--panel -->
+                            <div class="panel-heading heading-panel-training{% if forloop.first %}-active{% endif %}"> <!-- panel-heading -->
+                                <h4 class="panel-title"> <!-- panel-title -->
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#treino-{{ treino.pk }}">{{ treino.nome }}</a>
+                                </h4> <!-- /.panel-title -->
+                            </div> <!-- /.panel-heading -->
+                            <div id="treino-{{ treino.pk }}" class="panel-collapse collapse"> <!-- panel-collapse -->
+                                <div class="panel-body"> <!-- panel-body -->
+
+                                    <div class="col-md-12">
+
+                                        <ul id="myTab" class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#exercicios-treino-{{ treino.pk }}" data-toggle="tab"><h4 class="options-tabs">Exercícios</h4></a>
+                                            </li>
+                                            <li>
+                                                <a href="#presencas-treino-{{ treino.pk }}" data-toggle="tab"><h4 class="options-tabs">Presenças</h4></a>
+                                            </li>
+                                            <li>
+                                                <a href="#graficos-treino-{{ treino.pk }}" data-toggle="tab"><h4 class="options-tabs">Gráficos</h4></a>
+                                            </li>
+                                        </ul>
+
+                                        <div id="myTabContent" class="tab-content">
+                                            <div class="tab-pane fade active in" id="exercicios-treino-{{ treino.pk }}">
+                                                <div class="table-responsive">
+                                                    <div class="col-xs-10">
+                                                        <table class="table table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">Ordem</th>
+                                                                    <th>Exercício</th>
+                                                                    <th class="text-center">Série</th>
+                                                                    <th class="text-center">Repetição</th>
+                                                                    <th>Peso</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+                                                                {% for exerc in treino.exercicios.all %}
+
+                                                                <tr>
+                                                                    <td class="text-center">{{forloop.counter}}</td>
+                                                                    <td>{{ exerc.nome }}</td>
+                                                                    <td class="text-center">{{ exerc.serie}}</td>
+                                                                    <td class="text-center">{{ exerc.repeticao}}</td>
+                                                                    <td style="width: 1px;">
+                                                                        <div class="input-group weight-control"> <!-- input-group -->
+                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
+                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
+                                                                                    <span class="glyphicon glyphicon-minus"></span>
+                                                                                </button>
+                                                                            </span> <!-- /.input-group-btn-minus -->
+                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
+                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
+                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
+                                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                                </button>
+                                                                            </span> <!-- /.input-group-btn-plus -->
+                                                                        </div> <!-- /.input-group -->
+                                                                    </td>
+                                                                </tr>
+
+                                                                {% endfor %}
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-2 text-center">
+                                                    <a href="{% url 'iniciar-treinamento' pk=usuario.aluno.pk treino=treino.pk %}" type="button" class="btn btn-success btn-sm start-training">Iniciar<br>Treinamento</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane" id="presencas-treino-{{ treino.pk }}">
+                                                <div class="table-responsive">
+                                                    <div class="col-xs-10">
+                                                        <h1>Presenças  do  {{ treino.nome }}</h1>
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, eligendi, repudiandae, expedita impedit eos natus culpa quisquam minus possimus omnis quaerat consequatur molestias dolore consectetur repellat cumque neque a excepturi?
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane" id="graficos-treino-{{ treino.pk }}">
+                                                <div class="table-responsive">
+                                                    <div class="col-xs-10">
+                                                        <h1>Gráficos do {{ treino.nome }}</h1>
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, deleniti, vel, voluptates atque delectus in aliquid sequi praesentium beatae voluptatum rem odio enim dolores ipsum maxime. Eveniet, in dolor ullam.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- /.col-md-12 -->
+                                </div> <!-- /.panel-body -->
+                            </div> <!-- /.panel-collapse -->
+                        </div> <!-- /.panel -->
+
+                        {% empty %}
+
+                        <div class="alert alert-purple alert-dismissable">
                         <span class="glyphicon glyphicon-ban-circle"></span>
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             <strong>Cadastrar Treino!</strong>&nbsp;&nbsp;Não há nenhum treino cadastrado para o <strong>{{ usuario.aluno.username }}</strong>.
-                    </div>
-                    
-                    <div class="panel-group" id="accordion"> <!-- panel-group-accordion -->
-                        <div class="panel panel-default"> <!--panel -->
-                            <div class="panel-heading heading-panel-training-active"> <!-- panel-heading -->
-                                <h4 class="panel-title"> <!-- panel-title -->
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#treinoA">Treino A</a>
-                                </h4> <!-- /.panel-title -->
-                            </div> <!-- /.panel-heading -->
-                            <div id="treinoA" class="panel-collapse collapse in"> <!-- panel-collapse -->
-                                <div class="panel-body"> <!-- panel-body -->
+                        </div>
 
-                                    <div class="col-md-12">
+                        {% endfor %}
 
-                                        <ul id="myTab" class="nav nav-tabs">
-                                            <li class="active">
-                                                <a href="#exercicios-treinoA" data-toggle="tab"><h4 class="options-tabs">Exercícios</h4></a>
-                                            </li>
-                                            <li>
-                                                <a href="#presencas-treinoA" data-toggle="tab"><h4 class="options-tabs">Presenças</h4></a>
-                                            </li>
-                                            <li>
-                                                <a href="#graficos-treinoA" data-toggle="tab"><h4 class="options-tabs">Gráficos</h4></a>
-                                            </li>
-                                        </ul>
-
-                                        <div id="myTabContent" class="tab-content">
-                                            <div class="tab-pane fade active in" id="exercicios-treinoA">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="text-center">Ordem</th>
-                                                                    <th>Exercício</th>
-                                                                    <th class="text-center">Série</th>
-                                                                    <th class="text-center">Repetição</th>
-                                                                    <th>Peso</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="text-center">1</td>
-                                                                    <td>Supino Reto</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">2</td>
-                                                                    <td>Remada Sentada</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">8</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">3</td>
-                                                                    <td>Rosca Direta</td>
-                                                                    <td class="text-center">4</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">4</td>
-                                                                    <td>Adução</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>  
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-2 text-center">
-                                                    <a href="#" type="button" class="btn btn-success btn-sm start-training">Iniciar<br>Treinamento</a>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane" id="presencas-treinoA">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <h1>Presenças</h1>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, eligendi, repudiandae, expedita impedit eos natus culpa quisquam minus possimus omnis quaerat consequatur molestias dolore consectetur repellat cumque neque a excepturi?
-                                                    </div>
-                                                </div>
-                                            </div> 
-
-                                            <div class="tab-pane" id="graficos-treinoA">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <h1>Gráficos</h1>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, deleniti, vel, voluptates atque delectus in aliquid sequi praesentium beatae voluptatum rem odio enim dolores ipsum maxime. Eveniet, in dolor ullam.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div> <!-- /.col-md-12 -->
-                                </div> <!-- /.panel-body -->
-                            </div> <!-- /.panel-collapse -->
-                        </div> <!-- /.panel -->
-
-                        <div class="panel panel-default"> <!--panel -->
-                            <div class="panel-heading heading-panel-training"> <!-- panel-heading -->
-                                <h4 class="panel-title"> <!-- panel-title -->
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#treinoB">Treino B</a>
-                                </h4> <!-- /.panel-title -->
-                            </div> <!-- /.panel-heading -->
-                            <div id="treinoB" class="panel-collapse collapse"> <!-- panel-collapse -->
-                                <div class="panel-body"> <!-- panel-body -->
-                                    
-                                    <div class="col-md-12">
-
-                                        <ul id="myTab" class="nav nav-tabs">
-                                            <li class="active">
-                                                <a href="#exercicios-treinoB" data-toggle="tab"><h4 class="options-tabs">Exercícios</h4></a>
-                                            </li>
-                                            <li>
-                                                <a href="#presencas-treinoB" data-toggle="tab"><h4 class="options-tabs">Presenças</h4></a>
-                                            </li>
-                                            <li>
-                                                <a href="#graficos-treinoB" data-toggle="tab"><h4 class="options-tabs">Gráficos</h4></a>
-                                            </li>
-                                        </ul>
-
-                                        <div id="myTabContent" class="tab-content">
-                                            <div class="tab-pane fade active in" id="exercicios-treinoB">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="text-center">Ordem</th>
-                                                                    <th>Exercício</th>
-                                                                    <th class="text-center">Série</th>
-                                                                    <th class="text-center">Repetição</th>
-                                                                    <th>Peso</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="text-center">1</td>
-                                                                    <td>Supino Reto</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">2</td>
-                                                                    <td>Remada Sentada</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">8</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">3</td>
-                                                                    <td>Rosca Direta</td>
-                                                                    <td class="text-center">4</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">4</td>
-                                                                    <td>Adução</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>  
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-2 text-center">
-                                                    <a href="#" type="button" class="btn btn-success btn-sm start-training">Iniciar<br>Treinamento</a>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane" id="presencas-treinoB">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <h1>Presenças</h1>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, eligendi, repudiandae, expedita impedit eos natus culpa quisquam minus possimus omnis quaerat consequatur molestias dolore consectetur repellat cumque neque a excepturi?
-                                                    </div>
-                                                </div>
-                                            </div> 
-
-                                            <div class="tab-pane" id="graficos-treinoB">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <h1>Gráficos</h1>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, deleniti, vel, voluptates atque delectus in aliquid sequi praesentium beatae voluptatum rem odio enim dolores ipsum maxime. Eveniet, in dolor ullam.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div> <!-- /.col-md-12 -->
-
-                                </div> <!-- /.panel-body -->
-                            </div> <!-- /.panel-collapse -->
-                        </div> <!-- /.panel -->
-
-                        <div class="panel panel-default"> <!--panel -->
-                            <div class="panel-heading heading-panel-training"> <!-- panel-heading -->
-                                <h4 class="panel-title"> <!-- panel-title -->
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#treinoC">Treino C</a>
-                                </h4> <!-- /.panel-title -->
-                            </div> <!-- /.panel-heading -->
-                            <div id="treinoC" class="panel-collapse collapse"> <!-- panel-collapse -->
-                                <div class="panel-body"> <!-- panel-body -->
-
-                                    <div class="col-md-12">
-
-                                        <ul id="myTab" class="nav nav-tabs">
-                                            <li class="active">
-                                                <a href="#exercicios-treinoC" data-toggle="tab"><h4 class="options-tabs">Exercícios</h4></a>
-                                            </li>
-                                            <li>
-                                                <a href="#presencas-treinoC" data-toggle="tab"><h4 class="options-tabs">Presenças</h4></a>
-                                            </li>
-                                            <li>
-                                                <a href="#graficos-treinoC" data-toggle="tab"><h4 class="options-tabs">Gráficos</h4></a>
-                                            </li>
-                                        </ul>
-
-                                        <div id="myTabContent" class="tab-content">
-                                            <div class="tab-pane fade active in" id="exercicios-treinoC">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="text-center">Ordem</th>
-                                                                    <th>Exercício</th>
-                                                                    <th class="text-center">Série</th>
-                                                                    <th class="text-center">Repetição</th>
-                                                                    <th>Peso</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="text-center">1</td>
-                                                                    <td>Supino Reto</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">2</td>
-                                                                    <td>Remada Sentada</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">8</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">3</td>
-                                                                    <td>Rosca Direta</td>
-                                                                    <td class="text-center">4</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>
-                                    
-                                                                <tr>
-                                                                    <td class="text-center">4</td>
-                                                                    <td>Adução</td>
-                                                                    <td class="text-center">3</td>
-                                                                    <td class="text-center">10</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
-                                                                </tr>  
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-2 text-center">
-                                                    <a href="#" type="button" class="btn btn-success btn-sm start-training">Iniciar<br>Treinamento</a>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane" id="presencas-treinoC">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <h1>Presenças</h1>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, eligendi, repudiandae, expedita impedit eos natus culpa quisquam minus possimus omnis quaerat consequatur molestias dolore consectetur repellat cumque neque a excepturi?
-                                                    </div>
-                                                </div>
-                                            </div> 
-
-                                            <div class="tab-pane" id="graficos-treinoC">
-                                                <div class="table-responsive">
-                                                    <div class="col-xs-10">
-                                                        <h1>Gráficos</h1>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, deleniti, vel, voluptates atque delectus in aliquid sequi praesentium beatae voluptatum rem odio enim dolores ipsum maxime. Eveniet, in dolor ullam.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div> <!-- /.col-md-12 -->
-
-                                </div> <!-- /.panel-body -->
-                            </div> <!-- /.panel-collapse -->
-                        </div> <!-- /.panel -->
                     </div> <!-- /.panel-group-accordion -->
-                </div> 
+                </div>
             </div>
         </div>
 
