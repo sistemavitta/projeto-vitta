@@ -96,7 +96,7 @@ class FinalizarView(LoginRequiredMixin,View):
         alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
         aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
         if aluno.treinando:
-            Presenca.objects.create(aluno=aluno.aluno,treino=aluno.treino,professor=aluno.professor,data_inicio=aluno.inicio_treino,data_fim=datetime.now())
+            Presenca.objects.create(aluno=aluno.aluno,treino=aluno.treino,professor=aluno.professor,data_inicio=aluno.inicio_treino,duracao=aluno.duracao())
             aluno.treino=None
             aluno.treinando=False
             aluno.inicio_treino= None

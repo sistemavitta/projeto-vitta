@@ -3,6 +3,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from training.models import Fichas, Treinos
+from datetime import datetime
+from django.utils import timezone
 
 class AdministrationTemp(models.Model):
 
@@ -27,6 +29,16 @@ class AdministrationTemp(models.Model):
                                 default=False)
     inicio_treino=models.DateTimeField(verbose_name=u'Início do Treino',null=True, blank=True)
 
+    def duracao(self):
+        try:
+            intervalo=datetime.utcnow().replace(tzinfo=timezone.utc) - self.inicio_treino
+            tempo= (intervalo.days * 24 + intervalo.seconds / 3600.00 + intervalo.microseconds / 3600000000.00 )
+        except:
+            tempo=0
+        #tempo=" %s min" % int(tempo*60)
+        return int(tempo*60)
+    duracao.short_description=u'Duração'
+
 
     #get_treino_display
     def __unicode__(self):
@@ -49,7 +61,7 @@ class Presenca(models.Model):
                                  verbose_name=u'Professor',
                                  related_name='treinamentos')
     data_inicio=models.DateTimeField(verbose_name=u'Data Inicio')
-    data_fim=models.DateTimeField(verbose_name=u'Data Fim')
+    duracao=models.SmallIntegerField(verbose_name=u'Duração')
     feedback=models.TextField(verbose_name=u"Feedback do Treino",
                                blank=True, null=True)
     ativo=models.BooleanField(verbose_name=u"Ativo",
