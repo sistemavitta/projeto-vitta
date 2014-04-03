@@ -89,5 +89,5 @@ class Presenca(models.Model):
 
     class Meta:
       verbose_name_plural=u'Presenca dos Alunos'
-      ordering=['data_inicio']
+      ordering=['-data_inicio']
 

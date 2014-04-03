@@ -13,57 +13,43 @@
             <strong class="admin-panel-title">Presenças do Aluno</strong>
         </div>
         <div class="panel-body">
+
+        {% if usuario.aluno.presencas.all%}
+
+
             <div class="table-responsive">
                 <table class="table table-bordered table-striped admin-table-attendance">
                     <thead>
                         <tr>
-                            <th class="attendance-header-one"><strong class="attendance-header-title">Data de Início do Treino</strong></th>
-                            <th class="attendance-header-two"><strong class="attendance-header-title">Data de Fim do Treino</strong></th>
-                            <th class="attendance-header-three"><strong class="attendance-header-title">Duração do Treino</strong></th>
-                            <th class="attendance-header-four"><strong class="attendance-header-title">Sequência de Treino</strong></th>
-                            <th class="attendance-header-five"><strong class="attendance-header-title">Nome do Professor</strong></th>
+                            <th class="attendance-header-one"><strong class="attendance-header-title">Data e Hora do Início do Treino</strong></th>
+                            <th class="attendance-header-two"><strong class="attendance-header-title">Duração do Treino</strong></th>
+                            <th class="attendance-header-four"><strong class="attendance-header-title">Treino Executado</strong></th>
+                            <th class="attendance-header-five"><strong class="attendance-header-title">Professor Responsável</strong></th>
                         </tr>
                     </thead>
                     <tbody>
+                    {% for presenca in usuario.aluno.presencas.all %}
                         <tr>
-                            <td class="attendance-start">Segunda-feira, 26/03/2014 - 10:40</td>
-                            <td class="attendance-stop">Segunda-feira, 26/03/2014 - 11:30</td>
-                            <td class="attendance-time">50 minutos</td>
-                            <td class="attendance-training">Treino A</td>
-                            <td class="attendance-instrutor">Cleiton</td>
+                            <td class="attendance-start">{{ presenca.data_inicio|date:"l d/n/Y G:i" }}</td>
+                            <td class="attendance-time">{{ presenca.duracao }} min</td>
+                            <td class="attendance-training">{{ presenca.treino }}</td>
+                            <td class="attendance-instrutor">{{ presenca.professor }}</td>
                         </tr>
-                        <tr>
-                            <td class="attendance-start">Terça-feira, 28/03/2014 - 17:00</td>
-                            <td class="attendance-stop">Terça-feira, 28/03/2014 - 17:50</td>
-                            <td class="attendance-time">50 minutos</td>
-                            <td class="attendance-training">Treino C</td>
-                            <td class="attendance-instrutor">Dalton</td>
-                        </tr>
-                        <tr>
-                            <td class="attendance-start">Quarta-feira, 30/03/2014 - 18:50</td>
-                            <td class="attendance-stop">Quarta-feira, 30/03/2014 - 19:40</td>
-                            <td class="attendance-time">50 minutos</td>
-                            <td class="attendance-training">Treino B</td>
-                            <td class="attendance-instrutor">Bruno</td>
-                        </tr>
-                        <tr>
-                            <td class="attendance-start">Quinta-feira, 03/04/2014 - 07:00</td>
-                            <td class="attendance-stop">Quinta-feira, 03/04/2014 - 07:50</td>
-                            <td class="attendance-time">50 minutos</td>
-                            <td class="attendance-training">Treino A</td>
-                            <td class="attendance-instrutor">Flávia</td>
-                        </tr>
-                        <tr>
-                            <td class="attendance-start">Sexta-feira, 10/04/2014 - 09:30</td>
-                            <td class="attendance-stop">Sexta-feira, 10/04/2014 - 10:30</td>
-                            <td class="attendance-time">50 minutos</td>
-                            <td class="attendance-training">Treino C</td>
-                            <td class="attendance-instrutor">Daniel</td>
-                        </tr>
+
+
+                    {% endfor %}
+
                     </tbody>
                 </table>
             </div>
         </div>
+        {% else %}
+        <div class="alert alert-purple alert-dismissable">
+        <span class="glyphicon glyphicon-ban-circle"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <strong>Sem Presença!</strong>&nbsp;&nbsp;Este aluno não possui nenhuma presença.
+        </div>
+        {% endif %}
     </div>
 
 
