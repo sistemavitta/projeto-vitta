@@ -21,6 +21,7 @@ from perfil.views import ContextalunoMixim
 from django.views.generic.base import View
 from administration.models import AdministrationTemp
 from datetime import datetime
+from administration.models import Presenca
 #from django.utils.timezone import utc
 
 
@@ -86,9 +87,21 @@ class TreinarView(LoginRequiredMixin,View):
             aluno.treinando = True
             aluno.treino=get_object_or_404(aluno.ficha.treinos,pk=self.kwargs.get('treino'))
             aluno.inicio_treino = datetime.now()
-            aluno.save()
+            aluno.save(update_fields=['treino','treinando','inicio_treino'])
         return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.aluno.pk}))
 
+class FinalizarView(LoginRequiredMixin,View):
+
+    def get(self, request, *args, **kwargs):
+        alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
+        aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
+        if aluno.treinando:
+            Presenca.objects.create(aluno=aluno.aluno,treino=aluno.treino,professor=aluno.professor,data_inicio=aluno.inicio_treino,data_fim=datetime.now())
+            aluno.treino=None
+            aluno.treinando=False
+            aluno.inicio_treino= None
+            aluno.save(update_fields=['treino','treinando','inicio_treino'])
+        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.aluno.pk}))
 
 class TreinamentoView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
 

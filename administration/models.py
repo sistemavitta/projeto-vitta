@@ -48,10 +48,8 @@ class Presenca(models.Model):
     professor = models.ForeignKey(User,
                                  verbose_name=u'Professor',
                                  related_name='treinamentos')
-    data_inicio=models.DateTimeField(verbose_name=u'Data Inicio',
-                              null=True, blank=True)
-    data_fim=models.DateTimeField(verbose_name=u'Data Fim',
-                                  null=True, blank=True)
+    data_inicio=models.DateTimeField(verbose_name=u'Data Inicio')
+    data_fim=models.DateTimeField(verbose_name=u'Data Fim')
     feedback=models.TextField(verbose_name=u"Feedback do Treino",
                                blank=True, null=True)
     ativo=models.BooleanField(verbose_name=u"Ativo",

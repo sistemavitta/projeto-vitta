@@ -74,9 +74,13 @@
                                                         </table>
                                                     </div>
                                                 </div>
+
+                                                {% if not usuario.treinando %}
                                                 <div class="col-xs-2 text-center">
                                                     <a href="{% url 'iniciar-treinamento' pk=usuario.aluno.pk treino=treino.pk %}" type="button" class="btn btn-success btn-sm start-training">Iniciar<br>Treinamento</a>
                                                 </div>
+                                                {% endif %}
+
                                             </div>
 
                                             <div class="tab-pane" id="presencas-treino-{{ treino.pk }}">
