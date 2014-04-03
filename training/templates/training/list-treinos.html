@@ -96,11 +96,6 @@
 
         {% else %}
 
-        <div class="alert alert-info alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Cadastrar Treino!</strong> Não há nenhum treino para o {{ usuario.aluno.username }}.
-        </div>
-
         {% endif %}
         </div> <!-- /.col-md-12 -->
     </div> <!-- /.panel-body -->
@@ -112,6 +107,13 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-12">
+
+                    <div class="alert alert-purple alert-dismissable">
+                        <span class="glyphicon glyphicon-ban-circle"></span>
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <strong>Cadastrar Treino!</strong>&nbsp;&nbsp;Não há nenhum treino cadastrado para o <strong>{{ usuario.aluno.username }}</strong>.
+                    </div>
+                    
                     <div class="panel-group" id="accordion"> <!-- panel-group-accordion -->
                         <div class="panel panel-default"> <!--panel -->
                             <div class="panel-heading heading-panel-training-active"> <!-- panel-heading -->

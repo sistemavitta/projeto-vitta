@@ -338,6 +338,14 @@ hr.message-inner-separator {
   color: #aaa;
   font-size: 16px;
 }
+.alert-purple { 
+  border-color: #694D9F;
+  background: #694D9F;
+  color: #fff;
+ }
+.glyphicon-ban-circle { 
+  margin-right:10px;
+}
 /* #CSS Feedback */
 
 /* CSS Training */
