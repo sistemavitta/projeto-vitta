@@ -1,0 +1,71 @@
+{% extends "administration/admin-base.html" %}
+
+{% block breadcrumb %}
+    <li><a href="#">Dalton Moraes</a></li>
+    <li><a href="{% url 'perfil-detail' usuario.aluno.pk %}">{{ usuario.aluno.username }}</a></li>
+    <li class="active">Treinamento</li>
+{% endblock breadcrumb  %}
+
+{% block content-ficha %}
+
+    <div class="panel panel-primary admin-panel-attendance">
+
+        <div class="panel-heading admin-panel-heading-attendance">
+            <strong class="admin-panel-title">Treinamento do Aluno</strong>
+        </div>
+
+        <div class="panel-body">
+
+        {% if usuario.treinando%}
+
+             <h2>{{ usuario.treino.nome }}</h2>
+
+            <div class="table-responsive">
+                <div class="col-xs-10">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Ordem</th>
+                                <th>Exercício</th>
+                                <th class="text-center">Série</th>
+                                <th class="text-center">Repetição</th>
+                                <th>Peso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for exerc in usuario.treino.exercicios.all %}
+                            <tr>
+                                <td class="text-center">{{forloop.counter}}</td>
+                                <td>{{ exerc.nome }}</td>
+                                <td class="text-center">{{ exerc.serie }}</td>
+                                <td class="text-center">{{ exerc.repeticao }}</td>
+                                <td style="width: 1px;">
+                                    <div class="input-group weight-control"> <!-- input-group -->
+                                        <span class="input-group-btn"> <!-- input-group-btn-minus -->
+                                            <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span> <!-- /.input-group-btn-minus -->
+                                        <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
+                                        <span class="input-group-btn"> <!-- input-group-btn-plus -->
+                                            <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span> <!-- /.input-group-btn-plus -->
+                                    </div> <!-- /.input-group -->
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        {% endif %}
+
+        </div>
+    </div>
+
+{% endblock content-ficha %}

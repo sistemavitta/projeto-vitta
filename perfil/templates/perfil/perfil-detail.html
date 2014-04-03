@@ -2,10 +2,14 @@
 
 {% block alerta %}
 {% if alerta %}
-    <div class="alert alert-info alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Alerta!</strong> {{ alerta }}
+
+    <div class="alert alert-purple alert-dismissable">
+    <span class="glyphicon glyphicon-ban-circle"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Fechar Ficha!</strong>&nbsp;&nbsp;  <strong>{{ alerta }}</strong>.
     </div>
+
+
 {% endif %}
 
 {% endblock alerta %}

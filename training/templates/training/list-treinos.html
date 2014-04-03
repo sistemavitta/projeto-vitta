@@ -55,7 +55,6 @@
                                                                     <th>Exercício</th>
                                                                     <th class="text-center">Série</th>
                                                                     <th class="text-center">Repetição</th>
-                                                                    <th>Peso</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -67,21 +66,6 @@
                                                                     <td>{{ exerc.nome }}</td>
                                                                     <td class="text-center">{{ exerc.serie}}</td>
                                                                     <td class="text-center">{{ exerc.repeticao}}</td>
-                                                                    <td style="width: 1px;">
-                                                                        <div class="input-group weight-control"> <!-- input-group -->
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                                                <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-minus -->
-                                                                            <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                                                            <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                                                <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                                                </button>
-                                                                            </span> <!-- /.input-group-btn-plus -->
-                                                                        </div> <!-- /.input-group -->
-                                                                    </td>
                                                                 </tr>
 
                                                                 {% endfor %}
