@@ -88,3 +88,8 @@ class TreinarView(LoginRequiredMixin,View):
             aluno.inicio_treino = datetime.now()
             aluno.save()
         return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.aluno.pk}))
+
+
+class TreinamentoView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
+
+    template_name = 'training/treinamento.html'
