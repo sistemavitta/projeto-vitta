@@ -358,6 +358,32 @@ a.admin-vertical-link-logout {
   color: #eee;
   font-size: 17px;
 }
+.alert-message-no-presence {
+    background-color: #e73e2c;
+    border-left: 5px solid #ff0000;
+}
+.no-presence {
+    color: #eee;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.no-presence-user {
+    color: #eee;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.user-attendance {
+  color: #eee;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.glyphicon-calendar { 
+  margin-right: 4px;
+  font-size: 16px;
+}
 /* #CSS Feedback */
 
 /* CSS Record Header */
@@ -372,10 +398,10 @@ a.admin-vertical-link-logout {
   font-size: 15px;
 }
 .admin-panel-heading-attendance h5 {
-    color: #f1c40f;
-    font-size: 15px;
-    text-transform: uppercase;
-    display: inline;
+  color: #f1c40f;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: inline;
 }
 /* #CSS Record Header */
 

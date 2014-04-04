@@ -10,7 +10,8 @@
 
     <div class="panel panel-primary admin-panel-attendance">
         <div class="panel-heading admin-panel-heading-attendance">
-            <strong class="admin-panel-title">Presenças do Aluno</strong>
+            <span class="glyphicon glyphicon-calendar"></span>
+            <strong class="user-attendance">Presenças do Aluno</strong>
         </div>
         <div class="panel-body">
 
@@ -44,11 +45,13 @@
             </div>
         </div>
         {% else %}
-        <div class="alert alert-purple alert-dismissable">
-        <span class="glyphicon glyphicon-ban-circle"></span>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <strong>Sem Presença!</strong>&nbsp;&nbsp;Este aluno não possui nenhuma presença.
+
+        <div class="alert-message alert-message-no-presence">
+            <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            <strong class="no-presence">Sem&nbsp;Presença!</strong>&nbsp;Este&nbsp;aluno&nbsp;não&nbsp;possui&nbsp;nenhuma&nbsp;presença.
         </div>
+
         {% endif %}
     </div>
 

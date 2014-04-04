@@ -11,25 +11,21 @@
         <div class="panel panel-primary admin-panel-attendance">
 
             <div class="panel-heading admin-panel-heading-attendance">
-                <div class="container-fluid">
-                    <span class="glyphicon glyphicon-tasks"></span>
-                    <strong class="record-header">Ficha do {{ usuario.aluno.username }}</strong>
-
-                    {% if usuario.ficha %}
-                    <div class="row information">
-                        <div class="col-md-3">
-                            <h5>Data&nbsp;de&nbsp;Início:</h5>&nbsp;{{ usuario.ficha.data_inicio|date:"d/n/Y" }}
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Data&nbsp;de&nbsp;Fim:</h5>&nbsp;{{ usuario.ficha.data_fim|date:"d/n/Y" }}
-                        </div>
-                        <div class="col-md-3">
-                            <h5>Objetivo:</h5>&nbsp;{{ usuario.ficha.objetivo }}
-                        </div>
+                <span class="glyphicon glyphicon-tasks"></span>
+                <strong class="record-header">Ficha do {{ usuario.aluno.username }}</strong>
+                {% if usuario.ficha %}
+                <div class="row information">
+                    <div class="col-md-3">
+                        <h5>Data&nbsp;de&nbsp;Início:</h5>&nbsp;{{ usuario.ficha.data_inicio|date:"d/n/Y" }}
                     </div>
-                    {% endif %}
-
+                    <div class="col-md-3">
+                        <h5>Data&nbsp;de&nbsp;Fim:</h5>&nbsp;{{ usuario.ficha.data_fim|date:"d/n/Y" }}
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Objetivo:</h5>&nbsp;{{ usuario.ficha.objetivo }}
+                    </div>
                 </div>
+                {% endif %}
             </div>
 
             <div class="panel-body">
