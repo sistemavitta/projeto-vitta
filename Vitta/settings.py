@@ -158,6 +158,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'administration.context_processors.context_fichas',
+    'administration.context_processors.resolve_urlname',
 )
 
 UPLOADCARE = {

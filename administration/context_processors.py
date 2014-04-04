@@ -1,4 +1,5 @@
 from administration.models import AdministrationTemp
+from django.core.urlresolvers import resolve
 #from django.contrib.auth.models import User
 
 def context_fichas(request):
@@ -8,3 +9,13 @@ def context_fichas(request):
     except:
         pass
     return context
+
+def resolve_urlname(request):
+    """Allows us to see what the matched urlname for this
+    request is within the template"""
+    try:
+        res = resolve(request.path)
+        if res:
+            return {'urlname' : res.url_name}
+    except:
+        return {}
