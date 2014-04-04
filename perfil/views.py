@@ -18,12 +18,14 @@ from django.views.generic import TemplateView
 
 class ContextalunoMixim(object):
 
+    usuario = None
 
     def get_context_data(self,**kwargs):
         context = super(ContextalunoMixim, self).get_context_data(**kwargs)
         alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
         aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
         context['usuario']= aluno
+        self.usuario = aluno
         return context
 
 

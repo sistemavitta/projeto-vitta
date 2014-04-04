@@ -13,43 +13,49 @@
             <div class="panel-heading admin-panel-heading-attendance">
                 <div class="container-fluid">
                     <span class="glyphicon glyphicon-tasks"></span>
-                    <strong class="record-header">Ficha do Aluno</strong>
+                    <strong class="record-header">Ficha do {{ usuario.aluno.username }}</strong>
+
+                    {% if usuario.ficha %}
                     <div class="row information">
                         <div class="col-md-3">
-                            <h5>Data&nbsp;de&nbsp;Início:</h5>&nbsp;26/03/2014
+                            <h5>Data&nbsp;de&nbsp;Início:</h5>&nbsp;{{ usuario.ficha.data_inicio|date:"d/n/Y" }}
                         </div>
                         <div class="col-md-3">
-                            <h5>Data&nbsp;de&nbsp;Fim:</h5>&nbsp;10/04/2014
+                            <h5>Data&nbsp;de&nbsp;Fim:</h5>&nbsp;{{ usuario.ficha.data_fim|date:"d/n/Y" }}
                         </div>
                         <div class="col-md-3">
-                            <h5>Objetivo:</h5>&nbsp;Ganho de Massa Muscular
+                            <h5>Objetivo:</h5>&nbsp;{{ usuario.ficha.objetivo }}
                         </div>
                     </div>
+                    {% endif %}
+
                 </div>
             </div>
 
             <div class="panel-body">
                 <div class="col-md-12">
 
+                {% if ulpresenca %}
                 <div class="alert-message alert-message-info">
                     <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
                     <span class="glyphicon glyphicon-flag"></span>
                     <strong class="last-workout">Última&nbsp;Presença</strong>
                     <div class="row information">
                         <div class="col-md-2">
-                            <h5>Professor:</h5>&nbsp;Bruno
+                            <h5>Professor:</h5>&nbsp; {{ ulpresenca.professor }}
                         </div>
                         <div class="col-md-4">
-                            <h5>Data/Hora:</h5>&nbsp;Terça-feira,&nbsp;25/03/2014&nbsp;-&nbsp;12:30
+                            <h5>Data/Hora:</h5> {{ ulpresenca.data_inicio|date:"l d/n/Y G:i"  }}
                         </div>
                         <div class="col-md-2">
-                            <h5>Treino:</h5>&nbsp;&nbsp;Treino A
+                            <h5>Treino:</h5>&nbsp;&nbsp; {{ ulpresenca.treino.nome }}
                         </div>
                         <div class="col-md-4">
-                            <h5>Duração:</h5>&nbsp;&nbsp;45&nbsp;minutos
+                            <h5>Duração:</h5>&nbsp;&nbsp;{{ ulpresenca.duracao}}&nbsp;minutos
                         </div>
                     </div>
                 </div>
+                {% endif %}
 
                     <div class="panel-group" id="accordion"> <!-- panel-group-accordion -->
 

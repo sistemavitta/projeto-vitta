@@ -32,7 +32,14 @@ class TreinosListView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
     #model = Fichas
     template_name = 'training/list-treinos.html'
 
-
+    def get_context_data(self,**kwargs):
+        context = super(TreinosListView, self).get_context_data(**kwargs)
+        try:
+            presenca = self.usuario.aluno.presencas.all().reverse().last()
+        except:
+            presenca = 0
+        context['ulpresenca'] = presenca
+        return context
 
     # def get(self, request, *args, **kwargs):
     #     self.ficha = request.GET.get('pk','')
