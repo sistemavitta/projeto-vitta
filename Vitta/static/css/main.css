@@ -211,6 +211,14 @@ body {
   background: #444;
   font-size: 16px;
 }
+.admin-nav-user a.link-training {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  background: #2ecc71;
+  font-size: 16px;
+}
 .admin-nav-user a.active {
   border-right: 5px solid #e73e2c;
 }

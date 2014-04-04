@@ -26,7 +26,7 @@
 
             {% if  usuario.treinando %}
              <li>
-                <a href="{% url 'treinamento' usuario.aluno.pk %}">Treinamento</a>
+                <a class="link-training" href="{% url 'treinamento' usuario.aluno.pk %}">Treinamento</a>
             </li>
             {% endif %}
 
