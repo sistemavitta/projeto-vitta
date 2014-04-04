@@ -17,6 +17,26 @@
             <div class="panel-body">
                 <div class="col-md-12">
 
+                <div class="alert-message alert-message-info">
+                    <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
+                    <span class="glyphicon glyphicon-flag"></span>
+                    <strong class="last-workout">Última&nbsp;Presença</strong>
+                    <div class="row information">
+                        <div class="col-md-2">
+                            <h5>Professor:</h5>&nbsp;Bruno
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Data/Hora:</h5>&nbsp;Terça-feira,&nbsp;25/03/2014&nbsp;-&nbsp;12:30
+                        </div>
+                        <div class="col-md-2">
+                            <h5>Treino:</h5>&nbsp;&nbsp;Treino A
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Duração:</h5>&nbsp;&nbsp;45&nbsp;minutos
+                        </div>
+                    </div>
+                </div>
+
                     <div class="panel-group" id="accordion"> <!-- panel-group-accordion -->
 
                     {% for treino in usuario.ficha.treinos.all %}
@@ -113,10 +133,10 @@
 
                         {% empty %}
 
-                        <div class="alert alert-purple alert-dismissable">
-                        <span class="glyphicon glyphicon-ban-circle"></span>
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <strong>Cadastrar Treino!</strong>&nbsp;&nbsp;Não há nenhum treino cadastrado para o <strong>{{ usuario.aluno.username }}</strong>.
+                        <div class="alert-message alert-message-registering-training">
+                            <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
+                            <span class="glyphicon glyphicon-ban-circle"></span>
+                            <strong class="registering-training">Cadastrar&nbsp;Treino!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treino&nbsp;cadastrado&nbsp;para&nbsp;o&nbsp;usuário&nbsp;<strong class="registering-training-user">{{ usuario.aluno.username }}.</strong>
                         </div>
 
                         {% endfor %}

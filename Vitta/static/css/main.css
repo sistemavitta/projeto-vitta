@@ -300,51 +300,55 @@ a.admin-vertical-link-logout {
 
 /* CSS Feedback */
 .alert-message {
-  margin: 20px 0;
-  padding: 20px;
-  border-left: 5px solid #5bc0de;
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding: 10px 20px 10px 20px;
+    box-shadow: 20px;
 }
 .alert-message-info {
-  background-color: #f4f8fa;
-  border-color: #5bc0de;
+    background-color: #428bca;
+    border-left: 5px solid #5bc0de;
 }
-.close-message {
-  font-size: 25px;
-  margin-top: -10px;
+.last-workout {
+    color: #eee;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: normal;
 }
-.alert-message h4 {
-  margin-top: 0;
-  margin-bottom: 5px;
+.information {
+  padding-top: 10px;
 }
-.alert-message-info h4 {
-  color: #5bc0de;
-  font-weight: bold;
+.alert-message-info h5 {
+    color: #eee;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline;
 }
-hr.message-inner-separator {
-  clear: both;
-  margin-top: 10px;
-  margin-bottom: 0;
-  border: 0;
-  height: 1px;
-  background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
-  background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-  background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-  background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+.glyphicon-flag { 
+  margin-right: 4px;
+  color: #eee;
+  font-size: 17px;
 }
-.feedback {
-  margin-top: 15px;
+.alert-message-registering-training {
+    background-color: #6e5baa;
+    border-left: 5px solid #9b59b6;
 }
-.feedback-information {
-  color: #aaa;
-  font-size: 16px;
+.registering-training {
+    color: #eee;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: normal;
 }
-.alert-purple { 
-  border-color: #694D9F;
-  background: #694D9F;
-  color: #fff;
- }
+.registering-training-user {
+    color: #eee;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
 .glyphicon-ban-circle { 
-  margin-right:10px;
+  margin-right: 4px;
+  color: #eee;
+  font-size: 17px;
 }
 /* #CSS Feedback */
 
