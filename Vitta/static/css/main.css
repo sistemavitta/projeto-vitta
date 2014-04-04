@@ -352,6 +352,25 @@ a.admin-vertical-link-logout {
 }
 /* #CSS Feedback */
 
+/* CSS Record Header */
+.record-header {
+  color: #eee;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.glyphicon-tasks{ 
+  margin-right: 4px;
+  font-size: 15px;
+}
+.admin-panel-heading-attendance h5 {
+    color: #f1c40f;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline;
+}
+/* #CSS Record Header */
+
 /* CSS Training */
 .nav-tabs {
   margin-left: 15px;
