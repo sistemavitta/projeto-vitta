@@ -407,6 +407,23 @@ a.admin-vertical-link-logout {
 }
 /* #CSS Record Header */
 
+/* CSS Training Started */
+
+/* #CSS Training Started */
+.panel-training-started {
+  border: none;
+  box-shadow: none;
+}
+.panel-heading-training-started {
+  border: none;
+}
+.panel-title-training-started {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
+.panel-body-training-started {
+  box-shadow: none;
+}
 /* CSS Training */
 .nav-tabs {
   margin-left: 15px;

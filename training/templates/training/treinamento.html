@@ -8,73 +8,73 @@
 
 {% block content-ficha %}
 
-    <div class="panel panel-primary admin-panel-attendance">
-
-        <div class="panel-heading admin-panel-heading-attendance">
+    <div class="panel panel-primary admin-panel-attendance"> <!-- admin-panel-attendance -->
+        <div class="panel-heading admin-panel-heading-attendance"> <!-- admin-panel-heading-attendance -->
             <strong class="admin-panel-title">Treinamento do Aluno</strong>
-        </div>
-
-        <div class="panel-body">
-
-        {% if usuario.treinando%}
-
-             <h2>{{ usuario.treino.nome }}</h2>
-
-            <div class="table-responsive">
-                <div class="col-xs-10">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th class="text-center">Ordem</th>
-                                <th>Exercício</th>
-                                <th class="text-center">Série</th>
-                                <th class="text-center">Repetição</th>
-                                <th>Peso</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {% for exerc in usuario.treino.exercicios.all %}
-                            <tr>
-                                <td class="text-center">{{forloop.counter}}</td>
-                                <td>{{ exerc.nome }}</td>
-                                <td class="text-center">{{ exerc.serie }}</td>
-                                <td class="text-center">{{ exerc.repeticao }}</td>
-                                <td style="width: 1px;">
-                                    <div class="input-group weight-control"> <!-- input-group -->
-                                        <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                            <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
-                                                <span class="glyphicon glyphicon-minus"></span>
-                                            </button>
-                                        </span> <!-- /.input-group-btn-minus -->
-                                        <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
-                                        <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                            <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                        </span> <!-- /.input-group-btn-plus -->
-                                    </div> <!-- /.input-group -->
-                                </td>
-                            </tr>
-                            {% endfor %}
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-xs-2 text-center">
-                    <a href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" type="button" class="btn btn-danger btn-sm complete-training">Fizalizar<br>Treinamento</a>
-                </div>
-            </div>
+        </div> <!-- /.admin-panel-heading-attendance -->
+        <div class="panel-body"> <!-- panel-body -->
+            <div class="col-md-12"> <!-- col-md-12 -->
+                {% if usuario.treinando%}
+               <div class="panel panel-default panel-training-started"> <!-- panel-default -->
+                    <div class="panel-heading panel-heading-training-started"> <!-- panel-heading -->
+                        <h4 class="panel-title-training-started">{{ usuario.treino.nome }}</h4>
+                    </div> <!-- /.panel-heading -->
+                    <div class="panel-body panel-body-training-started"> <!-- panel-body -->
+                        <div class="table-responsive">
+                            <div class="col-xs-10">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Ordem</th>
+                                            <th>Exercício</th>
+                                            <th class="text-center">Série</th>
+                                            <th class="text-center">Repetição</th>
+                                            <th>Peso</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for exerc in usuario.treino.exercicios.all %}
+                                        <tr>
+                                            <td class="text-center">{{forloop.counter}}</td>
+                                            <td>{{ exerc.nome }}</td>
+                                            <td class="text-center">{{ exerc.serie }}</td>
+                                            <td class="text-center">{{ exerc.repeticao }}</td>
+                                            <td style="width: 1px;">
+                                                <div class="input-group weight-control"> <!-- input-group -->
+                                                    <span class="input-group-btn"> <!-- input-group-btn-minus -->
+                                                        <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
+                                                            <span class="glyphicon glyphicon-minus"></span>
+                                                        </button>
+                                                    </span> <!-- /.input-group-btn-minus -->
+                                                    <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
+                                                    <span class="input-group-btn"> <!-- input-group-btn-plus -->
+                                                        <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
+                                                            <span class="glyphicon glyphicon-plus"></span>
+                                                        </button>
+                                                    </span> <!-- /.input-group-btn-plus -->
+                                                </div> <!-- /.input-group -->
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <a href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" type="button" class="btn btn-danger btn-sm complete-training">Fizalizar<br>Treinamento</a>
+                            </div>
+                        </div>        
+                    </div> <!-- /.panel-body -->
+                </div> <!-- /.panel-default -->
+            {% else %}
             
-        {% else %}
             <div class="alert-message alert-message-registering-training">
                 <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
                 <span class="glyphicon glyphicon-ban-circle"></span>
                 <strong class="registering-training">Iniciar&nbsp;Treinamento!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treinamento&nbsp;iniciado&nbsp;
             </div>
-        {% endif %}
-
-        </div>
-    </div>
+            {% endif %}
+            </div> <!-- /.col-md-12 -->
+        </div> <!-- /.panel-body -->
+    </div> <!-- /.admin-panel-attendance -->
 
 {% endblock content-ficha %}
