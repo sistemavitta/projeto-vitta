@@ -19,9 +19,10 @@
 .flaticon-magnifier13:before {
   content: "\e000";
 }
-body {
+html, body {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
+  height: 100%;
 }
 .admin-full {
   background: url(../img/admin-background.png);
@@ -50,13 +51,12 @@ body {
 
  /* CSS Navbar Admin Users */
 .admin-navbar-footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
 }
 .admin-navbar {
-  background: #444;
+  background: none;
   border-top: none;
   margin-left: 15%;
 }
@@ -149,6 +149,8 @@ body {
     width: 85%;
     margin-top: 10px;
     float: right;
+    min-height: 100%;
+    position: relative;
 }
 /* CSS Navbar Base */
 
