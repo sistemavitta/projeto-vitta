@@ -25,12 +25,12 @@
         <ul>
 
             <li>
-                <a href="{% url 'list-treinos' usuario.aluno.pk %}" class="{% if urlname == 'list-treinos'%}active{% endif %}">Treinos</a>
+                <a href="{% url 'list-treinos' usuario.aluno.pk %}" class="{% if urlname == 'list-treinos'%}active{% endif %}">Consultar Treinos</a>
             </li>
 
              <li>
                 <a  href="{% url 'treinamento' usuario.aluno.pk %}" class="{% if usuario.treinando %}link-training
-                {% endif %}{% if urlname == 'treinamento'%}active{% endif %}">Treinamento</a>
+                {% endif %}{% if urlname == 'treinamento'%}active{% endif %}">Treinamento Iniciados</a>
             </li>
 
             <li>

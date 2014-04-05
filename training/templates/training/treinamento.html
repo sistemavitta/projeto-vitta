@@ -65,7 +65,12 @@
                     <a href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" type="button" class="btn btn-danger btn-sm">Fizalizar <br>Treinamento</a>
                 </div>
             </div>
-
+        {% else %}
+            <div class="alert-message alert-message-registering-training">
+                <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
+                <span class="glyphicon glyphicon-ban-circle"></span>
+                <strong class="registering-training">Iniciar&nbsp;Treinamento!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treinamento&nbsp;iniciado&nbsp;
+            </div>
         {% endif %}
 
         </div>
