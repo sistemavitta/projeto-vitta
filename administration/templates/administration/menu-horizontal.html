@@ -16,14 +16,13 @@
                 {% for item in menu %}
                 <li>
                     <a href="{% url 'perfil-detail' item.aluno.pk %}">
-
-                            <img src="{{ item.imagem }}-/scale_crop/40x40/center/" alt="" class="
+                        <img src="{{ item.imagem }}-/scale_crop/40x40/center/" alt="" class="
                             {% if item.treinando %}
                                 admin-nav-users-active
+                            {% else %}
+                                admin-nav-users-noactive
                             {% endif %}
                             img-circle">
-
-
                     </a>
                 </li>
                 {% endfor %}
