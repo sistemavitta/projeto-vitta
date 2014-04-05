@@ -62,9 +62,10 @@
                     </table>
                 </div>
                 <div class="col-xs-2 ">
-                    <a href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" type="button" class="btn btn-danger btn-sm">Fizalizar <br>Treinamento</a>
+                    <a href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" type="button" class="btn btn-danger btn-sm complete-training">Fizalizar<br>Treinamento</a>
                 </div>
             </div>
+            
         {% else %}
             <div class="alert-message alert-message-registering-training">
                 <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>

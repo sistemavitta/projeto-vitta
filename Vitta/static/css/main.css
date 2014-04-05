@@ -461,6 +461,16 @@ h4.options-tabs {
   background: #5cb85c;
   border: none;
 }
+.complete-training {
+  background: #e73e2c;
+  margin-top: 38px;
+  border: none;
+  font-size: 16px;
+}
+.complete-training:hover {
+  background: #e73e2c;
+  border: none;
+}
 /* #CSS Training */
 
 /* CSS Attendance */
