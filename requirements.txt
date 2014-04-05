@@ -3,9 +3,9 @@ South==0.8.4
 argparse==1.2.1
 dj-database-url==0.2.2
 -e git://github.com/kennethreitz/dj-static.git@e79582483a976c76511244b3f236f7c68991e1ae#egg=dj_static-master
-django-admin-sortable2==0.2.5
+django-braces==1.4.0
 django-filter==0.7
-django-grappelli==2.5.2
+django-grappelli==2.5.3
 django-toolbelt==0.0.1
 djangorestframework==2.3.12
 gunicorn==18.0
@@ -20,4 +20,3 @@ six==1.6.1
 static==1.0.2
 static3==0.5
 wsgiref==0.1.2
-django-braces==1.4.0

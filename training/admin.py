@@ -1,7 +1,7 @@
 #encoding: utf-8
 from django.contrib import admin
 from models import Fichas, Treinos , ExerciciosAluno , TiposTreino, NomesExercicio, PesoExercicio
-from adminsortable.admin import SortableAdminMixin, SortableInlineAdminMixin
+
 # Register your models here.
 
 class FichasAdmin(admin.ModelAdmin):
@@ -18,9 +18,11 @@ class FichasAdmin(admin.ModelAdmin):
 
 
 
-class ExerciciosAlunoInline(SortableInlineAdminMixin,admin.TabularInline):
+class ExerciciosAlunoInline(admin.TabularInline):
+    #fields = ("nome","serie","repeticao","position","ativo")
     model=ExerciciosAluno
-    extra=10
+    sortable_field_name = "position"
+    extra=0
 
 
 
@@ -42,7 +44,7 @@ class NomesExercicioAdmin(admin.ModelAdmin):
 
 
 class ExerciciosAlunoAdmin(admin.ModelAdmin):
-    list_display=['my_order' ,'treino','nome','serie','repeticao','ativo']
+    list_display=['treino','nome','serie','repeticao','ativo']
 
     #search_fields=['aluno__nome']
     list_filter=['ativo']

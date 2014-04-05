@@ -57,7 +57,6 @@ INSTALLED_APPS = (
     'rest_framework',
     'talks',
     'south',
-    'adminsortable',
     'pyuploadcare.dj',
 )
 

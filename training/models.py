@@ -144,14 +144,14 @@ class ExerciciosAluno(models.Model):
                                     auto_now_add=True)
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
-    my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
+    position = models.PositiveIntegerField(verbose_name=u'Ordem')
 
     def __unicode__(self):
         return unicode(self.nome)
 
     class Meta(object):
         verbose_name_plural=u"Exercícios dos Alunos"
-        ordering = ['my_order']
+        ordering = ['position']
         #db_table=u"exercicios"
 
 class PesoExercicio(models.Model):
