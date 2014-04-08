@@ -10,6 +10,7 @@
 
         <div class="panel panel-primary admin-panel-attendance">
 
+            <!-- Informaações da Ficha 
             <div class="panel-heading admin-panel-heading-attendance">
                 <span class="glyphicon glyphicon-tasks"></span>
                 <strong class="record-header">Ficha do {{ usuario.aluno.username }}</strong>
@@ -27,10 +28,12 @@
                 </div>
                 {% endif %}
             </div>
+            -->
 
             <div class="panel-body">
                 <div class="col-md-12">
 
+                <!-- Última Presença
                 {% if ulpresenca %}
                 <div class="alert-message alert-message-info">
                     <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
@@ -52,6 +55,7 @@
                     </div>
                 </div>
                 {% endif %}
+                -->
 
                     <div class="panel-group" id="accordion"> <!-- panel-group-accordion -->
 
@@ -59,9 +63,15 @@
 
                         <div class="panel panel-default"> <!--panel -->
                             <div class="panel-heading heading-panel-training{% if forloop.first %}-active{% endif %}"> <!-- panel-heading -->
-                                <h4 class="panel-title"> <!-- panel-title -->
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#treino-{{ treino.pk }}">{{ treino.nome }}</a>
-                                </h4> <!-- /.panel-title -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#treino-{{ treino.pk }}">{{ treino.nome }}</a>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <a class="icon-exibition" href="#"><span class="glyphicon glyphicon-align-justify"></span></a>
+                                        <a class="icon-exibition" href="#"><span class="glyphicon glyphicon-list"></span></a>
+                                    </div>
+                                </div>
                             </div> <!-- /.panel-heading -->
                             <div id="treino-{{ treino.pk }}" class="panel-collapse collapse"> <!-- panel-collapse -->
                                 <div class="panel-body"> <!-- panel-body -->
@@ -83,14 +93,15 @@
                                         <div id="myTabContent" class="tab-content">
                                             <div class="tab-pane fade active in" id="exercicios-treino-{{ treino.pk }}">
                                                 <div class="table-responsive">
-                                                    <div class="col-xs-10">
+                                                    <div class="col-xs-12">
                                                         <table class="table table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th class="text-center">Ordem</th>
-                                                                    <th>Exercício</th>
-                                                                    <th class="text-center">Série</th>
-                                                                    <th class="text-center">Repetição</th>
+                                                                    <th width="20%" class="text-center">Ordem</th>
+                                                                    <th width="20%">Exercício</th>
+                                                                    <th width="20%" class="text-center">Série</th>
+                                                                    <th width="20%" class="text-center">Repetição</th>
+                                                                    <th width="20%" class="text-center">Peso</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -102,6 +113,7 @@
                                                                     <td>{{ exerc.nome }}</td>
                                                                     <td class="text-center">{{ exerc.serie}}</td>
                                                                     <td class="text-center">{{ exerc.repeticao}}</td>
+                                                                    <td class="text-center">{{ exerc.repeticao}}</td>
                                                                 </tr>
 
                                                                 {% endfor %}
@@ -110,37 +122,68 @@
                                                         </table>
                                                     </div>
                                                 </div>
-
-                                                {% if not usuario.treinando %}
-                                                <div class="col-xs-2 text-center">
-                                                    <a href="{% url 'iniciar-treinamento' pk=usuario.aluno.pk treino=treino.pk %}" type="button" class="btn btn-success btn-sm start-training">Iniciar<br>Treinamento</a>
-                                                </div>
-                                                {% endif %}
-
                                             </div>
 
                                             <div class="tab-pane" id="presencas-treino-{{ treino.pk }}">
                                                 <div class="table-responsive">
-                                                    <div class="col-xs-10">
+                                                    <div class="col-xs-12">
                                                         <h1>Presenças  do  {{ treino.nome }}</h1>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, eligendi, repudiandae, expedita impedit eos natus culpa quisquam minus possimus omnis quaerat consequatur molestias dolore consectetur repellat cumque neque a excepturi?
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ut quas nesciunt pariatur sapiente dicta alias. Minus, quas vitae commodi praesentium vero suscipit impedit. Eum, voluptate facilis libero fugiat eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, debitis nesciunt earum! Aliquid obcaecati ullam nemo natus eos. Voluptas quo laborum optio praesentium sequi dolor labore id explicabo fuga quasi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, cumque, suscipit aliquid excepturi placeat asperiores unde qui sequi dolore voluptatem eligendi nam beatae nemo sed nobis repellat iste. Mollitia, quaerat.</p>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="tab-pane" id="graficos-treino-{{ treino.pk }}">
                                                 <div class="table-responsive">
-                                                    <div class="col-xs-10">
+                                                    <div class="col-xs-12">
                                                         <h1>Gráficos do {{ treino.nome }}</h1>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, deleniti, vel, voluptates atque delectus in aliquid sequi praesentium beatae voluptatum rem odio enim dolores ipsum maxime. Eveniet, in dolor ullam.
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, ullam, voluptatibus, odit, est doloremque ducimus possimus voluptate dolore deleniti cum explicabo modi debitis voluptates animi labore cumque mollitia et error! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, odio, earum, magnam corporis vero cupiditate vel natus iure eaque incidunt inventore quaerat adipisci assumenda placeat repellat tempore amet tenetur sequi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, vero ipsum asperiores modi. Voluptatum, aliquam eius dolorem rerum tempore reprehenderit molestias magnam sint iure harum veritatis cum fugiat iusto unde.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-xs-12"> <!-- col-md-12 -->
+                                            <div class="table-responsive"> <!-- table-responsive -->
+                                                <table class="table table-bordered"> <!-- /.table -->
+                                                        <tr> <!-- title-exibition-training -->
+                                                            <th colspan="4" class="active text-center">
+                                                                <h4 class="title-exibition-training">Treino A</h4>
+                                                            </th>
+                                                        </tr> <!-- /.title-exibition-training -->
+                                                        <tr>
+                                                            <th width="25%" class="options-exibition-training">Exercício</th>
+                                                            <th width="25%" class="options-exibition-training text-center">Série</th>
+                                                            <th width="25%" class="options-exibition-training text-center">Repetição</th>
+                                                            <th width="25%" class="options-exibition-training text-center">Peso</th>
+                                                        </tr>                          
+                                                        <tr>
+                                                            <td>Supino Reto</td>
+                                                            <td class="text-center">3</td>
+                                                            <td class="text-center">10</td>
+                                                            <td class="text-center">20</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Remada Alta</td>
+                                                            <td class="text-center">3</td>
+                                                            <td class="text-center">8</td>
+                                                            <td class="text-center">25</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Rosca Direta</td>
+                                                            <td class="text-center">3</td>
+                                                            <td class="text-center">10</td>
+                                                            <td class="text-center">15</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mesa Extensora</td>
+                                                            <td class="text-center">3</td>
+                                                            <td class="text-center">8</td>
+                                                            <td class="text-center">30</td>
+                                                        </tr>
+                                                </table> <!-- /.table -->
+                                            </div> <!-- /.table-responsive -->
+                                        </div> <!-- /.col-md-12 -->
 
                                     </div> <!-- /.col-md-12 -->
                                 </div> <!-- /.panel-body -->
@@ -163,3 +206,11 @@
         </div>
 
 {% endblock content-ficha %}
+
+<!-- Iniciar Treinamento 
+{% if not usuario.treinando %}
+<div class="col-xs-2 text-center">
+    <a href="{% url 'iniciar-treinamento' pk=usuario.aluno.pk treino=treino.pk %}" type="button" class="btn btn-success btn-sm start-training">Iniciar<br>Treinamento</a>
+</div>
+{% endif %}
+-->

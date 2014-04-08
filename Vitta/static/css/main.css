@@ -408,8 +408,6 @@ a.admin-vertical-link-logout {
 /* #CSS Record Header */
 
 /* CSS Training Started */
-
-/* #CSS Training Started */
 .panel-training-started {
   border: none;
   box-shadow: none;
@@ -424,9 +422,27 @@ a.admin-vertical-link-logout {
 .panel-body-training-started {
   box-shadow: none;
 }
+/* #CSS Training Started */
+
+/* CSS Training Exibition */
+.table-bordered > tbody > tr >th {
+  border: 1px solid #000;
+}
+.table-bordered > tbody > tr >td {
+  border: 1px solid #000;
+}
+h4.title-exibition-training {
+  font-family: 'Oswald', sans-serif;
+}
+th.options-exibition-training {
+  font-size: 16px;
+  font-weight: normal;
+  font-family: 'Oswald', sans-serif;
+}
+/* #CSS Training Exibition */
+
 /* CSS Training */
 .nav-tabs {
-  margin-left: 15px;
   margin-bottom: 15px;
   border-bottom: 1px solid #000;
 }
@@ -460,13 +476,20 @@ h4.options-tabs {
 }
 .panel > .heading-panel-training {
   background: #444;
-  color: #eee;
-  font-family: 'Oswald', sans-serif;
 }
 .panel > .heading-panel-training-active {
   background: #5cb85c;
+}
+a.panel-title {
+  font-size: 18px;
   color: #eee;
   font-family: 'Oswald', sans-serif;
+  text-decoration: none;
+}
+a.icon-exibition {
+  text-decoration: none;
+  color: #eee;
+  font-size: 18px;
 }
 .weight-control {
   width: 105px;
