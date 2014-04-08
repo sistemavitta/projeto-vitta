@@ -1,10 +1,15 @@
 
 
-var mod = angular.module('home', [])
+var mod = angular.module('home', ['ngCookies'])
 
-mod.config(function($interpolateProvider) {
+mod.config(function($interpolateProvider, $httpProvider) {
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
+  $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+}).run(function($http, $cookies) {
+    $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+    $http.defaults.headers.put['X-CSRFToken'] = $cookies.csrftoken;
 });
 
 
@@ -12,7 +17,39 @@ function BuscarAluno($scope,$http,$window){
 
     // $scope.peso=10;
 
-    $scope.buscar = function(){
+     $scope.atualizarPeso = function(peso, exercicio){
+      $http.put('/api/peso/' + exercicio , {"peso": peso, "exercicio": exercicio})
+      .success(function(response, status, headers, config){
+        $scope.student = response;
+        console.log(status);
+      })
+      .error(function(response, status, headers, config){
+        $scope.error_message = response;
+        console.log(response);
+      });
+    };
+
+    $scope.incrementar = function(peso, exercicio){
+
+        peso = peso+1;
+        $window.alert(peso);
+
+    };
+
+
+    // $scope.updatePeso = function(){
+    //   $http.put('/api/peso/' + 1 , {"peso": 10})
+    //   .success(function(response, status, headers, config){
+    //     $scope.student = response.student;
+    //     $scope.enterNew = false;
+    //     $scope.editing = false;
+    //   })
+    //   .error(function(response, status, headers, config){
+    //     $scope.error_message = response.error_message;
+    //   });
+    // };
+
+    $scope.buscarAluno = function(){
         if ($scope.searchText.length>0){
             $scope.usuarios = '';
             $scope.loading = true;
@@ -51,7 +88,7 @@ function BuscarAluno($scope,$http,$window){
 
     $scope.enter = function(ev){
         if (ev.which==13) {
-           $scope.buscar();
+           $scope.buscarAluno();
         };
     };
 

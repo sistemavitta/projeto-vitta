@@ -44,14 +44,14 @@ class NomesExercicioAdmin(admin.ModelAdmin):
 
 
 class ExerciciosAlunoAdmin(admin.ModelAdmin):
-    list_display=['treino','nome','serie','repeticao','ativo']
+    list_display=['treino','nome','serie','repeticao','peso','ativo']
 
     #search_fields=['aluno__nome']
     list_filter=['ativo']
     #inlines=[PesosexerciciosInline]
 
 class PesoExercicioAdmin(admin.ModelAdmin):
-    list_display = ['exercicio','peso','ativo']
+    list_display = ['id','exercicio','peso','ativo']
 
 admin.site.register(Fichas,FichasAdmin)
 admin.site.register(Treinos,TreinosAdmin)

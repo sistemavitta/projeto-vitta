@@ -42,13 +42,13 @@
                                             <td style="width: 1px;">
                                                 <div class="input-group weight-control"> <!-- input-group -->
                                                     <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                        <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="peso=peso-1;">
+                                                        <button type="button" class="btn btn-danger btn-sm btn-number" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1; atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});">
                                                             <span class="glyphicon glyphicon-minus"></span>
                                                         </button>
                                                     </span> <!-- /.input-group-btn-minus -->
-                                                    <input type="text" ng-init="peso=10;" ng-model="peso" class="form-control input-sm">
+                                                    <input type="text" ng-init="peso{{exerc.pk}} = {{exerc.peso}};" ng-model="peso{{exerc.pk}}" class="form-control input-sm" disabled>
                                                     <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                        <button type="button" ng-click=" peso=peso+1" class="btn btn-primary btn-sm btn-number">
+                                                        <button type="button" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} + 1; atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});" class="btn btn-primary btn-sm btn-number">
                                                             <span class="glyphicon glyphicon-plus"></span>
                                                         </button>
                                                     </span> <!-- /.input-group-btn-plus -->
@@ -62,11 +62,15 @@
                             <div class="col-xs-2 text-center">
                                 <a href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" type="button" class="btn btn-danger btn-sm complete-training">Fizalizar<br>Treinamento</a>
                             </div>
-                        </div>        
+                        </div>
                     </div> <!-- /.panel-body -->
                 </div> <!-- /.panel-default -->
+
+                 <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="atualizarPeso()">
+                    Trocar Peso
+                </button>
             {% else %}
-            
+
             <div class="alert-message alert-message-registering-training">
                 <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
                 <span class="glyphicon glyphicon-ban-circle"></span>

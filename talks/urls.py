@@ -20,5 +20,6 @@ urlpatterns = patterns('talks.views',
     #url(r'^', include(router.urls)),
     url(r'^users/$',views.UserList.as_view(),name='user-list'),
     url(r'^users/(?P<pk>\d+)/$',views.UserDetail.as_view(),name='user-datail'),
+    url(r'^peso/(?P<pk>\d+)/$',views.PesoCreate.as_view(),name='peso-create'),
 
 )

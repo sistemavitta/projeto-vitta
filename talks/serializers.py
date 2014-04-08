@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
 from perfil.models import Perfil
 from rest_framework import serializers
+from training.models import PesoExercicio
 
 
 
@@ -10,7 +11,7 @@ class PerfilSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Perfil
 		fields = ('level','image')
-    
+
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -27,4 +28,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
         fields = ('name')
+
+class PesoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = PesoExercicio
+
 

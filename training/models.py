@@ -146,6 +146,14 @@ class ExerciciosAluno(models.Model):
                               default=True)
     position = models.PositiveIntegerField(verbose_name=u'Ordem')
 
+
+    def peso(self):
+        peso=self.pesos.all().last()
+        if not peso:
+            return 0
+        return peso.peso
+    peso.short_description=u'Peso'
+
     def __unicode__(self):
         return unicode(self.nome)
 
