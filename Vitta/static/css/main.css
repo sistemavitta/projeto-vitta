@@ -310,7 +310,7 @@ a.admin-vertical-link-logout {
 
 /* CSS Feedback */
 .alert-message {
-    margin-top: 0;
+    margin-top: -12px;
     margin-bottom: 12px;
     padding: 10px 20px 10px 20px;
     box-shadow: 20px;
@@ -433,12 +433,74 @@ th.options-exibition-training {
   font-weight: normal;
   font-family: 'Oswald', sans-serif;
 }
+.glyphicon-align-justify {
+  color: #444;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.glyphicon-list {
+  color: #444;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
 /* #CSS Training Exibition */
 
 /* CSS Swap Sheet */
 .swap-sheet {
+  -webkit-border-top-left-radius: 12px;
+  -webkit-border-top-right-radius: 12px;
+  -moz-border-radius-topleft: 12px;
+  -moz-border-radius-topright: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 0;
+  background: #fff;
 }
-.swap-sheet-low {
+.swap-sheet:hover {
+  background: #fff;
+}
+.open .dropdown-toggle.btn-default {
+  background: #fff;
+}
+.btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-top: 1px solid rgba(0,0,0,.15);
+  border-left: 1px solid rgba(0,0,0,.15);
+  border-right: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+.sheet-text {
+  font-size: 15px;
+}
+.sheet-drop {
+  font-size: 15px;
+}
+.dropdown-menu {
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top: 0;
+  width: 165px;
+  margin-top: 0;
+}
+.dropdown-menu>li>a:hover {
+  background: none;
 }
 /* #CSS Swap Sheet */
 
@@ -519,6 +581,12 @@ a.icon-exibition {
 /* CSS Attendance */
 .admin-panel-attendance {
   border: none;
+  -webkit-border-radius: 4px;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius: 4px;
+  -moz-border-radius-topleft: 0;
+  border-radius: 4px;
+  border-top-left-radius: 0;
 }
 .panel > .admin-panel-heading-attendance {
   background: #444;

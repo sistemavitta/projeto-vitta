@@ -8,13 +8,11 @@
 
 {% block content-ficha %}
 
-        <div class="btn-group">
-            <button type="button" class="btn btn-default swap-sheet">Trocar Ficha</button>
-            <button type="button" class="btn btn-default dropdown-toggle swap-sheet-low" data-toggle="dropdown">
+        <div class="btn-group swap-sheet-group">
+            <button type="button" class="btn btn-default swap-sheet dropdown-toggle" data-toggle="dropdown"><span class="sheet-text">Trocar Ficha do Aluno</span>&nbsp;&nbsp;
                 <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
             </button>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu sheet-drop" role="menu">
                 <li>
                     <a href="#">Ficha 1</a>
                 </li>
@@ -34,6 +32,15 @@
         </div>
 
         <div class="panel panel-primary admin-panel-attendance">
+            
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="col-md-12 text-right">
+                        <a class="icon-exibition" href="#"><span class="glyphicon glyphicon-align-justify"></span></a>
+                        <a class="icon-exibition" href="#"><span class="glyphicon glyphicon-list"></span></a>       
+                    </div>
+                </div>
+            </div>
 
             <!-- Informações da Ficha 
             <div class="panel-heading admin-panel-heading-attendance">
@@ -106,12 +113,8 @@
                         <div class="panel panel-default"> <!--panel -->
                             <div class="panel-heading heading-panel-training{% if forloop.first %}-active{% endif %}"> <!-- panel-heading -->
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#treino-{{ treino.pk }}">{{ treino.nome }}</a>
-                                    </div>
-                                    <div class="col-md-6 text-right">
-                                        <a class="icon-exibition" href="#"><span class="glyphicon glyphicon-align-justify"></span></a>
-                                        <a class="icon-exibition" href="#"><span class="glyphicon glyphicon-list"></span></a>
                                     </div>
                                 </div>
                             </div> <!-- /.panel-heading -->
