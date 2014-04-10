@@ -40,6 +40,18 @@ class AdministrationTemp(models.Model):
     duracao.short_description=u'Duração'
 
 
+    def  cronometro(self):
+        try:
+            intervalo=datetime.utcnow().replace(tzinfo=timezone.utc) - self.inicio_treino
+            tempo= (intervalo.days * 24 + intervalo.seconds / 3600.00 + intervalo.microseconds / 3600000000.00 )
+        except:
+            tempo=0
+        #tempo=" %s min" % int(tempo*60)
+        return int(tempo*60*60)
+    duracao.short_description=u'cronometro'
+
+
+
     #get_treino_display
     def __unicode__(self):
         return unicode(self.professor)

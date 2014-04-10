@@ -47,15 +47,15 @@
             </li>
         </ul>
     </div> <!-- /.admin-nav-user -->
-    
+
     <div class="panel panel-default start-training">
         <div class="panel-heading start-training-heading text-center">
             <span class="start-training-title">Treinamento</span>
         </div>
         <div class="panel-body start-training-body text-center">
-            <span class="start-training-stopwatch">00:00</span>
+            <span {% if usuario.treinando %} id="runner" {% endif %} class="start-training-stopwatch">00:00</span>
         </div>
-        <div class="panel-footer start-training-footer text-center"> 
+        <div class="panel-footer start-training-footer text-center">
             <a class="start-training-play" href="#startModal" data-toggle="modal">
                 <span class="glyphicon glyphicon-play"></span>
                 &nbsp;Iniciar
@@ -78,19 +78,19 @@
     {% endif %} -->
 
     <!-- Área do Professor
-    <div class="thumbnail admin-vertical-instructor"> 
-        <div class="admin-vertical-instructor-active"> 
-            <div class="admin-vertical-notifications">3</div> 
-            <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor"> 
+    <div class="thumbnail admin-vertical-instructor">
+        <div class="admin-vertical-instructor-active">
+            <div class="admin-vertical-notifications">3</div>
+            <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor">
                 <img  {% if  user.perfil.image %}
                     src="{{ user.perfil.image }}-/scale_crop/40x40/center/"
                 {% else %}
                     src="holder.js/40x40/text:{{ user.username }} "
                 {% endif %}
              alt=""  class="img-circle">
-            </a> 
-            <a href="{% url 'fechar-ficha' user.pk %}" class="admin-vertical-link-logout" ng-click="window.alert('la')">Sair do Sistema</a> 
-        </div> 
+            </a>
+            <a href="{% url 'fechar-ficha' user.pk %}" class="admin-vertical-link-logout" ng-click="window.alert('la')">Sair do Sistema</a>
+        </div>
     </div> -->
 </nav>
 
@@ -126,13 +126,13 @@
                     <li class="disabled">
                         <a href="#step-1">
                             <h4 class="list-group-item-heading">Treino A</h4>
-                            
+
                         </a>
                     </li>
                     <li class="active">
                         <a href="#step-1">
                             <h4 class="list-group-item-heading">Iniciar Treinamento</h4>
-                            
+
                         </a>
                     </li>
                 </ul>
@@ -140,13 +140,13 @@
                     <li class="disabled">
                         <a href="#step-1">
                             <h4 class="list-group-item-heading">Treino B</h4>
-                            
+
                         </a>
                     </li>
                     <li class="active">
                         <a href="#step-1">
                             <h4 class="list-group-item-heading">Iniciar Treinamento</h4>
-                           
+
                         </a>
                     </li>
                 </ul>
@@ -154,13 +154,13 @@
                     <li class="disabled">
                         <a href="#step-1">
                             <h4 class="list-group-item-heading">Treino C</h4>
-                            
+
                         </a>
                     </li>
                     <li class="active">
                         <a href="#step-1">
                             <h4 class="list-group-item-heading">Iniciar Treinamento</h4>
-                            
+
                         </a>
                     </li>
                 </ul>

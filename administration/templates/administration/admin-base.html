@@ -12,8 +12,17 @@
     <script src="{{STATIC_URL}}js/libs/bootstrap-tabcollapse.js"></script>
     <script src="{{STATIC_URL}}js/libs/spinner.js"></script>
     <script src="{{STATIC_URL}}js/libs/toggle.js"></script>
+    <script src="{{STATIC_URL}}js/libs/jquery.runner-min.js"></script>
     <script type="text/javascript">
         $('#myTab').tabCollapse();
+        $('#runner').runner({
+            countdown: false,
+            autostart: true,
+            //startAt: 12 * 60 * 1000,
+            startAt: {{ usuario.cronometro }} * 1000,
+            milliseconds: false,
+
+        });
     </script>
 
 {% endblock js %}
