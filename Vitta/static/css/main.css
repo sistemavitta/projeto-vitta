@@ -122,6 +122,66 @@ html, body {
 }
 /* #CSS Modal */
 
+/* CSS Modal Start */
+.start-modal-header {
+  background: #428bca;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.close {
+  font-size: 25px;
+  color: #fff;
+  text-shadow: none;
+  opacity: 1;
+  filter: none;
+}
+.date-col {
+  margin-left: -20px;
+}
+.training-col {
+  margin-left: -30px;
+  width: initial;
+}
+.last-presence-title {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.last-presence-options {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.last-presence-sub-options {
+  font-size: 13px;
+  color: #fff;
+}
+.start-btn-close{
+  background: #e73e2c;
+  border: none;
+}
+.start-btn-close:hover {
+  background: #e73e2c;
+  border: none;
+}
+
+/* #CSS Modal Start */
+
+/* CSS Modal Stop */
+.stop-btn-close{
+  background: #e73e2c;
+  border: none;
+}
+.stop-btn-close:hover {
+  background: #e73e2c;
+  border: none;
+}
+/* #CSS Modal Stop */
+
 /* CSS Navbar Vertical Admin */
 
 /* CSS Navbar Base */

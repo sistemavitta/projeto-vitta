@@ -62,11 +62,9 @@
             </a>
         </div>
 
-        <!-- Finalizar Treino
         <div class="panel-footer stop-training-footer text-center">
             <a class="start-training-play" href="#stopModal" data-toggle="modal"><span class="glyphicon glyphicon-stop"></span>&nbsp;Finalizar</a>
         </div>
-        -->
 
     </div>
 
@@ -101,9 +99,26 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Último Treino</h4>
+                <div class="modal-header start-modal-header">
+                    <button type="button" class="close last-presence-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                    <h4 class="modal-title last-presence-title" id="myModalLabel">Último Treino</h4>
+
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="last-presence-options">Professor:</span>&nbsp;<span class="last-presence-sub-options">William</span>
+                        </div>
+                        <div class="col-xs-5 date-col">
+                            <span class="last-presence-options">Data/Hora:</span>&nbsp;<span class="last-presence-sub-options">Domingo 06/4/2014 11:00</span>
+                        </div>
+                        <div class="col-xs-2 training-col">
+                            <span class="last-presence-options">Treino:</span>&nbsp;<span class="last-presence-sub-options">Treino A</span>
+                        </div>
+                        <div class="col-xs-2">
+                            <span class="last-presence-options">Duração:</span>&nbsp;<span class="last-presence-sub-options">45&nbsp;min</span>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="modal-body">
@@ -111,7 +126,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-danger pull-left start-btn-close" data-dismiss="modal">Fechar</button>
                 </div>
 
             </div>
@@ -134,7 +149,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-danger pull-left stop-btn-close" data-dismiss="modal">Fechar</button>
                 </div>
 
             </div>
