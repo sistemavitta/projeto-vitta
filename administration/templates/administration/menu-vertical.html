@@ -1,11 +1,12 @@
 <nav class="menubar">
-    <div class="admin-nav-brand"> <!-- admin-nav-brand -->
+    <!-- Logotipo
+    <div class="admin-nav-brand">
         <ul>
             <li>
                 <a href="#">Dalton Moraes</a>
             </li>
         </ul>
-    </div> <!-- /.admin-nav-brand -->
+    </div> -->
     <div class="thumbnail admin-nav-profile text-center"> <!-- admin-nav-profile -->
         <img    {% if  usuario.aluno.perfil.image %}
                     src="{{ usuario.aluno.perfil.image }}-/scale_crop/120x120/center/"
@@ -20,10 +21,18 @@
                 {{ usuario.aluno.phone }}
             </p> <!-- /.admin-nav-profile-information-user -->
         </div>
+
+        {% if request.user != usuario.aluno %}
+        <div class="closing-record"> <!-- closing-record -->
+            <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
+                <button type="button" class="btn btn-danger btn-xs btn-close-record">Fechar Ficha</button>
+            </a> <!-- /.closing-record -->
+        </div>
+        {% endif %}
+
     </div> <!-- /.admin-nav-profile -->
     <div class="admin-nav-user"> <!-- admin-nav-user -->
         <ul>
-
             <li>
                 <a href="{% url 'list-treinos' usuario.aluno.pk %}" class="{% if urlname == 'list-treinos'%}active{% endif %}">Consultar Treinos</a>
             </li>
@@ -36,32 +45,58 @@
             <li>
                 <a href="{% url 'list-presencas' usuario.aluno.pk %}" class="{% if urlname == 'list-presencas'%}active{% endif %}">Presenças</a>
             </li>
-
-
-
         </ul>
     </div> <!-- /.admin-nav-user -->
+    
+    <div class="panel panel-default start-training">
+        <div class="panel-heading start-training-heading text-center">
+            <span class="start-training-title">Treinamento</span>
+        </div>
+        <div class="panel-body start-training-body text-center">
+            <span class="start-training-stopwatch">00:00</span>
+        </div>
+        <div class="panel-footer start-training-footer text-center"> 
+            <a href="#" class="start-training-play" data-toggle="modal" data-target="#startModal"><span class="glyphicon glyphicon-play"></span>&nbsp;Iniciar</a>
+        </div>
 
+        <!-- Finalizar Treino
+        <div class="panel-footer stop-training-footer text-center">
+            <a href="#" class="start-training-play" data-toggle="modal" data-target="#stopModal"><span class="glyphicon glyphicon-stop"></span>&nbsp;Finalizar</a>
+        </div>
+        -->
+
+    </div>
+
+    <!-- Modal Iniciar -->
+
+    <!-- /.Modal Iniciar -->
+
+    <!-- Modal Feedback -->
+
+    <!-- /.Modal Feedback -->
+    
+    <!-- Fechar Ficha
     {% if request.user != usuario.aluno %}
-    <div class="closing-record"> <!-- closing-record -->
+    <div class="closing-record">
         <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
             <button type="button" class="btn btn-danger btn-sm btn-close-record">Fechar Ficha</button>
-        </a> <!-- /.closing-record -->
+        </a>
     </div>
-    {% endif %}
+    {% endif %} -->
 
-    <div class="thumbnail admin-vertical-instructor"> <!-- admin-vertical-instructor -->
-        <div class="admin-vertical-instructor-active"> <!-- admin-vertical-instructor-active -->
-            <div class="admin-vertical-notifications">3</div> <!-- /.admin-vertical-notifications -->
-            <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor"> <!-- admin-vertical-link-instructor -->
+    <!-- Área do Professor
+    <div class="thumbnail admin-vertical-instructor"> 
+        <div class="admin-vertical-instructor-active"> 
+            <div class="admin-vertical-notifications">3</div> 
+            <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor"> 
                 <img  {% if  user.perfil.image %}
                     src="{{ user.perfil.image }}-/scale_crop/40x40/center/"
                 {% else %}
                     src="holder.js/40x40/text:{{ user.username }} "
                 {% endif %}
              alt=""  class="img-circle">
-            </a> <!-- /.admin-vertical-link-instructor -->
-            <a href="{% url 'fechar-ficha' user.pk %}" class="admin-vertical-link-logout" ng-click="window.alert('la')">Sair do Sistema</a> <!-- /.admin-vertical-link-logout -->
-        </div> <!-- /.admin-vertical-instructor-active -->
-    </div> <!-- /.admin-vertical-instructor -->
+            </a> 
+            <a href="{% url 'fechar-ficha' user.pk %}" class="admin-vertical-link-logout" ng-click="window.alert('la')">Sair do Sistema</a> 
+        </div> 
+    </div> -->
 </nav>
