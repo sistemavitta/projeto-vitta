@@ -15,26 +15,28 @@ mod.config(function($interpolateProvider, $httpProvider) {
 
 function BuscarAluno($scope,$http,$window){
 
-    // $scope.peso=10;
 
      $scope.atualizarPeso = function(peso, exercicio){
       $http.put('/api/peso/' + exercicio , {"peso": peso, "exercicio": exercicio})
       .success(function(response, status, headers, config){
-        $scope.student = response;
+        //$scope.student = response;
         console.log(status);
       })
       .error(function(response, status, headers, config){
-        $scope.error_message = response;
+        //$scope.error_message = response;
         console.log(response);
       });
     };
 
-    $scope.incrementar = function(peso, exercicio){
-
-        peso = peso+1;
-        $window.alert(peso);
-
-    };
+    // $scope.trocarPeso = function(peso){
+    // style="cursor: pointer;" onclick="window.location='http://google.com';"
+    //     $scope.peso=peso;
+    //     // if (peso ){
+    //         setTimeout(function(){
+    //             $window.alert(peso);
+    //         }, 100)
+    //     // };
+    // };
 
 
     // $scope.updatePeso = function(){
