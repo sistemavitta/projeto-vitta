@@ -56,25 +56,20 @@
             <span class="start-training-stopwatch">00:00</span>
         </div>
         <div class="panel-footer start-training-footer text-center"> 
-            <a href="#" class="start-training-play" data-toggle="modal" data-target="#startModal"><span class="glyphicon glyphicon-play"></span>&nbsp;Iniciar</a>
+            <a class="start-training-play" href="#startModal" data-toggle="modal">
+                <span class="glyphicon glyphicon-play"></span>
+                &nbsp;Iniciar
+            </a>
         </div>
 
         <!-- Finalizar Treino
         <div class="panel-footer stop-training-footer text-center">
-            <a href="#" class="start-training-play" data-toggle="modal" data-target="#stopModal"><span class="glyphicon glyphicon-stop"></span>&nbsp;Finalizar</a>
+            <a class="start-training-play" href="#stopModal" data-toggle="modal"><span class="glyphicon glyphicon-stop"></span>&nbsp;Finalizar</a>
         </div>
         -->
 
     </div>
 
-    <!-- Modal Iniciar -->
-
-    <!-- /.Modal Iniciar -->
-
-    <!-- Modal Feedback -->
-
-    <!-- /.Modal Feedback -->
-    
     <!-- Fechar Ficha
     {% if request.user != usuario.aluno %}
     <div class="closing-record">
@@ -100,3 +95,49 @@
         </div> 
     </div> -->
 </nav>
+
+    <!-- Modal Iniciar -->
+    <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Último Treino</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium pariatur adipisci impedit enim incidunt maiores harum non praesentium! Fugit placeat quos voluptatum hic dicta aperiam porro harum fuga sapiente quis.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.Modal Iniciar -->
+
+    <!-- Modal Feedback -->
+    <div class="modal fade" id="stopModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Feedback do Treino</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, quibusdam commodi magni officiis corporis laudantium aut distinctio fugiat qui temporibus sint ab eligendi alias nihil rem aspernatur dolore voluptatem magnam.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.Modal Feedback -->
