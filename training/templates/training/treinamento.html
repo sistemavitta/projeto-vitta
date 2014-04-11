@@ -66,9 +66,6 @@
                     </div> <!-- /.panel-body -->
                 </div> <!-- /.panel-default -->
 
-                 <button type="button" class="btn btn-danger btn-sm btn-number" ng-click="atualizarPeso()">
-                    Trocar Peso
-                </button>
             {% else %}
 
             <div class="alert-message alert-message-registering-training">
@@ -79,6 +76,16 @@
             {% endif %}
             </div> <!-- /.col-md-12 -->
         </div> <!-- /.panel-body -->
+
+        <div class="panel-footer"><!-- panel-footer -->
+            <a href="#stopModal " type="button" data-toggle="modal" class="btn btn-danger btn" >
+                Finalizar Treinamento
+            </a>
+            <a type="button" class="btn btn-warning btn" >
+                Cancelar Treinamento
+            </a>
+        </div><!-- /.panel-footer -->
+
     </div> <!-- /.admin-panel-attendance -->
 
 {% endblock content-ficha %}

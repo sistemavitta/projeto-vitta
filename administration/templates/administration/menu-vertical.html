@@ -13,7 +13,7 @@
                 {% else %}
                     src="holder.js/120x120/"
                 {% endif %}
-        alt="" class="admin-nav-profile-img-user img-circle"> <!-- /.admin-nav-profile-img-user -->
+        alt="" class="admin-nav-profile-img-user img-circle {% if usuario.treinando %} admin-nav-users-active{% endif %}"> <!-- /.admin-nav-profile-img-user -->
         <h4 class="admin-nav-profile-name-user">{{ usuario.aluno.username }}</h4> <!-- /.admin-nav-profile-name-user -->
         <div>
             <p class="admin-nav-profile-information-user"> <!-- admin-nav-profile-information-user -->
@@ -37,11 +37,6 @@
                 <a href="{% url 'list-treinos' usuario.aluno.pk %}" class="{% if urlname == 'list-treinos'%}active{% endif %}">Consultar Treinos</a>
             </li>
 
-             <li>
-                <a  href="{% url 'treinamento' usuario.aluno.pk %}" class="{% if usuario.treinando %}link-training
-                {% endif %}{% if urlname == 'treinamento'%}active{% endif %}">Treinamento Iniciados</a>
-            </li>
-
             <li>
                 <a href="{% url 'list-presencas' usuario.aluno.pk %}" class="{% if urlname == 'list-presencas'%}active{% endif %}">Presenças</a>
             </li>
@@ -50,10 +45,16 @@
 
     <div class="panel panel-default start-training">
         <div class="panel-heading start-training-heading text-center">
+        {% if not usuario.treinando %}
             <a class="start-training-play" href="#startModal" data-toggle="modal">
                 <span class="glyphicon glyphicon-play"></span>
-                &nbsp;Iniciar
+                &nbsp;Treinar
             </a>
+        {% else %}
+            <a class="start-training-play" href="{% url 'treinamento' usuario.aluno.pk %}" data-toggle="modal">
+                &nbsp;{{ usuario.treino.nome }}
+            </a>
+        {% endif %}
         </div>
         <!-- Finalizar
         <div class="panel-heading stop-training-heading text-center">
@@ -66,7 +67,7 @@
         <div class="panel-body start-training-body text-center">
             <span {% if usuario.treinando %} id="runner" {% endif %} class="start-training-stopwatch">00:00</span>
         </div>
-        <!-- 
+        <!--
         <div class="panel-footer stop-training-footer text-center">
             <a class="start-training-play" href="#stopModal" data-toggle="modal"><span class="glyphicon glyphicon-stop"></span>&nbsp;Finalizar</a>
         </div>
@@ -100,104 +101,5 @@
     </div> -->
 </nav>
 
-    <!-- Modal Iniciar -->
-    <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content start-size">
 
-                <div class="modal-header start-modal-header">
-                    <button type="button" class="close exit-presence" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title last-presence-title" id="myModalLabel">Iniciar Treinamento</h4>
-                </div>
 
-                <div class="modal-body">
-
-                    <div class="alert last-presence">
-                        <h4 class="modal-title last-presence-title-training" id="myModalLabel">Último Treino</h4>
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <span class="last-presence-options">Professor:</span>&nbsp;<span class="last-presence-sub-options">William</span><br>
-                                <span class="last-presence-options">Treino:</span>&nbsp;<span class="last-presence-sub-options">Treino A</span>
-                            </div>
-                            <div class="col-xs-8">
-                                <span class="last-presence-options">Data/Hora:</span>&nbsp;<span class="last-presence-sub-options">Domingo 06/4/2014 11:00</span><br>
-                                <span class="last-presence-options">Duração:</span>&nbsp;<span class="last-presence-sub-options">45&nbsp;min</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <ul class="nav nav-pills nav-justified thumbnail setup-panel">
-                        <li class="disabled">
-                            <a href="#treinoa">
-                                <h4 class="list-group-item-heading">Treino A</h4>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-play"></span>
-                                <span class="train">&nbsp;Treinar</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav nav-pills nav-justified thumbnail setup-panel">
-                        <li class="disabled">
-                            <a href="#treinob">
-                                <h4 class="list-group-item-heading">Treino B</h4>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-play"></span>
-                                <span class="train">&nbsp;Treinar</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav nav-pills nav-justified thumbnail setup-panel">
-                        <li class="disabled">
-                            <a href="#treinoc">
-                                <h4 class="list-group-item-heading">Treino C</h4>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-play"></span>
-                                <span class="train">&nbsp;Treinar</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-
-                <div class="modal-footer start-back">
-                    <button type="button" class="btn btn-danger pull-left start-btn-close" data-dismiss="modal">Fechar</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- /.Modal Iniciar -->
-
-    <!-- Modal Feedback -->
-    <div class="modal fade" id="stopModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Feedback do Treino</h4>
-                </div>
-
-                <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, quibusdam commodi magni officiis corporis laudantium aut distinctio fugiat qui temporibus sint ab eligendi alias nihil rem aspernatur dolore voluptatem magnam.</p>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger pull-left stop-btn-close" data-dismiss="modal">Fechar</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- /.Modal Feedback -->
