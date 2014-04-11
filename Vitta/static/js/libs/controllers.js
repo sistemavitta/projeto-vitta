@@ -40,9 +40,11 @@ function BuscarAluno($scope,$http,$window){
       .success(function(response, status, headers, config){
         //$scope.student = response;
         console.log(status);
+        notificacao('success', 'Peso Atualizado!');
       })
       .error(function(response, status, headers, config){
         //$scope.error_message = response;
+        notificacao('error', 'Erro na atualização do Peso!');
         console.log(response);
       });
     };
@@ -79,11 +81,13 @@ function BuscarAluno($scope,$http,$window){
             $http.get(path).success(function(data){
                 $scope.loading = false;
                 $scope.usuarios = data.results;
+                notificacao('success', 'Busca realizada com sucesso!');
             }).error(function(data){
                 if (data.detail == "Nenhum usuario encontrado") {
                     $scope.loading = false;
                     $scope.informar = true;
                     $scope.alerta = data.detail;
+                    notificacao('information', 'Nenhum usuário encontrado!');
                 } else {
                 $window.alert("Erro ao buscar alunos: Verificar conexão com a internet!");
                 console.log(data);
@@ -104,6 +108,7 @@ function BuscarAluno($scope,$http,$window){
         $('#success').on('shown.bs.modal', function () {
             $('#busca').focus();
         });
+
 
     };
 

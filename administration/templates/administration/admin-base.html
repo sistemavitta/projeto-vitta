@@ -15,7 +15,7 @@
     <script src="{{STATIC_URL}}js/libs/jquery.runner-min.js"></script>
     <script type="text/javascript">
         $('#myTab').tabCollapse();
-        $('#runner').runner({
+        $('#timer').runner({
             countdown: false,
             autostart: true,
             //startAt: 12 * 60 * 1000,
@@ -23,6 +23,19 @@
             milliseconds: false,
 
         });
+
+        function notificacao(type, text) {
+        var n = noty({
+            text        : text,
+            type        : type,
+            dismissQueue: true,
+            layout      : 'bottomRight',
+            timeout     : 1700,
+            theme       : 'defaultTheme',
+            maxVisible  : 10
+        });
+
+    }
     </script>
 
 {% endblock js %}
