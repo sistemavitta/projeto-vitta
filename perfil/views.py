@@ -34,7 +34,7 @@ class AbrirFichaView(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
 
         aluno=get_object_or_404(User.objects.all().filter(is_active=True),pk=self.kwargs.get('ficha'))
-        ficha=aluno.fichas.all().filter(ativo=True).last()
+        ficha=aluno.fichas.all().filter(ativo=True).reverse().last()
         try:
             imagem = aluno.perfil.image
         except:

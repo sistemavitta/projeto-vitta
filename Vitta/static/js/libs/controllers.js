@@ -16,8 +16,27 @@ mod.config(function($interpolateProvider, $httpProvider) {
 function BuscarAluno($scope,$http,$window){
 
 
-     $scope.atualizarPeso = function(peso, exercicio){
-      $http.put('/api/peso/' + exercicio , {"peso": peso, "exercicio": exercicio})
+
+    $scope.listTreinos= function(usuario){
+
+        $scope.treinos = '';
+
+        var path = '/api/treinos/'+usuario+'/?ultima=true';
+        $http.get(path).success(function(data){
+            // $scope.loading = false;
+            $scope.treinos = data.treinos;
+        }).error(function(data){
+
+            console.log(data);
+
+        });
+
+
+    };
+
+
+    $scope.atualizarPeso = function(peso, exercicio){
+      $http.post('/api/peso/', {"peso": peso, "exercicio": exercicio})
       .success(function(response, status, headers, config){
         //$scope.student = response;
         console.log(status);
@@ -103,6 +122,7 @@ function BuscarAluno($scope,$http,$window){
         };
         return false;
     };
+
 
 
 

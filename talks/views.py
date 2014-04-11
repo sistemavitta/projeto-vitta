@@ -3,8 +3,8 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from perfil.models import Perfil
-from serializers import UserSerializer, GroupSerializer, PerfilSerializer, PesoSerializer
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, ListAPIView , UpdateAPIView
+from serializers import UserSerializer, GroupSerializer, PerfilSerializer, PesoSerializer, FichaSerializer, TreinosListSerializer,FichaListSerializer
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, ListAPIView , UpdateAPIView, CreateAPIView
 from rest_framework import permissions
 from rest_framework.exceptions import ParseError
 from rest_framework.reverse import reverse
@@ -12,6 +12,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import mixins
 from training.models import PesoExercicio
+from training.models import Fichas
+from training.models import Treinos
 from rest_framework import status
 #import django_filters
 #from django.utils.timezone import now
@@ -50,15 +52,17 @@ class UserList(UserMixim,ListAPIView):
         return qs
 
 
-class UserDetail(UserMixim,ListAPIView):
-    """
-    Exibe um usuário específico
-    """
+# class UserDetail(UserMixim,ListAPIView):
+#     """
+#     Exibe um usuário específico
+#     """
 
 
+
+'''
 class PesoCreate(UpdateAPIView):
     """
-        Atualiza o peso de um exercício
+        Atualiza o peso de um exercício, senão cria o peso.
     """
 
     # curl -X PATCH  http://localhost:8000/api/peso/4/ -u admin:123 -d "peso=5321"
@@ -71,6 +75,85 @@ class PesoCreate(UpdateAPIView):
     #         serializer.save()
     #         return Response(serializer.data, status=status.HTTP_201_CREATED)
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+'''
+
+class PesoCreate(CreateAPIView):
+    """
+        Criar peso para um exercicio.
+    """
+
+    # curl -X PATCH  http://localhost:8000/api/peso/4/ -u admin:123 -d "peso=5321"
+    queryset = PesoExercicio.objects.all()
+    serializer_class = PesoSerializer
+
+class FichaDetail(ListAPIView):
+    """
+        Exibe a ficha com seus treinos
+
+        Passar parametro: ?usuario=(codigo do usuario)
+
+    """
+
+    queryset = Fichas.objects.all().filter(ativo=True)
+    serializer_class = FichaSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get_queryset(self, *args, **kwargs):
+        # Vamos adicionar a possibilidade de filtrar:
+        qs = super(FichaDetail, self).get_queryset(*args, **kwargs)
+
+        usuario = self.request.QUERY_PARAMS.get('usuario')
+        if usuario is not None:
+            qs = qs.filter(aluno=usuario)
+            if not qs:
+                # Aspecto muito interessante do rest framework, ao levantar
+                # certas exceções, ele atribui o código correto, assim como
+                # o Http404 do django
+                raise ParseError(u'Nenhum usuario encontrado')
+
+        # Poderíamos porém ter usado a api de filtros do rf.
+        return qs
+
+
+class TreinosDetail(APIView):
+    """
+        Exibe a ficha e os treinos ativos do usuario
+
+
+    """
+
+    # queryset = Fichas.objects.all().filter(ativo=True)
+
+    # serializer_class = FichaListSerializer
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get(self, request,usuario, format=None):
+        ultima = self.request.QUERY_PARAMS.get('ultima')
+        if ultima:
+            ficha= Fichas.objects.all().filter(ativo=True).filter(aluno=usuario).reverse().last()
+            serializer = FichaListSerializer(ficha)
+            return Response(serializer.data)
+        ficha= Fichas.objects.all().filter(ativo=True).filter(aluno=usuario)
+        if not ficha:
+            raise ParseError(u'Nenhuma ficha para usuario ')
+        serializer = FichaListSerializer(ficha, many=True)
+        return Response(serializer.data)
+
+    # def get_queryset(self, *args, **kwargs):
+    #     # Vamos adicionar a possibilidade de filtrar:
+    #     qs = super(TreinosDetail, self).get_queryset(*args, **kwargs)
+
+    #     usuario = self.request.QUERY_PARAMS.get('usuario')
+    #     if usuario is not None:
+    #         qs = qs.filter(aluno=usuario)
+    #         if not qs:
+    #             # Aspecto muito interessante do rest framework, ao levantar
+    #             # certas exceções, ele atribui o código correto, assim como
+    #             # o Http404 do django
+    #             raise ParseError(u'Nenhum usuario encontrado')
+
+    #     # Poderíamos porém ter usado a api de filtros do rf.
+    #     return qs
 
 
 class APIRootView(APIView):
@@ -81,6 +164,8 @@ class APIRootView(APIView):
         data = {
 
             'users': reverse('user-list',request=request),
+            'create-peso': reverse('peso-create',request=request),
+            #'ficha-detalhes' : reverse('ficha-detail', request=request),
 
         }
         return Response(data)

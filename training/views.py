@@ -32,14 +32,14 @@ class TreinosListView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
     #model = Fichas
     template_name = 'training/list-treinos.html'
 
-    def get_context_data(self,**kwargs):
-        context = super(TreinosListView, self).get_context_data(**kwargs)
-        try:
-            presenca = self.usuario.aluno.presencas.all().reverse().last()
-        except:
-            presenca = 0
-        context['ulpresenca'] = presenca
-        return context
+    # def get_context_data(self,**kwargs):
+    #     context = super(TreinosListView, self).get_context_data(**kwargs)
+    #     try:
+    #         presenca = self.usuario.aluno.presencas.all().reverse().last()
+    #     except:
+    #         presenca = 0
+    #     context['ulpresenca'] = presenca
+    #     return context
 
     # def get(self, request, *args, **kwargs):
     #     self.ficha = request.GET.get('pk','')
@@ -95,7 +95,7 @@ class TreinarView(LoginRequiredMixin,View):
             aluno.treino=get_object_or_404(aluno.ficha.treinos,pk=self.kwargs.get('treino'))
             aluno.inicio_treino = datetime.now()
             aluno.save(update_fields=['treino','treinando','inicio_treino'])
-        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.aluno.pk}))
+        return HttpResponseRedirect(reverse('treinamento', kwargs={'pk': aluno.aluno.pk}))
 
 class FinalizarView(LoginRequiredMixin,View):
 

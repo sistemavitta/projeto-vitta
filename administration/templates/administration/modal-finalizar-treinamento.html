@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="modal-footer feedback-footer">
-                    <button type="button" class="btn btn-danger pull-left feedback-btn" data-dismiss="modal">Finalizar Treinamento</button>
+                    <a type="button" href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" class="btn btn-danger pull-left feedback-btn">Finalizar Treinamento</a>
                 </div>
 
             </div>

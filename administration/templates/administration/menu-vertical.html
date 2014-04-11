@@ -46,7 +46,7 @@
     <div class="panel panel-default start-training">
         <div class="panel-heading start-training-heading text-center">
         {% if not usuario.treinando %}
-            <a class="start-training-play" href="#startModal" data-toggle="modal">
+            <a class="start-training-play" href="#startModal" data-toggle="modal" ng-click="listTreinos({{ usuario.aluno.pk }})">
                 <span class="glyphicon glyphicon-play"></span>
                 &nbsp;Treinar
             </a>

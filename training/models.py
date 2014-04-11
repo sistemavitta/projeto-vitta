@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 
 
 
+
+
 class Fichas(models.Model):
 
     aluno=models.ForeignKey(User,
@@ -19,13 +21,19 @@ class Fichas(models.Model):
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
 
+    def ultima_presenca(self):
+
+        from administration.models import Presenca
+
+        ultima = Presenca.objects.all().last()
+        return [{'pk': ultima.pk,'aluno':ultima.aluno,'treino':ultima.treino,'professor':ultima.professor,'duracao':ultima.duracao,'feedback':ultima.feedback}]
 
     def __unicode__(self):
         return unicode(self.aluno)
 
     class Meta:
         verbose_name_plural=u"Fichas"
-        ordering = ['criado_em']
+        ordering = ['-criado_em']
 
 
 
@@ -83,6 +91,12 @@ class Treinos(models.Model):
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
 
+    def ultima_presenca(self):
+
+        from administration.models import Presenca
+
+        ultima = Presenca.objects.all().last()
+        return [{'pk': ultima.pk,'aluno':ultima.aluno,'treino':ultima.treino,'professor':ultima.professor,'duracao':ultima.duracao,'feedback':ultima.feedback}]
 
     def __unicode__(self):
         return unicode(self.nome)

@@ -19,7 +19,10 @@ urlpatterns = patterns('talks.views',
 	url(r'^$',views.APIRootView.as_view()),
     #url(r'^', include(router.urls)),
     url(r'^users/$',views.UserList.as_view(),name='user-list'),
-    url(r'^users/(?P<pk>\d+)/$',views.UserDetail.as_view(),name='user-datail'),
-    url(r'^peso/(?P<pk>\d+)/$',views.PesoCreate.as_view(),name='peso-create'),
+    #url(r'^users/(?P<pk>\d+)/$',views.UserDetail.as_view(),name='user-detail'),
+    #url(r'^peso/(?P<pk>\d+)/$',views.PesoCreate.as_view(),name='peso-create'),
+    url(r'^peso/$',views.PesoCreate.as_view(),name='peso-create'),
+    url(r'^fichas/$',views.FichaDetail.as_view(),name='ficha-detail'),
+    url(r'^treinos/(?P<usuario>\d+)/$',views.TreinosDetail.as_view(),name='treinos-detail'),
 
 )

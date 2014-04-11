@@ -23,48 +23,21 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+
+                    <ul class="nav nav-pills nav-justified thumbnail setup-panel" ng-repeat="treino in treinos" >
                         <li class="disabled">
                             <a>
-                                <h4 class="list-group-item-heading">Treino A</h4>
+                                <h4 class="list-group-item-heading">[[treino.nome]]</h4>
                             </a>
                         </li>
                         <li class="active">
-                            <a href="#">
+                            <a href="/perfil/{{ usuario.aluno.pk }}/treinos/treinar/[[treino.id]]">
                                 <span class="glyphicon glyphicon-play"></span>
                                 <span class="train">&nbsp;Treinar</span>
                             </a>
                         </li>
                     </ul>
 
-                    <ul class="nav nav-pills nav-justified thumbnail setup-panel">
-                        <li class="disabled">
-                            <a>
-                                <h4 class="list-group-item-heading">Treino B</h4>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-play"></span>
-                                <span class="train">&nbsp;Treinar</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav nav-pills nav-justified thumbnail setup-panel">
-                        <li class="disabled">
-                            <a>
-                                <h4 class="list-group-item-heading">Treino C</h4>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-play"></span>
-                                <span class="train">&nbsp;Treinar</span>
-                            </a>
-                        </li>
-                    </ul>
 
                 </div>
 
