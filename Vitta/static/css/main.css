@@ -85,6 +85,10 @@ html, body {
 .admin-nav-users-noactive {
   border: 2px solid transparent;
 }
+/* Aluno ativo do perfil */
+.admin-nav-profile-active {
+  border: 4px solid #17c740;
+}
 /* #CSS Navbar Admin Users */
 
 /* CSS Modal */
@@ -124,7 +128,7 @@ html, body {
 
 /* CSS Modal Start */
 .start-modal-header {
-  background: #5cb85c;
+  background: #444;
   padding-top: 16px;
   padding-bottom: 5px;
   -webkit-border-top-left-radius: 5px;
@@ -194,20 +198,49 @@ h4.last-presence-title-training {
 .start-back {
   margin-top: -25px;
   background: #f5f5f5;
+  padding: 15px;
 }
-
 /* #CSS Modal Start */
 
-/* CSS Modal Stop */
-.stop-btn-close{
+/* CSS Modal Feedback */
+.feedback-size {
+  width: 400px;
+  margin-left: 100px;
+}
+.feedback-modal-header {
+  background: #444;
+  padding-top: 16px;
+  padding-bottom: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.feedback-title {
+  margin-bottom: 10px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.form-control {
+  font-size: 16px;
+}
+.feedback-footer {
+  margin-top: 1px;
+  padding: 15px;
+  background: #f5f5f5;
+}
+.feedback-btn {
+  background: #e73e2c;
+  border: none;
+  font-size: 16px;
+}
+.feedback-btn:hover {
   background: #e73e2c;
   border: none;
 }
-.stop-btn-close:hover {
-  background: #e73e2c;
-  border: none;
-}
-/* #CSS Modal Stop */
+/* #CSS Modal Feedback */
 
 /* CSS Navbar Vertical Admin */
 
@@ -239,9 +272,9 @@ h4.last-presence-title-training {
     min-height: 100%;
     position: relative;
 }
-/* CSS Navbar Base */
+/* #CSS Navbar Base */
 
-/* CSS Brand */
+/* CSS Brand
 .admin-nav-brand ul {
   margin-bottom: 0;
 }
@@ -260,7 +293,7 @@ h4.last-presence-title-training {
   text-transform: uppercase;
   font-weight: bold;
 }
-/* #CSS Brand */
+*/
 
 /* CSS User Profile */
 .admin-nav-profile {
@@ -338,7 +371,7 @@ h4.last-presence-title-training {
 }
 /* CSS Play */
 .panel > .start-training-heading {
-  background: #428bca;
+  background: #5cb85c;
   padding: 5px;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
@@ -368,10 +401,16 @@ a.start-training-play {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+a.stop-training-stop {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
 .glyphicon-stop {
   font-size: 17px;
 }
 /* #CSS Stop */
+
 .panel > .start-training-body {
   background: #f5f5f5;
   padding: 5px;
@@ -386,7 +425,6 @@ a.start-training-play {
   font-size: 22px;
 }
 /* #CSS Start Training */
-
 
 /* CSS Instructor 
 .admin-vertical-instructor {
@@ -559,6 +597,28 @@ a.admin-vertical-link-logout {
 }
 .panel-body-training-started {
   box-shadow: none;
+}
+.panel-footer-training-started {
+  background: #444;
+  border: none;
+}
+.complete {
+  background: #e73e2c;
+  border: none;
+  font-size: 16px;
+}
+.complete:hover {
+  background: #e73e2c;
+  border: none;
+}
+.cancel-training {
+  background: #f0ad4e;
+  border: none;
+  font-size: 16px;
+}
+.cancel-training:hover {
+  background: #f0ad4e;
+  border: none;
 }
 /* #CSS Training Started */
 

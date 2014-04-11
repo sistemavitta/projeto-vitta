@@ -13,7 +13,7 @@
                 {% else %}
                     src="holder.js/120x120/"
                 {% endif %}
-        alt="" class="admin-nav-profile-img-user img-circle {% if usuario.treinando %} admin-nav-users-active{% endif %}"> <!-- /.admin-nav-profile-img-user -->
+        alt="" class="admin-nav-profile-img-user img-circle {% if usuario.treinando %} admin-nav-profile-active{% endif %}"> <!-- /.admin-nav-profile-img-user -->
         <h4 class="admin-nav-profile-name-user">{{ usuario.aluno.username }}</h4> <!-- /.admin-nav-profile-name-user -->
         <div>
             <p class="admin-nav-profile-information-user"> <!-- admin-nav-profile-information-user -->
@@ -56,23 +56,9 @@
             </a>
         {% endif %}
         </div>
-        <!-- Finalizar
-        <div class="panel-heading stop-training-heading text-center">
-            <a class="start-training-stop" href="#stopModal" data-toggle="modal">
-                <span class="glyphicon glyphicon-stop"></span>
-                &nbsp;Finalizar
-            </a>
-        </div>
-        -->
         <div class="panel-body start-training-body text-center">
             <span {% if usuario.treinando %} id="runner" {% endif %} class="start-training-stopwatch">00:00</span>
         </div>
-        <!--
-        <div class="panel-footer stop-training-footer text-center">
-            <a class="start-training-play" href="#stopModal" data-toggle="modal"><span class="glyphicon glyphicon-stop"></span>&nbsp;Finalizar</a>
-        </div>
-        -->
-
     </div>
 
     <!-- Fechar Ficha
