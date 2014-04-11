@@ -124,7 +124,9 @@ html, body {
 
 /* CSS Modal Start */
 .start-modal-header {
-  background: #428bca;
+  background: #5cb85c;
+  padding-top: 16px;
+  padding-bottom: 5px;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 5px;
@@ -139,34 +141,59 @@ html, body {
   opacity: 1;
   filter: none;
 }
-.date-col {
-  margin-left: -20px;
-}
-.training-col {
-  margin-left: -30px;
-  width: initial;
+.last-presence {
+  margin-top: -7px;
+  margin-bottom: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+  background: #d9edf7;
 }
 .last-presence-title {
-  text-transform: uppercase;
   margin-bottom: 10px;
   color: #fff;
+  text-transform: uppercase;
+}
+h4.last-presence-title-training {
+  margin-bottom: 3px;
+  color: #444;
+  text-transform: uppercase;
 }
 .last-presence-options {
-  font-size: 13px;
-  text-transform: uppercase;
-  color: #fff;
+  font-size: 14px;
+  color: #444;
 }
 .last-presence-sub-options {
-  font-size: 13px;
-  color: #fff;
+  font-size: 14px;
+  color: #444;
 }
 .start-btn-close{
   background: #e73e2c;
   border: none;
+  font-size: 16px;
 }
 .start-btn-close:hover {
   background: #e73e2c;
   border: none;
+}
+.nav-pills > li.active > a {
+  background: #5cb85c;
+  border: none;
+}
+.nav-pills > li.active > a:hover {
+  background: #5cb85c;
+  border: none;
+}
+.train {
+  font-size: 18px;
+}
+.start-size {
+  width: 400px;
+  margin-left: 100px;
+}
+.start-back {
+  margin-top: -25px;
+  background: #f5f5f5;
 }
 
 /* #CSS Modal Start */
@@ -309,18 +336,21 @@ html, body {
   border-bottom: 0;
   padding: 25px;
 }
+/* CSS Play */
 .panel > .start-training-heading {
   background: #428bca;
   padding: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
-.panel > .start-training-body {
-  background: #f5f5f5;
-  padding: 5px;
-}
-/* CSS Play */
-.panel > .start-training-footer {
-  background: #5cb85c;
-  padding: 5px;
+a.start-training-play {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
 }
 .glyphicon-play {
   font-size: 17px;
@@ -328,26 +358,32 @@ html, body {
 /* #CSS Play */
 
 /* CSS Stop */
-.panel > .stop-training-footer {
+.panel > .stop-training-heading {
   background: #e73e2c;
   padding: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .glyphicon-stop {
   font-size: 17px;
 }
 /* #CSS Stop */
-
-.start-training-title {
-  font-size: 18px;
-  color: #fff;
+.panel > .start-training-body {
+  background: #f5f5f5;
+  padding: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .start-training-stopwatch {
   font-size: 22px;
-}
-a.start-training-play {
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
 }
 /* #CSS Start Training */
 
