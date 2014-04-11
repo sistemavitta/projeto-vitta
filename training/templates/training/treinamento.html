@@ -82,6 +82,8 @@
             </div> <!-- /.col-md-12 -->
         </div> <!-- /.panel-body -->
 
+        {% if usuario.treinando %}
+
         <div class="panel-footer panel-footer-training-started"> <!-- panel-footer -->
             <a href="#stopModal" type="button" data-toggle="modal" class="btn btn-danger complete">
                 Finalizar Treinamento
@@ -91,6 +93,8 @@
                 Cancelar Treinamento
             </a>
         </div> <!-- /.panel-footer -->
+
+        {% endif %}
 
     </div> <!-- /.admin-panel-attendance -->
 

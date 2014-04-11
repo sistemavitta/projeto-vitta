@@ -99,11 +99,11 @@ class TreinarView(LoginRequiredMixin,View):
 
 class FinalizarView(LoginRequiredMixin,View):
 
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
-        aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
+        aluno=get_object_or_404(alunos,aluno=request.POST.get('usuario',''))
         if aluno.treinando:
-            Presenca.objects.create(aluno=aluno.aluno,treino=aluno.treino,professor=aluno.professor,data_inicio=aluno.inicio_treino,duracao=aluno.duracao())
+            Presenca.objects.create(aluno=aluno.aluno,treino=aluno.treino,professor=aluno.professor,data_inicio=aluno.inicio_treino,duracao=aluno.duracao(), feedback=request.POST.get('feedback',''))
             aluno.treino=None
             aluno.treinando=False
             aluno.inicio_treino= None

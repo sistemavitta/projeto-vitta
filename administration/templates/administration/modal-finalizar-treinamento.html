@@ -3,18 +3,22 @@
         <div class="modal-dialog">
             <div class="modal-content feedback-size">
 
-                <div class="modal-header feedback-modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title feedback-title" id="myModalLabel">Finalizar Treinamento</h4>
-                </div>
+                <form action="{% url 'finalizar-treinamento' usuario.aluno.pk %}" method="post">
+                    {% csrf_token %}
+                    <div class="modal-header feedback-modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title feedback-title" id="myModalLabel">Finalizar Treinamento</h4>
+                    </div>
 
-                <div class="modal-body">
-                    <textarea class="form-control workout-feedback" rows="4" placeholder="Feedback do Treino"></textarea>
-                </div>
+                    <div class="modal-body">
+                    <input type="hidden" name="usuario" value="{{ usuario.aluno.pk }}">
+                        <textarea class="form-control workout-feedback" name="feedback" rows="4" placeholder="Feedback do Treino"></textarea>
+                    </div>
 
-                <div class="modal-footer feedback-footer">
-                    <a type="button" href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" class="btn btn-danger pull-left feedback-btn">Finalizar Treinamento</a>
-                </div>
+                    <div class="modal-footer feedback-footer">
+                        <button type="submit"  type="button" class="btn btn-danger pull-left feedback-btn">Finalizar Treinamento</button>
+                    </div>
+                </form>
 
             </div>
         </div>
