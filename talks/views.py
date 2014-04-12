@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from perfil.models import Perfil
-from serializers import UserSerializer, GroupSerializer, PerfilSerializer, PesoSerializer, FichaSerializer, TreinosListSerializer,FichaListSerializer
+from serializers import UserSerializer, GroupSerializer, PerfilSerializer, PesoSerializer, FichaSerializer, TreinosListSerializer,FichaListSerializer, PresencaSerializer
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, ListAPIView , UpdateAPIView, CreateAPIView
 from rest_framework import permissions
 from rest_framework.exceptions import ParseError
@@ -15,6 +15,7 @@ from training.models import PesoExercicio
 from training.models import Fichas
 from training.models import Treinos
 from rest_framework import status
+from administration.models import Presenca
 #import django_filters
 #from django.utils.timezone import now
 #from rest_framework import filters, viewsets
@@ -117,7 +118,9 @@ class FichaDetail(ListAPIView):
 
 class TreinosDetail(APIView):
     """
-        Exibe a ficha e os treinos ativos do usuario
+        Exibe todas fichas do usuario com seus treinos ativos
+
+        se houve parametro (?ultima=true) retorna a ultima ficha ativa
 
 
     """
@@ -131,6 +134,7 @@ class TreinosDetail(APIView):
         ultima = self.request.QUERY_PARAMS.get('ultima')
         if ultima:
             ficha= Fichas.objects.all().filter(ativo=True).filter(aluno=usuario).reverse().last()
+            #presenca=Presenca.objects.all().filter(aluno=usuario).reverse().last()
             serializer = FichaListSerializer(ficha)
             return Response(serializer.data)
         ficha= Fichas.objects.all().filter(ativo=True).filter(aluno=usuario)
@@ -154,6 +158,31 @@ class TreinosDetail(APIView):
 
     #     # Poderíamos porém ter usado a api de filtros do rf.
     #     return qs
+class PresencaDetail(APIView):
+    """
+        Exibe presenças do usuario
+
+        se houve parametro (?ultima=true) retorna a ultima presenca ativa do usuario
+
+    """
+
+    # queryset = Fichas.objects.all().filter(ativo=True)
+
+    # serializer_class = FichaListSerializer
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get(self, request,usuario, format=None):
+        ultima = self.request.QUERY_PARAMS.get('ultima')
+        presencas = Presenca.objects.all().filter(aluno=usuario)
+        if ultima:
+            presenca = presencas.reverse().last()
+            serializer = PresencaSerializer(presenca)
+            return Response(serializer.data)
+        if not presencas:
+            raise ParseError(u'Nenhuma ficha para usuario ')
+        serializer = PresencaSerializer(presencas, many=True)
+        return Response(serializer.data)
+
 
 
 class APIRootView(APIView):

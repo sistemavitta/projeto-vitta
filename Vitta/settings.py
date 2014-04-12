@@ -91,7 +91,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 LANGUAGE_CODE = 'pt-br'
 
-
+#TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -179,7 +179,10 @@ ABSOLUTE_URL_OVERRIDES = {
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGINATE_BY': 100,
+    'PAGINATE_BY': 30,
+    'DATETIME_FORMAT': '%a %d/%m/%Y %H:%M ',
+    'DATE_FORMAT': '%d/%m/%Y ',
+    'TIME_FORMAT' : '%H:%M:%S',
 
     # Coloquei aqui, mas são os defaults
     'DEFAULT_AUTHENTICATION_CLASSES': (

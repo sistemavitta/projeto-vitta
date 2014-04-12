@@ -82,7 +82,7 @@ class TreinosListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Treinos
-        fields = ('id','nome')
+        fields = ('id','nome','criado_em')
 
 
 # class UltimaListingField(serializers.RelatedField):
@@ -94,7 +94,18 @@ class TreinosListSerializer(serializers.ModelSerializer):
 class FichaListSerializer(serializers.ModelSerializer):
     treinos = TreinosListSerializer(many=True)
     #ultima = UltimaListingField(many=True)
+    #criado_em = serializers.DateTimeField()
 
     class Meta:
         model = Fichas
         fields = ('id','aluno', 'objetivo','criado_em','data_inicio','data_fim','treinos')
+
+
+
+class PresencaSerializer(serializers.ModelSerializer):
+    #treinonome = TreinoField(many=True)
+
+    class Meta:
+        model = Presenca
+        fields = ('id', 'aluno','treino','professor','data_inicio','duracao','feedback')
+        depth = 1

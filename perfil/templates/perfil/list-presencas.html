@@ -36,7 +36,7 @@
                             <td class="attendance-time">{{ presenca.duracao }} min</td>
                             <td class="attendance-training">{{ presenca.treino }}</td>
                             <td class="attendance-instrutor">{{ presenca.professor }}</td>
-                            <td class="attendance-instrutor">{{ presenca.feedback }}</td>
+                            <td class="attendance-instrutor">{{ presenca.feedback|truncatewords:5}}</td>
                         </tr>
 
 

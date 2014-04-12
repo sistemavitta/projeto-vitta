@@ -11,16 +11,23 @@
                 <div class="modal-body">
 
                     <div class="alert last-presence">
-                        <h4 class="modal-title last-presence-title-training" id="myModalLabel">Último Treino</h4>
+                        <h4 class="modal-title last-presence-title-training" id="myModalLabel">Último Treinamento Realizado</h4>
                         <div class="row">
                             <div class="col-xs-4">
-                                <span class="last-presence-options">Professor:</span>&nbsp;<span class="last-presence-sub-options">William</span><br>
-                                <span class="last-presence-options">Treino:</span>&nbsp;<span class="last-presence-sub-options">Treino A</span>
+                                <span class="last-presence-options">Professor:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.professor.username]]</span><br>
+                                <span class="last-presence-options">Treino:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.treino.nome]]</span>
                             </div>
                             <div class="col-xs-8">
-                                <span class="last-presence-options">Data/Hora:</span>&nbsp;<span class="last-presence-sub-options">Domingo 06/4/2014 11:00</span><br>
-                                <span class="last-presence-options">Duração:</span>&nbsp;<span class="last-presence-sub-options">45&nbsp;min</span>
+                                <span class="last-presence-options">Data/Hora:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.data_inicio]]</span><br>
+                                <span class="last-presence-options">Duração:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.duracao]]&nbsp;min</span>
                             </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-xs-12">
+                            <span class="last-presence-options">FeeedBack:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.feedback]]</span><br>
+                        </div>
+
                         </div>
                     </div>
 

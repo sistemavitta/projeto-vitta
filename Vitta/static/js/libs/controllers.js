@@ -16,6 +16,24 @@ mod.config(function($interpolateProvider, $httpProvider) {
 function BuscarAluno($scope,$http,$window){
 
 
+    $scope.ultimaPresenca= function(usuario){
+
+        $scope.presenca = '';
+
+        var path = '/api/presencas/'+usuario+'/?ultima=true';
+        $http.get(path).success(function(data){
+            // $scope.loading = false;
+            $scope.presenca = data;
+        }).error(function(data){
+
+            console.log(data);
+
+        });
+
+
+    };
+
+
 
     $scope.listTreinos= function(usuario){
 
@@ -30,6 +48,7 @@ function BuscarAluno($scope,$http,$window){
             console.log(data);
 
         });
+        $scope.ultimaPresenca(usuario);
 
 
     };
