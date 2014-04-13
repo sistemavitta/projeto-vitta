@@ -552,16 +552,6 @@ a.admin-vertical-link-logout {
     text-transform: uppercase;
     font-weight: normal;
 }
-.user-attendance {
-  color: #eee;
-  font-size: 18px;
-  text-transform: uppercase;
-  font-weight: normal;
-}
-.glyphicon-calendar { 
-  margin-right: 4px;
-  font-size: 16px;
-}
 /* #CSS Feedback */
 
 /* CSS Record Header */
@@ -792,55 +782,10 @@ a.icon-exibition {
   border-radius: 4px;
   border-top-left-radius: 0;
 }
-.panel > .admin-panel-heading-attendance {
-  background: #444;
-  border: none;
-}
-.panel > .admin-panel-heading-attendance > .admin-panel-title {
-  font-size: 18px;
-  color: #eee;
+.title-presence {
+  font-size: 16px;
   font-weight: normal;
-}
-.table {
-  border: none;
-}
-.attendance-header-title {
-  font-weight: normal;
-  color: #eee;
-}
-.attendance-header-one {
-  background: #3498db;
-}
-.attendance-start {
-  color: #3498db;
-}
-.attendance-header-two {
-  background: #e74c3c;
-}
-.attendance-stop {    
-  color: #d9534f;
-}
-.attendance-header-three {
-  background: #2ecc71;
-}
-.attendance-time {
-  color: #5cb85c;
-}
-.attendance-header-four {
-  background: #e67e22;
-}
-.attendance-training {
-  color: #e67e22;
-}
-.attendance-header-five {
-  background: #7f8c8d;
-}
-.attendance-instrutor {
-  color: #969696;
-}
-.table > tbody > tr > td {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  font-family: 'Oswald', sans-serif;
 }
 /* #CSS Attendance*/
 

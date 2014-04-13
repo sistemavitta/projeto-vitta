@@ -8,44 +8,38 @@
 
 {% block content-ficha %}
 
-    <div class="panel panel-primary admin-panel-attendance">
-        <div class="panel-heading admin-panel-heading-attendance">
-            <span class="glyphicon glyphicon-calendar"></span>
-            <strong class="user-attendance">Presenças do Aluno</strong>
-        </div>
+    <div class="panel">
         <div class="panel-body">
 
         {% if usuario.aluno.presencas.all%}
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                            <tr class="active">
+                                <th width="25%" class="title-presence">Data e Hora do Início do Treino</th>
+                                <th width="15%" class="title-presence">Duração do Treino</th>
+                                <th width="15%" class="title-presence">Treino Executado</th>
+                                <th width="20%" class="title-presence">Professor Responsável</th>
+                                <th width="25%" class="title-presence">FeedBack</th>
+                            </tr>
 
+                        {% for presenca in usuario.aluno.presencas.all %}
 
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped admin-table-attendance">
-                    <thead>
-                        <tr>
-                            <th class="attendance-header-one"><strong class="attendance-header-title">Data e Hora do Início do Treino</strong></th>
-                            <th class="attendance-header-two"><strong class="attendance-header-title">Duração do Treino</strong></th>
-                            <th class="attendance-header-four"><strong class="attendance-header-title">Treino Executado</strong></th>
-                            <th class="attendance-header-five"><strong class="attendance-header-title">Professor Responsável</strong></th>
-                            <th class="attendance-header-five"><strong class="attendance-header-title">FeedBack</strong></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for presenca in usuario.aluno.presencas.all %}
-                        <tr>
-                            <td class="attendance-start">{{ presenca.data_inicio|date:"l d/n/Y G:i" }}</td>
-                            <td class="attendance-time">{{ presenca.duracao }} min</td>
-                            <td class="attendance-training">{{ presenca.treino }}</td>
-                            <td class="attendance-instrutor">{{ presenca.professor }}</td>
-                            <td class="attendance-instrutor">{{ presenca.feedback|truncatewords:5}}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ presenca.data_inicio|date:"l d/n/Y G:i" }}</td>
+                                <td>{{ presenca.duracao }} min</td>
+                                <td>{{ presenca.treino }}</td>
+                                <td>{{ presenca.professor }}</td>
+                                <td>{{ presenca.feedback|truncatewords:5}}</td>
+                            </tr>
 
+                        {% endfor %}
 
-                    {% endfor %}
-
-                    </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
+
         {% else %}
 
         <div class="alert-message alert-message-no-presence">
@@ -55,7 +49,7 @@
         </div>
 
         {% endif %}
-    </div>
 
+    </div>
 
 {% endblock content-ficha %}
