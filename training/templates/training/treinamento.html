@@ -44,13 +44,13 @@
                                             <td style="width: 1px;">
                                                 <div class="input-group weight-control"> <!-- input-group -->
                                                     <span class="input-group-btn"> <!-- input-group-btn-minus -->
-                                                        <button type="button" class="btn btn-danger btn-sm btn-number" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1; atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});">
+                                                        <button type="button" class="btn btn-danger btn-sm minus" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1; atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});">
                                                             <span class="glyphicon glyphicon-minus"></span>
                                                         </button>
                                                     </span> <!-- /.input-group-btn-minus -->
                                                     <input type="text" ng-init="peso{{exerc.pk}} = {{exerc.peso}};" ng-model="peso{{exerc.pk}}" class="form-control input-sm" disabled>
                                                     <span class="input-group-btn"> <!-- input-group-btn-plus -->
-                                                        <button type="button" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} + 1; atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});" class="btn btn-primary btn-sm btn-number">
+                                                        <button type="button" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} + 1; atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});" class="btn btn-primary btn-sm plus">
                                                             <span class="glyphicon glyphicon-plus"></span>
                                                         </button>
                                                     </span> <!-- /.input-group-btn-plus -->

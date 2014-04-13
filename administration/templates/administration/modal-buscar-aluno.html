@@ -6,7 +6,7 @@
             <div class="modal-dialog">
 
                 <!-- Modal-Content -->
-                <div class="modal-content">
+                <div class="modal-content search-size">
 
                     <!-- Modal-Header -->
                     <div class="modal-header admin-modal-header">
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="col-xs-3 admin-user-name">
-                                <strong>[[usuario.username]]</strong>
+                                <span>[[usuario.username]]</span>
                             </div>
 
                             <div class="col-xs-3 admin-user-category">
@@ -57,7 +57,7 @@
 
                              <div class="col-xs-3 admin-user-viewprofile " ng-show="contem({{ menu|listpk }},usuario.id,{{ user.pk }})">
 
-                                        <a href="/perfil/[[usuario.id]]/" class="btn btn-warning"   >
+                                        <a href="/perfil/[[usuario.id]]/" class="btn btn-warning see-sheet">
                                             Ver Ficha
                                         </a>
                                 </form>
@@ -65,7 +65,7 @@
 
                             <div class="col-xs-3 admin-user-viewprofile" ng-show="!contem({{ menu|listpk }},usuario.id,{{ user.pk }})">
 
-                                        <a href="/perfil/abrir/[[usuario.id]]/" class="btn btn-primary"   >
+                                        <a href="/perfil/abrir/[[usuario.id]]/" class="btn btn-primary open-record">
                                             Abrir Ficha
                                         </a>
                                 </form>
@@ -76,7 +76,7 @@
                     </div> <!--/ .Modal-Body -->
 
                     <!-- Modal-Footer -->
-                    <div class="modal-footer">
+                    <div class="modal-footer search-footer">
                         <button type="button" class="btn btn-danger pull-left search-btn-close" data-dismiss="modal">Fechar Pesquisa</button>
                     </div> <!--/ .Modal-Footer -->
 
