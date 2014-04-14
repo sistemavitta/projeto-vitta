@@ -79,6 +79,8 @@ class Presenca(models.Model):
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
 
+    def data(self):
+        return self.data_inicio
 
 
     # def horas(self,dias = 0, horas = 0, minutos = 0, segundos = 0, microssegundos= 0, intervalo = None, tempo = None):

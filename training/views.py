@@ -22,6 +22,7 @@ from django.views.generic.base import View
 from administration.models import AdministrationTemp
 from datetime import datetime
 from administration.models import Presenca
+from training.models import Fichas
 #from django.utils.timezone import utc
 
 
@@ -96,6 +97,15 @@ class TreinarView(LoginRequiredMixin,View):
             aluno.inicio_treino = datetime.now()
             aluno.save(update_fields=['treino','treinando','inicio_treino'])
         return HttpResponseRedirect(reverse('treinamento', kwargs={'pk': aluno.aluno.pk}))
+
+class TrocarFichaView(LoginRequiredMixin,View):
+
+    def get(self, request, *args, **kwargs):
+        alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
+        aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
+        aluno.ficha = Fichas.objects.get(pk=self.kwargs.get('ficha'))
+        aluno.save()
+        return HttpResponseRedirect(reverse('list-treinos', kwargs={'pk': aluno.aluno.pk}))
 
 class FinalizarView(LoginRequiredMixin,View):
 

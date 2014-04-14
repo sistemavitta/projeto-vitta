@@ -8,28 +8,35 @@
 
 {% block content-ficha %}
 
+    {% with  fichas=usuario.aluno.fichas.all fichaaluno=usuario.ficha  %}
         <div class="btn-group swap-sheet-group">
-            <button type="button" class="btn btn-default swap-sheet dropdown-toggle" data-toggle="dropdown"><span class="sheet-text">Trocar Ficha do Aluno</span>&nbsp;&nbsp;
-                <span class="caret"></span>
+            <button type="button" class="btn btn-default swap-sheet dropdown-toggle" data-toggle="dropdown"><span class="sheet-text">
+            {% for ficha in fichas %}
+                {% if ficha.pk == fichaaluno.pk %}
+                    Ficha {{ forloop.revcounter }}
+                {% endif %}
+            {% endfor %}</span>&nbsp;&nbsp;
+            <span class="caret"></span>
             </button>
             <ul class="dropdown-menu sheet-drop" role="menu">
-                <li>
-                    <a href="#">Ficha 1</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">Ficha 2</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">Ficha 3</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">Ficha 4</a>
-                </li>
+            {% for fichatrocar in fichas %}
+
+                {% if fichatrocar.pk != fichaaluno.pk %}
+
+                    <li>
+                        <a href="{% url 'trocar-ficha' usuario.aluno.pk fichatrocar.pk %}"> Ficha {{forloop.revcounter}} </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+
+                {% endif %}
+
+            {% endfor %}
             </ul>
         </div>
+
+
 
         <div class="panel panel-primary admin-panel-attendance">
 
@@ -70,17 +77,18 @@
                     {% if usuario.ficha %}
                     <div class="row information">
                         <div class="col-md-4">
-                            <h5>Data&nbsp;de&nbsp;Início:</h5>&nbsp;{{ usuario.ficha.data_inicio|date:"d/n/Y" }}
+                            <h5>Data&nbsp;de&nbsp;Início:</h5>&nbsp;{{ fichaaluno.data_inicio|date:"d/n/Y" }}
                         </div>
                         <div class="col-md-4">
-                            <h5>Data&nbsp;de&nbsp;Fim:</h5>&nbsp;{{ usuario.ficha.data_fim|date:"d/n/Y" }}
+                            <h5>Data&nbsp;de&nbsp;Fim:</h5>&nbsp;{{ fichaaluno.data_fim|date:"d/n/Y" }}
                         </div>
                         <div class="col-md-4">
-                            <h5>Objetivo:</h5>&nbsp;{{ usuario.ficha.objetivo }}
+                            <h5>Objetivo:</h5>&nbsp;{{ fichaaluno.objetivo }}
                         </div>
                     </div>
                     {% endif %}
                 </div>
+    {% endwith %}
 
                 <!-- Última Presença
                 {% if ulpresenca %}
