@@ -8,12 +8,14 @@
         </ul>
     </div> -->
     <div class="thumbnail admin-nav-profile text-center"> <!-- admin-nav-profile -->
-        <img    {% if  usuario.aluno.perfil.image %}
-                    src="{{ usuario.aluno.perfil.image }}-/scale_crop/120x120/center/"
-                {% else %}
-                    src="holder.js/120x120/"
-                {% endif %}
-        alt="" class="admin-nav-profile-img-user img-circle {% if usuario.treinando %} admin-nav-profile-active{% endif %}"> <!-- /.admin-nav-profile-img-user -->
+        <a href="{% url 'perfil-detail' usuario.aluno.pk %}">
+            <img    {% if  usuario.aluno.perfil.image %}
+                        src="{{ usuario.aluno.perfil.image }}-/scale_crop/120x120/center/"
+                    {% else %}
+                        src="holder.js/120x120/"
+                    {% endif %}
+            alt="" class="admin-nav-profile-img-user img-circle {% if usuario.treinando %} admin-nav-profile-active{% endif %}"> <!-- /.admin-nav-profile-img-user -->
+        </a>
         <h4 class="admin-nav-profile-name-user">{{ usuario.aluno.username }}</h4> <!-- /.admin-nav-profile-name-user -->
         <div>
             <p class="admin-nav-profile-information-user"> <!-- admin-nav-profile-information-user -->
