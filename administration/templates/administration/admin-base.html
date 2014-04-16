@@ -47,12 +47,43 @@
             <div class="row-fluid"> <!-- row -->
                 <div class="col-md-12"> <!-- col-md-12 -->
 
+                    <!--
                     <ol class="breadcrumb admin-breadcrumb">
                     {% block breadcrumb %}
                         <li><a href="#">Dalton Moraes</a></li>
                         <li class="active">{{ usuario.username }}</li>
                     {% endblock breadcrumb  %}
                     </ol>
+                    -->
+                
+                    <div class="col-md-12 breadcrumb-nav">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <nav class="breadcrumb-nav-link">
+                                    <li class="breadcrumb-nav-brand">
+                                        <a href="#">Dalton Moraes</a>
+                                    </li>
+                                    <li class="breadcrumb-nav-section">
+                                        <a href="#">Usuário</a>
+                                    </li>
+                                    <li class="breadcrumb-nav-active">Treinos</li>
+                                </nav>
+                            </div>
+                            <div class="col-md-2 breadcrumb-nav-right">
+                                <nav class="breadcrumb-nav-instructor">
+                                    <span class="breadcrumb-nav-notifications">3</span>
+                                    <a href="#">
+                                        <img src="holder.js/35x35" alt="" class="img-circle">
+                                    </a>
+                                    <span class="glyphicon glyphicon-off"></span>
+                                    <a href="#" class="breadcrumb-nav-logout">Sair do Sistema</a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                        
+                    </div>
 
                     {% block alerta %}
 

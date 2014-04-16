@@ -524,7 +524,7 @@ a.admin-vertical-link-logout {
 
 /* #CSS Navbar Vertical Admin */
 
-/* CSS Breadcrumb */
+/* CSS Breadcrumb
 .admin-breadcrumb {
   background: #444;
 }
@@ -534,6 +534,88 @@ a.admin-vertical-link-logout {
 }
 .admin-breadcrumb li.active {
   color: #bdc3c7;
+}
+*/
+/* CSS Breadcrumb */
+.breadcrumb-nav {
+    background: #444;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: block;
+}
+.breadcrumb-nav-link {
+    list-style: none;
+}
+.breadcrumb-nav-link > li {
+    display: inline-block;
+    margin-top: 10px;
+}
+.breadcrumb-nav-link > li + li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+.breadcrumb-nav-brand a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+.breadcrumb-nav-section a {
+    color: #000;
+    text-decoration: none;
+    font-size: 15px;
+}
+.breadcrumb-nav-active {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 15px;
+}
+.breadcrumb-nav-right {
+    background: #000;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.breadcrumb-nav-instructor {
+    padding: 3px;
+}
+.breadcrumb-nav-notifications {
+    position: absolute;
+    top: 2px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 50%;
+    background-color: #e73e2c;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    z-index: 9999;
+}
+.glyphicon-off {
+    color: #eee;
+    margin-left: 8px;
+    font-size: 14px;
+}
+.breadcrumb-nav-logout {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+.breadcrumb-nav-logout:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.clear {
+  clear: both;
 }
 /* #CSS Breadcrumb */
 
