@@ -15,8 +15,8 @@
 {% endblock alerta %}
 
 {% block breadcrumb %}
-    <li><a href="#">Dalton Moraes</a></li>
-    <li class="active">{{ usuario.aluno.username }}</li>
+    {{ block.super }}
+    <li class="breadcrumb-nav-active">{{ usuario.aluno.username }}</li>
 {% endblock breadcrumb  %}
 
 {% block content-ficha %}

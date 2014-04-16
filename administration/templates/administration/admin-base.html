@@ -47,42 +47,37 @@
             <div class="row-fluid"> <!-- row -->
                 <div class="col-md-12"> <!-- col-md-12 -->
 
-                    <!--
-                    <ol class="breadcrumb admin-breadcrumb">
-                    {% block breadcrumb %}
-                        <li><a href="#">Dalton Moraes</a></li>
-                        <li class="active">{{ usuario.username }}</li>
-                    {% endblock breadcrumb  %}
-                    </ol>
-                    -->
-                
+
                     <div class="col-md-12 breadcrumb-nav">
                         <div class="row">
                             <div class="col-md-10">
                                 <nav class="breadcrumb-nav-link">
+                                {% block breadcrumb %}
                                     <li class="breadcrumb-nav-brand">
                                         <a href="#">Dalton Moraes</a>
                                     </li>
-                                    <li class="breadcrumb-nav-section">
-                                        <a href="#">Usuário</a>
-                                    </li>
-                                    <li class="breadcrumb-nav-active">Treinos</li>
+
+                                {% endblock breadcrumb  %}
                                 </nav>
                             </div>
                             <div class="col-md-2 breadcrumb-nav-right">
                                 <nav class="breadcrumb-nav-instructor">
                                     <span class="breadcrumb-nav-notifications">3</span>
-                                    <a href="#">
-                                        <img src="holder.js/35x35" alt="" class="img-circle">
-                                    </a>
+                                    <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor">
+                                        <img  {% if  user.perfil.image %}
+                                            src="{{ user.perfil.image }}-/scale_crop/35x35/center/"
+                                        {% else %}
+                                            src="holder.js/40x40/text:{{ user.username }} "
+                                        {% endif %}
+                                     alt=""  class="img-circle">
                                     <span class="glyphicon glyphicon-off"></span>
-                                    <a href="#" class="breadcrumb-nav-logout">Sair do Sistema</a>
+                                    <a href="{% url 'fechar-ficha' user.pk %}" class="breadcrumb-nav-logout">Sair do Sistema</a>
                                 </nav>
                             </div>
                         </div>
                     </div>
                     <div class="clear">
-                        
+
                     </div>
 
                     {% block alerta %}
@@ -96,7 +91,7 @@
                     {% include "administration/menu-horizontal.html" %}
 
                     <br><br>
-                    
+
                 </div> <!-- /.col-md-12 -->
             </div> <!-- /.row -->
         </div> <!-- /.general-content -->

@@ -1,9 +1,11 @@
 {% extends "administration/admin-base.html" %}
 
 {% block breadcrumb %}
-    <li><a href="#">Dalton Moraes</a></li>
-    <li><a href="{% url 'perfil-detail' usuario.aluno.pk %}">{{ usuario.aluno.username }}</a></li>
-    <li class="active">Treinamento</li>
+{{ block.super }}
+    <li class="breadcrumb-nav-section">
+        <a href="{% url 'perfil-detail' usuario.aluno.pk %}">{{ usuario.aluno.username }}</a>
+    </li>
+    <li class="breadcrumb-nav-active">Treinamento</li>
 {% endblock breadcrumb  %}
 
 {% block content-ficha %}
