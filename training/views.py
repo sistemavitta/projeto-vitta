@@ -98,6 +98,18 @@ class TreinarView(LoginRequiredMixin,View):
             aluno.save(update_fields=['treino','treinando','inicio_treino'])
         return HttpResponseRedirect(reverse('treinamento', kwargs={'pk': aluno.aluno.pk}))
 
+class CancelarTreinamentoView(LoginRequiredMixin,View):
+
+    def get(self, request, *args, **kwargs):
+        alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
+        aluno=get_object_or_404(alunos,aluno=self.kwargs.get('pk'))
+        if aluno.treinando:
+            aluno.treinando = False
+            aluno.treino= None
+            aluno.inicio_treino = None
+            aluno.save(update_fields=['treino','treinando','inicio_treino'])
+        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.aluno.pk}))
+
 class TrocarFichaView(LoginRequiredMixin,View):
 
     def get(self, request, *args, **kwargs):
