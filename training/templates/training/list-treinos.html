@@ -127,7 +127,7 @@
                             {% for treino in treinos %}
 
                                 <div class="panel panel-default"> <!--panel -->
-                                    <div class="panel-heading heading-panel-training{% if forloop.first %}-active{% endif %}"> <!-- panel-heading -->
+                                    <div class="panel-heading heading-panel-training{% if forloop.first %}{% endif %}"> <!-- panel-heading -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#treino-{{ treino.pk }}">{{ treino.nome }}</a>

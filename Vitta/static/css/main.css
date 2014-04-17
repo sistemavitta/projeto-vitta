@@ -69,13 +69,23 @@ html, body {
   color: #fa4f48;
 }
 .admin-nav-users > li > a {
-  padding-top: 4px;
-  padding-bottom: 5px;
+  padding-top: 3px;
+  padding-bottom: 4px;
 }
 /* Pesquisa de usuários */
 .admin-nav-search {
-  margin-top: 12px;
-  margin-bottom: 5px;
+  margin-top: 9px;
+}
+.search-btn {
+  background: #000;
+  border: none;
+  color: #fff;
+  margin-right: -10px;
+}
+.search-btn:hover {
+  background: #000;
+  border: none;
+  color: #fff;
 }
 /* Alunos treinando */
 .admin-nav-users-active {
@@ -864,9 +874,6 @@ h4.options-tabs {
 }
 .panel > .heading-panel-training {
   background: #444;
-}
-.panel > .heading-panel-training-active {
-  background: #5cb85c;
 }
 a.panel-title {
   font-size: 18px;
