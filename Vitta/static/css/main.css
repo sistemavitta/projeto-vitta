@@ -886,6 +886,7 @@ a.icon-exibition {
   color: #eee;
   font-size: 18px;
 }
+/*
 .weight-control {
   width: 105px;
 }
@@ -911,6 +912,7 @@ a.icon-exibition {
 .glyphicon-plus {
   color: #000;
 }
+*/
 /* .start-training {
   margin-top: 38px;
   border: none;
@@ -931,6 +933,61 @@ a.icon-exibition {
   border: none;
 }
 /* #CSS Training */
+
+/* CSS Weight */
+.weight-control {
+  width: 180px;
+}
+.minus-bt {
+  color: #fff;
+  background-color: lightgrey;
+  border-color: lightgrey;
+}
+.minus-bt:hover,
+.minus-bt:focus,
+.minus-bt:active
+.minus-bt.active {
+  color: #fff;
+  background-color: lightgrey;
+  border-color: lightgrey;
+}
+.plus-bt {
+  color: #fff;
+  background-color: lightgrey;
+  border-color: lightgrey;
+}
+.plus-bt:hover,
+.plus-bt:focus,
+.plus-bt:active
+.plus-bt.active {
+  color: #fff;
+  background-color: lightgrey;
+  border-color: lightgrey;
+}
+.alt-bt {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+  
+  text-transform: uppercase;
+}
+.alt-bt:hover,
+.alt-bt:focus,
+.alt-bt:active
+.alt-bt.active {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+
+  text-transform: uppercase;
+}
+.glyphicon-minus {
+  color: #000;
+}
+.glyphicon-plus {
+  color:#000;
+}
+/* #CSS Weight */
 
 /* CSS Attendance */
 .admin-panel-attendance {

@@ -44,19 +44,33 @@
                                             <td class="text-center">{{ exerc.serie }}</td>
                                             <td class="text-center">{{ exerc.repeticao }}</td>
                                             <td style="width: 1px;">
-                                                <div class="input-group weight-control"> <!-- input-group -->
-                                                    <span class="input-group-btn"> <!-- input-group-btn-minus -->
+                                                
+                                                <div class="input-group weight-control">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-primary btn-sm minus-bt"><span class="glyphicon glyphicon-minus"></span></button>
+                                                    </div>
+                                                    <input type="text" class="form-control text-center input-sm" placeholder="110">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-primary btn-sm plus-bt"><span class="glyphicon glyphicon-plus"></span></button>
+                                                        <button type="button" class="btn btn-primary btn-sm alt-bt">Alterar</button>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- input-group
+                                                <div class="input-group weight-control">
+                                                    <span class="input-group-btn">
                                                         <button type="button" class="btn btn-danger btn-sm minus" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1; atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});">
                                                             <span class="glyphicon glyphicon-minus"></span>
                                                         </button>
-                                                    </span> <!-- /.input-group-btn-minus -->
+                                                    </span>
                                                     <input type="text" ng-init="peso{{exerc.pk}} = {{exerc.peso}};" ng-model="peso{{exerc.pk}}" class="form-control input-sm" disabled>
-                                                    <span class="input-group-btn"> <!-- input-group-btn-plus -->
+                                                    <span class="input-group-btn">
                                                         <button type="button" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} + 1; atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});" class="btn btn-primary btn-sm plus">
                                                             <span class="glyphicon glyphicon-plus"></span>
                                                         </button>
-                                                    </span> <!-- /.input-group-btn-plus -->
-                                                </div> <!-- /.input-group -->
+                                                    </span>
+                                                </div> 
+                                                -->
                                             </td>
                                         </tr>
                                         {% endfor %}
