@@ -116,13 +116,9 @@
                 {% endif %}
                 -->
 
-                    <div  class="panel-group" id="accordion"> <!-- panel-group-accordion -->
-
                     {% with  treinos=usuario.ficha.treinos.all %}
 
-
-                        <div ng-init="tab=true" ng-show="tab">
-
+                        <div class="panel-group" id="accordion" ng-init="tab=true" ng-show="tab">
 
                             {% for treino in treinos %}
 
@@ -255,13 +251,9 @@
                                 {% endfor %}
                                 </div> <!-- /.table-responsive -->
                             </div> <!-- /.col-md-12 -->
-
+                            
                         </div>
-
                      {% endwith %}
-
-                    </div> <!-- /.panel-group-accordion -->
-
 
                 </div>
             </div>
