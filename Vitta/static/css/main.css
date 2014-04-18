@@ -780,6 +780,8 @@ th.options-exibition-training {
 
 /* CSS Swap Sheet */
 .swap-sheet {
+  border: none;
+  background: #fff;
   -webkit-border-top-left-radius: 12px;
   -webkit-border-top-right-radius: 12px;
   -moz-border-radius-topleft: 12px;
@@ -792,10 +794,12 @@ th.options-exibition-training {
   -moz-border-radius-bottomright: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border: 0;
-  background: #fff;
 }
-.swap-sheet:hover {
+.swap-sheet:hover,
+.swap-sheet:focus,
+.swap-sheet:active
+.swap-sheet.active {
+  border: none;
   background: #fff;
 }
 .open .dropdown-toggle.btn-default {
