@@ -82,10 +82,14 @@ html, body {
   color: #fff;
   margin-right: -10px;
 }
-.search-btn:hover {
+.search-btn:hover,
+.search-btn:focus,
+.search-btn:active
+.search-btn.active {
   background: #000;
   border: none;
   color: #fff;
+  margin-right: -10px;
 }
 /* Alunos treinando */
 .admin-nav-users-active {
