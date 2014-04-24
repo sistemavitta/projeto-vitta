@@ -341,7 +341,7 @@ h4.list-group-item-heading {
 .admin-nav-brand ul {
   margin-bottom: 0;
 }
-.admin-nav-brand  li{
+.admin-nav-brand  li {
   display: block;
   width: 100%;
   line-height: 50px;
@@ -489,7 +489,7 @@ a.stop-training-stop {
 }
 /* #CSS Start Training */
 
-/* CSS Instructor 
+/* CSS Instructor
 .admin-vertical-instructor {
   height: 53px;
   background: #000;
@@ -674,7 +674,7 @@ a.admin-vertical-link-logout {
     text-transform: uppercase;
     font-weight: normal;
 }
-.glyphicon-ban-circle { 
+.glyphicon-ban-circle {
   margin-right: 4px;
   color: #eee;
   font-size: 17px;
@@ -704,7 +704,7 @@ a.admin-vertical-link-logout {
   font-family: 'Oswald', sans-serif;
   font-weight: normal;
 }
-.glyphicon-tasks{ 
+.glyphicon-tasks{
   margin-right: 4px;
   font-size: 15px;
 }
@@ -976,7 +976,7 @@ a.icon-exibition {
   color: #fff;
   background-color: #f0ad4e;
   border-color: #f0ad4e;
-  
+
   text-transform: uppercase;
 }
 .alt-bt:hover,
@@ -986,7 +986,6 @@ a.icon-exibition {
   color: #fff;
   background-color: #f0ad4e;
   border-color: #f0ad4e;
-
   text-transform: uppercase;
 }
 .glyphicon-minus {
@@ -1013,6 +1012,36 @@ a.icon-exibition {
   font-family: 'Oswald', sans-serif;
 }
 /* #CSS Attendance*/
+
+/* CSS Message */
+.bt-publish-message {
+  background: #428bca;
+  border: none;
+}
+.bt-publish-message:hover,
+.bt-publish-message:focus,
+.bt-publish-message:active
+.bt-publish-message.active {
+  background: #428bca;
+  border: none;
+}
+.message-img {
+  float:left;
+  width: 50px;
+}
+.message-info {
+  margin-top: -5px;
+}
+.message-name {
+  font-weight: bold;
+}
+.message-date {
+  margin-top: -7px;
+}
+.pagination {
+  margin: 0;
+}
+/* #CSS Message */
 
 /* CSS Media Queries */
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */

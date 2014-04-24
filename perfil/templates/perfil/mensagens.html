@@ -1,0 +1,91 @@
+{% extends "administration/admin-base.html" %}
+
+{% block breadcrumb %}
+{{ block.super }}
+    <li class="breadcrumb-nav-section">
+        <a href="{% url 'perfil-detail' usuario.aluno.pk %}">{{ usuario.aluno.username }}</a>
+    </li>
+    <li class="breadcrumb-nav-active">Presenças</li>
+
+{% endblock breadcrumb  %}
+
+{% block content-ficha %}
+
+    <div class="panel panel-default"> <!-- panel-default -->
+        <div class="panel-body"> <!-- panel-body -->
+
+            <form class="form-horizontal" role="form"> <!-- form-horizontal -->
+                <div class="form-group"> <!-- form-group -->
+                    <div class="col-md-12"> <!-- col-md-12 -->
+                        <textarea class="form-control" placeholder="Escreva sua mensagem aqui..." rows="6"></textarea> <!-- /.textarea -->
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.form-group -->
+                <div class="form-group"> <!-- form-group -->
+                    <div class="col-md-12 text-right"> <!-- col-md-12 -->
+                        <button type="button" class="btn btn-primary bt-publish-message">Publicar Mensagem</button> <!-- /.button -->
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.form-group -->
+            </form> <!-- /.form-horizontal -->
+
+            <div class="panel panel-default"> <!-- message -->
+                <div class="panel-heading"> <!-- panel-heading -->
+                    <div class="message-img"> <!-- message-img -->
+                        <img src="holder.js/45x45/sky" class="img-circle"> <!-- ./img -->
+                    </div> <!-- /.message-img -->
+                    <div class="message-info"> <!-- message-info -->
+                        <h4 class="message-name">William Alonço</h4> <!-- /.message-name -->
+                        <h6 class="message-date">Quarta-feira, 24 de abril de 2014 ás 12:35</h6> <!-- /.message-date -->
+                    </div> <!-- /.message-info-->
+                </div> <!-- /.panel-heading -->
+                <div class="panel-body"> <!-- /.panel-body -->
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ut quas nesciunt pariatur sapiente dicta alias. Minus, quas vitae commodi praesentium vero suscipit impedit. Eum, voluptate facilis libero fugiat eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, debitis nesciunt earum! Aliquid obcaecati ullam nemo natus eos. Voluptas quo laborum optio praesentium sequi dolor labore id explicabo fuga quasi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, cumque, suscipit aliquid excepturi placeat asperiores unde qui sequi dolore voluptatem eligendi nam beatae nemo sed nobis repellat iste. Mollitia, quaerat.</p>
+                 </div> <!-- /.panel-body -->
+            </div> <!-- /.message -->
+
+            <div class="panel panel-default"> <!-- message -->
+                <div class="panel-heading"> <!-- panel-heading -->
+                    <div class="message-img"> <!-- message-img -->
+                        <img src="holder.js/45x45/sky" class="img-circle"> <!-- ./img -->
+                    </div> <!-- /.message-img -->
+                    <div class="message-info"> <!-- message-info -->
+                        <h4 class="message-name">William Alonço</h4> <!-- /.message-name -->
+                        <h6 class="message-date">Quarta-feira, 24 de abril de 2014 ás 12:35</h6> <!-- /.message-date -->
+                    </div> <!-- /.message-info-->
+                </div> <!-- /.panel-heading -->
+                <div class="panel-body"> <!-- /.panel-body -->
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ut quas nesciunt pariatur sapiente dicta alias. Minus, quas vitae commodi praesentium vero suscipit impedit. Eum, voluptate facilis libero fugiat eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, debitis nesciunt earum! Aliquid obcaecati ullam nemo natus eos. Voluptas quo laborum optio praesentium sequi dolor labore id explicabo fuga quasi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, cumque, suscipit aliquid excepturi placeat asperiores unde qui sequi dolore voluptatem eligendi nam beatae nemo sed nobis repellat iste. Mollitia, quaerat.</p>
+                 </div> <!-- /.panel-body -->
+            </div> <!-- /.message -->
+
+            <div class="panel panel-default"> <!-- message -->
+                <div class="panel-heading"> <!-- panel-heading -->
+                    <div class="message-img"> <!-- message-img -->
+                        <img src="holder.js/45x45/sky" class="img-circle"> <!-- ./img -->
+                    </div> <!-- /.message-img -->
+                    <div class="message-info"> <!-- message-info -->
+                        <h4 class="message-name">William Alonço</h4> <!-- /.message-name -->
+                        <h6 class="message-date">Quarta-feira, 24 de abril de 2014 ás 12:35</h6> <!-- /.message-date -->
+                    </div> <!-- /.message-info-->
+                </div> <!-- /.panel-heading -->
+                <div class="panel-body"> <!-- /.panel-body -->
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ut quas nesciunt pariatur sapiente dicta alias. Minus, quas vitae commodi praesentium vero suscipit impedit. Eum, voluptate facilis libero fugiat eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, debitis nesciunt earum! Aliquid obcaecati ullam nemo natus eos. Voluptas quo laborum optio praesentium sequi dolor labore id explicabo fuga quasi? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, cumque, suscipit aliquid excepturi placeat asperiores unde qui sequi dolore voluptatem eligendi nam beatae nemo sed nobis repellat iste. Mollitia, quaerat.</p>
+                 </div> <!-- /.panel-body -->
+            </div> <!-- /.message -->
+
+            <div class="col-md-12 text-right"> <!-- col-md-12 -->
+                <ul class="pagination"> <!-- pagination -->
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                </ul> <!-- pagination -->
+            </div> <!-- /.col-md-12 -->
+
+        </div> <!-- /.panel-body -->
+    </div> <!-- /.panel-default -->
+
+{% endblock content-ficha %}
