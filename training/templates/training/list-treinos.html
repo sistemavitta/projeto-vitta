@@ -118,7 +118,7 @@
 
                     {% with  treinos=usuario.ficha.treinos.all %}
 
-                        <div class="panel-group" id="accordion" ng-init="tab=true" ng-show="tab">
+                        <div class="panel-group" id="accordion" ng-init="tab=true" ng-show="tab" ng-cloak>
 
                             {% for treino in treinos %}
 
@@ -216,7 +216,7 @@
 
                         </div>
 
-                        <div ng-show="tabela">
+                        <div ng-show="tabela" ng-cloak>
 
                             <div class="col-xs-12"> <!-- col-md-12 -->
                                 <div class="table-responsive"> <!-- table-responsive -->
@@ -251,7 +251,7 @@
                                 {% endfor %}
                                 </div> <!-- /.table-responsive -->
                             </div> <!-- /.col-md-12 -->
-                            
+
                         </div>
                      {% endwith %}
 
