@@ -273,7 +273,7 @@ h4.list-group-item-heading {
   font-size: 16px;
 }
 .feedback-footer {
-  margin-top: 1px;
+  margin-top: -14px;
   padding: 15px;
   background: #f5f5f5;
 }
@@ -907,6 +907,27 @@ a.icon-exibition {
   margin: 0;
 }
 /* #CSS Message */
+
+/* CSS Star */
+.star {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  margin-top: 5px;
+}
+.star > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  font-size: 30px;
+  color: lightgrey;
+}
+.star > span:hover:before,
+.star > span:hover ~ span:before {
+   color: #f1c40f;
+   content: "\2605";
+   position: absolute;
+}
+/* #CSS Star */
 
 /* CSS Media Queries */
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
