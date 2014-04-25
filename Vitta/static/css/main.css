@@ -2,23 +2,6 @@
 /* General CSS Styles, Icons and Fonts */
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
-@font-face {
-  font-family: "Flaticon";
-  src: url("../fonts/flaticon.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
-  font-family: Flaticon;
-  font-size: 30px;
-  color: #000;
-  font-style: normal;
-  margin-left: 0;
-}
-.flaticon-magnifier13:before {
-  content: "\e000";
-}
 html, body {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
@@ -77,7 +60,7 @@ html, body {
   margin-top: 9px;
 }
 .search-btn {
-  background: #000;
+  background: #428bca;
   border: none;
   color: #fff;
   margin-right: -10px;
@@ -86,7 +69,7 @@ html, body {
 .search-btn:focus,
 .search-btn:active
 .search-btn.active {
-  background: #000;
+  background: #428bca;
   border: none;
   color: #fff;
   margin-right: -10px;
@@ -290,7 +273,7 @@ h4.list-group-item-heading {
   font-size: 16px;
 }
 .feedback-footer {
-  margin-top: 1px;
+  margin-top: -14px;
   padding: 15px;
   background: #f5f5f5;
 }
@@ -336,27 +319,6 @@ h4.list-group-item-heading {
     position: relative;
 }
 /* #CSS Navbar Base */
-
-/* CSS Brand
-.admin-nav-brand ul {
-  margin-bottom: 0;
-}
-.admin-nav-brand  li{
-  display: block;
-  width: 100%;
-  line-height: 50px;
-  text-indent: 10px;
-}
-.admin-nav-brand a {
-  display: block;
-  text-decoration: none;
-  color: #bbb;
-  background: #444;
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-*/
 
 /* CSS User Profile */
 .admin-nav-profile {
@@ -420,7 +382,7 @@ h4.list-group-item-heading {
   font-size: 16px;
 }
 .admin-nav-user a.active {
-  border-right: 10px solid #bdc3c7;
+  border-right: 10px solid lightgrey;
 }
 /* #CSS Nav Options */
 
@@ -489,67 +451,6 @@ a.stop-training-stop {
 }
 /* #CSS Start Training */
 
-/* CSS Instructor 
-.admin-vertical-instructor {
-  height: 53px;
-  background: #000;
-  border-radius: 0;
-  border: 0;
-  margin-bottom: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
-}
-.admin-vertical-instructor-active {
-  position: relative;
-  padding-top: 4px;
-  padding-bottom: 5px;
-  margin-left: 10%;
-}
-.admin-vertical-notifications {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
-  border-radius: 50%;
-  background-color: #e73e2c;
-  color: #fff;
-  font-size: 12px;
-  text-align: center;
-}
-a.admin-vertical-link-instructor {
-  text-decoration: none;
-  display: block;
-  float: left;
-}
-a.admin-vertical-link-logout {
-  font-size: 14px;
-  color: #bbb;
-  text-decoration: none;
-  display: block;
-  float: left;
-  margin-left: 10%;
-  margin-top: 10px;
-}
-#CSS Instructor */
-
-/* #CSS Navbar Vertical Admin */
-
-/* CSS Breadcrumb
-.admin-breadcrumb {
-  background: #444;
-}
-.admin-breadcrumb a {
-  color: #000;
-  text-decoration: none;
-}
-.admin-breadcrumb li.active {
-  color: #bdc3c7;
-}
-*/
 /* CSS Breadcrumb */
 .breadcrumb-nav {
     background: #444;
@@ -568,7 +469,7 @@ a.admin-vertical-link-logout {
 }
 .breadcrumb-nav-link > li + li:before {
     padding: 0 5px;
-    color: #ccc;
+    color: #fff;
     content: "/\00a0";
 }
 .breadcrumb-nav-brand a {
@@ -579,12 +480,12 @@ a.admin-vertical-link-logout {
     font-weight: bold;
 }
 .breadcrumb-nav-section a {
-    color: #000;
+    color: lightgrey;
     text-decoration: none;
     font-size: 15px;
 }
 .breadcrumb-nav-active {
-    color: #bdc3c7;
+    color: lightgrey;
     text-decoration: none;
     font-size: 15px;
 }
@@ -674,7 +575,7 @@ a.admin-vertical-link-logout {
     text-transform: uppercase;
     font-weight: normal;
 }
-.glyphicon-ban-circle { 
+.glyphicon-ban-circle {
   margin-right: 4px;
   color: #eee;
   font-size: 17px;
@@ -704,7 +605,7 @@ a.admin-vertical-link-logout {
   font-family: 'Oswald', sans-serif;
   font-weight: normal;
 }
-.glyphicon-tasks{ 
+.glyphicon-tasks{
   margin-right: 4px;
   font-size: 15px;
 }
@@ -894,42 +795,6 @@ a.icon-exibition {
   color: #eee;
   font-size: 18px;
 }
-/*
-.weight-control {
-  width: 105px;
-}
-.minus {
-  background: #ecf0f1;
-  border: 1px solid #ecf0f1;
-}
-.minus:hover {
-  background: #ecf0f1;
-  border: 1px solid #ecf0f1;
-}
-.glyphicon-minus {
-  color: #000;
-}
-.plus {
-  background: #ecf0f1;
-  border: 1px solid #ecf0f1;
-}
-.plus:hover {
-  background: #ecf0f1;
-  border: 1px solid #ecf0f1;
-}
-.glyphicon-plus {
-  color: #000;
-}
-*/
-/* .start-training {
-  margin-top: 38px;
-  border: none;
-  font-size: 16px;
-}
-.start-training:hover {
-  background: #5cb85c;
-  border: none;
-} */
 .complete-training {
   background: #e73e2c;
   margin-top: 38px;
@@ -976,7 +841,7 @@ a.icon-exibition {
   color: #fff;
   background-color: #f0ad4e;
   border-color: #f0ad4e;
-  
+
   text-transform: uppercase;
 }
 .alt-bt:hover,
@@ -986,7 +851,6 @@ a.icon-exibition {
   color: #fff;
   background-color: #f0ad4e;
   border-color: #f0ad4e;
-
   text-transform: uppercase;
 }
 .glyphicon-minus {
@@ -1013,6 +877,57 @@ a.icon-exibition {
   font-family: 'Oswald', sans-serif;
 }
 /* #CSS Attendance*/
+
+/* CSS Message */
+.bt-publish-message {
+  background: #428bca;
+  border: none;
+}
+.bt-publish-message:hover,
+.bt-publish-message:focus,
+.bt-publish-message:active
+.bt-publish-message.active {
+  background: #428bca;
+  border: none;
+}
+.message-img {
+  float:left;
+  width: 50px;
+}
+.message-info {
+  margin-top: -5px;
+}
+.message-name {
+  font-weight: bold;
+}
+.message-date {
+  margin-top: -7px;
+}
+.pagination {
+  margin: 0;
+}
+/* #CSS Message */
+
+/* CSS Star */
+.star {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  margin-top: 5px;
+}
+.star > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  font-size: 30px;
+  color: lightgrey;
+}
+.star > span:hover:before,
+.star > span:hover ~ span:before {
+   color: #f1c40f;
+   content: "\2605";
+   position: absolute;
+}
+/* #CSS Star */
 
 /* CSS Media Queries */
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */

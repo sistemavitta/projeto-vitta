@@ -93,4 +93,4 @@ class PerfilDetailView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
 
 class PresencasListView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
 
-    template_name = 'perfil/list-presencas.html'
+    template_name = 'perfil/mensagens.html'
