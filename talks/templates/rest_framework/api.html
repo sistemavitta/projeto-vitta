@@ -1,13 +1,46 @@
 {% extends "rest_framework/base.html" %}
+{% load url from future %}
+{% load rest_framework %}
 
-{% comment %}
-	
-
-{% block bootstrap_theme %}
-    <link rel="stylesheet" href="{{STATIC_URL}}css/slate.bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="{{STATIC_URL}}css/slate.bootstrap.css" type="text/css">
+{% block title %}
+    API Vitta
 {% endblock %}
 
+{% comment %}
+{% block bootstrap_theme %}
+    <link rel="stylesheet" href="{{STATIC_URL}}css/slate.bootstrap.min.css" type="text/css">
+{% endblock %}
 {% endcomment %}
+
+{% block branding %}
+    <a class='brand' rel="nofollow" href='#'>API - Sistema Vitta</a>
+{% endblock %}
+
+ {% block userlinks %}
+    {% if user.is_authenticated %}
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{ user }}
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>{% optional_logout request %}</li>
+                <li><a href="/">Access Vitta</a></li>
+            </ul>
+        </li>
+    {% else %}
+        <li>{% optional_login request %}</li>
+    {% endif %}
+{% endblock %}
+
+
+{% block description %}
+<div class="alert alert-info">
+<h4>Descrição(options):</h4> <br />
+
+   <p>{{ description }}</p>
+</div>
+
+{% endblock %}
 
 {% block bootstrap_navbar_variant %}{% endblock %}

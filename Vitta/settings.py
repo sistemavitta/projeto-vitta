@@ -54,8 +54,9 @@ INSTALLED_APPS = (
     'administration',
     'perfil',
     'training',
-    'rest_framework',
+
     'talks',
+    'rest_framework',
     'south',
     'pyuploadcare.dj',
 )
