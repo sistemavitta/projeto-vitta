@@ -1,12 +1,4 @@
 <nav class="menubar">
-    <!-- Logotipo
-    <div class="admin-nav-brand">
-        <ul>
-            <li>
-                <a href="#">Dalton Moraes</a>
-            </li>
-        </ul>
-    </div> -->
     <div class="thumbnail admin-nav-profile text-center"> <!-- admin-nav-profile -->
         <a href="{% url 'perfil-detail' usuario.aluno.pk %}">
             <img    {% if  usuario.aluno.perfil.image %}
@@ -16,14 +8,19 @@
                     {% endif %}
             alt="" class="admin-nav-profile-img-user img-circle {% if usuario.treinando %} admin-nav-profile-active{% endif %}"> <!-- /.admin-nav-profile-img-user -->
         </a>
-        <h4 class="admin-nav-profile-name-user">{{ usuario.aluno.username }}</h4> <!-- /.admin-nav-profile-name-user -->
+        <a href="#" class="name-user" id="popoverId" data-placement="right">{{ usuario.aluno.username }}</a>
+        <div id="popoverContent" class="hide">
+            <span class="glyphicon glyphicon-envelope"></span>&nbsp;
+            <span class="profile-mail ">{{ usuario.aluno.email }}</span><br>
+            <span class="glyphicon glyphicon-earphone"></span>&nbsp;
+            <span class="profile-phone">35 9176-4819{{ usuario.aluno.phone }}</span>
+        </div>
         <div>
             <p class="admin-nav-profile-information-user"> <!-- admin-nav-profile-information-user -->
                 {{ usuario.aluno.email }}<br>
                 {{ usuario.aluno.phone }}
             </p> <!-- /.admin-nav-profile-information-user -->
         </div>
-
         {% if request.user != usuario.aluno %}
         <div class="closing-record"> <!-- closing-record -->
             <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
@@ -31,20 +28,20 @@
             </a> <!-- /.closing-record -->
         </div>
         {% endif %}
-
     </div> <!-- /.admin-nav-profile -->
     <div class="admin-nav-user"> <!-- admin-nav-user -->
         <ul>
             <li>
+                <a href="{% url 'perfil-detail' usuario.aluno.pk %}" class="{% if urlname == 'perfil-detail'%}active{% endif %}">Perfil</a>
+            </li>
+            <li>
                 <a href="{% url 'list-treinos' usuario.aluno.pk %}" class="{% if urlname == 'list-treinos'%}active{% endif %}">Consultar Treinos</a>
             </li>
-
             <li>
                 <a href="{% url 'list-presencas' usuario.aluno.pk %}" class="{% if urlname == 'list-presencas'%}active{% endif %}">Presenças</a>
             </li>
         </ul>
     </div> <!-- /.admin-nav-user -->
-
     <div class="panel panel-default start-training">
         <div class="panel-heading start-training-heading text-center">
         {% if not usuario.treinando %}
@@ -62,31 +59,6 @@
             <span {% if usuario.treinando %} id="timer" {% endif %} class="start-training-stopwatch">00:00</span>
         </div>
     </div>
-
-    <!-- Fechar Ficha
-    {% if request.user != usuario.aluno %}
-    <div class="closing-record">
-        <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
-            <button type="button" class="btn btn-danger btn-sm btn-close-record">Fechar Ficha</button>
-        </a>
-    </div>
-    {% endif %} -->
-
-    <!-- Área do Professor
-    <div class="thumbnail admin-vertical-instructor">
-        <div class="admin-vertical-instructor-active">
-            <div class="admin-vertical-notifications">3</div>
-            <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor">
-                <img  {% if  user.perfil.image %}
-                    src="{{ user.perfil.image }}-/scale_crop/40x40/center/"
-                {% else %}
-                    src="holder.js/40x40/text:{{ user.username }} "
-                {% endif %}
-             alt=""  class="img-circle">
-            </a>
-            <a href="{% url 'fechar-ficha' user.pk %}" class="admin-vertical-link-logout" ng-click="window.alert('la')">Sair do Sistema</a>
-        </div>
-    </div> -->
 </nav>
 
 

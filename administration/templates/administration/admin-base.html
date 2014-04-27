@@ -36,6 +36,23 @@
         });
 
     }
+
+    $('#popoverId').popover({
+        html: true,
+        title: 'Informações do usuário<a class="close exit" href="#");">&times;</a>',
+        content: $('#popoverContent').html(),
+    });
+
+    $('#popoverId').click(function (e) {
+        e.stopPropagation();
+    });
+
+    $(document).click(function (e) {
+        if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+            $('#popoverId').popover('hide');
+        }
+    });
+
     </script>
 
 {% endblock js %}

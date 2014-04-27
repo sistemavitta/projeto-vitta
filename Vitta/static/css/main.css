@@ -329,8 +329,14 @@ h4.list-group-item-heading {
 .admin-nav-profile-img-user {
   margin-top: 8px;
 }
-.admin-nav-profile-name-user {
+a.name-user {
+  font-size: 18px;
   font-family: 'Oswald', sans-serif;
+  color: #000;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
 }
 .admin-nav-profile-information-user {
   font-size: 13px;
@@ -928,6 +934,33 @@ a.icon-exibition {
    position: absolute;
 }
 /* #CSS Star */
+
+/* CSS Popover */
+.popover {
+  position: fixed;
+}
+.popover-title {
+  font-size: 16px;
+  background-color: #f5f5f5;
+}
+a.close.exit {
+  font-size: 22px;
+  margin-top: -2px;
+  color: #444;
+}
+.profile-mail {
+  font-size: 16px;
+}
+.profile-phone {
+  font-size: 16px;
+}
+.glyphicon-envelope {
+  font-size: 13px;
+}
+.glyphicon-earphone {
+  font-size: 13px;
+}
+/* #CSS Popover */
 
 /* CSS Media Queries */
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
