@@ -11,6 +11,7 @@
 {% block content-ficha %}
 
     {% with  fichas=usuario.aluno.fichas.all fichaaluno=usuario.ficha  %}
+        <!--
         <div class="btn-group swap-sheet-group">
             <button type="button" class="btn btn-default swap-sheet dropdown-toggle" data-toggle="dropdown"><span class="sheet-text">
             {% for ficha in fichas %}
@@ -36,9 +37,7 @@
 
             {% endfor %}
             </ul>
-        </div>
-
-
+        </div> -->
 
         <div class="panel panel-primary admin-panel-attendance">
 
@@ -51,29 +50,9 @@
                 </div>
             </div>
 
-            <!-- Informações da Ficha
-            <div class="panel-heading admin-panel-heading-attendance">
-                <span class="glyphicon glyphicon-tasks"></span>
-                <strong class="record-header">Ficha do {{ usuario.aluno.username }}</strong>
-                {% if usuario.ficha %}
-                <div class="row information">
-                    <div class="col-md-3">
-                        <h5>Data&nbsp;de&nbsp;Início:</h5>&nbsp;{{ usuario.ficha.data_inicio|date:"d/n/Y" }}
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Data&nbsp;de&nbsp;Fim:</h5>&nbsp;{{ usuario.ficha.data_fim|date:"d/n/Y" }}
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Objetivo:</h5>&nbsp;{{ usuario.ficha.objetivo }}
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-            -->
-
             <div class="panel-body">
                 <div class="col-md-12">
-
+                <!--
                 <div class="alert-message alert-message-info">
                     <strong class="record-header">Ficha do {{ usuario.aluno.username }}</strong>
                     {% if usuario.ficha %}
@@ -89,36 +68,12 @@
                         </div>
                     </div>
                     {% endif %}
-                </div>
+                </div> -->
     {% endwith %}
-
-                <!-- Última Presença
-                {% if ulpresenca %}
-                <div class="alert-message alert-message-info">
-                    <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
-                    <span class="glyphicon glyphicon-flag"></span>
-                    <strong class="last-workout">Última&nbsp;Presença</strong>
-                    <div class="row information">
-                        <div class="col-md-2">
-                            <h5>Professor:</h5>&nbsp; {{ ulpresenca.professor }}
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Data/Hora:</h5> {{ ulpresenca.data_inicio|date:"l d/n/Y G:i"  }}
-                        </div>
-                        <div class="col-md-2">
-                            <h5>Treino:</h5>&nbsp;&nbsp; {{ ulpresenca.treino.nome }}
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Duração:</h5>&nbsp;&nbsp;{{ ulpresenca.duracao}}&nbsp;minutos
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-                -->
 
                     {% with  treinos=usuario.ficha.treinos.all %}
 
-                        <div class="panel-group" id="accordion" ng-init="tab=true" ng-show="tab" ng-cloak>
+                        <div class="panel-group all-training" id="accordion" ng-init="tab=true" ng-show="tab" ng-cloak>
 
                             {% for treino in treinos %}
 

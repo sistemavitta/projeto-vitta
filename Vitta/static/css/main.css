@@ -288,6 +288,46 @@ h4.list-group-item-heading {
 }
 /* #CSS Modal Feedback */
 
+/* CSS Modal Record*/
+.record-size {
+  width: 400px;
+  margin-left: 100px;
+}
+.record-modal-header {
+  background: #444;
+  padding-top: 16px;
+  padding-bottom: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.record-title {
+  margin-bottom: 10px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.record-footer {
+  margin-top: -14px;
+  padding: 15px;
+  background: #f5f5f5;
+}
+.record-btn {
+  background: #e73e2c;
+  border: none;
+  font-size: 16px;
+}
+.record-btn:hover,
+.record-btn:focus,
+.record-btn:active
+.record-btn.active {
+  background: #e73e2c;
+  border: none;
+}
+/* #CSS Modal Record */
+
 /* CSS Navbar Vertical Admin */
 
 /* CSS Navbar Base */
@@ -339,23 +379,59 @@ a.name-user {
   text-decoration: none;
 }
 .admin-nav-profile-information-user {
-  font-size: 13px;
-  margin-bottom: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  background-color: #f5f5f5;
+  padding: 0px;
+}
+.profile-start-date {
+  font-weight: bold;
+  font-size: 14px;
+}
+.profile-stop-date {
+  font-weight: bold;
+  font-size: 14px;
+}
+.profile-goal {
+  font-weight: bold;
+  font-size: 14px;
 }
 /* #CSS User Profile */
 
 /* CSS Closing Record */
 .closing-record {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+a.exchange-record {
+  text-decoration: none;
+}
+.btn-close-open {
+  background: #f0ad4e;
+  border: none;
+  font-size: 14px;
+  color: #fff;
+}
+.btn-close-open:hover,
+.btn-close-open:focus,
+.btn-close-open:active
+.btn-close-open.active {
+  background: #f0ad4e;
+  border: none;
+  color: #fff;
 }
 .btn-close-record {
   background: #e73e2c;
   border: none;
-  font-size: 13px;
+  font-size: 14px;
+  color: #fff;
 }
-.btn-close-record:hover {
+.btn-close-record:hover,
+.btn-close-record:focus,
+.btn-close-record:active
+.btn-close-record.active {
   background: #e73e2c;
   border: none;
+  color: #fff;
 }
 /* #CSS Closing Record */
 
@@ -679,13 +755,11 @@ th.options-exibition-training {
 }
 .glyphicon-align-justify {
   color: #444;
-  margin-top: 5px;
-  margin-bottom: 0;
+  margin-top: 10px;
 }
 .glyphicon-list {
   color: #444;
-  margin-top: 5px;
-  margin-bottom: 0;
+  margin-top: 10px;
 }
 /* #CSS Training Exibition */
 
@@ -787,6 +861,9 @@ h4.options-tabs {
 .table > thead:first-child > tr:first-child > th {
   border-bottom: 1px solid #000;
 }
+.all-training {
+  margin-top: -10px;
+}
 .panel > .heading-panel-training {
   background: #444;
 }
@@ -870,12 +947,6 @@ a.icon-exibition {
 /* CSS Attendance */
 .admin-panel-attendance {
   border: none;
-  -webkit-border-radius: 4px;
-  -webkit-border-top-left-radius: 0;
-  -moz-border-radius: 4px;
-  -moz-border-radius-topleft: 0;
-  border-radius: 4px;
-  border-top-left-radius: 0;
 }
 .title-presence {
   font-size: 16px;

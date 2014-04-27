@@ -17,17 +17,24 @@
         </div>
         <div>
             <p class="admin-nav-profile-information-user"> <!-- admin-nav-profile-information-user -->
-                {{ usuario.aluno.email }}<br>
-                {{ usuario.aluno.phone }}
+                <span class="profile-start-date ">Data de Início:</span>
+                <span>25/04/2014</span><br>
+                <span class="profile-stop-date">Data de Fim:</span>
+                <span>25/05/2014</span><br>
+                <span class="profile-goal">Objetivo:</span>
+                <span>Hipertrofia</span>
             </p> <!-- /.admin-nav-profile-information-user -->
         </div>
-        {% if request.user != usuario.aluno %}
-        <div class="closing-record"> <!-- closing-record -->
+        <div class="btn-group closing-record">
+            <a href="#recordModal" data-toggle="modal" class="exchange-record">
+                <button type="button" class="btn btn-default btn-xs btn-close-open">Trocar Ficha</button>
+            </a>
+            {% if request.user != usuario.aluno %}
             <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
-                <button type="button" class="btn btn-danger btn-xs btn-close-record">Fechar Ficha</button>
-            </a> <!-- /.closing-record -->
+                <button type="button" class="btn btn-default btn-xs btn-close-record">Fechar Ficha</button>
+            </a>
+            {% endif %}
         </div>
-        {% endif %}
     </div> <!-- /.admin-nav-profile -->
     <div class="admin-nav-user"> <!-- admin-nav-user -->
         <ul>
@@ -60,6 +67,29 @@
         </div>
     </div>
 </nav>
+
+<!-- Modal Trocar Ficha -->
+    <div class="modal fade" id="recordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content record-size">
+
+                <div class="modal-header record-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title record-title" id="myModalLabel">Trocar Ficha</h4>
+                </div>
+
+                <div class="modal-body">
+                    Inserir forma de exibição trocar ficha com informações da ficha
+                </div>
+
+                <div class="modal-footer record-footer">
+                    <button type="submit"  type="button" class="btn btn-danger pull-left record-btn" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- /.Trocar Ficha -->
+
 
 
 
