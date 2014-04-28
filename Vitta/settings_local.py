@@ -1,6 +1,8 @@
-'''
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+SSLIFY_DISABLE = True
+SESSION_COOKIE_SECURE = False
 
 DATABASES = {
     'default': {
@@ -13,6 +15,6 @@ DATABASES = {
     }
 }
 
-'''
+
 
 

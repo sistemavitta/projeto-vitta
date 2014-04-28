@@ -20,3 +20,4 @@ six==1.6.1
 static==1.0.2
 static3==0.5
 wsgiref==0.1.2
+django-sslify>=0.2
