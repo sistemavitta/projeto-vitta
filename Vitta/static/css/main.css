@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* General CSS Styles, Icons and Fonts */
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300);
-@import url(https://fonts.googleapis.com/css?family=Oswald);
+
 html, body {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
