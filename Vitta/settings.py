@@ -211,8 +211,10 @@ ABSOLUTE_URL_OVERRIDES = {
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGINATE_BY': 30,
-    'DATETIME_FORMAT': '%a %d/%m/%Y %H:%M ',
+    'PAGINATE_BY': 10,
+    'PAGINATE_BY_PARAM': 'page_size',  # Allow client to override, using `?page_size=xxx`.
+    'MAX_PAGINATE_BY': 300,             # Maximum limit allowed when using `?page_size=xxx`.
+    'DATETIME_FORMAT': '%a %d/%m/%Y', #%a %d/%m/%Y %H:%M
     'DATE_FORMAT': '%d/%m/%Y ',
     'TIME_FORMAT' : '%H:%M:%S',
 
@@ -223,6 +225,9 @@ REST_FRAMEWORK = {
         # poderia adicionar aqui por exemplo, o oauth2:
         # 'rest_framework.authentication.OAuth2Authentication'
     ),
+
+    # 'DEFAULT_PAGINATION_SERIALIZER_CLASS':
+    #     'talks.serializers.CustomPaginationSerializer',
 }
 
 try:

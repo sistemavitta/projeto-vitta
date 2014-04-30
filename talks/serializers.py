@@ -1,11 +1,26 @@
 from django.contrib.auth.models import User, Group
 from perfil.models import Perfil
 from rest_framework import serializers
+from rest_framework import pagination
 from training.models import PesoExercicio
 from training.models import Fichas
 from training.models import Treinos
 from training.models import ExerciciosAluno
+from training.models import NomesExercicio
 from administration.models import Presenca
+
+
+
+class LinksSerializer(serializers.Serializer):
+    next = pagination.NextPageField(source='*')
+    prev = pagination.PreviousPageField(source='*')
+
+class CustomPaginationSerializer(pagination.BasePaginationSerializer):
+    links = LinksSerializer(source='*')  # Takes the page object as the source
+    total_results = serializers.Field(source='paginator.count')
+
+    results_field = 'objects'
+
 
 
 
@@ -42,11 +57,16 @@ class PesoSerializer(serializers.ModelSerializer):
 
 
 
-
+class NomeExercicio(serializers.ModelSerializer):
+    musculo = serializers.CharField(source='get_musculo_display')
+    class Meta:
+        model = NomesExercicio
+        fields = ('nome','musculo')
 
 
 class ExerciciosSerializer(serializers.ModelSerializer):
     peso = serializers.CharField(source='peso')
+    nome = NomeExercicio()
     class Meta:
         model = ExerciciosAluno
         fields = ('id','nome','serie','repeticao','peso')
@@ -70,6 +90,7 @@ class FichaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fichas
         fields = ('id','aluno', 'objetivo','criado_em','data_inicio','data_fim','ultima_presenca','treinos')
+        depth = 1
 
 
 
@@ -108,4 +129,4 @@ class PresencaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Presenca
         fields = ('id', 'aluno','treino','professor','data_inicio','duracao','feedback')
-        depth = 1
+        depth = 2

@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from perfil.models import Perfil
 from serializers import UserSerializer, GroupSerializer, PerfilSerializer, PesoSerializer, FichaSerializer, TreinosListSerializer,FichaListSerializer, PresencaSerializer
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, ListAPIView , UpdateAPIView, CreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, ListAPIView , UpdateAPIView, CreateAPIView, GenericAPIView
 from rest_framework import permissions
 from rest_framework.exceptions import ParseError
 from rest_framework.reverse import reverse
@@ -25,14 +25,14 @@ class UserMixim():
 
     queryset = User.objects.all().filter(is_active=True)
     serializer_class = UserSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class UserList(UserMixim,ListAPIView):
     """
-    Listar todos usuários:
+    Lista todos usuários.
 
-    Ao passar o parametro `username` na url, será aplicado o filtro para buscar o usuário pelo nome
+    Ao passar o parametro '/?username=nome' na url, será aplicado o filtro para buscar o usuário com o nome
 
     """
 
@@ -89,9 +89,9 @@ class PesoCreate(CreateAPIView):
 
 class FichaDetail(ListAPIView):
     """
-        Exibe a ficha com seus treinos
+        Exibe a ficha completa de um usuário
 
-        Passar parametro: ?usuario=(codigo do usuario)
+        Passar parametro: ?username=(nome do usuario)
 
     """
 
@@ -103,9 +103,13 @@ class FichaDetail(ListAPIView):
         # Vamos adicionar a possibilidade de filtrar:
         qs = super(FichaDetail, self).get_queryset(*args, **kwargs)
 
-        usuario = self.request.QUERY_PARAMS.get('usuario')
+        usuario = self.request.QUERY_PARAMS.get('username')
         if usuario is not None:
-            qs = qs.filter(aluno=usuario)
+            ids=User.objects.all().filter(username__icontains=usuario).values('id')
+            lista=[]
+            for i in ids:
+                lista.append(i.get('id'))
+            qs = qs.filter(aluno__in=lista)
             if not qs:
                 # Aspecto muito interessante do rest framework, ao levantar
                 # certas exceções, ele atribui o código correto, assim como
@@ -158,7 +162,7 @@ class TreinosDetail(APIView):
 
     #     # Poderíamos porém ter usado a api de filtros do rf.
     #     return qs
-class PresencaDetail(APIView):
+class PresencaDetail(ListAPIView):
     """
         Exibe presenças do usuario
 
@@ -166,22 +170,49 @@ class PresencaDetail(APIView):
 
     """
 
-    # queryset = Fichas.objects.all().filter(ativo=True)
 
-    # serializer_class = FichaListSerializer
+    queryset = Presenca.objects.all()
+
+    serializer_class = PresencaSerializer
     # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-    def get(self, request,usuario, format=None):
-        ultima = self.request.QUERY_PARAMS.get('ultima')
-        presencas = Presenca.objects.all().filter(aluno=usuario)
-        if ultima:
-            presenca = presencas.reverse().last()
-            serializer = PresencaSerializer(presenca)
-            return Response(serializer.data)
-        if not presencas:
-            raise ParseError(u'Nenhuma ficha para usuario ')
-        serializer = PresencaSerializer(presencas, many=True)
-        return Response(serializer.data)
+    # def get(self, request,usuario, format=None):
+    #     ultima = self.request.QUERY_PARAMS.get('ultima')
+    #     presencas = Presenca.objects.all().filter(aluno=usuario)
+    #     if ultima:
+    #         presenca = presencas.reverse().last()
+    #         serializer = PresencaSerializer(presenca)
+    #         return Response(serializer.data)
+    #     if not presencas:
+    #         raise ParseError(u'Nenhuma ficha para usuario ')
+    #     serializer = PresencaSerializer(presencas, many=True)
+    #     return Response(serializer.data)
+
+
+    def get_queryset(self, *args, **kwargs):
+        # Vamos adicionar a possibilidade de filtrar:
+        qs = super(PresencaDetail, self).get_queryset(*args, **kwargs)
+
+        usuario = self.request.QUERY_PARAMS.get('username')
+        if usuario is not None:
+            ids=User.objects.all().filter(username__icontains=usuario).values('id')
+            if not ids:
+                # Aspecto muito interessante do rest framework, ao levantar
+                # certas exceções, ele atribui o código correto, assim como
+                # o Http404 do django
+                raise ParseError(u'Nenhuma usuario encontrado')
+            lista=[]
+            for i in ids:
+                lista.append(i.get('id'))
+            qs = qs.filter(aluno__in=lista)
+            if not qs:
+                # Aspecto muito interessante do rest framework, ao levantar
+                # certas exceções, ele atribui o código correto, assim como
+                # o Http404 do django
+                raise ParseError(u'Nenhuma presenca para este usuario')
+
+        # Poderíamos porém ter usado a api de filtros do rf.
+        return qs
 
 
 
@@ -192,9 +223,10 @@ class APIRootView(APIView):
     def get(self, request):
         data = {
 
-            'users': reverse('user-list',request=request),
+            'get usuarios': reverse('user-list',request=request),
             'create-peso': reverse('peso-create',request=request),
-            #'ficha-detalhes' : reverse('ficha-detail', request=request),
+            'get fichas' : reverse('ficha-list', request=request),
+            'get presencas' : reverse('presenca-list', request=request),
 
         }
         return Response(data)
