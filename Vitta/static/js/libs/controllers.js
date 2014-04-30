@@ -20,10 +20,11 @@ function BuscarAluno($scope,$http,$window){
 
         $scope.presenca = '';
 
-        var path = '/api/presencas/'+usuario+'/?ultima=true';
+        var path = '/api/presencas/'+'?username='+usuario+'&ultima=true';
         $http.get(path).success(function(data){
             // $scope.loading = false;
-            $scope.presenca = data;
+            $scope.presenca = data.results;
+            console.log(data);
         }).error(function(data){
 
             console.log(data);
@@ -35,7 +36,7 @@ function BuscarAluno($scope,$http,$window){
 
 
 
-    $scope.listTreinos= function(usuario){
+    $scope.listTreinos= function(usuario, nome){
 
         $scope.treinos = '';
 
@@ -48,7 +49,7 @@ function BuscarAluno($scope,$http,$window){
             console.log(data);
 
         });
-        $scope.ultimaPresenca(usuario);
+        $scope.ultimaPresenca("robson");
 
 
     };

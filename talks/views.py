@@ -205,6 +205,9 @@ class PresencaDetail(ListAPIView):
             for i in ids:
                 lista.append(i.get('id'))
             qs = qs.filter(aluno__in=lista)
+            ultima= self.request.QUERY_PARAMS.get('ultima')
+            if ultima:
+                qs=qs.filter(id=qs.reverse().last().id)
             if not qs:
                 # Aspecto muito interessante do rest framework, ao levantar
                 # certas exceções, ele atribui o código correto, assim como
