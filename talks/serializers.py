@@ -10,7 +10,6 @@ from training.models import NomesExercicio
 from administration.models import Presenca
 
 
-
 class LinksSerializer(serializers.Serializer):
     next = pagination.NextPageField(source='*')
     prev = pagination.PreviousPageField(source='*')
@@ -33,6 +32,14 @@ class PerfilSerializer(serializers.ModelSerializer):
 		fields = ('level','image')
 
 
+class UserCreateSerializer(serializers.ModelSerializer):
+    """
+        Cria um usuario
+    """
+
+    class Meta:
+        model = User
+        fields = ('username', 'email','password')
 
 class UserSerializer(serializers.ModelSerializer):
 	perfil = PerfilSerializer()

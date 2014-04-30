@@ -16,9 +16,11 @@ from training.models import Fichas
 from training.models import Treinos
 from rest_framework import status
 from administration.models import Presenca
+from serializers import UserCreateSerializer
 #import django_filters
 #from django.utils.timezone import now
 #from rest_framework import filters, viewsets
+
 
 
 class UserMixim():
@@ -52,11 +54,15 @@ class UserList(UserMixim,ListAPIView):
         # Poderíamos porém ter usado a api de filtros do rf.
         return qs
 
+class UserCreate(CreateAPIView):
+    """
 
-# class UserDetail(UserMixim,ListAPIView):
-#     """
-#     Exibe um usuário específico
-#     """
+    Cria um usuário.
+
+    """
+
+    queryset = User.objects.all()
+    serializer_class = UserCreateSerializer
 
 
 
@@ -226,10 +232,11 @@ class APIRootView(APIView):
     def get(self, request):
         data = {
 
-            'get usuarios': reverse('user-list',request=request),
-            'create-peso': reverse('peso-create',request=request),
-            'get fichas' : reverse('ficha-list', request=request),
-            'get presencas' : reverse('presenca-list', request=request),
+            'GET USUARIOS': reverse('user-list',request=request),
+            'POST PESO': reverse('peso-create',request=request),
+            'GET FICHAS' : reverse('ficha-list', request=request),
+            'GET PRESENCAS' : reverse('presenca-list', request=request),
+            'POST USUARIO' : reverse('user-create', request=request),
 
         }
         return Response(data)
