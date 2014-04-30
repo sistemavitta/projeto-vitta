@@ -11,11 +11,6 @@
 {% block content-ficha %}
 
     <div class="panel panel-primary admin-panel-attendance"> <!-- admin-panel-attendance -->
-        <!--
-        <div class="panel-heading admin-panel-heading-attendance">
-            <strong class="admin-panel-title">Treinamento do Aluno</strong>
-        </div>
-        -->
         <div class="panel-body"> <!-- panel-body -->
             <div class="col-md-12"> <!-- col-md-12 -->
                 {% if usuario.treinando%}
@@ -44,66 +39,39 @@
                                             <td class="text-center">{{ exerc.serie }}</td>
                                             <td class="text-center">{{ exerc.repeticao }}</td>
                                             <td style="width: 1px;">
-
-                                            {% comment %}
-
-
-                                                <div class="input-group weight-control">
-                                                    <div class="input-group-btn">
-                                                        <button type="button" class="btn btn-primary btn-sm minus-bt"><span class="glyphicon glyphicon-minus"></span></button>
-                                                    </div>
-                                                    <input type="text" class="form-control text-center input-sm" placeholder="110">
-                                                    <div class="input-group-btn">
-                                                        <button type="button" class="btn btn-primary btn-sm plus-bt"><span class="glyphicon glyphicon-plus"></span></button>
-                                                        <button type="button" class="btn btn-primary btn-sm alt-bt">Alterar</button>
-                                                    </div>
-                                                </div>
-                                            {% endcomment %}
-
                                                 <div class="input-group weight-control">
                                                     <span class="input-group-btn">
-                                                        <button type="button" class="btn btn-danger btn-sm minus" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1; ">
+                                                        <button type="button" class="btn btn-danger btn-sm minus-bt" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1;">
                                                             <span class="glyphicon glyphicon-minus"></span>
                                                         </button>
                                                     </span>
-                                                    <input type="text" ng-init="peso{{exerc.pk}} = {{exerc.peso}};" ng-model="peso{{exerc.pk}}" class="form-control input-sm" >
+                                                    <input type="text" ng-init="peso{{exerc.pk}} = {{exerc.peso}};" ng-model="peso{{exerc.pk}}" class="form-control text-center input-sm">
                                                     <span class="input-group-btn">
-                                                        <button type="button" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} + 1; " class="btn btn-primary btn-sm plus">
+                                                        <button type="button" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} + 1;" class="btn btn-primary btn-sm plus-bt">
                                                             <span class="glyphicon glyphicon-plus"></span>
                                                         </button>
                                                         <button ng-click="atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});" type="button" class="btn btn-primary btn-sm alt-bt">Alterar</button>
                                                     </span>
                                                 </div>
-
                                             </td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- Finalizar Treinamento
-                            <div class="col-xs-2 text-center">
-                                <a href="{% url 'finalizar-treinamento' usuario.aluno.pk %}" type="button" class="btn btn-danger btn-sm complete-training">Fizalizar<br>Treinamento</a>
-                            </div>
-                            -->
                         </div>
                     </div> <!-- /.panel-body -->
                 </div> <!-- /.panel-default -->
-
             {% else %}
-
             <div class="alert-message alert-message-registering-training">
                 <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
                 <span class="glyphicon glyphicon-ban-circle"></span>
                 <strong class="registering-training">Iniciar&nbsp;Treinamento!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treinamento&nbsp;iniciado&nbsp;
             </div>
-
             {% endif %}
             </div> <!-- /.col-md-12 -->
         </div> <!-- /.panel-body -->
-
         {% if usuario.treinando %}
-
         <div class="panel-footer panel-footer-training-started"> <!-- panel-footer -->
             <a href="#stopModal" type="button" data-toggle="modal" class="btn btn-danger complete">
                 Finalizar Treinamento
@@ -113,9 +81,7 @@
                 Cancelar Treinamento
             </a>
         </div> <!-- /.panel-footer -->
-
         {% endif %}
-
     </div> <!-- /.admin-panel-attendance -->
 
 {% endblock content-ficha %}

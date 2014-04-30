@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* General CSS Styles, Icons and Fonts */
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300);
-@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300);
+@import url(https://fonts.googleapis.com/css?family=Oswald);
 html, body {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
@@ -184,16 +184,17 @@ html, body {
   text-transform: uppercase;
 }
 h4.last-presence-title-training {
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   color: #444;
-  text-transform: uppercase;
+  font-weight: bold;
 }
 .last-presence-options {
-  font-size: 14px;
+  font-size: 15px;
   color: #444;
+  font-weight: bold;
 }
 .last-presence-sub-options {
-  font-size: 14px;
+  font-size: 15px;
   color: #444;
 }
 .start-thumbnail {
@@ -203,16 +204,21 @@ h4.last-presence-title-training {
   padding: 0;
 }
 h4.list-group-item-heading {
-  color: #000;
+  color: #444;
+  font-weight: bold;
 }
-.create-training{
-  background: #428bca;
+.close-training {
+  background: #e73e2c;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
 }
-.create-training:hover {
-  background: #428bca;
+.close-training:hover,
+.close-training:focus,
+.close-training:active
+.close-training.active {
+  background: #e73e2c;
   border: none;
+  font-size: 16px;
 }
 .nav-pills > li.active > a {
   background: #5cb85c;
@@ -242,7 +248,7 @@ h4.list-group-item-heading {
   margin-left: 100px;
 }
 .start-back {
-  margin-top: -25px;
+  margin-top: -26px;
   background: #f5f5f5;
   padding: 15px;
 }

@@ -2,35 +2,20 @@
     <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content start-size">
-
                 <div class="modal-header start-modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title last-presence-title" id="myModalLabel">Iniciar Treinamento</h4>
                 </div>
-
                 <div class="modal-body">
-
                     <div class="alert last-presence">
-                        <h4 class="modal-title last-presence-title-training" id="myModalLabel">Último Treinamento Realizado</h4>
+                        <h4 class="modal-title last-presence-title-training" id="myModalLabel">Último Treino</h4>
                         <div class="row">
-                            <div class="col-xs-4">
-                                <span class="last-presence-options">Professor:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.professor.username]]</span><br>
+                            <div class="col-xs-12">
+                                <span class="last-presence-options">Data/Hora:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.data_inicio]]</span>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <span class="last-presence-options">Treino:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.treino.nome]]</span>
                             </div>
-                            <div class="col-xs-8">
-                                <span class="last-presence-options">Data/Hora:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.data_inicio]]</span><br>
-                                <span class="last-presence-options">Duração:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.duracao]]&nbsp;min</span>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="col-xs-12">
-                            <span class="last-presence-options">FeeedBack:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.feedback]]</span><br>
-                        </div>
-
                         </div>
                     </div>
-
                     <ul class="nav nav-pills nav-justified thumbnail start-thumbnail setup-panel" ng-repeat="treino in treinos" >
                         <li class="disabled">
                             <a>
@@ -40,18 +25,14 @@
                         <li class="active">
                             <a href="/perfil/{{ usuario.aluno.pk }}/treinos/treinar/[[treino.id]]">
                                 <span class="glyphicon glyphicon-play"></span>
-                                <span class="train">&nbsp;Treinar</span>
+                                <span class="train">Treinar</span>
                             </a>
                         </li>
                     </ul>
-
-
                 </div>
-
                 <div class="modal-footer start-back">
-                    <button type="button" class="btn btn-primary create-training pull-left">Criar Treinamento Personalizado</button>
+                    <button type="button" class="btn btn-primary close-training pull-left" data-dismiss="modal">Fechar</button>
                 </div>
-
             </div>
         </div>
     </div>
