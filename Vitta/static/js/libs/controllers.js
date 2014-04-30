@@ -49,7 +49,7 @@ function BuscarAluno($scope,$http,$window){
             console.log(data);
 
         });
-        $scope.ultimaPresenca("robson");
+        $scope.ultimaPresenca(nome);
 
 
     };
