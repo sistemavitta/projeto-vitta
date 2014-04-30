@@ -24,7 +24,7 @@ function BuscarAluno($scope,$http,$window){
         $http.get(path).success(function(data){
             // $scope.loading = false;
             $scope.presenca = data.results;
-            console.log(data);
+
         }).error(function(data){
 
             console.log(data);
