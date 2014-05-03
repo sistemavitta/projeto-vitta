@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from perfil.models import Perfil
 from serializers import UserSerializer, GroupSerializer, PerfilSerializer, PesoSerializer, FichaSerializer, TreinosListSerializer,FichaListSerializer, PresencaSerializer
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView, ListAPIView , UpdateAPIView, CreateAPIView, GenericAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView, RetrieveUpdateAPIView, ListAPIView , UpdateAPIView, CreateAPIView, GenericAPIView
 from rest_framework import permissions
 from rest_framework.exceptions import ParseError
 from rest_framework.reverse import reverse
@@ -16,7 +16,7 @@ from training.models import Fichas
 from training.models import Treinos
 from rest_framework import status
 from administration.models import Presenca
-from serializers import UserCreateSerializer
+from serializers import UserCreateSerializer, TreinoGeralSerializer
 #import django_filters
 #from django.utils.timezone import now
 #from rest_framework import filters, viewsets
@@ -63,6 +63,24 @@ class UserCreate(CreateAPIView):
 
     queryset = User.objects.all()
     serializer_class = UserCreateSerializer
+
+
+class TreinoList(ListCreateAPIView):
+    """
+        Lista e Cria Treino
+
+    """
+    queryset = Treinos.objects.all()
+    serializer_class = TreinoGeralSerializer
+
+class TreinoDetail(RetrieveUpdateDestroyAPIView):
+    """
+        Exibe, atualiza e deleta Treinos
+
+    """
+    queryset = Treinos.objects.all()
+    serializer_class = TreinoGeralSerializer
+
 
 
 
@@ -233,10 +251,11 @@ class APIRootView(APIView):
         data = {
 
             'GET USUARIOS': reverse('user-list',request=request),
-            'POST PESO': reverse('peso-create',request=request),
             'GET FICHAS' : reverse('ficha-list', request=request),
             'GET PRESENCAS' : reverse('presenca-list', request=request),
             'POST USUARIO' : reverse('user-create', request=request),
+            'POST PESO': reverse('peso-create',request=request),
+            'GET POST TREINO': reverse('treino-list',request=request),
 
         }
         return Response(data)

@@ -25,6 +25,8 @@ urlpatterns = patterns('talks.views',
     url(r'^peso/$',views.PesoCreate.as_view(),name='peso-create'),
     url(r'^fichas/$',views.FichaDetail.as_view(),name='ficha-list'),
     url(r'^treinos/(?P<usuario>\d+)/$',views.TreinosDetail.as_view(),name='treinos-detail'),
+    url(r'^treino/$',views.TreinoList.as_view(),name='treino-list'),
+    url(r'^treino/(?P<pk>\d+)/$',views.TreinoDetail.as_view(),name='treino-detail'),
     url(r'^presencas/$',views.PresencaDetail.as_view(),name='presenca-list'),
 
 )
