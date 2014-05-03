@@ -6,9 +6,14 @@
                     {% else %}
                         src="holder.js/120x120/"
                     {% endif %}
-            alt="" class="admin-nav-profile-img-user img-circle {% if usuario.treinando %} admin-nav-profile-active{% endif %}"> <!-- /.admin-nav-profile-img-user -->
+            alt="" class="admin-nav-profile-img-user
+            {% if usuario.treinando %}
+                admin-nav-profile-active
+            {% else %}
+                admin-nav-profile-noactive
+            {% endif %} img-circle">
         </a>
-        <a href="#" class="name-user" id="popoverId" data-placement="right">{{ usuario.aluno.username }}</a>
+        <a href="#" class="name-user" id="popoverId" data-placement="right">Ficha&nbsp;-&nbsp;{{ usuario.aluno.username }}</a>
         <div id="popoverContent" class="hide">
             <span class="glyphicon glyphicon-envelope"></span>&nbsp;
             <span class="profile-mail ">{{ usuario.aluno.email }}</span><br>
