@@ -90,6 +90,8 @@ class Treinos(models.Model):
                                     auto_now_add=True)
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
+    def get_absolute_url(self):
+      return "/treino/%i/" % self.id
 
     def ultima_presenca(self):
 
