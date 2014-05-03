@@ -332,6 +332,17 @@ h4.list-group-item-heading {
   background: #e73e2c;
   border: none;
 }
+.bt-select-record {
+  background: #5cb85c;
+  border: none;
+}
+.bt-select-record:hover,
+.bt-select-record:focus,
+.bt-select-record:active
+.bt-select-record.active {
+  background: #5cb85c;
+  border: none;
+}
 /* #CSS Modal Record */
 
 /* CSS Navbar Vertical Admin */
