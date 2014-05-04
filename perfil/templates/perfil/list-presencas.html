@@ -33,7 +33,14 @@
                                 <td>{{ presenca.duracao }} min</td>
                                 <td>{{ presenca.treino }}</td>
                                 <td>{{ presenca.professor }}</td>
-                                <td>{{ presenca.feedback|truncatewords:5}}</td>
+                                <td>
+                                    <a href="#" id="popoverFeed" data-placement="bottom">
+                                        {{ presenca.feedback|truncatewords:5}}
+                                    </a>
+                                    <div id="popoverContentFeed" class="hide">
+                                        {{ presenca.feedback }}
+                                    </div>
+                                </td>
                             </tr>
 
                         {% endfor %}

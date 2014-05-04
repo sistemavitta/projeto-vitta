@@ -1063,6 +1063,12 @@ a.icon-exibition {
 a.close.exit {
   font-size: 22px;
   margin-top: -2px;
+  margin-left: 40px;
+  color: #444;
+}
+a.close.exit-feed {
+  font-size: 22px;
+  margin-top: -2px;
   color: #444;
 }
 .profile-mail {
