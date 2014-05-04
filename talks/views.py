@@ -16,8 +16,8 @@ from training.models import Fichas
 from training.models import Treinos
 from rest_framework import status
 from administration.models import Presenca
-from serializers import UserCreateSerializer, TreinoGeralSerializer
-#import django_filters
+from serializers import UserCreateSerializer, TreinoGeralSerializer, FichaGeralSerializer
+import django_filters
 #from django.utils.timezone import now
 #from rest_framework import filters, viewsets
 
@@ -30,7 +30,7 @@ class UserMixim():
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
-class UserList(UserMixim,ListAPIView):
+class UserListagem(UserMixim,ListAPIView):
     """
     Lista todos usuários.
 
@@ -40,7 +40,7 @@ class UserList(UserMixim,ListAPIView):
 
     def get_queryset(self, *args, **kwargs):
         # Vamos adicionar a possibilidade de filtrar:
-        qs = super(UserList, self).get_queryset(*args, **kwargs)
+        qs = super(UserListagem, self).get_queryset(*args, **kwargs)
 
         search = self.request.QUERY_PARAMS.get('username')
         if search is not None:
@@ -54,10 +54,20 @@ class UserList(UserMixim,ListAPIView):
         # Poderíamos porém ter usado a api de filtros do rf.
         return qs
 
-class UserCreate(CreateAPIView):
+class UserList(ListCreateAPIView):
     """
 
-    Cria um usuário.
+    Lista e Cria um usuário.
+
+    """
+
+    queryset = User.objects.all()
+    serializer_class = UserCreateSerializer
+
+class UserDetail(RetrieveUpdateDestroyAPIView):
+    """
+
+    Exibe, atualiza e deleta Usuarios
 
     """
 
@@ -65,9 +75,13 @@ class UserCreate(CreateAPIView):
     serializer_class = UserCreateSerializer
 
 
+
+
 class TreinoList(ListCreateAPIView):
     """
         Lista e Cria Treino
+
+        Obs: o atributo 'url' indica o caminho para obter detalhes do Treino
 
     """
     queryset = Treinos.objects.all()
@@ -82,6 +96,31 @@ class TreinoDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = TreinoGeralSerializer
 
 
+class FichaFilter(django_filters.FilterSet):
+
+    class Meta:
+        model = Fichas
+
+class FichaList(ListCreateAPIView):
+    """
+        Lista e Cria Ficha
+        Filtrar utilizando o parametro ?aluno=id
+        Obs: o atributo 'url' indica o caminho para obter detalhes da Ficha
+    """
+
+    queryset= Fichas.objects.all()
+    serializer_class = FichaGeralSerializer
+    #filter_backends = (filters.SearchFilter,)
+    filter_fields = ('aluno')
+    filter_class = FichaFilter
+
+class FichasDetail(RetrieveUpdateDestroyAPIView):
+    """
+        Exibe, atualiza e deleta Fichas
+    """
+
+    queryset= Fichas.objects.all()
+    serializer_class = FichaGeralSerializer
 
 
 '''
@@ -250,12 +289,13 @@ class APIRootView(APIView):
     def get(self, request):
         data = {
 
-            'GET USUARIOS': reverse('user-list',request=request),
-            'GET FICHAS' : reverse('ficha-list', request=request),
+            'GET POST USUARIO': reverse('user-create',request=request),
+            'GET FICHA COMPLETA' : reverse('ficha-list', request=request),
             'GET PRESENCAS' : reverse('presenca-list', request=request),
-            'POST USUARIO' : reverse('user-create', request=request),
+            'GET USUARIO BUSCA' : reverse('user-list', request=request),
             'POST PESO': reverse('peso-create',request=request),
             'GET POST TREINO': reverse('treino-list',request=request),
+            'GET POST FICHA': reverse('ficha-list',request=request),
 
         }
         return Response(data)

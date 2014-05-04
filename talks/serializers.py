@@ -20,15 +20,22 @@ class CustomPaginationSerializer(pagination.BasePaginationSerializer):
 
     results_field = 'objects'
 
-class TreinoGeralSerializer(serializers.ModelSerializer):
+class TreinoGeralSerializer(serializers.HyperlinkedModelSerializer):
     #tipo_treino = serializers.CharField(source='get_absolute_url')
     #exercicios = ExerciciosSerializer(many=True)
     #track_listing = serializers.HyperlinkedIdentityField(view_name='track-list')
+    url = serializers.CharField(source='get_absolute_url', read_only=True)
     class Meta:
         model = Treinos
         #view_name='treino-detail',
         #fields = ('nome','tipo_treino','exercicios','url')
 
+class FichaGeralSerializer(serializers.ModelSerializer):
+    #link= serializers.HyperlinkedRelatedField(many=True, view_name='ficha-detail')
+    #link = serializers.HyperlinkedIdentityField(view_name='ficha-detail', format='html')
+    url = serializers.CharField(source='get_absolute_url', read_only=True)
+    class Meta:
+        model=Fichas
 
 
 
@@ -43,12 +50,12 @@ class PerfilSerializer(serializers.ModelSerializer):
 
 class UserCreateSerializer(serializers.ModelSerializer):
     """
-        Cria um usuario
+        Lista e Cria um usuario
     """
-
+    #url = serializers.CharField(source='get_absolute_url', read_only=True)
     class Meta:
         model = User
-        fields = ('username', 'email','password')
+        fields = ('id','username', 'email','password')
 
 class UserSerializer(serializers.ModelSerializer):
 	perfil = PerfilSerializer()

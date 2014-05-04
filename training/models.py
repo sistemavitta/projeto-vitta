@@ -20,6 +20,8 @@ class Fichas(models.Model):
     data_fim=models.DateField(verbose_name=u'Data de Fim')
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
+    def get_absolute_url(self):
+      return "/api/ficha/%i/" % self.id
 
     def ultima_presenca(self):
 
@@ -91,7 +93,7 @@ class Treinos(models.Model):
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
     def get_absolute_url(self):
-      return "/treino/%i/" % self.id
+      return "/api/treino/%i/" % self.id
 
     def ultima_presenca(self):
 
