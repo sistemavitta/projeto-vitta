@@ -124,6 +124,9 @@ class FinalizarView(LoginRequiredMixin,View):
     def post(self, request, *args, **kwargs):
         alunos=AdministrationTemp.objects.all().filter(professor=self.request.user)
         aluno=get_object_or_404(alunos,aluno=request.POST.get('usuario',''))
+        nota=request.POST.get('nota','')
+        print "testeset"
+        print nota
         if aluno.treinando:
             Presenca.objects.create(aluno=aluno.aluno,treino=aluno.treino,professor=aluno.professor,data_inicio=aluno.inicio_treino,duracao=aluno.duracao(), feedback=request.POST.get('feedback',''))
             aluno.treino=None
