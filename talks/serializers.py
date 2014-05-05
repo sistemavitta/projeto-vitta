@@ -20,7 +20,7 @@ class CustomPaginationSerializer(pagination.BasePaginationSerializer):
 
     results_field = 'objects'
 
-class TreinoGeralSerializer(serializers.HyperlinkedModelSerializer):
+class TreinoGeralSerializer(serializers.ModelSerializer):
     #tipo_treino = serializers.CharField(source='get_absolute_url')
     #exercicios = ExerciciosSerializer(many=True)
     #track_listing = serializers.HyperlinkedIdentityField(view_name='track-list')

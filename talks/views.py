@@ -290,7 +290,7 @@ class APIRootView(APIView):
         data = {
 
             'GET POST USUARIO': reverse('user-create',request=request),
-            'GET FICHA COMPLETA' : reverse('ficha-list', request=request),
+            'GET FICHA COMPLETA' : reverse('ficha-comp', request=request),
             'GET PRESENCAS' : reverse('presenca-list', request=request),
             'GET USUARIO BUSCA' : reverse('user-list', request=request),
             'POST PESO': reverse('peso-create',request=request),
