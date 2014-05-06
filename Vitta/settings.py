@@ -216,7 +216,7 @@ REST_FRAMEWORK = {
     'MAX_PAGINATE_BY': 300,             # Maximum limit allowed when using `?page_size=xxx`.
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S' , #%a %d/%m/%Y %H:%M  -- '%a %x %X %z'
     #'DATETIME_INPUT_FORMATS' : '%d/%m/%Y %H:%M',
-    # 'DATE_FORMAT': '%d/%m/%Y ',
+    'DATE_FORMAT': '%Y-%m-%d',
     # 'DATE_INPUT_FORMATS' : '%d/%m/%Y ',
     # 'TIME_FORMAT' : '%H:%M:%S',
 

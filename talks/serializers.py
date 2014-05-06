@@ -53,6 +53,7 @@ class TreinoGeralLinkSerializer(serializers.ModelSerializer):
     )
     exercicios = serializers.HyperlinkedRelatedField(many=True, read_only=True,
                                                  view_name='exerciciosaluno-detail')
+    ficha = serializers.HyperlinkedRelatedField(view_name='fichas-detail')
     class Meta:
         model = Treinos
         fields = ('id','url','ficha','nome','tipo_treino','exercicios','volume','ativo','exercicios')
@@ -68,6 +69,8 @@ class FichaGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(
         view_name='fichas-detail',
     )
+    treinos = serializers.HyperlinkedRelatedField(many=True, read_only=True,
+                                                 view_name='treinos-detail')
     class Meta:
         model=Fichas
         fields = ('id','url','aluno','objetivo','data_inicio','data_fim','ativo','treinos')
@@ -97,6 +100,8 @@ class UserCreateLinkSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(
         view_name='user-detail',
     )
+    fichas = serializers.HyperlinkedRelatedField(many=True, read_only=True,
+                                                 view_name='fichas-detail')
     class Meta:
         model = User
         fields = ('id','url','username', 'email','password','fichas')
