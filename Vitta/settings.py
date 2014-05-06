@@ -214,9 +214,11 @@ REST_FRAMEWORK = {
     'PAGINATE_BY': 20,
     'PAGINATE_BY_PARAM': 'page_size',  # Allow client to override, using `?page_size=xxx`.
     'MAX_PAGINATE_BY': 300,             # Maximum limit allowed when using `?page_size=xxx`.
-    'DATETIME_FORMAT': '%a %d/%m/%Y', #%a %d/%m/%Y %H:%M
-    'DATE_FORMAT': '%d/%m/%Y ',
-    'TIME_FORMAT' : '%H:%M:%S',
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S' , #%a %d/%m/%Y %H:%M  -- '%a %x %X %z'
+    #'DATETIME_INPUT_FORMATS' : '%d/%m/%Y %H:%M',
+    # 'DATE_FORMAT': '%d/%m/%Y ',
+    # 'DATE_INPUT_FORMATS' : '%d/%m/%Y ',
+    # 'TIME_FORMAT' : '%H:%M:%S',
 
     # Coloquei aqui, mas são os defaults
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -225,6 +227,8 @@ REST_FRAMEWORK = {
         # poderia adicionar aqui por exemplo, o oauth2:
         # 'rest_framework.authentication.OAuth2Authentication'
     ),
+    'DEFAULT_MODEL_SERIALIZER_CLASS':
+        'rest_framework.serializers.HyperlinkedModelSerializer',
     # 'DEFAULT_PARSER_CLASSES': (
     #     'rest_framework.parsers.YAMLParser',
     # ),

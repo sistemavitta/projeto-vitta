@@ -30,6 +30,8 @@ urlpatterns = patterns('talks.views',
     url(r'^treino/(?P<pk>\d+)/$',views.TreinoDetail.as_view(),name='treino-detail'),
     url(r'^ficha/$',views.FichaList.as_view(),name='ficha-list'),
     url(r'^ficha/(?P<pk>\d+)/$',views.FichasDetail.as_view(),name='ficha-detail'),
-    url(r'^presencas/$',views.PresencaDetail.as_view(),name='presenca-list'),
+    url(r'^presencas/$',views.PresencaDetail2.as_view(),name='presenca-lista'),
+    url(r'^presenca/$',views.PresencaList.as_view(),name='presenca-list'),
+    url(r'^presenca/(?P<pk>\d+)/$',views.PresencaDetail.as_view(),name='presenca-detail'),
 
 )

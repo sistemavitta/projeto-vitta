@@ -69,6 +69,27 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('name')
 
+class PresencaGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
+    #link= serializers.HyperlinkedRelatedField(many=True, view_name='ficha-detail')
+    #link = serializers.HyperlinkedIdentityField(view_name='ficha-detail', format='html')
+    #url = serializers.CharField(source='get_absolute_url', read_only=True)
+    url = serializers.HyperlinkedIdentityField(
+        view_name='presenca-detail',
+    )
+    class Meta:
+        model=Presenca
+        fields=('url','id','aluno','treino','professor','data_inicio','duracao','feedback','ativo')
+
+class PresencaGeralSerializer(serializers.ModelSerializer):
+    #link= serializers.HyperlinkedRelatedField(many=True, view_name='ficha-detail')
+    #link = serializers.HyperlinkedIdentityField(view_name='ficha-detail', format='html')
+    #data_inicio = serializers.DateTimeField(input_formats='%d/%m/%Y')
+    url = serializers.CharField(source='get_absolute_url', read_only=True)
+    class Meta:
+        model=Presenca
+
+
+
 
 
 

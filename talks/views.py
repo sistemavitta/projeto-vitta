@@ -16,7 +16,7 @@ from training.models import Fichas
 from training.models import Treinos
 from rest_framework import status
 from administration.models import Presenca
-from serializers import UserCreateSerializer, TreinoGeralSerializer, FichaGeralSerializer
+from serializers import UserCreateSerializer, TreinoGeralSerializer, FichaGeralSerializer, PresencaGeralSerializer, PresencaGeralLinkSerializer
 import django_filters
 #from django.utils.timezone import now
 #from rest_framework import filters, viewsets
@@ -86,6 +86,25 @@ class TreinoList(ListCreateAPIView):
     """
     queryset = Treinos.objects.all()
     serializer_class = TreinoGeralSerializer
+
+class PresencaList(ListCreateAPIView):
+    """
+        Lista e Cria Presenca
+
+        Obs: o atributo 'url' indica o caminho para obter detalhes da Presenca
+
+    """
+    queryset = Presenca.objects.all()
+    serializer_class = PresencaGeralSerializer
+
+class PresencaDetail(RetrieveUpdateDestroyAPIView):
+    """
+        Exibe, atualiza e deleta Presenca
+
+    """
+
+    queryset = Presenca.objects.all()
+    serializer_class = PresencaGeralSerializer
 
 class TreinoDetail(RetrieveUpdateDestroyAPIView):
     """
@@ -225,12 +244,12 @@ class TreinosDetail(APIView):
 
     #     # Poderíamos porém ter usado a api de filtros do rf.
     #     return qs
-class PresencaDetail(ListAPIView):
+class PresencaDetail2(ListAPIView):
     """
         Exibe presenças do usuario
 
         se houve parametro (?ultima=true) retorna a ultima presenca ativa do usuario
-
+        se houve parametro (?username=nome) retorna as presencas do usuario
     """
 
 
@@ -254,7 +273,7 @@ class PresencaDetail(ListAPIView):
 
     def get_queryset(self, *args, **kwargs):
         # Vamos adicionar a possibilidade de filtrar:
-        qs = super(PresencaDetail, self).get_queryset(*args, **kwargs)
+        qs = super(PresencaDetail2, self).get_queryset(*args, **kwargs)
 
         usuario = self.request.QUERY_PARAMS.get('username')
         if usuario is not None:
@@ -291,7 +310,7 @@ class APIRootView(APIView):
 
             'GET POST USUARIO': reverse('user-create',request=request),
             'GET FICHA COMPLETA' : reverse('ficha-comp', request=request),
-            'GET PRESENCAS' : reverse('presenca-list', request=request),
+            'GET POST PRESENCA' : reverse('presenca-list', request=request),
             'GET USUARIO BUSCA' : reverse('user-list', request=request),
             'POST PESO': reverse('peso-create',request=request),
             'GET POST TREINO': reverse('treino-list',request=request),

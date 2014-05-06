@@ -78,6 +78,8 @@ class Presenca(models.Model):
                                blank=True, null=True)
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
+    def get_absolute_url(self):
+      return "/api/presenca/%i/" % self.id
 
     def data(self):
         return self.data_inicio
