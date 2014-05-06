@@ -164,6 +164,8 @@ class ExerciciosAluno(models.Model):
                               default=True)
     position = models.PositiveIntegerField(verbose_name=u'Ordem')
 
+    def get_absolute_url(self):
+        return "/api/exercicio/%i/" % self.id
 
     def peso(self):
         peso=self.pesos.all().last()

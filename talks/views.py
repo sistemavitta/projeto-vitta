@@ -14,9 +14,10 @@ from rest_framework import mixins
 from training.models import PesoExercicio
 from training.models import Fichas
 from training.models import Treinos
+from training.models import ExerciciosAluno
 from rest_framework import status
 from administration.models import Presenca
-from serializers import UserCreateSerializer, TreinoGeralSerializer, FichaGeralSerializer, PresencaGeralSerializer, PresencaGeralLinkSerializer
+from serializers import UserCreateSerializer, UserCreateLinkSerializer, TreinoGeralSerializer,TreinoGeralLinkSerializer, FichaGeralSerializer,FichaGeralLinkSerializer, PresencaGeralSerializer, PresencaGeralLinkSerializer, ExercicioGeralSerializer,ExercicioGeralLinkSerializer
 import django_filters
 #from django.utils.timezone import now
 #from rest_framework import filters, viewsets
@@ -62,7 +63,7 @@ class UserList(ListCreateAPIView):
     """
 
     queryset = User.objects.all()
-    serializer_class = UserCreateSerializer
+    serializer_class = UserCreateLinkSerializer
 
 class UserDetail(RetrieveUpdateDestroyAPIView):
     """
@@ -72,7 +73,7 @@ class UserDetail(RetrieveUpdateDestroyAPIView):
     """
 
     queryset = User.objects.all()
-    serializer_class = UserCreateSerializer
+    serializer_class = UserCreateLinkSerializer
 
 
 
@@ -85,7 +86,7 @@ class TreinoList(ListCreateAPIView):
 
     """
     queryset = Treinos.objects.all()
-    serializer_class = TreinoGeralSerializer
+    serializer_class = TreinoGeralLinkSerializer
 
 class PresencaList(ListCreateAPIView):
     """
@@ -95,7 +96,7 @@ class PresencaList(ListCreateAPIView):
 
     """
     queryset = Presenca.objects.all()
-    serializer_class = PresencaGeralSerializer
+    serializer_class = PresencaGeralLinkSerializer
 
 class PresencaDetail(RetrieveUpdateDestroyAPIView):
     """
@@ -112,7 +113,7 @@ class TreinoDetail(RetrieveUpdateDestroyAPIView):
 
     """
     queryset = Treinos.objects.all()
-    serializer_class = TreinoGeralSerializer
+    serializer_class = TreinoGeralLinkSerializer
 
 
 class FichaFilter(django_filters.FilterSet):
@@ -128,7 +129,7 @@ class FichaList(ListCreateAPIView):
     """
 
     queryset= Fichas.objects.all()
-    serializer_class = FichaGeralSerializer
+    serializer_class = FichaGeralLinkSerializer
     #filter_backends = (filters.SearchFilter,)
     filter_fields = ('aluno')
     filter_class = FichaFilter
@@ -139,9 +140,24 @@ class FichasDetail(RetrieveUpdateDestroyAPIView):
     """
 
     queryset= Fichas.objects.all()
-    serializer_class = FichaGeralSerializer
+    serializer_class = FichaGeralLinkSerializer
 
+class ExercicioList(ListCreateAPIView):
+    """
+        Lista e Cria Exercicio
 
+    """
+
+    queryset= ExerciciosAluno.objects.all()
+    serializer_class = ExercicioGeralLinkSerializer
+
+class ExercicioDetail(RetrieveUpdateDestroyAPIView):
+    """
+        Exibe, atualiza e deleta Exercicios
+    """
+
+    queryset= ExerciciosAluno.objects.all()
+    serializer_class = ExercicioGeralLinkSerializer
 '''
 class PesoCreate(UpdateAPIView):
     """
@@ -160,9 +176,18 @@ class PesoCreate(UpdateAPIView):
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 '''
 
-class PesoCreate(CreateAPIView):
+class PesoList(ListCreateAPIView):
     """
-        Criar peso para um exercicio.
+        Lista e Criar Peso.
+    """
+
+    # curl -X PATCH  http://localhost:8000/api/peso/4/ -u admin:123 -d "peso=5321"
+    queryset = PesoExercicio.objects.all()
+    serializer_class = PesoSerializer
+
+class PesoDetail(RetrieveUpdateAPIView):
+    """
+        Exibe, atualiza e deleta Peso
     """
 
     # curl -X PATCH  http://localhost:8000/api/peso/4/ -u admin:123 -d "peso=5321"
@@ -312,9 +337,10 @@ class APIRootView(APIView):
             'GET FICHA COMPLETA' : reverse('ficha-comp', request=request),
             'GET POST PRESENCA' : reverse('presenca-list', request=request),
             'GET USUARIO BUSCA' : reverse('user-list', request=request),
-            'POST PESO': reverse('peso-create',request=request),
-            'GET POST TREINO': reverse('treino-list',request=request),
-            'GET POST FICHA': reverse('ficha-list',request=request),
+            'GET POST PESO': reverse('pesoexercicio-list',request=request),
+            'GET POST TREINO': reverse('treinos-list',request=request),
+            'GET POST FICHA': reverse('fichas-list',request=request),
+            'GET POST EXERCICIO': reverse('exerciciosaluno-list',request=request),
 
         }
         return Response(data)

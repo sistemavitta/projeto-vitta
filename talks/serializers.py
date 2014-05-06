@@ -6,6 +6,7 @@ from training.models import PesoExercicio
 from training.models import Fichas
 from training.models import Treinos
 from training.models import ExerciciosAluno
+from training.models import ExerciciosAluno
 from training.models import NomesExercicio
 from administration.models import Presenca
 
@@ -20,6 +21,23 @@ class CustomPaginationSerializer(pagination.BasePaginationSerializer):
 
     results_field = 'objects'
 
+class ExercicioGeralSerializer(serializers.ModelSerializer):
+    #link= serializers.HyperlinkedRelatedField(many=True, view_name='ficha-detail')
+    #link = serializers.HyperlinkedIdentityField(view_name='ficha-detail', format='html')
+    url = serializers.CharField(source='get_absolute_url', read_only=True)
+    class Meta:
+        model=ExerciciosAluno
+
+class ExercicioGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='exerciciosaluno-detail',
+    )
+
+    class Meta:
+        model=ExerciciosAluno
+        fields = ('id','url','treino','serie','repeticao','ativo')
+
+
 class TreinoGeralSerializer(serializers.ModelSerializer):
     #tipo_treino = serializers.CharField(source='get_absolute_url')
     #exercicios = ExerciciosSerializer(many=True)
@@ -29,6 +47,15 @@ class TreinoGeralSerializer(serializers.ModelSerializer):
         model = Treinos
         #view_name='treino-detail',
         #fields = ('nome','tipo_treino','exercicios','url')
+class TreinoGeralLinkSerializer(serializers.ModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='treinos-detail',
+    )
+    exercicios = serializers.HyperlinkedRelatedField(many=True, read_only=True,
+                                                 view_name='exerciciosaluno-detail')
+    class Meta:
+        model = Treinos
+        fields = ('id','url','ficha','nome','tipo_treino','exercicios','volume','ativo','exercicios')
 
 class FichaGeralSerializer(serializers.ModelSerializer):
     #link= serializers.HyperlinkedRelatedField(many=True, view_name='ficha-detail')
@@ -37,7 +64,13 @@ class FichaGeralSerializer(serializers.ModelSerializer):
     class Meta:
         model=Fichas
 
-
+class FichaGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='fichas-detail',
+    )
+    class Meta:
+        model=Fichas
+        fields = ('id','url','aluno','objetivo','data_inicio','data_fim','ativo','treinos')
 
 
 
@@ -56,6 +89,17 @@ class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id','username', 'email','password')
+
+class UserCreateLinkSerializer(serializers.HyperlinkedModelSerializer):
+    """
+        Lista e Cria um usuario
+    """
+    url = serializers.HyperlinkedIdentityField(
+        view_name='user-detail',
+    )
+    class Meta:
+        model = User
+        fields = ('id','url','username', 'email','password','fichas')
 
 class UserSerializer(serializers.ModelSerializer):
 	perfil = PerfilSerializer()
@@ -78,7 +122,7 @@ class PresencaGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
     )
     class Meta:
         model=Presenca
-        fields=('url','id','aluno','treino','professor','data_inicio','duracao','feedback','ativo')
+        fields=('id','url','aluno','professor','treino','data_inicio','duracao','feedback','ativo')
 
 class PresencaGeralSerializer(serializers.ModelSerializer):
     #link= serializers.HyperlinkedRelatedField(many=True, view_name='ficha-detail')
@@ -91,13 +135,11 @@ class PresencaGeralSerializer(serializers.ModelSerializer):
 
 
 
-
-
-
 class PesoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PesoExercicio
+        fields = ('id','exercicio','peso')
 
 
 
