@@ -1032,23 +1032,26 @@ a.icon-exibition {
 /* #CSS Message */
 
 /* CSS Star */
-.star {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  margin-top: 5px;
+.rating{
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
 }
-.star > span {
+ul.rating {
   display: inline-block;
-  position: relative;
-  width: 1.1em;
-  font-size: 30px;
-  color: lightgrey;
+  margin-bottom: 10;
 }
-.star > span:hover:before,
-.star > span:hover ~ span:before {
-   color: #f1c40f;
-   content: "\2605";
-   position: absolute;
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 2px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.rating .filled {
+  color: #f1c40f;
 }
 /* #CSS Star */
 

@@ -11,18 +11,10 @@
                     </div>
 
                     <div class="modal-body">
-                    <input type="hidden" name="usuario" value="{{ usuario.aluno.pk }}">
-                    <input type="hidden" name="nota" ng-value="rate">
-
+                        <input type="hidden" name="usuario" value="{{ usuario.aluno.pk }}">
+                        <input type="hidden" name="nota" ng-value="rate">
                         <textarea class="form-control workout-feedback" name="feedback" rows="4" placeholder="Feedback do Treino"></textarea>
-
-<div fundoo-rating rating-value="rating" max="5" on-rating-selected="saveRatingToServer(rating)" class="pull-right"></div>
-  <br/>
-  {% comment %}
-
-
-  Readonly rating <br/>
-  <div fundoo-rating rating-value="rating" max="10" readonly="true"></div>  {% endcomment %}
+                        <div fundoo-rating rating-value="rating" max="5" on-rating-selected="saveRatingToServer(rating)" class="pull-right"></div></br>
                     </div>
 
                     <div class="modal-footer feedback-footer">

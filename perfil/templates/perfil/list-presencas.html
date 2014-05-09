@@ -19,11 +19,12 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                             <tr class="active">
-                                <th width="25%" class="title-presence">Data e Hora do Início do Treino</th>
-                                <th width="15%" class="title-presence">Duração do Treino</th>
-                                <th width="15%" class="title-presence">Treino Executado</th>
-                                <th width="20%" class="title-presence">Professor Responsável</th>
-                                <th width="25%" class="title-presence">FeedBack</th>
+                                <th width="16,666666667%" class="title-presence">Data e Hora do Início do Treino</th>
+                                <th width="16,666666667%" class="title-presence">Duração</th>
+                                <th width="16,666666667%" class="title-presence">Treino Executado</th>
+                                <th width="16,666666667%" class="title-presence">Professor Responsável</th>
+                                <th width="16,666666667%" class="title-presence">FeedBack</th>
+                                <th width="16,666666667%" class="title-presence">Nota</th>
                             </tr>
 
                         {% for presenca in usuario.aluno.presencas.all %}
@@ -40,6 +41,9 @@
                                     <div id="popoverContentFeed" class="hide">
                                         {{ presenca.feedback }}
                                     </div>
+                                </td>
+                                <td>
+                                    <div fundoo-rating rating-value="rating" max="5" readonly="true"></div> 
                                 </td>
                             </tr>
 
