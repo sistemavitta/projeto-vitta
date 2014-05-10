@@ -148,7 +148,7 @@ function BuscarAluno($scope,$http,$window){
         return false;
     };
 
-
+    $scope.rate=1;
     $scope.rating = 1;
     $scope.saveRatingToServer = function(rating) {
       //$window.alert('Rating selected - ' + rating);

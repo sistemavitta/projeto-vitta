@@ -8,7 +8,7 @@ class AdministrationTempAdmin(admin.ModelAdmin):
 
 
 class PresencaAdmin(admin.ModelAdmin):
-    list_display=['data_inicio','duracao','aluno','treino','professor','ativo']
+    list_display=['data_inicio','duracao','aluno','treino','professor','nota','ativo']
 
 
 admin.site.register(AdministrationTemp,AdministrationTempAdmin)

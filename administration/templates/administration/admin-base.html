@@ -95,6 +95,13 @@ $("#popoverId").popover({html:true,title:'Informações do Usuário<a class="clo
                     {% endif %}
 
 
+                    {% if not usuario.treinando %}
+                        {% include "administration/modal-iniciar-treinamento.html" %}
+                    {% else %}
+                        {% include "administration/modal-finalizar-treinamento.html" %}
+                    {% endif %}
+
+
                     <br><br>
 
                 </div> <!-- /.col-md-12 -->

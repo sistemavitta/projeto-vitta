@@ -36,8 +36,3 @@
 {% include "administration/modal-buscar-aluno.html" %}
 
 
-{% if not usuario.treinando %}
-    {% include "administration/modal-iniciar-treinamento.html" %}
-{% else %}
-    {% include "administration/modal-finalizar-treinamento.html" %}
-{% endif %}
