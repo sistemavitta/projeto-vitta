@@ -6,7 +6,6 @@ from training.models import PesoExercicio
 from training.models import Fichas
 from training.models import Treinos
 from training.models import ExerciciosAluno
-from training.models import ExerciciosAluno
 from training.models import NomesExercicio
 from administration.models import Presenca
 
@@ -21,6 +20,16 @@ class CustomPaginationSerializer(pagination.BasePaginationSerializer):
 
     results_field = 'objects'
 
+class NomeExercicioGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='nomesexercicio-detail',
+    )
+    #nome = serializers.CharField(source='get_nome')
+    musculo_nome = serializers.CharField(source='get_musculo_display',read_only=True)
+    class Meta:
+        model=NomesExercicio
+        fields = ('id','url','nome','musculo_nome','musculo','ativo')
+
 class ExercicioGeralSerializer(serializers.ModelSerializer):
     #link= serializers.HyperlinkedRelatedField(many=True, view_name='ficha-detail')
     #link = serializers.HyperlinkedIdentityField(view_name='ficha-detail', format='html')
@@ -31,11 +40,14 @@ class ExercicioGeralSerializer(serializers.ModelSerializer):
 class ExercicioGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(
         view_name='exerciciosaluno-detail',
+        format='html'
     )
+    nome_exercicio = serializers.CharField(source='get_nome',read_only=True)
+    position = serializers.IntegerField(default=0)
 
     class Meta:
         model=ExerciciosAluno
-        fields = ('id','url','treino','serie','repeticao','ativo')
+        fields = ('id','url','treino','nome','nome_exercicio','serie','repeticao','ativo','position')
 
 
 class TreinoGeralSerializer(serializers.ModelSerializer):

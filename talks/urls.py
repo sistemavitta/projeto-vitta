@@ -34,6 +34,9 @@ urlpatterns = patterns('talks.views',
     url(r'^presencas/$',views.PresencaDetail2.as_view(),name='presenca-lista'),
     url(r'^presenca/$',views.PresencaList.as_view(),name='presenca-list'),
     url(r'^presenca/(?P<pk>\d+)/$',views.PresencaDetail.as_view(),name='presenca-detail'),
+
+    url(r'^nomeexercicio/$',views.NomeExercicioList.as_view(),name='nomesexercicio-list'),
+    url(r'^nomeexercicio/(?P<pk>\d+)/$',views.NomeExercicioDetail.as_view(),name='nomesexercicio-detail'),
     url(r'^exercicio/$',views.ExercicioList.as_view(),name='exerciciosaluno-list'),
     url(r'^exercicio/(?P<pk>\d+)/$',views.ExercicioDetail.as_view(),name='exerciciosaluno-detail'),
 

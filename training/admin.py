@@ -44,7 +44,7 @@ class NomesExercicioAdmin(admin.ModelAdmin):
 
 
 class ExerciciosAlunoAdmin(admin.ModelAdmin):
-    list_display=['treino','nome','serie','repeticao','peso','ativo']
+    list_display=['treino','get_nome','serie','repeticao','peso','position','ativo']
 
     #search_fields=['aluno__nome']
     list_filter=['ativo']

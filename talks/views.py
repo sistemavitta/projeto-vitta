@@ -15,9 +15,10 @@ from training.models import PesoExercicio
 from training.models import Fichas
 from training.models import Treinos
 from training.models import ExerciciosAluno
+from training.models import NomesExercicio
 from rest_framework import status
 from administration.models import Presenca
-from serializers import UserCreateSerializer, UserCreateLinkSerializer, TreinoGeralSerializer,TreinoGeralLinkSerializer, FichaGeralSerializer,FichaGeralLinkSerializer, PresencaGeralSerializer, PresencaGeralLinkSerializer, ExercicioGeralSerializer,ExercicioGeralLinkSerializer
+from serializers import NomeExercicioGeralLinkSerializer, UserCreateSerializer, UserCreateLinkSerializer, TreinoGeralSerializer,TreinoGeralLinkSerializer, FichaGeralSerializer,FichaGeralLinkSerializer, PresencaGeralSerializer, PresencaGeralLinkSerializer, ExercicioGeralSerializer,ExercicioGeralLinkSerializer
 import django_filters
 #from django.utils.timezone import now
 #from rest_framework import filters, viewsets
@@ -75,7 +76,25 @@ class UserDetail(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserCreateLinkSerializer
 
+class NomeExercicioList(ListCreateAPIView):
+    """
 
+    Lista e Cria um Nomes de Exercicio.
+
+    """
+
+    queryset = NomesExercicio.objects.all()
+    serializer_class = NomeExercicioGeralLinkSerializer
+
+class NomeExercicioDetail(RetrieveUpdateDestroyAPIView):
+    """
+
+    Exibe, atualiza e deleta Nomes dos Exercicio
+
+    """
+
+    queryset = NomesExercicio.objects.all()
+    serializer_class = NomeExercicioGeralLinkSerializer
 
 
 class TreinoList(ListCreateAPIView):
@@ -185,7 +204,7 @@ class PesoList(ListCreateAPIView):
     queryset = PesoExercicio.objects.all()
     serializer_class = PesoSerializer
 
-class PesoDetail(RetrieveUpdateAPIView):
+class PesoDetail(RetrieveUpdateDestroyAPIView):
     """
         Exibe, atualiza e deleta Peso
     """
@@ -340,6 +359,7 @@ class APIRootView(APIView):
             'GET POST PESO': reverse('pesoexercicio-list',request=request),
             'GET POST TREINO': reverse('treinos-list',request=request),
             'GET POST FICHA': reverse('fichas-list',request=request),
+            'GET POST NOMES EXERCICIO': reverse('nomesexercicio-list',request=request),
             'GET POST EXERCICIO': reverse('exerciciosaluno-list',request=request),
 
         }

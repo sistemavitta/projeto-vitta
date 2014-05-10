@@ -167,6 +167,10 @@ class ExerciciosAluno(models.Model):
     def get_absolute_url(self):
         return "/api/exercicio/%i/" % self.id
 
+    def get_nome(self):
+      return self.nome
+    get_nome.short_description=u'Nome2'
+
     def peso(self):
         peso=self.pesos.all().last()
         if not peso:

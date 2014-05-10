@@ -1,4 +1,4 @@
-'''
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 SSLIFY_DISABLE = True
@@ -14,7 +14,7 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
-'''
+
 
 
 
