@@ -59,6 +59,10 @@ class AdministrationTemp(models.Model):
     class Meta:
         verbose_name_plural=u"AdministrationTemp"
         ordering = ['aberta_em']
+        permissions = (
+                       ("open_student","abrir aluno"),
+                       ("close_student","fechar aluno"),
+                       )
 
 
 class Presenca(models.Model):
@@ -76,6 +80,7 @@ class Presenca(models.Model):
     duracao=models.SmallIntegerField(verbose_name=u'Duração')
     feedback=models.TextField(verbose_name=u"Feedback do Treino",
                                blank=True, null=True)
+    nota = models.SmallIntegerField(verbose_name=u'Nota do Treino',default=1)
     ativo=models.BooleanField(verbose_name=u"Ativo",
                               default=True)
     def get_absolute_url(self):

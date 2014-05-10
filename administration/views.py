@@ -24,7 +24,8 @@ class HomeRedirectView(LoginRequiredMixin,RedirectView):
 
 
     def get_redirect_url(self, *args, **kwargs):
-        return reverse('abrir-ficha', kwargs={'ficha': self.request.user.pk})
+        return reverse('login-abrir-ficha', kwargs={'ficha': self.request.user.pk})
+        #return reverse('abrir-ficha', kwargs={'ficha': self.request.user.pk})
 
     #     @method_decorator(login_required)
     # def dispatch(self, request, *args, **kwargs):

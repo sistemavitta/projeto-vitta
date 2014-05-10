@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 # from django.contrib.auth.decorators import login_required
 # from django.utils.decorators import method_decorator
 from braces.views import LoginRequiredMixin
+from braces.views import PermissionRequiredMixin
 from administration.models import AdministrationTemp
 from django.views.generic.base import ContextMixin
 from django.views.generic.base import TemplateResponseMixin
@@ -29,7 +30,24 @@ class ContextalunoMixim(object):
         return context
 
 
-class AbrirFichaView(LoginRequiredMixin,View):
+class LoginAbrirFichaView(LoginRequiredMixin,View):
+
+    def get(self, request, *args, **kwargs):
+
+        aluno=get_object_or_404(User.objects.all().filter(is_active=True),pk=self.kwargs.get('ficha'))
+        ficha=aluno.fichas.all().filter(ativo=True).reverse().last()
+        try:
+            imagem = aluno.perfil.image
+        except:
+            imagem = "holder.js/43x43/text:-" + aluno.username
+
+        if not AdministrationTemp.objects.all().filter(professor=request.user).filter(aluno=self.kwargs.get('ficha')).exists():
+            AdministrationTemp.objects.create(professor=request.user,aluno=aluno,imagem=imagem,ficha=ficha)
+        return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': aluno.pk}))
+
+class AbrirFichaView(LoginRequiredMixin,PermissionRequiredMixin,View):
+
+    permission_required="administration.open_student"
 
     def get(self, request, *args, **kwargs):
 

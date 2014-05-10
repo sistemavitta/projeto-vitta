@@ -90,8 +90,10 @@ $("#popoverId").popover({html:true,title:'Informações do Usuário<a class="clo
                     {% block content-ficha %}
 
                     {% endblock content-ficha %}
+                    {% if perms.administration.open_student %}
+                        {% include "administration/menu-horizontal.html" %}
+                    {% endif %}
 
-                    {% include "administration/menu-horizontal.html" %}
 
                     <br><br>
 
