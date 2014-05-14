@@ -1,18 +1,26 @@
 @charset "UTF-8";
-/* General CSS Styles, Icons and Fonts */
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300);
-@import url(https://fonts.googleapis.com/css?family=Oswald);
-html, body {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 16px;
-  height: 100%;
+
+/* General CSS Styles, Icons, Images and Fonts */
+@font-face {
+  font-family: 'source_sans_prolight';
+  src: url('../fonts/vittawebfont-webfont.eot');
+  src: url('../fonts/vittawebfont-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/vittawebfont-webfont.woff') format('woff'),
+       url('../fonts/vittawebfont-webfont.ttf') format('truetype'),
+       url('../fonts/vittawebfont-webfont.svg#source_sans_prolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-size: 100%;
+  font-family: 'source_sans_prolight';
 }
 .admin-full {
   background: url(../img/admin-background.png);
 }
-/* #General CSS Styles, Icons and Fonts */
+/* #General CSS Styles, Icons, Images and Fonts */
 
-/* CSS Login */
+/* Login */
 .login-full {
   background: url(../img/login-background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -30,7 +38,7 @@ html, body {
 .login-input, .login-btn {
   border-radius: 0;
 }
-/* #CSS Login */
+/* Login */
 
  /* CSS Navbar Admin Users */
 .admin-navbar-footer {
@@ -48,7 +56,7 @@ html, body {
   border: none;
 }
 .admin-navbar-toggle-icon {
-  font-size: 20px;
+  font-size: 2.000em;
   color: #fa4f48;
 }
 .admin-nav-users > li > a {
@@ -98,19 +106,19 @@ html, body {
   margin-left: 50px;
 }
 .admin-modal-header {
-    color:#fff;
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #444;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
+  color:#fff;
+  padding:9px 15px;
+  border-bottom:1px solid #eee;
+  background-color: #444;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .admin-user-search {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .admin-user-name {
   padding-top: 18px;
@@ -124,7 +132,7 @@ html, body {
 .see-sheet{
   background: #f0ad4e;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .see-sheet:hover {
   background: #f0ad4e;
@@ -133,7 +141,7 @@ html, body {
 .open-record {
   background: #428bca;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .open-record:hover {
   background: #428bca;
@@ -142,7 +150,7 @@ html, body {
 .search-btn-close{
   background: #e73e2c;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .search-btn-close:hover {
   background: #e73e2c;
@@ -168,7 +176,7 @@ html, body {
   border-top-right-radius: 5px;
 }
 .close {
-  font-size: 25px;
+  font-size: 2.500em;
   color: #fff;
   text-shadow: none;
   opacity: 1;
@@ -190,15 +198,13 @@ html, body {
 h4.last-presence-title-training {
   margin-bottom: 5px;
   color: #444;
-  font-weight: bold;
 }
 .last-presence-options {
-  font-size: 15px;
+  font-size: 1.500em;
   color: #444;
-  font-weight: bold;
 }
 .last-presence-sub-options {
-  font-size: 15px;
+  font-size: 1.500em;
   color: #444;
 }
 .start-thumbnail {
@@ -209,12 +215,11 @@ h4.last-presence-title-training {
 }
 h4.list-group-item-heading {
   color: #444;
-  font-weight: bold;
 }
 .close-training {
   background: #e73e2c;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .close-training:hover,
 .close-training:focus,
@@ -222,7 +227,7 @@ h4.list-group-item-heading {
 .close-training.active {
   background: #e73e2c;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .nav-pills > li.active > a {
   background: #5cb85c;
@@ -245,7 +250,7 @@ h4.list-group-item-heading {
   border-bottom-left-radius: 0;
 }
 .train {
-  font-size: 18px;
+  font-size: 1.800em;
 }
 .start-size {
   width: 400px;
@@ -280,7 +285,7 @@ h4.list-group-item-heading {
   text-transform: uppercase;
 }
 .form-control {
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .feedback-footer {
   margin-top: 2px;
@@ -290,7 +295,7 @@ h4.list-group-item-heading {
 .feedback-btn {
   background: #e73e2c;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .feedback-btn:hover {
   background: #e73e2c;
@@ -327,7 +332,7 @@ h4.list-group-item-heading {
 .record-btn {
   background: #e74c3c;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .record-btn:hover,
 .record-btn:focus,
@@ -345,21 +350,11 @@ h4.list-group-item-heading {
 }
 .select-record-title {
   color: #444;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 1.800em;
 }
 .select-record-body {
   background-color:#f5f5f5;
   border-width: none;
-}
-.select-start-date {
-  font-weight: bold;
-}
-.select-stop-date {
-  font-weight: bold;
-}
-.select-goal {
-  font-weight: bold;
 }
 .bt-select-record {
   background: #5cb85c;
@@ -417,8 +412,7 @@ h4.list-group-item-heading {
   margin-top: 8px;
 }
 a.name-user {
-  font-size: 18px;
-  font-family: 'Oswald', sans-serif;
+  font-size: 1.800em;
   color: #000;
   display: inline-block;
   margin-top: 10px;
@@ -426,21 +420,18 @@ a.name-user {
   text-decoration: none;
 }
 .admin-nav-profile-information-user {
-  font-size: 14px;
+  font-size: 1.400em;
   margin-bottom: 10px;
   padding: 0px;
 }
 .profile-start-date {
-  font-weight: bold;
-  font-size: 14px;
+  font-size: 1.400em;
 }
 .profile-stop-date {
-  font-weight: bold;
-  font-size: 14px;
+  font-size: 1.400em;
 }
 .profile-goal {
-  font-weight: bold;
-  font-size: 14px;
+  font-size: 1.400em;
 }
 /* #CSS User Profile */
 
@@ -454,7 +445,7 @@ a.exchange-record {
 .btn-close-open {
   background: #f0ad4e;
   border: none;
-  font-size: 14px;
+  font-size: 1.400em;
   color: #fff;
 }
 .btn-close-open:hover,
@@ -468,7 +459,7 @@ a.exchange-record {
 .btn-close-record {
   background: #e73e2c;
   border: none;
-  font-size: 14px;
+  font-size: 1.400em;
   color: #fff;
 }
 .btn-close-record:hover,
@@ -497,17 +488,15 @@ a.exchange-record {
   display: block;
   text-decoration: none;
   color: #fff;
-  font-weight: bold;
   background: #444;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .admin-nav-user a.link-training {
   display: block;
   text-decoration: none;
   color: #fff;
-  font-weight: bold;
   background: #2ecc71;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .admin-nav-user a.active {
   border-right: 10px solid lightgrey;
@@ -536,10 +525,10 @@ a.exchange-record {
 a.start-training-play {
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 1.800em;
 }
 .glyphicon-play {
-  font-size: 17px;
+  font-size: 1.700em;
 }
 /* #CSS Play */
 
@@ -557,10 +546,10 @@ a.start-training-play {
 a.stop-training-stop {
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 1.800em;
 }
 .glyphicon-stop {
-  font-size: 17px;
+  font-size: 1.700em;
 }
 /* #CSS Stop */
 
@@ -575,18 +564,18 @@ a.stop-training-stop {
   border-bottom-right-radius: 5px;
 }
 .start-training-stopwatch {
-  font-size: 22px;
+  font-size: 2.200em;
 }
 /* #CSS Start Training */
 
 /* CSS Breadcrumb */
 .breadcrumb-nav {
-    background: #444;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    display: block;
+  background: #444;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: block;
 }
 .breadcrumb-nav-link {
     list-style: none;
@@ -604,18 +593,17 @@ a.stop-training-stop {
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 1.500em;
 }
 .breadcrumb-nav-section a {
     color: lightgrey;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 1.500em;
 }
 .breadcrumb-nav-active {
     color: lightgrey;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 1.500em;
 }
 .breadcrumb-nav-right {
     background: #000;
@@ -639,19 +627,19 @@ a.stop-training-stop {
     border-radius: 50%;
     background-color: #e73e2c;
     color: #fff;
-    font-size: 12px;
+    font-size: 1.200em;
     text-align: center;
     z-index: 9999;
 }
 .glyphicon-off {
     color: #eee;
     margin-left: 8px;
-    font-size: 14px;
+    font-size: 1.200em;
 }
 .breadcrumb-nav-logout {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 1.200em;
 }
 .breadcrumb-nav-logout:hover {
     color: #fff;
@@ -674,17 +662,15 @@ a.stop-training-stop {
 }
 .last-workout {
     color: #eee;
-    font-size: 18px;
+    font-size: 1.800em;
     text-transform: uppercase;
-    font-weight: normal;
 }
 .information {
   padding-top: 10px;
 }
 .alert-message-info h5 {
     color: #000;
-    font-size: 15px;
-    font-family: 'Oswald', sans-serif;
+    font-size: 1.500em;
     display: inline;
 }
 .alert-message-registering-training {
@@ -693,20 +679,18 @@ a.stop-training-stop {
 }
 .registering-training {
     color: #eee;
-    font-size: 18px;
+    font-size: 1.800em;
     text-transform: uppercase;
-    font-weight: normal;
 }
 .registering-training-user {
     color: #eee;
-    font-size: 15px;
+    font-size: 1.500em;
     text-transform: uppercase;
-    font-weight: normal;
 }
 .glyphicon-ban-circle {
   margin-right: 4px;
   color: #eee;
-  font-size: 17px;
+  font-size: 1.700em;
 }
 .alert-message-no-presence {
     background-color: #e73e2c;
@@ -714,32 +698,28 @@ a.stop-training-stop {
 }
 .no-presence {
     color: #eee;
-    font-size: 18px;
+    font-size: 1.800em;
     text-transform: uppercase;
-    font-weight: normal;
 }
 .no-presence-user {
     color: #eee;
-    font-size: 15px;
+    font-size: 1.500em;
     text-transform: uppercase;
-    font-weight: normal;
 }
 /* #CSS Feedback */
 
 /* CSS Record Header */
 .record-header {
   color: #000;
-  font-size: 18px;
-  font-family: 'Oswald', sans-serif;
-  font-weight: normal;
+  font-size: 1.800em;
 }
 .glyphicon-tasks{
   margin-right: 4px;
-  font-size: 15px;
+  font-size: 1.500em;
 }
 .admin-panel-heading-attendance h5 {
   color: #f1c40f;
-  font-size: 15px;
+  font-size: 1.500em;
   text-transform: uppercase;
   display: inline;
 }
@@ -754,7 +734,6 @@ a.stop-training-stop {
   border: none;
 }
 .panel-title-training-started {
-  font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
 }
 .panel-body-training-started {
@@ -767,7 +746,7 @@ a.stop-training-stop {
 .complete {
   background: #e73e2c;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .complete:hover {
   background: #e73e2c;
@@ -776,7 +755,7 @@ a.stop-training-stop {
 .cancel-training {
   background: #f0ad4e;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .cancel-training:hover {
   background: #f0ad4e;
@@ -792,12 +771,9 @@ a.stop-training-stop {
   border: 1px solid #000;
 }
 h4.title-exibition-training {
-  font-family: 'Oswald', sans-serif;
 }
 th.options-exibition-training {
-  font-size: 16px;
-  font-weight: normal;
-  font-family: 'Oswald', sans-serif;
+  font-size: 1.600em;
 }
 .glyphicon-align-justify {
   color: #444;
@@ -845,10 +821,10 @@ th.options-exibition-training {
   border-bottom: 1px solid rgba(0,0,0,.15);
 }
 .sheet-text {
-  font-size: 15px;
+  font-size: 1.500em;
 }
 .sheet-drop {
-  font-size: 15px;
+  font-size: 1.500em;
 }
 .dropdown-menu {
   -webkit-border-top-left-radius: 0;
@@ -890,19 +866,15 @@ th.options-exibition-training {
   cursor: default;
 }
 h4.options-tabs {
-  font-size: 16px;
-  font-weight: normal;
-  font-family: 'Oswald', sans-serif;
+  font-size: 1.600em;
 }
 .table > thead > tr > th {
-  font-size: 16px;
-  font-weight: normal;
-  font-family: 'Oswald', sans-serif;
+  font-size: 1.600em;
 }
 .table > tbody > tr > td {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .table > thead:first-child > tr:first-child > th {
   border-bottom: 1px solid #000;
@@ -914,21 +886,20 @@ h4.options-tabs {
   background: #444;
 }
 a.panel-title {
-  font-size: 18px;
+  font-size: 1.800em;
   color: #eee;
-  font-family: 'Oswald', sans-serif;
   text-decoration: none;
 }
 a.icon-exibition {
   text-decoration: none;
   color: #eee;
-  font-size: 18px;
+  font-size: 1.800em;
 }
 .complete-training {
   background: #e73e2c;
   margin-top: 38px;
   border: none;
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .complete-training:hover {
   background: #e73e2c;
@@ -970,7 +941,6 @@ a.icon-exibition {
   color: #fff;
   background-color: #f0ad4e;
   border-color: #f0ad4e;
-
   text-transform: uppercase;
 }
 .alt-bt:hover,
@@ -995,9 +965,7 @@ a.icon-exibition {
   border: none;
 }
 .title-presence {
-  font-size: 16px;
-  font-weight: normal;
-  font-family: 'Oswald', sans-serif;
+  font-size: 1.600em;
 }
 /* #CSS Attendance*/
 
@@ -1031,170 +999,50 @@ a.icon-exibition {
 }
 /* #CSS Message */
 
-/* CSS Star */
-.rating{
-  color: #a9a9a9;
-  margin: 0;
-  padding: 0;
-  font-size: 25px;
-}
-ul.rating {
-  display: inline-block;
-  margin-bottom: 10;
-}
-.rating li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 2px;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-}
-.rating .filled {
-  color: #f1c40f;
-}
-/* #CSS Star */
-
 /* CSS Popover */
 .popover {
   position: fixed;
 }
 .popover-title {
-  font-size: 16px;
+  font-size: 1.600em;
   background-color: #f5f5f5;
 }
 a.close.exit {
-  font-size: 22px;
+  font-size: 2.200em;
   margin-top: -2px;
   margin-left: 40px;
   color: #444;
 }
 a.close.exit-feed {
-  font-size: 22px;
+  font-size: 2.200em;
   margin-top: -2px;
   color: #444;
 }
 .profile-mail {
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .profile-phone {
-  font-size: 16px;
+  font-size: 1.600em;
 }
 .glyphicon-envelope {
-  font-size: 13px;
+  font-size: 1.300em;
 }
 .glyphicon-earphone {
-  font-size: 13px;
+  font-size: 1.300em;
 }
 /* #CSS Popover */
 
-/* CSS Media Queries */
-@media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-
-}
-@media (min-width:480px) { /* smartphones, Android phones, landscape iPhone */
-
-}
-@media (min-width:600px) and (max-width: 800px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-  .wrap {
-   max-width: 100%;
-   margin: 0;
-  }
-  .menubar {
-    width: 175px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .general-content {
-    width: 100%;
-    position: relative;
-    float: none;
-    padding-left: 50px;
-  }
-  .menubar-toggle {
-    position: absolute;
-    top: 0;
-    right: -47px;
-    color: #fff;
-    cursor: pointer;
-    width: auto;
-    height: 50px;
-    line-height: 25px;
-    z-index: 1000;
-    display: block;
-    background: #e73e2c;
-    padding: 12px 6px 6px 6px;
-  }
-  .admin-nav-brand a {
-    font-size: 18px;
-  }
-  .admin-vertical-instructor-active {
-    margin-left: 8%;
-  }
-  .closing-record {
-    margin-left: 22%;
-  }
-  a.admin-vertical-link-logout {
-    font-size: 13px;
-    margin-left: 7%;
-  }
-  .admin-navbar {
-    margin-left: 0;
-  }
-}
-@media (min-width: 801px) and (max-width: 1024px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
-  .menubar {
-    width: 15%;
-  }
-  .general-content {
-    width: 85%;
-  }
-  .admin-navbar {
-    margin-left: 15%;
-  }
-  .admin-nav-brand a {
-    font-size: 16px;
-  }
-  .admin-nav-profile-information-user {
-    font-size: 12px;
-  }
-  .admin-vertical-instructor-active {
-    margin-left: 5%;
-  }
-  .closing-record {
-    margin-left: 18%;
-  }
-  a.admin-vertical-link-logout {
-    font-size: 12px;
-    margin-left: 7%;
-  }
-  .admin-nav-user {
-    height: 35%;
-  }
-}
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
-
-
-}
-@media (min-width:1281px) { /* hi-res laptops and desktops */
-
-}
-/* #CSS Media Queries */
-
-
+/* Rating */
 .rating{
   color: #a9a9a9;
   margin: 0;
   padding: 0;
   font-size: 25px;
 }
-
 ul.rating {
   display: inline-block;
   margin-bottom: 10;
 }
-
 .rating li {
   list-style-type: none;
   display: inline-block;
@@ -1203,7 +1051,7 @@ ul.rating {
   font-weight: bold;
   cursor: pointer;
 }
-
 .rating .filled {
   color: #f1c40f;
 }
+/* #Rating */
