@@ -173,6 +173,57 @@ body {
 }
 /* #Modal Abrir Ficha */
 
+/*! Área de Mensagens do Perfil */
+.message-content {
+  border-radius: 0;
+}
+.message-input {
+  border-radius: 0;
+}
+.bt-publish-message {
+  background: #428bca;
+  border: none;
+  border-radius: 0;
+}
+.bt-publish-message:hover,
+.bt-publish-message:focus,
+.bt-publish-message:active
+.bt-publish-message.active {
+  background: #428bca;
+  border: none;
+  border-radius: 0;
+}
+.message {
+  border-radius: 0;
+}
+.message-img {
+  float:left;
+  width: 50px;
+}
+.message-info {
+  margin-top: -5px;
+}
+.message-name {
+  font-weight: bold;
+}
+.message-date {
+  margin-top: -7px;
+}
+.message-text {
+  font-size: 1.400em;
+}
+.pagination {
+  font-size: 1.400em;
+  margin: 0;
+}
+.pagination>li:first-child>a {
+  border-radius: 0;
+}
+.pagination>li:last-child>a {
+  border-radius: 0;
+}
+/* #Área de Mensagens do Perfil */
+
 /* CSS Modal Start */
 .start-modal-header {
   background: #444;
@@ -984,36 +1035,6 @@ a.icon-exibition {
   font-size: 1.600em;
 }
 /* #CSS Attendance*/
-
-/* CSS Message */
-.bt-publish-message {
-  background: #428bca;
-  border: none;
-}
-.bt-publish-message:hover,
-.bt-publish-message:focus,
-.bt-publish-message:active
-.bt-publish-message.active {
-  background: #428bca;
-  border: none;
-}
-.message-img {
-  float:left;
-  width: 50px;
-}
-.message-info {
-  margin-top: -5px;
-}
-.message-name {
-  font-weight: bold;
-}
-.message-date {
-  margin-top: -7px;
-}
-.pagination {
-  margin: 0;
-}
-/* #CSS Message */
 
 /* CSS Popover */
 .popover {
