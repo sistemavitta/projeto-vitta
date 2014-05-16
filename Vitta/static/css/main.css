@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* General CSS Styles, Icons, Images and Fonts */
+/*! Estilos gerais, ícones, imagens e fontes */
 @font-face {
   font-family: 'source_sans_prolight';
   src: url('../fonts/vittawebfont-webfont.eot');
@@ -18,9 +18,9 @@ body {
 .admin-full {
   background: url(../img/admin-background.png);
 }
-/* #General CSS Styles, Icons, Images and Fonts */
+/* #Estilos gerais, ícones, imagens e fontes */
 
-/* Login */
+/*! Área do usuário */
 .login-full {
   background: url(../img/login-background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -38,16 +38,16 @@ body {
 .login-input, .login-btn {
   border-radius: 0;
 }
-/* Login */
+/* #Área do usuário */
 
- /* CSS Navbar Admin Users */
+ /*! Menu Horizontal */
 .admin-navbar-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 .admin-navbar {
-  background: none;
+  background: #444;
   border-top: none;
   margin-left: 15%;
 }
@@ -56,21 +56,32 @@ body {
   border: none;
 }
 .admin-navbar-toggle-icon {
-  font-size: 2.000em;
-  color: #fa4f48;
+  font-size: 20px;
+  color: #ecf0f1;
 }
 .admin-nav-users > li > a {
   padding-top: 3px;
-  padding-bottom: 4px;
+  padding-bottom: 3px;
 }
-/* Pesquisa de usuários */
+
+/*! === Alunos Ativos e não Ativos === */
+.admin-nav-users-active {
+  border: 2px solid #17c740;
+}
+.admin-nav-users-noactive {
+  border: 2px solid transparent;
+}
+/* === #Alunos Ativos e não Ativos === */
+
+/*! === Botão Abrir Ficha === */
 .admin-nav-search {
-  margin-top: 9px;
+  margin-top: 7px;
 }
 .search-btn {
   background: #428bca;
   border: none;
   color: #fff;
+  border-radius: 0;
   margin-right: -10px;
 }
 .search-btn:hover,
@@ -80,50 +91,37 @@ body {
   background: #428bca;
   border: none;
   color: #fff;
+  border-radius: 0;
   margin-right: -10px;
 }
-/* Alunos treinando */
-.admin-nav-users-active {
-  border: 2px solid #17c740;
-}
-/* Alunos não treinando */
-.admin-nav-users-noactive {
-  border: 2px solid transparent;
-}
-/* Aluno ativo do perfil */
-.admin-nav-profile-active {
-  border: 4px solid #17c740;
-}
-/* Aluno não ativo do perfil */
-.admin-nav-profile-noactive {
-  border: 4px solid transparent;
-}
-/* #CSS Navbar Admin Users */
+/* === #Botão Abrir Ficha === */
 
-/* CSS Modal */
+/* #Menu Horizontal */
+
+/*! Modal Abrir Ficha */
 .search-size {
   width: 500px;
   margin-left: 50px;
 }
 .admin-modal-header {
-  color:#fff;
-  padding:9px 15px;
-  border-bottom:1px solid #eee;
+  padding: 9px 15px;
   background-color: #444;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+}
+.search-input {
+  border-radius: 0;
+}
+.search-bt {
+  border-radius: 0;
 }
 .admin-user-search {
   margin-bottom: 15px;
 }
 .admin-user-name {
+  font-size: 1.600em;
   padding-top: 18px;
 }
 .admin-user-category {
+  font-size: 1.600em;
   padding-top: 18px;
 }
 .admin-user-viewprofile {
@@ -132,36 +130,48 @@ body {
 .see-sheet{
   background: #f0ad4e;
   border: none;
-  font-size: 1.600em;
+  border-radius: 0;
 }
-.see-sheet:hover {
+.see-sheet:hover,
+.see-sheet:focus,
+.see-sheet:active
+.see-sheet.active {
   background: #f0ad4e;
   border: none;
+  border-radius: 0;
 }
 .open-record {
   background: #428bca;
   border: none;
-  font-size: 1.600em;
+  border-radius: 0;
 }
-.open-record:hover {
+.open-record:hover,
+.open-record:focus,
+.open-record:active
+.open-record.active {
   background: #428bca;
   border: none;
+  border-radius: 0;
 }
-.search-btn-close{
-  background: #e73e2c;
+.search-btn-close {
+  background: #e74c3c;
   border: none;
-  font-size: 1.600em;
+  border-radius: 0;
 }
-.search-btn-close:hover {
-  background: #e73e2c;
+.search-btn-close:hover,
+.search-btn-close:focus,
+.search-btn-close:active
+.search-btn-close.active {
+  background: #e74c3c;
   border: none;
+  border-radius: 0;
 }
 .search-footer {
   margin-top: -15px;
   background: #f5f5f5;
   padding: 15px;
 }
-/* #CSS Modal */
+/* #Modal Abrir Ficha */
 
 /* CSS Modal Start */
 .start-modal-header {
@@ -432,6 +442,12 @@ a.name-user {
 }
 .profile-goal {
   font-size: 1.400em;
+}
+.admin-nav-profile-active {
+  border: 4px solid #17c740;
+}
+.admin-nav-profile-noactive {
+  border: 4px solid transparent;
 }
 /* #CSS User Profile */
 

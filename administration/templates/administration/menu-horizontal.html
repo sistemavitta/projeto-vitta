@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse"> <!-- collapse -->
             <ul class="nav navbar-nav admin-nav-users text-center"> <!-- admin-nav-users -->
                 <li> <!-- admin-nav-search -->
-                    <a class="text admin-nav-search" href="#success" data-toggle="modal"  ng-click="reset()">
+                    <a class="text admin-nav-search" href="#success" data-toggle="modal" ng-click="reset()">
                         <button type="button" class="btn btn-default search-btn">
                             <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Abrir Ficha
                         </button>
@@ -24,7 +24,7 @@
                             {% else %}
                                 admin-nav-users-noactive
                             {% endif %}
-                            img-circle">
+                        img-circle">
                     </a>
                 </li>
                 {% endfor %}
@@ -32,7 +32,6 @@
         </div><!-- /.collapse -->
     </nav> <!-- /.admin-navbar -->
 </div> <!-- /.admin-navbar-footer -->
-
 {% include "administration/modal-buscar-aluno.html" %}
 
 
