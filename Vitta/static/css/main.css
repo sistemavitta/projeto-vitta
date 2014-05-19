@@ -259,6 +259,7 @@ a.panel-title {
   font-size: 2.000em;
   color: #eee;
   text-decoration: none;
+  display: block;
 }
 .nav-tabs {
   margin-bottom: 15px;
