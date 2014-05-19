@@ -20,7 +20,7 @@ body {
 }
 /* #Estilos gerais, ícones, imagens e fontes */
 
-/*! Área do usuário */
+/*! Login */
 .login-full {
   background: url(../img/login-background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -38,7 +38,7 @@ body {
 .login-input, .login-btn {
   border-radius: 0;
 }
-/* #Área do usuário */
+/* #Login */
 
  /*! Menu Horizontal */
 .admin-navbar-footer {
@@ -173,7 +173,7 @@ body {
 }
 /* #Modal Abrir Ficha */
 
-/*! Área de Mensagens do Perfil */
+/*! Mensagens do Perfil */
 .message-content {
   border-radius: 0;
 }
@@ -222,7 +222,99 @@ body {
 .pagination>li:last-child>a {
   border-radius: 0;
 }
-/* #Área de Mensagens do Perfil */
+/* #Mensagens do Perfil */
+
+/*! Consultar Treinos - Exibição em Lista */
+.training-content {
+  border-radius: 0;
+}
+.panel-group .panel {
+  border-radius: 0;
+}
+.exibition {
+  margin-left: -5px;
+}
+a.icon-exibition {
+  text-decoration: none;
+  color: #444;
+  font-size: 1.800em;
+}
+.glyphicon-align-justify {
+  color: #444;
+  margin-top: 15px;
+}
+.glyphicon-list {
+  color: #444;
+  margin-top: 15px;
+}
+.all-training {
+  margin-top: -5px;
+}
+.panel > .heading-panel-training {
+  background: #444;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+a.panel-title {
+  font-size: 2.000em;
+  color: #eee;
+  text-decoration: none;
+}
+.nav-tabs {
+  margin-bottom: 15px;
+  border-bottom: 1px solid lightgrey;
+}
+.nav-tabs > li > a {
+  color: #444;
+  border-radius: 0;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
+  color: #444;
+  background-color: #f9f9f9;
+  border: 1px solid lightgrey;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+h4.options-tabs {
+  font-size: 1.800em;
+}
+.table > thead > tr > th {
+  font-size: 1.800em;
+}
+.table > tbody > tr > td {
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  font-size: 1.800em;
+}
+.table > thead:first-child > tr:first-child > th {
+  border-bottom: 3px solid lightgrey;
+  font-weight: 300;
+}
+
+/*! === Exibição em Tabela === */
+.table-bordered > tbody > tr > td {
+  border: 1px solid lightgrey;
+}
+.table > tbody > tr > th.active {
+  background-color: #444;
+}
+h4.title-exibition-training {
+  font-size: 1.800em;
+  color: #eee;
+}
+tr.options-header-training {
+  border-bottom: 3px solid lightgrey;
+}
+th.options-exibition-training {
+  font-size: 1.800em;
+  background-color: #f9f9f9;
+  font-weight: 300;
+}
+/* === #Exibição em Tabela === */
+
+/* #Consultar Treinos - Exibição em Lista */
 
 /* CSS Modal Start */
 .start-modal-header {
@@ -830,28 +922,6 @@ a.stop-training-stop {
 }
 /* #CSS Training Started */
 
-/* CSS Training Exibition */
-.table-bordered > tbody > tr >th {
-  border: 1px solid #000;
-}
-.table-bordered > tbody > tr >td {
-  border: 1px solid #000;
-}
-h4.title-exibition-training {
-}
-th.options-exibition-training {
-  font-size: 1.600em;
-}
-.glyphicon-align-justify {
-  color: #444;
-  margin-top: 10px;
-}
-.glyphicon-list {
-  color: #444;
-  margin-top: 10px;
-}
-/* #CSS Training Exibition */
-
 /* CSS Swap Sheet */
 .swap-sheet {
   border: none;
@@ -916,63 +986,6 @@ th.options-exibition-training {
   background: none;
 }
 /* #CSS Swap Sheet */
-
-/* CSS Training */
-.nav-tabs {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #000;
-}
-.nav-tabs > li > a {
-  color: #000;
-}
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-  color: #000;
-  background-color: #fff;
-  border: 1px solid #000;
-  border-bottom-color: transparent;
-  cursor: default;
-}
-h4.options-tabs {
-  font-size: 1.600em;
-}
-.table > thead > tr > th {
-  font-size: 1.600em;
-}
-.table > tbody > tr > td {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  font-size: 1.600em;
-}
-.table > thead:first-child > tr:first-child > th {
-  border-bottom: 1px solid #000;
-}
-.all-training {
-  margin-top: -10px;
-}
-.panel > .heading-panel-training {
-  background: #444;
-}
-a.panel-title {
-  font-size: 1.800em;
-  color: #eee;
-  text-decoration: none;
-}
-a.icon-exibition {
-  text-decoration: none;
-  color: #eee;
-  font-size: 1.800em;
-}
-.complete-training {
-  background: #e73e2c;
-  margin-top: 38px;
-  border: none;
-  font-size: 1.600em;
-}
-.complete-training:hover {
-  background: #e73e2c;
-  border: none;
-}
-/* #CSS Training */
 
 /* CSS Weight */
 .weight-control {
