@@ -39,36 +39,19 @@
             </ul>
         </div> -->
 
-        <div class="panel panel-primary admin-panel-attendance">
+        <div class="panel panel-default training-content">
 
             <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="col-md-12 text-right">
-                        <a class="icon-exibition" ng-click="tab=true; tabela=false;"><span class="glyphicon glyphicon-align-justify"></span></a>
-                        <a class="icon-exibition"  ng-click="tab=false; tabela=true;" ><span class="glyphicon glyphicon-list"></span></a>
+                <div class="row">
+                    <div class="col-md-12 text-right exibition">
+                        <a class="icon-exibition" ng-click="tab=true; tabela=false;"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;Lista</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="icon-exibition" ng-click="tab=false; tabela=true;" ><span class="glyphicon glyphicon-list"></span>&nbsp;Tabela</a>
                     </div>
                 </div>
             </div>
 
             <div class="panel-body">
-                <div class="col-md-12">
-                <!--
-                <div class="alert-message alert-message-info">
-                    <strong class="record-header">Ficha do {{ usuario.aluno.username }}</strong>
-                    {% if usuario.ficha %}
-                    <div class="row information">
-                        <div class="col-md-4">
-                            <h5>Data&nbsp;de&nbsp;Início:</h5>&nbsp;{{ fichaaluno.data_inicio|date:"d/n/Y" }}
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Data&nbsp;de&nbsp;Fim:</h5>&nbsp;{{ fichaaluno.data_fim|date:"d/n/Y" }}
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Objetivo:</h5>&nbsp;{{ fichaaluno.objetivo }}
-                        </div>
-                    </div>
-                    {% endif %}
-                </div> -->
+                
     {% endwith %}
 
                     {% with  treinos=usuario.ficha.treinos.all %}
@@ -94,12 +77,16 @@
                                                     <li class="active">
                                                         <a href="#exercicios-treino-{{ treino.pk }}" data-toggle="tab"><h4 class="options-tabs">Exercícios</h4></a>
                                                     </li>
+                                                    <!-- Presenças do Treino
                                                     <li>
                                                         <a href="#presencas-treino-{{ treino.pk }}" data-toggle="tab"><h4 class="options-tabs">Presenças</h4></a>
                                                     </li>
+                                                    -->
+                                                    <!-- Gráficos do Treino
                                                     <li>
                                                         <a href="#graficos-treino-{{ treino.pk }}" data-toggle="tab"><h4 class="options-tabs">Gráficos</h4></a>
                                                     </li>
+                                                    -->
                                                 </ul>
 
                                                 <div id="myTabContent" class="tab-content">
@@ -109,7 +96,7 @@
                                                                 <table class="table table-striped">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th width="20%" class="text-center">Ordem</th>
+                                                                            <th width="20%" class="options-record-header text-center">Ordem</th>
                                                                             <th width="20%">Exercício</th>
                                                                             <th width="20%" class="text-center">Série</th>
                                                                             <th width="20%" class="text-center">Repetição</th>
@@ -136,6 +123,7 @@
                                                         </div>
                                                     </div>
 
+                                                    <!-- Presenças do Treino
                                                     <div class="tab-pane" id="presencas-treino-{{ treino.pk }}">
                                                         <div class="table-responsive">
                                                             <div class="col-xs-12">
@@ -144,7 +132,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    -->
 
+                                                    <!-- Gráficos do Treino
                                                     <div class="tab-pane" id="graficos-treino-{{ treino.pk }}">
                                                         <div class="table-responsive">
                                                             <div class="col-xs-12">
@@ -153,6 +143,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    -->
+
                                                 </div>
                                             </div> <!-- /.col-md-12 -->
                                         </div> <!-- /.panel-body -->
@@ -173,11 +165,9 @@
 
                         <div ng-show="tabela" ng-cloak>
 
-                            <div class="col-xs-12"> <!-- col-md-12 -->
-                                <div class="table-responsive"> <!-- table-responsive -->
+                                <div class="table-responsive all-training"> <!-- table-responsive -->
 
                                 {% for treino in treinos %}
-
 
                                     <table class="table table-bordered"> <!-- /.table -->
                                             <tr> <!-- title-exibition-training -->
@@ -185,7 +175,7 @@
                                                     <h4 class="title-exibition-training">{{ treino.nome }}</h4>
                                                 </th>
                                             </tr> <!-- /.title-exibition-training -->
-                                            <tr>
+                                            <tr  class="options-header-training">
                                                 <th width="25%" class="options-exibition-training">Exercício</th>
                                                 <th width="25%" class="options-exibition-training text-center">Série</th>
                                                 <th width="25%" class="options-exibition-training text-center">Repetição</th>
@@ -205,21 +195,10 @@
 
                                 {% endfor %}
                                 </div> <!-- /.table-responsive -->
-                            </div> <!-- /.col-md-12 -->
 
                         </div>
                      {% endwith %}
-
-                </div>
             </div>
         </div>
 
 {% endblock content-ficha %}
-
-<!-- Iniciar Treinamento
-{% if not usuario.treinando %}
-<div class="col-xs-2 text-center">
-    <a href="{% url 'iniciar-treinamento' pk=usuario.aluno.pk treino=treino.pk %}" type="button" class="btn btn-success btn-sm start-training">Iniciar<br>Treinamento</a>
-</div>
-{% endif %}
--->
