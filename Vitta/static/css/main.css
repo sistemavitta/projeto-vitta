@@ -426,7 +426,7 @@ th.options-exibition-training {
   margin-bottom: 10px;
 }
 .glyphicon-calendar, .glyphicon-user, .glyphicon-time {
-  font-size: 1.400em;
+  font-size: 14px;
   color: #999;
 }
 .glyphicon-star {
@@ -456,17 +456,15 @@ hr.line {
 }
 /* #Presenças */
 
-/* CSS Modal Start */
-.start-modal-header {
+/*! Modal Iniciar Treinamento */
+.modal-start-size {
+  width: 400px;
+  margin-left: 100px;
+}
+.modal-start-header {
   background: #444;
   padding-top: 16px;
   padding-bottom: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 .close {
   font-size: 2.500em;
@@ -475,86 +473,83 @@ hr.line {
   opacity: 1;
   filter: none;
 }
-.last-presence {
+.modal-start-title {
+  margin-bottom: 10px;
+  color: lightgrey;
+  font-size: 2.000em;
+}
+.modal-last-presence {
   margin-top: -7px;
   margin-bottom: 12px;
   padding-top: 5px;
   padding-bottom: 5px;
   border: none;
-  background: #d9edf7;
+  border-radius: 0;
 }
-.last-presence-title {
-  margin-bottom: 10px;
-  color: #fff;
-  text-transform: uppercase;
-}
-h4.last-presence-title-training {
+h4.title-last-presence {
+  margin-top: 5px;
   margin-bottom: 5px;
-  color: #444;
+  color: #7f8c8d;
 }
-.last-presence-options {
-  font-size: 1.500em;
-  color: #444;
+hr.modal-line-last-presence {
+  margin-top: 0;
+  margin-bottom: 5px;
+  border-top-color: #eee;
 }
-.last-presence-sub-options {
-  font-size: 1.500em;
-  color: #444;
+.glyphicon-hand-right, .gl-calendar, .gl-ok {
+  font-size: 14px;
+  color: #7f8c8d;
 }
-.start-thumbnail {
-  height: 46px;
-  background: #ddd;
-  border: none;
-  padding: 0;
-}
-h4.list-group-item-heading {
-  color: #444;
-}
-.close-training {
-  background: #e73e2c;
-  border: none;
-  font-size: 1.600em;
-}
-.close-training:hover,
-.close-training:focus,
-.close-training:active
-.close-training.active {
-  background: #e73e2c;
-  border: none;
+.modal-options {
+  margin-top: 0;
+  color: #7f8c8d;
   font-size: 1.600em;
 }
 .nav-pills > li.active > a {
   background: #5cb85c;
   border: none;
-  -webkit-border-top-left-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -moz-border-radius-topleft: 0;
-  -moz-border-radius-bottomleft: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0;
 }
 .nav-pills > li.active > a:hover {
   background: #5cb85c;
   border: none;
-  -webkit-border-top-left-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -moz-border-radius-topleft: 0;
-  -moz-border-radius-bottomleft: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0;
+}
+.modal-start-thumbnail {
+  height: 46px;
+  background: #ddd;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+h4.list-group-item-heading {
+  color: #444;
+}
+.glyphicon-play {
+  font-size: 16px; 
 }
 .train {
   font-size: 1.800em;
 }
-.start-size {
-  width: 400px;
-  margin-left: 100px;
+.modal-close-training {
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
+}
+.modal-close-training:hover,
+.modal-close-training:focus,
+.modal-close-training:active
+.modal-close-training.active {
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
 }
 .start-back {
-  margin-top: -26px;
+  margin-top: -15px;
   background: #f5f5f5;
   padding: 15px;
 }
-/* #CSS Modal Start */
+/* #Modal Iniciar Treinamento */
 
 /* CSS Modal Feedback */
 .feedback-size {
@@ -825,9 +820,6 @@ a.start-training-play {
   text-decoration: none;
   color: #fff;
   font-size: 1.800em;
-}
-.glyphicon-play {
-  font-size: 1.700em;
 }
 /* #CSS Play */
 

@@ -1,13 +1,19 @@
-    <!-- Modal Start -->
-    <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content start-size">
-                <div class="modal-header start-modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title last-presence-title" id="myModalLabel">Iniciar Treinamento</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="alert last-presence">
+<div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <!-- modal -->
+        <div class="modal-dialog"> <!-- modal-dialog -->
+            <div class="modal-content modal-start-size"> <!-- modal-start-size -->
+                <div class="modal-header modal-start-header"> <!-- modal-start-header -->
+                    <h4 class="modal-title modal-start-title">Iniciar Treinamento</h4> <!-- /.modal-start-title -->
+                </div> <!-- /.modal-start-header -->
+                <div class="modal-body"> <!-- modal-body -->
+                    <div class="alert alert-info modal-last-presence"> <!-- modal-last-presence -->
+                        <h4 class="title-last-presence">Último Treino Realizado</h4><hr class="modal-line-last-presence">
+                        <i class="glyphicon glyphicon-calendar gl-calendar"></i>&nbsp;
+                        <span class="modal-options">Terça-feira, 13/5/2014 - 23:20</span><br>
+                        <i class="glyphicon glyphicon-ok gl-ok"></i>&nbsp;
+                        <span class="modal-options">Treino A</span>
+                    </div> <!-- /.modal-last-presence -->
+
+                    <!--
                         <h4 class="modal-title last-presence-title-training" id="myModalLabel">Último Treino</h4>
                         <div class="row">
                             <div class="col-xs-12">
@@ -15,25 +21,28 @@
                                 <span class="last-presence-options">Treino:</span>&nbsp;<span class="last-presence-sub-options">[[presenca.0.treino.nome]]</span>
                             </div>
                         </div>
-                    </div>
-                    <ul class="nav nav-pills nav-justified thumbnail start-thumbnail setup-panel" ng-repeat="treino in treinos" >
+                        -->
+
+                    <ul class="nav nav-pills nav-justified thumbnail modal-start-thumbnail setup-panel" ng-repeat="treino in treinos"> <!-- modal-start-thumbnail -->
                         <li class="disabled">
                             <a>
-                                <h4 class="list-group-item-heading">[[treino.nome]]</h4>
+                                <h4 class="list-group-item-heading">[[treino.nome]]</h4> <!-- list-group-item-heading -->
                             </a>
                         </li>
                         <li class="active">
                             <a href="/perfil/{{ usuario.aluno.pk }}/treinos/treinar/[[treino.id]]">
                                 <span class="glyphicon glyphicon-play"></span>
-                                <span class="train">Treinar</span>
+                                <span class="train">Treinar</span> <!-- train -->
                             </a>
                         </li>
-                    </ul>
-                </div>
+                    </ul> <!-- /.modal-start-thumbnail -->
+
+                </div> <!-- /.modal-body -->
+
                 <div class="modal-footer start-back">
-                    <button type="button" class="btn btn-primary close-training pull-left" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary modal-close-training pull-left" data-dismiss="modal">Fechar</button>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.Modal Start -->
+
+            </div> <!-- /.modal-start-size -->
+        </div> <!-- /.modal-dialog -->
+</div> <!-- /.modal -->
