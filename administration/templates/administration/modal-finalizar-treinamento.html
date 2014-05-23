@@ -1,28 +1,23 @@
-    <!-- Modal Feedback -->
-    <div class="modal fade" id="stopModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content feedback-size">
-
+<div class="modal fade" id="stopModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <!-- modal -->
+    <div class="modal-dialog"> <!-- modal-dialog -->
+            <div class="modal-content feedback-size"> <!-- feedback-size -->
                 <form action="{% url 'finalizar-treinamento' usuario.aluno.pk %}" method="post">
                     {% csrf_token %}
-                    <div class="modal-header feedback-modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title feedback-title" id="myModalLabel">Finalizar Treinamento</h4>
-                    </div>
-
-                    <div class="modal-body">
+                    <div class="modal-header feedback-modal-header"> <!-- feedback-modal-header -->
+                        <h4 class="modal-title feedback-title" id="myModalLabel">Finalizar Treinamento</h4> <!-- feedback-title -->
+                    </div> <!-- /.feedback-modal-header -->
+                    <div class="modal-body"> <!-- modal-body -->
                         <input type="hidden" name="usuario" value="{{ usuario.aluno.pk }}">
                         <input type="hidden" name="nota" ng-value="rate">
-                        <textarea class="form-control workout-feedback" name="feedback" rows="4" placeholder="Feedback do Treino"></textarea>
+                        <textarea class="form-control workout-feedback" name="feedback" rows="4" placeholder="Diga-nos qual a sua avaliação sobre o treino de hoje!"></textarea>
                         <div fundoo-rating rating-value="rating" max="5" on-rating-selected="saveRatingToServer(rating)" class="pull-right"></div></br>
-                    </div>
+                    </div> <!-- /.modal-body -->
 
-                    <div class="modal-footer feedback-footer">
-                        <button type="submit"  type="button" class="btn btn-danger pull-left feedback-btn">Finalizar Treinamento</button>
-                    </div>
+                    <div class="modal-footer feedback-footer"> <!-- feedback-footer -->
+                        <button type="button" class="btn btn-danger pull-left feedback-btn" data-dismiss="modal">Fechar</button> <!-- feedback-btn -->
+                        <button type="submit" type="button" class="btn btn-danger pull-left feedback-btn">Finalizar Treinamento</button> <!-- feedback-btn -->
+                    </div> <!-- /.feedback-footer -->
                 </form>
-
-            </div>
-        </div>
-    </div>
-    <!-- /.Modal Feedback -->
+            </div> <!-- /.feedback-size -->
+    </div> <!-- /.modal-dialog -->
+</div> <!-- /.modal -->
