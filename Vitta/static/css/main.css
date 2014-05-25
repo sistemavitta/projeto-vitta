@@ -216,6 +216,15 @@ body {
   font-size: 1.400em;
   margin: 0;
 }
+.pagination>li>a {
+  color: #444;
+}
+.pagination>li>a:hover,
+.pagination>li>a:focus,
+.pagination>li>a:active
+.pagination>li>a.active {
+  color: #444;
+}
 .pagination>li:first-child>a {
   border-radius: 0;
 }
@@ -356,6 +365,25 @@ th.options-exibition-training {
 .timeline > li:after {
   clear: both;
 }
+.timeline > li > .timeline-badge {
+  color: #999;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 1.300em;
+  text-align: center;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -30px;
+  background-color: #eee;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border: 1px solid #d4d4d4;
+}
 .timeline > li > .timeline-panel {
   width: 46%;
   float: left;
@@ -388,25 +416,6 @@ th.options-exibition-training {
   border-bottom: 14px solid transparent;
   content: " ";
 }
-.timeline > li > .timeline-badge {
-  color: #999;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  font-size: 1.300em;
-  text-align: center;
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  margin-left: -30px;
-  background-color: #eee;
-  z-index: 100;
-  border-top-right-radius: 50%;
-  border-top-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-  border: 1px solid #d4d4d4;
-}
 .timeline > li.timeline-inverted > .timeline-panel {
   float: right;
 }
@@ -422,21 +431,18 @@ th.options-exibition-training {
   left: -14px;
   right: auto;
 }
-.timeline-heading {
-  margin-bottom: 10px;
-}
-.glyphicon-calendar, .glyphicon-user, .glyphicon-time {
-  font-size: 1.400em;
+.glyphicon-calendar, .glyphicon-time, .glyphicon-user {
+  font-size: 14px;
   color: #999;
-}
-.glyphicon-star {
-  font-size: 18px;
-  color: #f1c40f;
 }
 .timeline-title {
   margin-top: 0;
   color: #999;
   font-size: 1.600em;
+}
+.glyphicon-star {
+  font-size: 18px;
+  color: #f1c40f;
 }
 hr.line {
   margin-top: 10px;
@@ -456,107 +462,95 @@ hr.line {
 }
 /* #Presenças */
 
-/* CSS Modal Start */
-.start-modal-header {
+/*! Modal Iniciar Treinamento */
+.modal-start-size {
+  width: 400px;
+  margin-left: 100px;
+}
+.modal-start-header {
   background: #444;
   padding-top: 16px;
   padding-bottom: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
-.close {
-  font-size: 2.500em;
-  color: #fff;
-  text-shadow: none;
-  opacity: 1;
-  filter: none;
+.modal-start-title {
+  margin-bottom: 10px;
+  color: lightgrey;
+  font-size: 2.000em;
 }
-.last-presence {
+.modal-last-presence {
   margin-top: -7px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   padding-top: 5px;
   padding-bottom: 5px;
   border: none;
-  background: #d9edf7;
+  border-radius: 0;
 }
-.last-presence-title {
-  margin-bottom: 10px;
-  color: #fff;
-  text-transform: uppercase;
-}
-h4.last-presence-title-training {
+h4.title-last-presence {
+  margin-top: 5px;
   margin-bottom: 5px;
-  color: #444;
+  color: #7f8c8d;
 }
-.last-presence-options {
-  font-size: 1.500em;
-  color: #444;
+hr.modal-line-last-presence {
+  margin-top: 0;
+  margin-bottom: 5px;
+  border-top-color: #eee;
 }
-.last-presence-sub-options {
-  font-size: 1.500em;
-  color: #444;
+.glyphicon-hand-right, .gl-calendar, .gl-ok {
+  font-size: 14px;
+  color: #7f8c8d;
 }
-.start-thumbnail {
-  height: 46px;
-  background: #ddd;
-  border: none;
-  padding: 0;
-}
-h4.list-group-item-heading {
-  color: #444;
-}
-.close-training {
-  background: #e73e2c;
-  border: none;
-  font-size: 1.600em;
-}
-.close-training:hover,
-.close-training:focus,
-.close-training:active
-.close-training.active {
-  background: #e73e2c;
-  border: none;
+.modal-options {
+  margin-top: 0;
+  color: #7f8c8d;
   font-size: 1.600em;
 }
 .nav-pills > li.active > a {
   background: #5cb85c;
   border: none;
-  -webkit-border-top-left-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -moz-border-radius-topleft: 0;
-  -moz-border-radius-bottomleft: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0;
 }
 .nav-pills > li.active > a:hover {
   background: #5cb85c;
   border: none;
-  -webkit-border-top-left-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -moz-border-radius-topleft: 0;
-  -moz-border-radius-bottomleft: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0;
+}
+.modal-start-thumbnail {
+  height: 46px;
+  background: #ddd;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+h4.list-group-item-heading {
+  color: #444;
+}
+.glyphicon-play {
+  font-size: 16px; 
 }
 .train {
   font-size: 1.800em;
 }
-.start-size {
-  width: 400px;
-  margin-left: 100px;
+.modal-close-training {
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
+}
+.modal-close-training:hover,
+.modal-close-training:focus,
+.modal-close-training:active
+.modal-close-training.active {
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
 }
 .start-back {
-  margin-top: -26px;
+  margin-top: -15px;
   background: #f5f5f5;
   padding: 15px;
 }
-/* #CSS Modal Start */
+/* #Modal Iniciar Treinamento */
 
-/* CSS Modal Feedback */
+/*! Modal Finalizar Treinamento */
 .feedback-size {
   width: 400px;
   margin-left: 100px;
@@ -565,36 +559,61 @@ h4.list-group-item-heading {
   background: #444;
   padding-top: 16px;
   padding-bottom: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 .feedback-title {
   margin-bottom: 10px;
-  color: #fff;
-  text-transform: uppercase;
+  color: lightgrey;
+  font-size: 2.000em;
 }
 .form-control {
+  border-radius: 0;
   font-size: 1.600em;
+  margin-bottom: 10px;
+}
+
+/*! === Nota do Treino === */
+.rating{
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+}
+ul.rating {
+  display: inline-block;
+  margin-bottom: 10;
+}
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 2px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.rating .filled {
+  color: #f1c40f;
+}
+/* === #Nota do Treino === */
+
+.feedback-btn {
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
+}
+.feedback-btn:hover,
+.feedback-btn:focus,
+.feedback-btn:active
+.feedback-btn.active {
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
 }
 .feedback-footer {
-  margin-top: 2px;
-  padding: 15px;
+  margin-top: 12px;
   background: #f5f5f5;
+  padding: 15px;
 }
-.feedback-btn {
-  background: #e73e2c;
-  border: none;
-  font-size: 1.600em;
-}
-.feedback-btn:hover {
-  background: #e73e2c;
-  border: none;
-}
-/* #CSS Modal Feedback */
+/* #Modal Finalizar Treinamento */
 
 /* CSS Modal Record*/
 .record-size {
@@ -825,9 +844,6 @@ a.start-training-play {
   text-decoration: none;
   color: #fff;
   font-size: 1.800em;
-}
-.glyphicon-play {
-  font-size: 1.700em;
 }
 /* #CSS Play */
 
@@ -1212,30 +1228,3 @@ a.close.exit-feed {
   font-size: 1.300em;
 }
 /* #CSS Popover */
-
-/* Rating */
-.rating{
-  color: #a9a9a9;
-  margin: 0;
-  padding: 0;
-  font-size: 25px;
-}
-ul.rating {
-  display: inline-block;
-  margin-bottom: 10;
-}
-.rating li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 2px;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-}
-.rating .filled {
-  color: #f1c40f;
-}
-/* #Rating */
-
-/* Presence */
-/* #Presence */
