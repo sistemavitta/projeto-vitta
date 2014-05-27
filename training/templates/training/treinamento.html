@@ -10,17 +10,15 @@
 
 {% block content-ficha %}
 
-    <div class="panel panel-primary admin-panel-attendance"> <!-- admin-panel-attendance -->
+    <div class="panel panel-default training"> <!-- panel-default -->
+
         <div class="panel-body"> <!-- panel-body -->
-            <div class="col-md-12"> <!-- col-md-12 -->
                 {% if usuario.treinando%}
-               <div class="panel panel-default panel-training-started"> <!-- panel-default -->
-                    <div class="panel-heading panel-heading-training-started"> <!-- panel-heading -->
+                <!--
+                    <div class="panel-heading panel-heading-training-started"> 
                         <h4 class="panel-title-training-started">{{ usuario.treino.nome }}</h4>
-                    </div> <!-- /.panel-heading -->
-                    <div class="panel-body panel-body-training-started"> <!-- panel-body -->
+                    </div> -->
                         <div class="table-responsive">
-                            <div class="col-xs-12">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -58,30 +56,36 @@
                                         {% endfor %}
                                     </tbody>
                                 </table>
-                            </div>
                         </div>
-                    </div> <!-- /.panel-body -->
-                </div> <!-- /.panel-default -->
+
             {% else %}
+
             <div class="alert-message alert-message-registering-training">
                 <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
                 <span class="glyphicon glyphicon-ban-circle"></span>
                 <strong class="registering-training">Iniciar&nbsp;Treinamento!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treinamento&nbsp;iniciado&nbsp;
             </div>
+
             {% endif %}
-            </div> <!-- /.col-md-12 -->
+
         </div> <!-- /.panel-body -->
+
         {% if usuario.treinando %}
         <div class="panel-footer panel-footer-training-started"> <!-- panel-footer -->
+
             <a href="#stopModal" type="button" data-toggle="modal" class="btn btn-danger complete">
                 Finalizar Treinamento
             </a>
+
             &nbsp;&nbsp;&nbsp;
+
             <a href="{% url 'cancelar-treinamento' usuario.aluno.pk %}" type="button" data-toggle="#" class="btn btn-warning cancel-training">
                 Cancelar Treinamento
             </a>
+
         </div> <!-- /.panel-footer -->
         {% endif %}
-    </div> <!-- /.admin-panel-attendance -->
+
+    </div> <!-- /.panel-default -->
 
 {% endblock content-ficha %}
