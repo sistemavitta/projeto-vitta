@@ -10,82 +10,66 @@
 
 {% block content-ficha %}
 
-    <div class="panel panel-default training"> <!-- panel-default -->
-
+    <div class="panel panel-default training-content"> <!-- panel-default -->
         <div class="panel-body"> <!-- panel-body -->
-                {% if usuario.treinando%}
-                <!--
-                    <div class="panel-heading panel-heading-training-started"> 
-                        <h4 class="panel-title-training-started">{{ usuario.treino.nome }}</h4>
-                    </div> -->
-                        <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th width="20%" class="text-center">Ordem</th>
-                                            <th width="20%">Exercício</th>
-                                            <th width="20%" class="text-center">Série</th>
-                                            <th width="20%" class="text-center">Repetição</th>
-                                            <th width="20%">Peso</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for exerc in usuario.treino.exercicios.all %}
-                                        <tr>
-                                            <td class="text-center">{{forloop.counter}}</td>
-                                            <td>{{ exerc.nome }}</td>
-                                            <td class="text-center">{{ exerc.serie }}</td>
-                                            <td class="text-center">{{ exerc.repeticao }}</td>
-                                            <td style="width: 1px;">
-                                                <div class="input-group weight-control">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" class="btn btn-danger btn-sm minus-bt" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1;">
-                                                            <span class="glyphicon glyphicon-minus"></span>
-                                                        </button>
-                                                    </span>
-                                                    <input type="text" ng-init="peso{{exerc.pk}} = {{exerc.peso}};" ng-model="peso{{exerc.pk}}" class="form-control text-center input-sm">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} + 1;" class="btn btn-primary btn-sm plus-bt">
-                                                            <span class="glyphicon glyphicon-plus"></span>
-                                                        </button>
-                                                        <button ng-click="atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});" type="button" class="btn btn-primary btn-sm alt-bt">Salvar</button>
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                        </div>
+            {% if usuario.treinando%}
+                <h1 class="training-title text-center"><small>{{ usuario.treino.nome }}</small></h1> <!-- /.training-title -->
+                <hr class="line-training-title"> <!-- /.line-training-title -->
+                <div class="table-responsive"> <!-- table-responsive -->
+                    <table class="table table-striped"> <!-- table-striped -->
+                        <thead>
+                            <tr>
+                                <th width="20%" class="text-center">Ordem</th>
+                                <th width="20%">Exercício</th>
+                                <th width="20%" class="text-center">Série</th>
+                                <th width="20%" class="text-center">Repetição</th>
+                                <th width="20%">Peso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for exerc in usuario.treino.exercicios.all %}
+                            <tr>
+                                <td class="text-center">{{forloop.counter}}</td>
+                                <td>{{ exerc.nome }}</td>
+                                <td class="text-center">{{ exerc.serie }}</td>
+                                <td class="text-center">{{ exerc.repeticao }}</td>
+                                <td style="width: 1px;">
+                                    <div class="input-group weight-control"> <!-- weight-control -->
+                                        <span class="input-group-btn"> <!-- input-group-btn -->
+                                            <button type="button" class="btn btn-danger btn-sm minus-bt" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1;"> <!-- minus-bt -->
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button> <!-- /.minus-bt -->
+                                        </span> <!-- /.input-group-btn -->
+                                        <input type="text" ng-init="peso{{exerc.pk}} = {{exerc.peso}};" ng-model="peso{{exerc.pk}}" class="form-control text-center input-sm"> <!-- input-sm -->
+                                        <span class="input-group-btn"> <!-- input-group-btn -->
+                                            <button type="button" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} + 1;" class="btn btn-primary btn-sm plus-bt"> <!--- plus-bt -->
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button> <!--- /.plus-bt -->
+                                            <button ng-click="atualizarPeso(peso{{exerc.pk}},{{exerc.pk}});" type="button" class="btn btn-primary btn-sm alt-bt">Salvar</button> <!--- /.alt-bt -->
+                                        </span> <!-- /.input-group-btn -->
+                                    </div> <!-- /.weight-control -->
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table> <!-- /.table-striped -->
+                </div> <!-- /.table-responsive -->
 
             {% else %}
 
-            <div class="alert-message alert-message-registering-training">
-                <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
-                <span class="glyphicon glyphicon-ban-circle"></span>
-                <strong class="registering-training">Iniciar&nbsp;Treinamento!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treinamento&nbsp;iniciado&nbsp;
-            </div>
+                <div class="alert-message alert-message-registering-training">
+                    <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
+                    <span class="glyphicon glyphicon-ban-circle"></span>
+                    <strong class="registering-training">Iniciar&nbsp;Treinamento!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treinamento&nbsp;iniciado&nbsp;
+                </div>
 
             {% endif %}
 
+            {% if usuario.treinando %}
+                <a href="#stopModal" type="button" data-toggle="modal" class="btn btn-danger complete">Finalizar Treinamento</a> <!-- /.complete -->
+                <a href="{% url 'cancelar-treinamento' usuario.aluno.pk %}" type="button" data-toggle="#" class="btn btn-warning cancel-training">Cancelar Treinamento</a> <!-- /.cancel-training -->
+            {% endif %}
         </div> <!-- /.panel-body -->
-
-        {% if usuario.treinando %}
-        <div class="panel-footer panel-footer-training-started"> <!-- panel-footer -->
-
-            <a href="#stopModal" type="button" data-toggle="modal" class="btn btn-danger complete">
-                Finalizar Treinamento
-            </a>
-
-            &nbsp;&nbsp;&nbsp;
-
-            <a href="{% url 'cancelar-treinamento' usuario.aluno.pk %}" type="button" data-toggle="#" class="btn btn-warning cancel-training">
-                Cancelar Treinamento
-            </a>
-
-        </div> <!-- /.panel-footer -->
-        {% endif %}
-
     </div> <!-- /.panel-default -->
 
 {% endblock content-ficha %}

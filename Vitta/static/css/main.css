@@ -633,46 +633,15 @@ ul.rating {
 /* #Modal Finalizar Treinamento */
 
 /*! Treinos */
-.training {
+.training-content {
   border-radius: 0;
 }
-.panel-training-started {
-  border: none;
-  box-shadow: none;
+h1.training-title {
+  margin-top: -10px;
 }
-.panel-heading-training-started {
-  border: none;
-}
-.panel-title-training-started {
-  text-transform: uppercase;
-}
-.panel-body-training-started {
-  box-shadow: none;
-}
-.panel-footer-training-started {
-  background: #444;
-  border: none;
-  border-radius: 0;
-}
-.complete {
-  background: #e74c3c;
-  border: none;
-  border-radius: 0;
-}
-.complete:hover {
-  background: #e74c3c;
-  border: none;
-  border-radius: 0;
-}
-.cancel-training {
-  background: #f0ad4e;
-  border: none;
-  border-radius: 0;
-}
-.cancel-training:hover {
-  background: #f0ad4e;
-  border: none;
-  border-radius: 0;
+hr.line-training-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /*! === Controlador de Peso === */
@@ -737,6 +706,32 @@ ul.rating {
 }
 /* === #Controlador de Peso === */
 
+.complete {
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
+}
+.complete:hover,
+.complete:focus,
+.complete:active
+.complete.active {
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
+}
+.cancel-training {
+  background: #f0ad4e;
+  border: none;
+  border-radius: 0;
+}
+.cancel-training:hover,
+.cancel-training:focus,
+.cancel-training:active
+.cancel-training.active {
+  background: #f0ad4e;
+  border: none;
+  border-radius: 0;
+}
 /* #Treinos */
 
 /* CSS Modal Record*/
