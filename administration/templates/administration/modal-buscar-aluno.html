@@ -1,85 +1,48 @@
 {% load tags_extras %}
-<!-- Modal -->
-        <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-
-            <!-- Modal-Dialog -->
-            <div class="modal-dialog">
-
-                <!-- Modal-Content -->
-                <div class="modal-content search-size">
-
-                    <!-- Modal-Header -->
-                    <div class="modal-header admin-modal-header">
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="input-group">
-                                    <input id="busca" class="form-control search-input" placeholder="Escreva o nome do aluno para abrir a sua ficha" ng-model="searchText" ng-keydown="enter($event)" >
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default search-bt" type="button"  ng-click="buscarAluno()" >
-                                            <span class="glyphicon glyphicon-search"></span> Buscar
-                                        </button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div> <!--/ .Modal-Header -->
-
-                    <!-- Modal-Body -->
-                    <div class="modal-body">
-
-                        <!-- no user found -->
-                        <div class="alert alert-info conta" ng-show="informar">
-                            Nenhum usuário encontrado com a busca: <strong>[[searchText]]</strong>
-                        </div> <!-- /.no user found -->
-
-                        <!-- Usuário -->
-
-                        <img class="center-block"  src="{{STATIC_URL}}img/buscando.gif" ng-show="loading" >
-
-
-                        <div class="row admin-user-search" ng-repeat="usuario in usuarios ">
-                            <div class="col-xs-3 text-center">
-                                <img ng-src="[[usuario.perfil.image]]-/scale_crop/60x60/center/" alt="" class="img-responsive img-circle">
-                            </div>
-
-                            <div class="col-xs-3 admin-user-name">
-                                <span>[[usuario.username]]</span>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-category">
-                                <span class="text-muted">[[usuario.perfil.level]]</span>
-                            </div>
-
-                             <div class="col-xs-3 admin-user-viewprofile " ng-show="contem({{ menu|listpk }},usuario.id,{{ user.pk }})">
-
-                                        <a href="/perfil/[[usuario.id]]/" class="btn btn-warning see-sheet">
-                                            Ver Ficha
-                                        </a>
-                                </form>
-                            </div>
-
-                            <div class="col-xs-3 admin-user-viewprofile" ng-show="!contem({{ menu|listpk }},usuario.id,{{ user.pk }})">
-
-                                        <a href="/perfil/abrir/[[usuario.id]]/" class="btn btn-primary open-record">
-                                            Abrir Ficha
-                                        </a>
-                                </form>
-                            </div>
-
-                        </div> <!--/ .Usuário -->
-
-                    </div> <!--/ .Modal-Body -->
-
-                    <!-- Modal-Footer -->
-                    <div class="modal-footer search-footer">
-                        <button type="button" class="btn btn-danger pull-left search-btn-close" data-dismiss="modal">Fechar Pesquisa</button>
-                    </div> <!--/ .Modal-Footer -->
-
-                </div> <!--/. Modal-Content -->
-
-            </div> <!--/ .Modal-dialog -->
-
-        </div>
- <!--/ .Modal -->
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" > <!-- modal -->
+    <div class="modal-dialog"> <!-- modal-dialog -->
+        <div class="modal-content search-size"> <!-- search-size -->
+            <div class="modal-header admin-modal-header"> <!-- admin-modal-header -->        
+                <div class="row"> <!-- row -->
+                    <div class="col-lg-12"> <!--- col-lg-12 -->
+                        <div class="input-group"> <!-- input-group -->
+                            <input id="busca" class="form-control search-input" placeholder="Escreva o nome do aluno para abrir a sua ficha" ng-model="searchText" ng-keydown="enter($event)"> <!-- /.search-input -->
+                            <span class="input-group-btn"> <!-- input-group-btn -->
+                                <button class="btn btn-default search-bt" type="button"  ng-click="buscarAluno()" > <!-- /.search-bt -->
+                                    <span class="glyphicon glyphicon-search"></span> Buscar
+                                </button>
+                            </span> <!-- /.input-group-btn -->
+                        </div> <!-- /.input-group -->
+                    </div> <!--- /.col-lg-12 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.admin-modal-header -->
+            <div class="modal-body"> <!-- modal-body -->
+                <div class="alert alert-info alermsg-user-not-found" ng-show="informar"> <!-- alermsg-user-not-found -->
+                    <span class="alermsg-info">Nenhum usuário encontrado com a busca:</span>&nbsp; <!-- alermsg-info -->
+                    <strong class="alermsg-result">[[searchText]]</strong> <!-- alermsg-result -->
+                </div> <!-- /.alermsg-user-not-found -->
+                <img class="center-block" src="{{STATIC_URL}}img/buscando.gif" ng-show="loading" >
+                <div class="row admin-user-search" ng-repeat="usuario in usuarios "> <!-- admin-user-search -->
+                    <div class="col-xs-3 text-center">
+                        <img ng-src="[[usuario.perfil.image]]-/scale_crop/60x60/center/" alt="" class="img-responsive img-circle">
+                    </div>
+                    <div class="col-xs-3 admin-user-name"> <!-- admin-user-name -->
+                        <span>[[usuario.username]]</span>
+                    </div> <!-- /.admin-user-name -->
+                    <div class="col-xs-3 admin-user-category"> <!-- admin-user-category -->
+                        <span class="text-muted">[[usuario.perfil.level]]</span>
+                    </div> <!-- /.admin-user-category -->
+                    <div class="col-xs-3 admin-user-viewprofile " ng-show="contem({{ menu|listpk }},usuario.id,{{ user.pk }})"> <!-- admin-user-viewprofile  -->
+                        <a href="/perfil/[[usuario.id]]/" class="btn btn-warning see-sheet">Ver Ficha</a> <!-- /.see-sheet -->
+                    </div> <!-- /.admin-user-viewprofile  --> 
+                    <div class="col-xs-3 admin-user-viewprofile" ng-show="!contem({{ menu|listpk }},usuario.id,{{ user.pk }})"> <!-- admin-user-viewprofile  -->
+                        <a href="/perfil/abrir/[[usuario.id]]/" class="btn btn-primary open-record">Abrir Ficha</a> <!-- /.open-record -->
+                    </div> <!-- /.admin-user-viewprofile  -->
+                </div> <!-- /.admin-user-search -->
+            </div> <!-- /.modal-body -->
+            <div class="modal-footer search-footer"> <!-- search-footer -->
+                <button type="button" class="btn btn-danger pull-left search-btn-close" data-dismiss="modal">Fechar Pesquisa</button> <!-- /.search-btn-close -->
+            </div> <!-- /.search-footer -->
+        </div> <!-- /.search-size -->
+    </div> <!-- /.modal-dialog --> 
+</div> <!-- /.modal -->

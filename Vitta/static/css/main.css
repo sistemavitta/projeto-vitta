@@ -113,6 +113,23 @@ body {
 .search-bt {
   border-radius: 0;
 }
+
+/*! === Mensagem - Usuário não Encontrado === */
+.alermsg-user-not-found {
+  border: none;
+  border-radius: 0;
+}
+.alermsg-info {
+  color: #7f8c8d;
+  font-size: 1.600em;
+}
+.alermsg-result {
+  color: #7f8c8d;
+  font-size: 1.600em;
+  text-transform: uppercase;
+}
+/* === #Mensagem - Usuário não Encontrado === */
+
 .admin-user-search {
   margin-bottom: 15px;
 }
@@ -493,7 +510,7 @@ h4.title-last-presence {
 hr.modal-line-last-presence {
   margin-top: 0;
   margin-bottom: 5px;
-  border-top-color: #eee;
+  border-top-color: #f5f5f5;
 }
 .glyphicon-hand-right, .gl-calendar, .gl-ok {
   font-size: 14px;
@@ -614,6 +631,8 @@ ul.rating {
   padding: 15px;
 }
 /* #Modal Finalizar Treinamento */
+
+
 
 /* CSS Modal Record*/
 .record-size {
