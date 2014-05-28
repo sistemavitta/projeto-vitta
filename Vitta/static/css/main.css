@@ -341,6 +341,21 @@ th.options-exibition-training {
 }
 /* === #Exibição em Tabela === */
 
+/*! === Mensagem - Cadastrar Treino === */
+.alermsg-registering-training {
+  margin-top: 12px;
+  border: none;
+  border-radius: 0;
+}
+a.alertmsg-link-registering-training {
+  font-size: 1.600em;
+}
+.alermsg-info-registering-training {
+  color: #7f8c8d;
+  font-size: 1.600em;
+}
+/* === #Mensagem - Cadastrar Treino === */
+
 /* #Consultar Treinos - Exibição em Lista */
 
 /*! Presenças */
