@@ -1,4 +1,4 @@
-'''
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 SSLIFY_DISABLE = True
@@ -16,5 +16,5 @@ DATABASES = {
 }
 
 
-'''
+
 

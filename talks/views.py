@@ -14,11 +14,12 @@ from rest_framework import mixins
 from training.models import PesoExercicio
 from training.models import Fichas
 from training.models import Treinos
+from training.models import TiposTreino
 from training.models import ExerciciosAluno
 from training.models import NomesExercicio
 from rest_framework import status
 from administration.models import Presenca
-from serializers import NomeExercicioGeralLinkSerializer, UserCreateSerializer, UserCreateLinkSerializer, TreinoGeralSerializer,TreinoGeralLinkSerializer, FichaGeralSerializer,FichaGeralLinkSerializer, PresencaGeralSerializer, PresencaGeralLinkSerializer, ExercicioGeralSerializer,ExercicioGeralLinkSerializer
+from serializers import NomeExercicioGeralLinkSerializer, UserCreateSerializer, UserCreateLinkSerializer, TreinoGeralSerializer,TreinoGeralLinkSerializer, FichaGeralSerializer,FichaGeralLinkSerializer, PresencaGeralSerializer, PresencaGeralLinkSerializer, ExercicioGeralSerializer,ExercicioGeralLinkSerializer, TiposTreinoGeralLinkSerializer
 import django_filters
 #from django.utils.timezone import now
 #from rest_framework import filters, viewsets
@@ -65,6 +66,12 @@ class UserList(ListCreateAPIView):
 
     queryset = User.objects.all()
     serializer_class = UserCreateLinkSerializer
+
+    def post_save(self, obj, created=False):
+
+        if created:
+            obj.set_password(obj.password)
+            obj.save()
 
 class UserDetail(RetrieveUpdateDestroyAPIView):
     """
@@ -212,6 +219,29 @@ class PesoDetail(RetrieveUpdateDestroyAPIView):
     # curl -X PATCH  http://localhost:8000/api/peso/4/ -u admin:123 -d "peso=5321"
     queryset = PesoExercicio.objects.all()
     serializer_class = PesoSerializer
+
+
+
+
+class TiposTreinoList(ListCreateAPIView):
+    """
+        Lista e Criar Tipos Treino.
+    """
+
+    # curl -X PATCH  http://localhost:8000/api/peso/4/ -u admin:123 -d "peso=5321"
+    queryset = TiposTreino.objects.all()
+    serializer_class = TiposTreinoGeralLinkSerializer
+
+class TiposTreinoDetail(RetrieveUpdateDestroyAPIView):
+    """
+        Exibe, atualiza e deleta Tipos Treino
+    """
+
+    # curl -X PATCH  http://localhost:8000/api/peso/4/ -u admin:123 -d "peso=5321"
+    queryset = TiposTreino.objects.all()
+    serializer_class = TiposTreinoGeralLinkSerializer
+
+
 
 class FichaDetail(ListAPIView):
     """
@@ -361,6 +391,9 @@ class APIRootView(APIView):
             'GET POST FICHA': reverse('fichas-list',request=request),
             'GET POST NOMES EXERCICIO': reverse('nomesexercicio-list',request=request),
             'GET POST EXERCICIO': reverse('exerciciosaluno-list',request=request),
+            'GET POST TIPOS TREINO': reverse('tipostreino-list',request=request),
+
+
 
         }
         return Response(data)

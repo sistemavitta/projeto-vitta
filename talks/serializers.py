@@ -7,6 +7,7 @@ from training.models import Fichas
 from training.models import Treinos
 from training.models import ExerciciosAluno
 from training.models import NomesExercicio
+from training.models import TiposTreino
 from administration.models import Presenca
 
 
@@ -29,6 +30,15 @@ class NomeExercicioGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=NomesExercicio
         fields = ('id','url','nome','musculo_nome','musculo','ativo')
+
+class TiposTreinoGeralLinkSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='tipostreino-detail',
+    )
+
+    class Meta:
+        model=TiposTreino
+        fields = ('id','url','tipo','descricao')
 
 class ExercicioGeralSerializer(serializers.ModelSerializer):
     #link= serializers.HyperlinkedRelatedField(many=True, view_name='ficha-detail')
@@ -66,6 +76,7 @@ class TreinoGeralLinkSerializer(serializers.ModelSerializer):
     exercicios = serializers.HyperlinkedRelatedField(many=True, read_only=True,
                                                  view_name='exerciciosaluno-detail')
     ficha = serializers.HyperlinkedRelatedField(view_name='fichas-detail')
+    tipo_treino = serializers.HyperlinkedRelatedField(view_name='tipostreino-detail')
     class Meta:
         model = Treinos
         fields = ('id','url','ficha','nome','tipo_treino','exercicios','volume','ativo','exercicios')
@@ -116,7 +127,7 @@ class UserCreateLinkSerializer(serializers.HyperlinkedModelSerializer):
                                                  view_name='fichas-detail')
     class Meta:
         model = User
-        fields = ('id','url','username', 'email','password','fichas')
+        fields = ('id','url','username', 'email','password','is_staff','fichas')
 
 class UserSerializer(serializers.ModelSerializer):
 	perfil = PerfilSerializer()
@@ -188,11 +199,11 @@ class TreinoSerializer(serializers.ModelSerializer):
 
 class FichaSerializer(serializers.ModelSerializer):
     treinos = TreinoSerializer(many=True)
-    ultima_presenca = serializers.CharField(source='ultima_presenca')
+    #ultima_presenca = serializers.CharField(source='ultima_presenca')
 
     class Meta:
         model = Fichas
-        fields = ('id','aluno', 'objetivo','criado_em','data_inicio','data_fim','ultima_presenca','treinos')
+        fields = ('id','aluno', 'objetivo','criado_em','data_inicio','data_fim','treinos')
         depth = 1
 
 
