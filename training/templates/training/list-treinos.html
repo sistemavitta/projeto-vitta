@@ -153,14 +153,13 @@
 
                                 {% empty %}
 
-                                <div class="alert-message alert-message-registering-training">
-                                    <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <span class="glyphicon glyphicon-ban-circle"></span>
-                                    <strong class="registering-training">Cadastrar&nbsp;Treino!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treino&nbsp;cadastrado&nbsp;para&nbsp;o&nbsp;usuário&nbsp;<strong class="registering-training-user">{{ usuario.aluno.username }}.</strong>
+                                <div class="alert alert-info alermsg-registering-training">
+                                    <a href="#" class="alertmsg-link-registering-training" target="_blank">Cadastrar Treino!</a>
+                                    <span class="alermsg-info-registering-training">Não há nenhum treino cadastrado para o usuário:</span>
+                                    <a href="#" class="alertmsg-link-registering-training">{{ usuario.aluno.username }}</a>
                                 </div>
 
                                 {% endfor %}
-
                         </div>
 
                         <div ng-show="tabela" ng-cloak>
