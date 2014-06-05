@@ -16,7 +16,7 @@ body {
   font-family: 'source_sans_prolight';
 }
 .admin-full {
-  background: url(../img/admin-background.png);
+  background: url(../img/admin-background.jpg);
 }
 /* #Estilos gerais, ícones, imagens e fontes */
 
@@ -47,7 +47,7 @@ body {
   width: 100%;
 }
 .admin-navbar {
-  background: #444;
+  background: none;
   border-top: none;
   margin-left: 15%;
 }
@@ -191,9 +191,6 @@ body {
 /* #Modal Abrir Ficha */
 
 /*! Mensagens do Perfil */
-.message-content {
-  border-radius: 0;
-}
 .message-input {
   border-radius: 0;
 }
@@ -201,6 +198,7 @@ body {
   background: #428bca;
   border: none;
   border-radius: 0;
+  margin-top: -10px;
 }
 .bt-publish-message:hover,
 .bt-publish-message:focus,
@@ -209,6 +207,7 @@ body {
   background: #428bca;
   border: none;
   border-radius: 0;
+  margin-top: -10px;
 }
 .message {
   border-radius: 0;
@@ -251,11 +250,9 @@ body {
 /* #Mensagens do Perfil */
 
 /*! Consultar Treinos - Exibição em Lista */
-.training-content {
-  border-radius: 0;
-}
 .panel-group .panel {
   border-radius: 0;
+  border: none;
 }
 .exibition {
   margin-left: -5px;
@@ -280,10 +277,11 @@ a.icon-exibition {
   background: #444;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+  border-color: #444;
 }
 a.panel-title {
   font-size: 2.000em;
-  color: #eee;
+  color: lightgrey;
   text-decoration: none;
   display: block;
 }
@@ -323,13 +321,17 @@ h4.options-tabs {
 /*! === Exibição em Tabela === */
 .table-bordered > tbody > tr > td {
   border: 1px solid lightgrey;
+  background: #fff;
+}
+.table-bordered > tbody > tr > th {
+  border: 1px solid transparent;
 }
 .table > tbody > tr > th.active {
   background-color: #444;
 }
 h4.title-exibition-training {
   font-size: 2.000em;
-  color: #eee;
+  color: lightgrey;
 }
 tr.options-header-training {
   border-bottom: 3px solid lightgrey;
@@ -359,9 +361,6 @@ a.alertmsg-link-registering-training {
 /* #Consultar Treinos - Exibição em Lista */
 
 /*! Presenças */
-.timeline-content {
-  border-radius: 0;
-}
 .timeline {
   list-style: none;
   padding: 20px 0 20px;
@@ -378,7 +377,7 @@ a.alertmsg-link-registering-training {
   margin-left: -1.5px;
 }
 .timeline > li {
-  margin-bottom: 20px;
+  margin-bottom: -80px;
   position: relative;
 }
 .timeline > li:before,
@@ -425,6 +424,7 @@ a.alertmsg-link-registering-training {
   position: relative;
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  background: #fff;
 }
 .timeline > li > .timeline-panel:before {
   position: absolute;
@@ -648,15 +648,14 @@ ul.rating {
 /* #Modal Finalizar Treinamento */
 
 /*! Treinos */
-.training-content {
-  border-radius: 0;
+.training {
+  background: #fff;
 }
 h1.training-title {
   margin-top: -10px;
 }
-hr.line-training-title {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.training-name {
+  color: #444;
 }
 
 /*! === Controlador de Peso === */

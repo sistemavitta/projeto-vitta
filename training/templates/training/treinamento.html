@@ -10,13 +10,11 @@
 
 {% block content-ficha %}
 
-    <div class="panel panel-default training-content"> <!-- panel-default -->
         <div class="panel-body"> <!-- panel-body -->
             {% if usuario.treinando%}
-                <h1 class="training-title text-center"><small>{{ usuario.treino.nome }}</small></h1> <!-- /.training-title -->
-                <hr class="line-training-title"> <!-- /.line-training-title -->
+                <h1 class="training-title text-center"><small class="training-name">{{ usuario.treino.nome }}</small></h1> <!-- /.training-title -->
                 <div class="table-responsive"> <!-- table-responsive -->
-                    <table class="table table-striped"> <!-- table-striped -->
+                    <table class="table training"> <!-- table-striped -->
                         <thead>
                             <tr>
                                 <th width="20%" class="text-center">Ordem</th>
@@ -70,6 +68,5 @@
                 <a href="{% url 'cancelar-treinamento' usuario.aluno.pk %}" type="button" data-toggle="#" class="btn btn-warning cancel-training">Cancelar Treinamento</a> <!-- /.cancel-training -->
             {% endif %}
         </div> <!-- /.panel-body -->
-    </div> <!-- /.panel-default -->
 
 {% endblock content-ficha %}

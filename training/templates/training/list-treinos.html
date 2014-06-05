@@ -38,9 +38,7 @@
             {% endfor %}
             </ul>
         </div> -->
-
-        <div class="panel panel-default training-content">
-
+        
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 text-right exibition">
@@ -169,11 +167,11 @@
                                 {% for treino in treinos %}
 
                                     <table class="table table-bordered"> <!-- /.table -->
-                                            <tr> <!-- title-exibition-training -->
+                                            <tr>
                                                 <th colspan="4" class="active text-center">
-                                                    <h4 class="title-exibition-training">{{ treino.nome }}</h4>
+                                                    <h4 class="title-exibition-training">{{ treino.nome }}</h4> <!-- /.title-exibition-training -->
                                                 </th>
-                                            </tr> <!-- /.title-exibition-training -->
+                                            </tr> 
                                             <tr class="options-header-training">
                                                 <th width="25%" class="options-exibition-training">Exercício</th>
                                                 <th width="25%" class="options-exibition-training text-center">Série</th>
@@ -198,6 +196,5 @@
                         </div>
                      {% endwith %}
             </div>
-        </div>
 
 {% endblock content-ficha %}
