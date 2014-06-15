@@ -37,8 +37,7 @@
                         </div>
                         <hr class="line">
                         <div class="timeline-body"> <!-- timeline-body -->
-                            <small class="timeline-feedback">{{ presenca.feedback}}</small>
-                            <!-- <small class="timeline-feedback-empty">?</small> -->
+                            <small class="{{ presenca.feedback|yesno:"timeline-feedback,timeline-feedback-empty," }}">{% if presenca.feedback  %} {{ presenca.feedback }}  {% else %} Sem comentários  {% endif %}</small>
                         </div> <!-- /.timeline-body -->
                     </div> <!-- /.timeline-panel -->
                 </li> <!-- /.timeline-left -->
@@ -65,8 +64,7 @@
                         </div>
                         <hr class="line">
                         <div class="timeline-body"> <!-- timeline-body -->
-                            <!-- <small class="timeline-feedback">{{ presenca.feedback}}</small> -->
-                            <small class="timeline-feedback-empty">?</small>
+                           <small class="{{ presenca.feedback|yesno:"timeline-feedback,timeline-feedback-empty," }}">{% if presenca.feedback  %} {{ presenca.feedback }}  {% else %} Sem comentários  {% endif %}</small>
                         </div> <!-- /.timeline-body -->
                     </div> <!-- /.timeline-panel -->
                 </li> <!-- /.timeline-right -->
