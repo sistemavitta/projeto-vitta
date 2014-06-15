@@ -377,7 +377,7 @@ a.alertmsg-link-registering-training {
   margin-left: -1.5px;
 }
 .timeline > li {
-  margin-bottom: -80px;
+  margin-bottom: 0;
   position: relative;
 }
 .timeline > li:before,
@@ -417,6 +417,7 @@ a.alertmsg-link-registering-training {
 }
 .timeline > li > .timeline-panel {
   width: 46%;
+  margin-bottom: -50px;
   float: left;
   border: 1px solid #d4d4d4;
   border-radius: 2px;

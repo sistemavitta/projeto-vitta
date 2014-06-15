@@ -64,7 +64,6 @@
                         </div>
                         <hr class="line">
                         <div class="timeline-body"> <!-- timeline-body -->
-                        <div fundoo-rating rating-value="{{ presenca.nota }}" max="5" readonly="true"></div>
                         <small class="timeline-feedback">{{ presenca.feedback}}</small>
                         </div> <!-- /.timeline-body -->
                     </div> <!-- /.timeline-panel -->
@@ -77,63 +76,5 @@
             </ul> <!-- /.timeline -->
         </div> <!-- /.panel-body -->
         <br><br><br><br>
-
-    <!-- Presenças em tabela
-    <div class="panel panel-primary presence-content">
-        <div class="panel-body">
-            {% if usuario.aluno.presencas.all%}
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <tr class="presence-header">
-                        <th width="16,666666667%" class="presence-options">Data e Hora do Treino</th>
-                        <th width="16,666666667%" class="presence-options">Duração</th>
-                        <th width="16,666666667%" class="presence-options">Treino Executado</th>
-                        <th width="16,666666667%" class="presence-options">Professor</th>
-                        <th width="16,666666667%" class="presence-options">FeedBack</th>
-                        <th width="16,666666667%" class="presence-options">Nota</th>
-                    </tr>
-                    {% for presenca in usuario.aluno.presencas.all %}
-                    <tr>
-                        <td class="presence-options-content">{{ presenca.data_inicio|date:"l d/n/Y G:i" }}</td>
-                        <td class="presence-options-content">{{ presenca.duracao }} min</td>
-                        <td class="presence-options-content">{{ presenca.treino }}</td>
-                        <td class="presence-options-content">{{ presenca.professor }}</td>
-                        <td class="presence-options-content">
-                            <a href="#" id="popoverFeed" data-placement="bottom">
-                                {{ presenca.feedback|truncatewords:0}}
-                            </a>
-                            <div id="popoverContentFeed" class="hide">
-                                {{ presenca.feedback }}
-                            </div>
-                        </td>
-                        <td>
-                            <div fundoo-rating rating-value="{{ presenca.nota }}" max="5" readonly="true"></div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
-            <div class="col-md-12 text-right">
-                <ul class="pagination">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                </ul>
-            </div>
-        </div>
-            {% else %}
-        <div class="alert-message alert-message-no-presence">
-            <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
-            <span class="glyphicon glyphicon-ban-circle"></span>
-            <strong class="no-presence">Sem&nbsp;Presença!</strong>&nbsp;Este&nbsp;aluno&nbsp;não&nbsp;possui&nbsp;nenhuma&nbsp;presença.
-        </div>
-            {% endif %}
-    </div>
-    -->
-
+        
 {% endblock content-ficha %}
