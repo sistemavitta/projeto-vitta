@@ -564,7 +564,7 @@ h4.list-group-item-heading {
   color: #444;
 }
 .glyphicon-play {
-  font-size: 16px; 
+  font-size: 16px;
 }
 .train {
   font-size: 1.800em;
@@ -755,67 +755,6 @@ h1.training-title {
 }
 /* #Treinos */
 
-/* **** CSS Modal Record*/
-.record-size {
-  width: 400px;
-  margin-left: 100px;
-}
-.record-modal-header {
-  background: #444;
-  padding-top: 16px;
-  padding-bottom: 5px;
-}
-.record-title {
-  margin-bottom: 10px;
-  color: #fff;
-  text-transform: uppercase;
-}
-.record-footer {
-  margin-top: -17px;
-  padding: 15px;
-  background: #f5f5f5;
-}
-.record-btn {
-  background: #e74c3c;
-  border: none;
-  font-size: 1.600em;
-}
-.record-btn:hover,
-.record-btn:focus,
-.record-btn:active
-.record-btn.active {
-  background: #e74c3c;
-  border: none;
-}
-.panel.panel-default.select {
-  border: none;
-}
-.panel-heading.select-record-top {
-  background-color: #e2e2e2;
-  border-bottom: 2px solid #bdc3c7;
-}
-.select-record-title {
-  color: #444;
-  font-size: 1.800em;
-}
-.select-record-body {
-  background-color:#f5f5f5;
-  border-width: none;
-}
-.bt-select-record {
-  background: #5cb85c;
-  border: none;
-  margin-top: 16px;
-}
-.bt-select-record:hover,
-.bt-select-record:focus,
-.bt-select-record:active
-.bt-select-record.active {
-  background: #5cb85c;
-  border: none;
-}
-/* #CSS Modal Record */
-
 /* CSS Navbar Vertical Admin */
 
 /* CSS Navbar Base */
@@ -870,13 +809,13 @@ a.name-user {
   padding: 0px;
 }
 .profile-start-date {
-  
+
 }
 .profile-stop-date {
-  
+
 }
 .profile-goal {
-  
+
 }
 .admin-nav-profile-active {
   border: 4px solid #17c740;
@@ -890,9 +829,6 @@ a.name-user {
 .closing-record {
   margin-bottom: 10px;
 }
-a.exchange-record {
-  text-decoration: none;
-}
 .btn-close-open {
   background: #f0ad4e;
   border: none;
@@ -904,21 +840,6 @@ a.exchange-record {
 .btn-close-open:active
 .btn-close-open.active {
   background: #f0ad4e;
-  border: none;
-  color: #fff;
-  border-radius: 0;
-}
-.btn-close-record {
-  background: #e74c3c;
-  border: none;
-  color: #fff;
-  border-radius: 0;
-}
-.btn-close-record:hover,
-.btn-close-record:focus,
-.btn-close-record:active
-.btn-close-record.active {
-  background: #e74c3c;
   border: none;
   color: #fff;
   border-radius: 0;

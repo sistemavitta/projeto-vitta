@@ -31,9 +31,6 @@
             </p> <!-- /.admin-nav-profile-information-user -->
         </div>
         <div class="btn-group closing-record">
-            <a href="#recordModal" data-toggle="modal" class="exchange-record">
-                <button type="button" class="btn btn-default btn-xs btn-close-open">Trocar Ficha</button>
-            </a>
             {% if request.user != usuario.aluno %}
             <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
                 <button type="button" class="btn btn-default btn-xs btn-close-record">Fechar Ficha</button>
@@ -43,9 +40,11 @@
     </div> <!-- /.admin-nav-profile -->
     <div class="admin-nav-user"> <!-- admin-nav-user -->
         <ul>
+        {% comment %}
             <li>
                 <a href="{% url 'perfil-detail' usuario.aluno.pk %}" class="{% if urlname == 'perfil-detail'%}active{% endif %}">Perfil</a>
             </li>
+        {% endcomment %}
             <li>
                 <a href="{% url 'list-treinos' usuario.aluno.pk %}" class="{% if urlname == 'list-treinos'%}active{% endif %}">Consultar Treinos</a>
             </li>
@@ -72,104 +71,6 @@
         </div>
     </div>
 </nav>
-
-<!-- Modal Trocar Ficha -->
-    <div class="modal fade" id="recordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content record-size">
-
-                <div class="modal-header record-modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title record-title" id="myModalLabel">Trocar Ficha</h4>
-                </div>
-
-                <div class="modal-body"> <!-- modal-body -->
-
-                    <div class="panel panel-default select"> <!-- select -->
-                        <div class="panel-heading select-record-top"> <!-- select-record-top -->
-                            <span class="select-record-title">Ficha 1</span>
-                        </div> <!-- /.select-record-top -->
-                        <div class="panel-body select-record-body"> <!-- select-record-body -->
-                            <div class="row"> <!-- row -->
-                                <div class="col-md-7"> <!-- col-md-7 -->
-                                    <!-- record-information -->
-                                    <span class="select-start-date">Data de Início:</span>
-                                    <span>25/04/2014</span><br>
-                                    <span class="select-stop-date">Data de Fim:</span>
-                                    <span>25/05/2014</span><br>
-                                    <span class="select-goal">Objetivo:</span>
-                                    <span>Hipertrofia</span>
-                                    <!-- /.record-information -->
-                                </div> <!-- /.col-md-7 -->
-                                <div class="col-md-5"> <!-- col-md-5 -->
-                                    <a href="#" class="btn btn-primary bt-select-record">
-                                        Selecionar Ficha
-                                    </a>
-                                </div> <!-- /.col-md-5 -->
-                            </div> <!-- /.row -->
-                        </div> <!-- /.select-record-body -->
-                    </div> <!-- /.select -->
-
-                    <div class="panel panel-default select"> <!-- select -->
-                        <div class="panel-heading select-record-top"> <!-- select-record-top -->
-                            <span class="select-record-title">Ficha 2</span>
-                        </div> <!-- /.select-record-top -->
-                        <div class="panel-body select-record-body"> <!-- select-record-body -->
-                            <div class="row"> <!-- row -->
-                                <div class="col-md-7"> <!-- col-md-7 -->
-                                    <!-- record-information -->
-                                    <span class="select-start-date">Data de Início:</span>
-                                    <span>25/04/2014</span><br>
-                                    <span class="select-stop-date">Data de Fim:</span>
-                                    <span>25/05/2014</span><br>
-                                    <span class="select-goal">Objetivo:</span>
-                                    <span>Hipertrofia</span>
-                                    <!-- /.record-information -->
-                                </div> <!-- /.col-md-7 -->
-                                <div class="col-md-5"> <!-- col-md-5 -->
-                                    <a href="#" class="btn btn-primary bt-select-record">
-                                        Selecionar Ficha
-                                    </a>
-                                </div> <!-- /.col-md-5 -->
-                            </div> <!-- /.row -->
-                        </div> <!-- /.select-record-body -->
-                    </div> <!-- /.select -->
-
-                    <div class="panel panel-default select"> <!-- select -->
-                        <div class="panel-heading select-record-top"> <!-- select-record-top -->
-                            <span class="select-record-title">Ficha 3</span>
-                        </div> <!-- /.select-record-top -->
-                        <div class="panel-body select-record-body"> <!-- select-record-body -->
-                            <div class="row"> <!-- row -->
-                                <div class="col-md-7"> <!-- col-md-7 -->
-                                    <!-- record-information -->
-                                    <span class="select-start-date">Data de Início:</span>
-                                    <span>25/04/2014</span><br>
-                                    <span class="select-stop-date">Data de Fim:</span>
-                                    <span>25/05/2014</span><br>
-                                    <span class="select-goal">Objetivo:</span>
-                                    <span>Hipertrofia</span>
-                                    <!-- /.record-information -->
-                                </div> <!-- /.col-md-7 -->
-                                <div class="col-md-5"> <!-- col-md-5 -->
-                                    <a href="#" class="btn btn-primary bt-select-record">
-                                        Selecionar Ficha
-                                    </a>
-                                </div> <!-- /.col-md-5 -->
-                            </div> <!-- /.row -->
-                        </div> <!-- /.select-record-body -->
-                    </div> <!-- /.select -->
-
-                </div> <!-- modal-body -->
-
-                <div class="modal-footer record-footer">
-                    <button type="submit"  type="button" class="btn btn-danger pull-left record-btn" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- /.Trocar Ficha -->
-
 
 
 

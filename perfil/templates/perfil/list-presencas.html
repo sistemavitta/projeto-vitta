@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <i class="glyphicon glyphicon-calendar"></i>&nbsp;
-                                <span class="timeline-title">{{ presenca.data_inicio|date:"l d/n/Y G:i" }}</span><br>
+                                <span class="timeline-title">{{ presenca.data_inicio|date:"D - d/n/Y G:i" }}</span><br>
                                 <i class="glyphicon glyphicon-time"></i>&nbsp;
                                 <span class="timeline-title">{{ presenca.duracao }} Minutos</span><br>
                                 <i class="glyphicon glyphicon-user"></i>&nbsp;
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <i class="glyphicon glyphicon-calendar"></i>&nbsp;
-                                <span class="timeline-title">{{ presenca.data_inicio|date:"l d/n/Y G:i" }}</span><br>
+                                <span class="timeline-title">{{ presenca.data_inicio|date:"D - d/n/Y G:i" }}</span><br>
                                 <i class="glyphicon glyphicon-time"></i>&nbsp;
                                 <span class="timeline-title">{{ presenca.duracao }} Minutos</span><br>
                                 <i class="glyphicon glyphicon-user"></i>&nbsp;
@@ -76,5 +76,5 @@
             </ul> <!-- /.timeline -->
         </div> <!-- /.panel-body -->
         <br><br><br><br>
-        
+
 {% endblock content-ficha %}

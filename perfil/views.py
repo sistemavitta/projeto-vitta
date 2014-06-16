@@ -84,7 +84,8 @@ class FecharFichaView(LoginRequiredMixin,ContextalunoMixim,View,ContextMixin):
 class PerfilDetailView(LoginRequiredMixin,ContextalunoMixim,TemplateView):
 
     #template_name = 'perfil/perfil-detail.html'
-    template_name = 'perfil/mensagens.html'
+    template_name = 'training/list-treinos.html'
+    #template_name = 'perfil/mensagens.html'
     #context_object_name = 'usuario'
 
 
