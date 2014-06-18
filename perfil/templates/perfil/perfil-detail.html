@@ -3,15 +3,12 @@
 {% block alerta %}
 {% if alerta %}
 
-    <div class="alert-message alert-message-registering-training">
-    <span class="glyphicon glyphicon-ban-circle"></span>
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <strong>Fechar Ficha!</strong>&nbsp;&nbsp;  <strong>{{ alerta }}</strong>.
-    </div>
-
+    <div class="alert alert-info alermsg-record"> <!-- alermsg-record -->
+    	<span class="alertmsg-closing-record">Fechar Ficha!</span> <!-- /.alertmsg-closing-record -->
+    	<span class="alermsg-student-training">{{ alerta }}</span> <!-- /.alermsg-student-training -->
+    </div> <!-- /.alermsg-presence -->
 
 {% endif %}
-
 {% endblock alerta %}
 
 {% block breadcrumb %}
@@ -19,6 +16,10 @@
     <li class="breadcrumb-nav-active">{{ usuario.aluno.username }}</li>
 {% endblock breadcrumb  %}
 
+{% comment %}
+
 {% block content-ficha %}
-        <h1>usuário -  {{ usuario.aluno.username}} </h1>
+	<h1>Usuário - {{ usuario.aluno.username}}</h1>
 {% endblock content-ficha %}
+
+{% endcomment %}

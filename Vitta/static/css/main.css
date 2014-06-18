@@ -113,23 +113,6 @@ body {
 .search-bt {
   border-radius: 0;
 }
-
-/*! === Mensagem - Usuário não Encontrado === */
-.alermsg-user-not-found {
-  border: none;
-  border-radius: 0;
-}
-.alermsg-info {
-  color: #7f8c8d;
-  font-size: 1.600em;
-}
-.alermsg-result {
-  color: #7f8c8d;
-  font-size: 1.600em;
-  text-transform: uppercase;
-}
-/* === #Mensagem - Usuário não Encontrado === */
-
 .admin-user-search {
   margin-bottom: 15px;
 }
@@ -343,21 +326,6 @@ th.options-exibition-training {
 }
 /* === #Exibição em Tabela === */
 
-/*! === Mensagem - Cadastrar Treino === */
-.alermsg-registering-training {
-  margin-top: 12px;
-  border: none;
-  border-radius: 0;
-}
-a.alertmsg-link-registering-training {
-  font-size: 1.600em;
-}
-.alermsg-info-registering-training {
-  color: #7f8c8d;
-  font-size: 1.600em;
-}
-/* === #Mensagem - Cadastrar Treino === */
-
 /* #Consultar Treinos - Exibição em Lista */
 
 /*! Presenças */
@@ -496,7 +464,7 @@ hr.line {
 }
 .timeline-feedback-empty {
   font-size: 1.600em;
-  color: #fff;
+  color: #999;
   margin-top: 5px;
 }
 /* #Presenças */
@@ -754,6 +722,87 @@ h1.training-title {
   border-radius: 0;
 }
 /* #Treinos */
+
+/*! Mensagens de Alerta */
+
+/*! === Usuário não Encontrado === */
+.alermsg-user-not-found {
+  border: none;
+  border-radius: 0;
+}
+.alermsg-info {
+  color: #7f8c8d;
+  font-size: 1.600em;
+}
+.alermsg-result {
+  color: #428bca;
+  font-size: 1.600em;
+  text-transform: uppercase;
+}
+/* === #Usuário não Encontrado === */
+
+/*! === Cadastrar Treino === */
+.alermsg-registering-training {
+  margin-top: 12px;
+  border: none;
+  border-radius: 0;
+}
+a.alertmsg-link-registering-training {
+  font-size: 1.600em;
+  text-transform: uppercase;
+}
+.alermsg-info-registering-training {
+  color: #7f8c8d;
+  font-size: 1.600em;
+}
+/* === #Cadastrar Treino === */
+
+/*! === Sem Presença === */
+.alermsg-presence {
+  margin-top: 12px;
+  border: none;
+  border-radius: 0;
+}
+.alertmsg-without-presence {
+  color: #7f8c8d;
+  font-size: 1.600em;
+  color: #428bca;
+  text-transform: uppercase;
+}
+.alermsg-no-presence{
+  color: #7f8c8d;
+  font-size: 1.600em;
+}
+/* === #Sem Presença === */
+
+/*! === Fechar Ficha === */
+.alermsg-record {
+  margin-top: 12px;
+  border: none;
+  border-radius: 0;
+}
+.alertmsg-closing-record {
+  color: #7f8c8d;
+  font-size: 1.600em;
+  color: #428bca;
+  text-transform: uppercase;
+}
+.alermsg-student-training {
+  color: #7f8c8d;
+  font-size: 1.600em;
+}
+/* === #Fechar Ficha === */
+
+/* #Mensagens de Alerta */
+
+
+
+
+
+
+
+
+
 
 /* CSS Navbar Vertical Admin */
 
