@@ -36,9 +36,11 @@
                                 <td style="width: 1px;">
                                     <div class="input-group weight-control"> <!-- weight-control -->
                                         <span class="input-group-btn"> <!-- input-group-btn -->
-                                            <button type="button" class="btn btn-danger btn-sm minus-bt" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1;"> <!-- minus-bt -->
+                                            <span ng-show=" peso{{exerc.pk}} > 0">
+                                            <button type="button"  class="btn btn-danger btn-sm minus-bt" ng-click=" peso{{exerc.pk}} = peso{{exerc.pk}} - 1;"> <!-- minus-bt -->
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button> <!-- /.minus-bt -->
+                                            </span>
                                         </span> <!-- /.input-group-btn -->
                                         <input type="text" ng-init="peso{{exerc.pk}} = {{exerc.peso}};" ng-model="peso{{exerc.pk}}" class="form-control text-center input-sm"> <!-- input-sm -->
                                         <span class="input-group-btn"> <!-- input-group-btn -->
@@ -61,7 +63,7 @@
                     <span class="alertmsg-start-training">Iniciar Treinamento!</span> <!-- /.alertmsg-start-training -->
                     <span class="alertmsg-no-start-training">Não há nenhum treinamento iniciado.</span> <!-- /.alertmsg-no-start-training -->
                 </div> <!-- /.alermsg-training -->
-                
+
             {% endif %}
 
             {% if usuario.treinando %}
