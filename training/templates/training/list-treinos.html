@@ -38,7 +38,7 @@
             {% endfor %}
             </ul>
         </div> -->
-        
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 text-right exibition">
@@ -49,7 +49,7 @@
             </div>
 
             <div class="panel-body">
-                
+
     {% endwith %}
 
                     {% with  treinos=usuario.ficha.treinos.all %}
@@ -152,7 +152,7 @@
                                 {% empty %}
 
                                 <div class="alert alert-info alermsg-registering-training">
-                                    <a href="#" class="alertmsg-link-registering-training" target="_blank">Cadastrar Treino!</a>
+                                    <a href="/admin/training/treinos/add/" class="alertmsg-link-registering-training" target="_blank">Cadastrar Treino!</a>
                                     <span class="alermsg-info-registering-training">Não há nenhum treino cadastrado para o usuário:</span>
                                     <a href="#" class="alertmsg-link-registering-training">{{ usuario.aluno.username }}</a>
                                 </div>
@@ -171,7 +171,7 @@
                                                 <th colspan="4" class="active text-center">
                                                     <h4 class="title-exibition-training">{{ treino.nome }}</h4> <!-- /.title-exibition-training -->
                                                 </th>
-                                            </tr> 
+                                            </tr>
                                             <tr class="options-header-training">
                                                 <th width="25%" class="options-exibition-training">Exercício</th>
                                                 <th width="25%" class="options-exibition-training text-center">Série</th>

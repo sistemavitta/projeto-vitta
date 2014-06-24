@@ -239,8 +239,9 @@ class FichaListSerializer(serializers.ModelSerializer):
 
 class PresencaSerializer(serializers.ModelSerializer):
     #treinonome = TreinoField(many=True)
-
+    data = serializers.CharField(source='data', read_only=True)
     class Meta:
         model = Presenca
-        fields = ('id', 'aluno','treino','professor','data_inicio','duracao','feedback')
+
+        fields = ('id', 'aluno','treino','professor','data_inicio','data','duracao','feedback')
         depth = 2
