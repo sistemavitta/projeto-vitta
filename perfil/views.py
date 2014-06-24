@@ -75,7 +75,7 @@ class FecharFichaView(LoginRequiredMixin,ContextalunoMixim,View,ContextMixin):
             return HttpResponseRedirect(reverse('perfil-detail', kwargs={'pk': request.user.pk}))
 
         context = self.get_context_data(**kwargs)
-        context['alerta']='Aluno Treinando: Finalize o treinamento para poder fechar a ficha'
+        context['alerta']='Finalize o treinamento para poder fechar a ficha.'
         return render (request,self.template_name, context)
 
 
