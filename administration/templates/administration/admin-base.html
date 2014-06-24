@@ -50,7 +50,6 @@ $("#popoverId").popover({html:true,title:'Informações do Usuário<a class="clo
             <div class="row"> <!-- row -->
                 <div class="col-md-12"> <!-- col-md-12 -->
 
-
                     <div class="col-md-12 breadcrumb-nav">
                         <div class="row">
                             <div class="col-md-10">
@@ -65,7 +64,6 @@ $("#popoverId").popover({html:true,title:'Informações do Usuário<a class="clo
                             </div>
                             <div class="col-md-2 breadcrumb-nav-right">
                                 <nav class="breadcrumb-nav-instructor">
-                                    <span class="breadcrumb-nav-notifications">3</span>
                                     <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor">
                                         <img  {% if  user.perfil.image %}
                                             src="{{ user.perfil.image }}-/scale_crop/35x35/center/"

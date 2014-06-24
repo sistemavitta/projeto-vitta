@@ -9,10 +9,12 @@
 {% endblock breadcrumb  %}
 
 {% block content-ficha %}
-
+    {% if usuario.treinando%}
+    <div class="panel panel-primary content-training"> <!-- content-training -->
+        <div class="panel-heading training-title-base">
+            <h4 class="training-title text-center">{{ usuario.treino.nome }}</h4> <!-- /.training-title -->
+        </div>
         <div class="panel-body"> <!-- panel-body -->
-            {% if usuario.treinando%}
-                <h1 class="training-title text-center"><small class="training-name">{{ usuario.treino.nome }}</small></h1> <!-- /.training-title -->
                 <div class="table-responsive"> <!-- table-responsive -->
                     <table class="table training"> <!-- table-striped -->
                         <thead>
@@ -55,12 +57,11 @@
 
             {% else %}
 
-                <div class="alert-message alert-message-registering-training">
-                    <button type="button" class="close close-message" data-dismiss="alert" aria-hidden="true">×</button>
-                    <span class="glyphicon glyphicon-ban-circle"></span>
-                    <strong class="registering-training">Iniciar&nbsp;Treinamento!</strong>&nbsp;&nbsp;Não&nbsp;há&nbsp;nenhum&nbsp;treinamento&nbsp;iniciado&nbsp;
-                </div>
-
+                <div class="alert alert-info alermsg-training"> <!-- alermsg-training -->
+                    <span class="alertmsg-start-training">Iniciar Treinamento!</span> <!-- /.alertmsg-start-training -->
+                    <span class="alertmsg-no-start-training">Não há nenhum treinamento iniciado.</span> <!-- /.alertmsg-no-start-training -->
+                </div> <!-- /.alermsg-training -->
+                
             {% endif %}
 
             {% if usuario.treinando %}
@@ -68,5 +69,6 @@
                 <a href="{% url 'cancelar-treinamento' usuario.aluno.pk %}" type="button" data-toggle="#" class="btn btn-warning cancel-training">Cancelar Treinamento</a> <!-- /.cancel-training -->
             {% endif %}
         </div> <!-- /.panel-body -->
+    </div> <!-- /.content-training -->
 
 {% endblock content-ficha %}

@@ -154,7 +154,7 @@
                                 <div class="alert alert-info alermsg-registering-training">
                                     <a href="/admin/training/treinos/add/" class="alertmsg-link-registering-training" target="_blank">Cadastrar Treino!</a>
                                     <span class="alermsg-info-registering-training">Não há nenhum treino cadastrado para o usuário:</span>
-                                    <a href="#" class="alertmsg-link-registering-training">{{ usuario.aluno.username }}</a>
+                                    <a href="/perfil/{{ usuario.aluno.pk }}/" class="alertmsg-link-registering-training">{{ usuario.aluno.username }}</a>
                                 </div>
 
                                 {% endfor %}
