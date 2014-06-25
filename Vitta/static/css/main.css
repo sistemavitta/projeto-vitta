@@ -11,6 +11,10 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'marmelad';
+  src: url('../fonts/marmelad.woff') format('woff');
+}
 body {
   font-size: 100%;
   font-family: 'source_sans_prolight';
@@ -433,7 +437,7 @@ th.options-exibition-training {
   left: -14px;
   right: auto;
 }
-.glyphicon-calendar, .glyphicon-time, .glyphicon-user {
+.glyphicon-calendar, .glyphicon-time, .glyphicon-user, .glyphicon-flag {
   font-size: 14px;
   color: #999;
 }
@@ -816,6 +820,87 @@ a.alertmsg-link-registering-training {
 
 /* #Mensagens de Alerta */
 
+/*! Menu Vertical */
+
+/*! === Perfil do Usuário === */
+.nav-profile {
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 0;
+}
+.nav-profile-img-user {
+  margin-top: 10px;
+}
+.nav-profile-img-user-active {
+  border: 4px solid #17c740;
+}
+.nav-profile-img-user-noactive {
+  border: 4px solid transparent;
+}
+a.nav-name-user {
+  font-size: 2.000em;
+  font-family: 'marmelad';
+  color: #444;
+  font-weight: 700px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.nav-information-user {
+  margin-bottom: 10px;
+  padding: 0px;
+}
+.information-user {
+  color: #999;
+  font-size: 1.600em;
+}
+.bt-close-record {
+  margin-bottom: 10px;
+  font-size: 1.400em;
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
+}
+.bt-close-record:hover,
+.bt-close-record:focus,
+.bt-close-record:active
+.bt-close-record.active {
+  font-size: 1.400em;
+  background: #e74c3c;
+  border: none;
+  border-radius: 0;
+}
+/* === #Perfil do Usuário === */
+
+/*! === Menu de Navegação === */
+.nav-menu {
+  height: 30%;
+  overflow: auto;
+}
+.nav-menu li{
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #bbb;
+  line-height: 40px;
+  text-indent: 10px;
+}
+.nav-menu a {
+  display: block;
+  text-decoration: none;
+  color: lightgrey;
+  background: #444;
+  font-size: 1.600em;
+}
+.nav-menu a.active {
+  border-right: 10px solid lightgrey;
+}
+/* === #Menu de Navegação === */
+
+/*! === Cronômetro === */
+/* === #Cronômetro === */
+
+/* #Menu Vertical */
 
 /* CSS Navbar Vertical Admin */
 
@@ -848,96 +933,6 @@ a.alertmsg-link-registering-training {
     position: relative;
 }
 /* #CSS Navbar Base */
-
-/* CSS User Profile */
-.admin-nav-profile {
-  border-radius: 0;
-  border: 0;
-  margin-bottom: 0;
-}
-.admin-nav-profile-img-user {
-  margin-top: 8px;
-}
-a.name-user {
-  font-size: 2.000em;
-  color: #444;
-  display: inline-block;
-  margin-top: 10px;
-  margin-bottom: 6px;
-  text-decoration: none;
-}
-.admin-nav-profile-information-user {
-  margin-bottom: 10px;
-  padding: 0px;
-}
-.profile-start-date {
-
-}
-.profile-stop-date {
-
-}
-.profile-goal {
-
-}
-.admin-nav-profile-active {
-  border: 4px solid #17c740;
-}
-.admin-nav-profile-noactive {
-  border: 4px solid transparent;
-}
-/* #CSS User Profile */
-
-/* CSS Closing Record */
-.closing-record {
-  margin-bottom: 10px;
-}
-.btn-close-open {
-  background: #f0ad4e;
-  border: none;
-  color: #fff;
-  border-radius: 0;
-}
-.btn-close-open:hover,
-.btn-close-open:focus,
-.btn-close-open:active
-.btn-close-open.active {
-  background: #f0ad4e;
-  border: none;
-  color: #fff;
-  border-radius: 0;
-}
-/* #CSS Closing Record */
-
-/* CSS Nav Options */
-.admin-nav-user {
-  height: 32%;
-  overflow: auto;
-}
-.admin-nav-user li{
-  display: block;
-  width: 100%;
-  border-bottom: 1px solid #bbb;
-  line-height: 40px;
-  text-indent: 10px;
-}
-.admin-nav-user a {
-  display: block;
-  text-decoration: none;
-  color: #fff;
-  background: #444;
-  font-size: 1.600em;
-}
-.admin-nav-user a.link-training {
-  display: block;
-  text-decoration: none;
-  color: #fff;
-  background: #2ecc71;
-  font-size: 1.600em;
-}
-.admin-nav-user a.active {
-  border-right: 10px solid lightgrey;
-}
-/* #CSS Nav Options */
 
 /* CSS Start Training */
 .start-training {

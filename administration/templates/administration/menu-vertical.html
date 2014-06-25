@@ -1,44 +1,45 @@
 <nav class="menubar">
-    <div class="thumbnail admin-nav-profile text-center"> <!-- admin-nav-profile -->
+
+    <div class="thumbnail nav-profile text-center"> <!-- nav-profile -->
+
         <a href="{% url 'perfil-detail' usuario.aluno.pk %}">
             <img    {% if  usuario.aluno.perfil.image %}
                         src="{{ usuario.aluno.perfil.image }}-/scale_crop/120x120/center/"
                     {% else %}
                         src="holder.js/120x120/"
                     {% endif %}
-            alt="" class="admin-nav-profile-img-user
+            alt="" class="nav-profile-img-user
             {% if usuario.treinando %}
-                admin-nav-profile-active
+                nav-profile-img-user-active
             {% else %}
-                admin-nav-profile-noactive
-            {% endif %} img-circle">
+                nav-profile-img-user-noactive
+            {% endif %} img-circle"> <!-- ./nav-profile-img-user -->
         </a>
-        <a href="#" class="name-user" id="popoverId" data-placement="right">Ficha&nbsp;-&nbsp;{{ usuario.aluno.username }}</a>
+
+        <a href="#" class="nav-name-user" id="popoverId" data-placement="right">Ficha - {{ usuario.aluno.username }}</a> <!-- /.nav-name-user -->
+
         <div id="popoverContent" class="hide">
             <span class="glyphicon glyphicon-envelope"></span>&nbsp;
             <span class="profile-mail ">{{ usuario.aluno.email }}</span><br>
             <span class="glyphicon glyphicon-earphone"></span>&nbsp;
             <span class="profile-phone">{{ usuario.aluno.perfil.phone }}</span>
         </div>
-        <div>
-            <p class="admin-nav-profile-information-user"> <!-- admin-nav-profile-information-user -->
-                <span class="profile-start-date">Data de Início:</span>
-                <span>25/04/2014</span><br>
-                <span class="profile-stop-date">Data de Fim:</span>
-                <span>25/05/2014</span><br>
-                <span class="profile-goal">Objetivo:</span>
-                <span>Hipertrofia</span>
-            </p> <!-- /.admin-nav-profile-information-user -->
-        </div>
-        <div class="btn-group closing-record">
-            {% if request.user != usuario.aluno %}
-            <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
-                <button type="button" class="btn btn-default btn-xs btn-close-record">Fechar Ficha</button>
-            </a>
-            {% endif %}
-        </div>
-    </div> <!-- /.admin-nav-profile -->
-    <div class="admin-nav-user"> <!-- admin-nav-user -->
+
+        <div class="nav-information-user"> <!-- nav-information-user -->
+            <span class="information-user">Data de início: 24/06/2014</span><br> <!-- /.information-user -->
+            <span class="information-user">Data de Fim: 24/09/2014 </span><br> <!-- /.information-user -->
+            <span class="information-user">Objetivo: Perda de peso</span> <!-- /.information-user -->
+        </div> <!-- /.nav-information-user -->
+
+        {% if request.user != usuario.aluno %}
+        <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
+            <button type="button" class="btn btn-danger btn-sm bt-close-record">Fechar Ficha</button> <!-- /.bt-close-record -->
+        </a>
+        {% endif %}
+
+    </div> <!-- /.nav-profile -->
+
+    <div class="nav-menu"> <!-- nav-menu -->
         <ul>
         {% comment %}
             <li>
@@ -52,7 +53,8 @@
                 <a href="{% url 'list-presencas' usuario.aluno.pk %}" class="{% if urlname == 'list-presencas'%}active{% endif %}">Relatório de Presenças</a>
             </li>
         </ul>
-    </div> <!-- /.admin-nav-user -->
+    </div> <!-- /.nav-menu -->
+
     <div class="panel panel-default start-training">
         <div class="panel-heading start-training-heading text-center">
         {% if not usuario.treinando %}
