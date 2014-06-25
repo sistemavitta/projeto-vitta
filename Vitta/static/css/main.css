@@ -906,7 +906,7 @@ a.close.exit {
 
 /*! === Menu de Navegação === */
 .nav-menu {
-  height: 30%;
+  height: 35%;
   overflow: auto;
 }
 .nav-menu li{
@@ -929,11 +929,48 @@ a.close.exit {
 /* === #Menu de Navegação === */
 
 /*! === Cronômetro === */
+.content-timer {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 0;
+  border: none;
+}
+.content-play {
+  background: #5cb85c;
+  border-radius: 0;
+  border: none;
+  padding: 5px;
+}
+a.start-training-play {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.800em;
+}
+.content-stopwatch {
+  background: #f5f5f5;
+  padding: 5px;
+}
+.stopwatch {
+  font-size: 2.000em;
+  color: #999;
+}
 /* === #Cronômetro === */
 
 /* #Menu Vertical */
 
-/* CSS Navbar Vertical Admin */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* CSS Navbar Base */
 * {
@@ -964,58 +1001,6 @@ a.close.exit {
     position: relative;
 }
 /* #CSS Navbar Base */
-
-/* CSS Start Training */
-.start-training {
-  border: 0;
-  border-radius: 0;
-  border-bottom: 0;
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding: 25px;
-  background-color: #444;
-}
-/* CSS Play */
-.panel > .start-training-heading {
-  background: #5cb85c;
-  padding: 5px;
-  border-radius: 0;
-  left: 0;
-  bottom: 0;
-}
-a.start-training-play {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.800em;
-}
-/* #CSS Play */
-
-/* CSS Stop */
-.panel > .stop-training-heading {
-  background: #e73e2c;
-  padding: 5px;
-}
-a.stop-training-stop {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.800em;
-}
-.glyphicon-stop {
-  font-size: 1.700em;
-}
-/* #CSS Stop */
-
-.panel > .start-training-body {
-  background: #f5f5f5;
-  padding: 5px;
-}
-.start-training-stopwatch {
-  font-size: 2.200em;
-}
-/* #CSS Start Training */
-
-
 
 /* CSS Breadcrumb */
 .breadcrumb-nav {

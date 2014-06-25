@@ -1,7 +1,5 @@
-<nav class="menubar">
-
+<nav class="menubar"> <!-- menubar -->
     <div class="thumbnail nav-profile text-center"> <!-- nav-profile -->
-
         <a href="{% url 'perfil-detail' usuario.aluno.pk %}">
             <img    {% if  usuario.aluno.perfil.image %}
                         src="{{ usuario.aluno.perfil.image }}-/scale_crop/120x120/center/"
@@ -15,30 +13,24 @@
                 nav-profile-img-user-noactive
             {% endif %} img-circle"> <!-- ./nav-profile-img-user -->
         </a>
-
         <a href="#" class="nav-name-user" id="popoverId" data-placement="right">Ficha - {{ usuario.aluno.username }}</a> <!-- /.nav-name-user -->
-
         <div id="popoverContent" class="hide">
             <span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;
             <span class="profile-mail">{{ usuario.aluno.email }}</span><br>
             <span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;
             <span class="profile-phone">{{ usuario.aluno.perfil.phone }}</span>
         </div>
-
         <div class="nav-information-user"> <!-- nav-information-user -->
-            <span class="information-user">Data de Início: 24/06/2014</span><br> <!-- /.information-user -->
-            <span class="information-user">Data de Fim: 24/09/2014 </span><br> <!-- /.information-user -->
-            <span class="information-user">Objetivo: Perda de peso</span> <!-- /.information-user -->
+            <span class="information-user">Data de Início:&nbsp;24/06/2014</span><br> <!-- /.information-user -->
+            <span class="information-user">Data de Fim:&nbsp;24/09/2014</span><br> <!-- /.information-user -->
+            <span class="information-user">Objetivo:&nbsp;Perda de peso</span> <!-- /.information-user -->
         </div> <!-- /.nav-information-user -->
-
         {% if request.user != usuario.aluno %}
         <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
-            <button type="button" class="btn btn-danger btn-sm bt-close-record">Fechar Ficha</button> <!-- /.bt-close-record -->
+            <button type="button" class="btn btn-danger btn-xs bt-close-record">Fechar Ficha</button> <!-- /.bt-close-record -->
         </a>
         {% endif %}
-
     </div> <!-- /.nav-profile -->
-
     <div class="nav-menu"> <!-- nav-menu -->
         <ul>
         {% comment %}
@@ -54,25 +46,24 @@
             </li>
         </ul>
     </div> <!-- /.nav-menu -->
-
-    <div class="panel panel-default start-training">
-        <div class="panel-heading start-training-heading text-center">
+    <div class="panel panel-default content-timer"> <!-- content-timer -->
+        <div class="panel-footer content-play text-center"> <!-- content-training -->
         {% if not usuario.treinando %}
             <a class="start-training-play" href="#startModal" data-toggle="modal" ng-click="listTreinos({{ usuario.aluno.pk}},'{{usuario.aluno.username}}')">
-                <span class="glyphicon glyphicon-play"></span>
-                &nbsp;Treinar
-            </a>
+                <i class="glyphicon glyphicon-play"></i>
+                <span>Treinar</span>
+            </a> <!-- /.start-training-play -->
         {% else %}
             <a class="start-training-play" href="{% url 'treinamento' usuario.aluno.pk %}" data-toggle="modal">
                 &nbsp;{{ usuario.treino.nome }}
-            </a>
+            </a> <!-- /.start-training-play -->
         {% endif %}
-        </div>
-        <div class="panel-body start-training-body text-center">
-            <span {% if usuario.treinando %} id="timer" {% endif %} class="start-training-stopwatch">00:00</span>
-        </div>
-    </div>
-</nav>
+        </div> <!-- /.content-training -->
+        <div class="panel-footer content-stopwatch text-center"> <!-- timer-training -->
+            <span {% if usuario.treinando %} id="timer" {% endif %} class="stopwatch">00:00</span> <!-- stopwatch -->
+        </div> <!-- /.timer-training -->
+    </div> <!-- /.content-timer -->
+</nav> <!-- /.menubar -->
 
 
 
