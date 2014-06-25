@@ -21,9 +21,9 @@
             <span class="profile-phone">{{ usuario.aluno.perfil.phone }}</span>
         </div>
         <div class="nav-information-user"> <!-- nav-information-user -->
-            <span class="information-user">Data de Início:&nbsp;24/06/2014</span><br> <!-- /.information-user -->
-            <span class="information-user">Data de Fim:&nbsp;24/09/2014</span><br> <!-- /.information-user -->
-            <span class="information-user">Objetivo:&nbsp;Perda de peso</span> <!-- /.information-user -->
+            <span class="information-user">Data de Início:&nbsp;{{ usuario.ficha.data_inicio|date:"d/n/Y" }}</span><br> <!-- /.information-user -->
+            <span class="information-user">Data de Fim:&nbsp;{{ usuario.ficha.data_fim|date:"d/n/Y" }}</span><br> <!-- /.information-user -->
+            <span class="information-user">Objetivo:&nbsp;{{ usuario.ficha.objetivo }}</span> <!-- /.information-user -->
         </div> <!-- /.nav-information-user -->
         {% if request.user != usuario.aluno %}
         <a href="{% url 'fechar-ficha' usuario.aluno.pk %}">
