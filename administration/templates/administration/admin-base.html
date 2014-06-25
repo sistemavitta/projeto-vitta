@@ -36,8 +36,22 @@
         });
 
     }
+    
+        $('#popoverId').popover({
+            html: true,
+            title: 'Informações do usuário<a class="close exit" href="#");">&times;</a>',
+            content: $('#popoverContent').html(),
+        });
 
-$("#popoverId").popover({html:true,title:'Informações do Usuário<a class="close exit" href="#");">&times;</a>',content:$("#popoverContent").html()});$("#popoverId").click(function(e){e.stopPropagation()});$(document).click(function(e){if($(".popover").has(e.target).length==0||$(e.target).is(".close")){$("#popoverId").popover("hide")}});$("#popoverFeed").popover({html:true,title:'FeedBack do Treino<a class="close exit-feed" href="#");">&times;</a>',content:$("#popoverContentFeed").html()});$("#popoverFeed").click(function(e){e.stopPropagation()});$(document).click(function(e){if($(".popover").has(e.target).length==0||$(e.target).is(".close")){$("#popoverFeed").popover("hide")}})
+        $('#popoverId').click(function (e) {
+            e.stopPropagation();
+        });
+
+        $(document).click(function (e) {
+            if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+                $('#popoverId').popover('hide');
+            }
+        });
 
     </script>
 

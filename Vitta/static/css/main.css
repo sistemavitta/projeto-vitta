@@ -845,7 +845,7 @@ a.nav-name-user {
   text-decoration: none;
   display: inline-block;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .nav-information-user {
   margin-bottom: 10px;
@@ -872,6 +872,37 @@ a.nav-name-user {
   border-radius: 0;
 }
 /* === #Perfil do Usuário === */
+
+/*! === Informações do Usuário === */
+.popover {
+  position: fixed;
+  border-radius: 0;
+  border-color: #eee;
+  padding: 0;
+}
+.popover-title {
+  font-size: 1.600em;
+  color: #999;
+  background-color: #f5f5f5;
+  border-radius: 0;
+}
+.popover.right>.arrow {
+  border-right-color: #eee;
+}
+a.close.exit {
+  font-size: 1.600em;
+  margin-top: -3px;
+  margin-left: 60px; 
+}
+.profile-mail, .profile-phone {
+  font-size: 1.600em;
+  color: #999;
+}
+.glyphicon-envelope, .glyphicon-earphone {
+  font-size: 1.400em;
+  color: #999;
+}
+/* === #Informações do Usuário === */
 
 /*! === Menu de Navegação === */
 .nav-menu {
@@ -984,6 +1015,8 @@ a.stop-training-stop {
 }
 /* #CSS Start Training */
 
+
+
 /* CSS Breadcrumb */
 .breadcrumb-nav {
   background: #444;
@@ -1042,36 +1075,3 @@ a.stop-training-stop {
   clear: both;
 }
 /* #CSS Breadcrumb */
-
-/* CSS Popover */
-.popover {
-  position: fixed;
-}
-.popover-title {
-  font-size: 1.600em;
-  background-color: #f5f5f5;
-}
-a.close.exit {
-  font-size: 2.200em;
-  margin-top: -2px;
-  margin-left: 40px;
-  color: #444;
-}
-a.close.exit-feed {
-  font-size: 2.200em;
-  margin-top: -2px;
-  color: #444;
-}
-.profile-mail {
-  font-size: 1.600em;
-}
-.profile-phone {
-  font-size: 1.600em;
-}
-.glyphicon-envelope {
-  font-size: 1.300em;
-}
-.glyphicon-earphone {
-  font-size: 1.300em;
-}
-/* #CSS Popover */
