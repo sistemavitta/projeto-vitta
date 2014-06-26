@@ -15,6 +15,10 @@
   font-family: 'marmelad';
   src: url('../fonts/marmelad.woff') format('woff');
 }
+@font-face {
+  font-family: 'nunito';
+  src: url('../fonts/ninito.woff') format('woff');
+}
 body {
   font-size: 100%;
   font-family: 'source_sans_prolight';
@@ -31,6 +35,15 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+#login-head {
+  margin-bottom: -30px;
+}
+.login-logo {
+  font-family: 'Nunito', sans-sverif;
+  font-size: 6.000em;
+  color: #eee;
+  margin-bottom: 20px;
 }
 .login-vertical-offset {
     padding-top: 150px;
@@ -51,17 +64,19 @@ body {
   width: 100%;
 }
 .admin-navbar {
-  background: none;
+  background: #444;
   border-top: none;
-  margin-left: 15%;
+  margin-left: 20%;
 }
 .admin-navbar-toggle {
-  background: #333;
+  background: #444;
   border: none;
+  border-radius: 0;
 }
 .admin-navbar-toggle-icon {
-  font-size: 20px;
-  color: #ecf0f1;
+  font-size: 1.400em;
+  color: lightgrey;
+  text-transform: uppercase;
 }
 .admin-nav-users > li > a {
   padding-top: 3px;
@@ -821,6 +836,34 @@ a.alertmsg-link-registering-training {
 /* #Mensagens de Alerta */
 
 /*! Menu Vertical */
+* {
+  margin: 0;
+  padding: 0;
+}
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.vertical {
+  background: #fff;
+  position: fixed;
+  width: 20%;
+  height: 100%;
+  font-size: 1em;
+  float: left;
+  background: #444;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.nav-toggle {
+  display: none;
+}
+.content {
+  width: 80%;
+  margin-top: 10px;
+  float: right;
+}
 
 /*! === Perfil do Usuário === */
 .nav-profile {
@@ -934,6 +977,7 @@ a.close.exit {
   margin: 0 auto;
   border-radius: 0;
   border: none;
+  margin-top: 45%;
 }
 .content-play {
   background: #5cb85c;
@@ -958,51 +1002,7 @@ a.start-training-play {
 
 /* #Menu Vertical */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* CSS Navbar Base */
-* {
-  margin: 0;
-  padding: 0;
-}
-.wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.menubar {
-  background: #fff;
-  z-index: 200;
-  position: fixed;
-  width: 15%;
-  height: 100%;
-  float: left;
-  background: #444;
-}
-.menubar-toggle {
-  display: none;
-}
-.general-content {
-    width: 85%;
-    margin-top: 10px;
-    float: right;
-    min-height: 100%;
-    position: relative;
-}
-/* #CSS Navbar Base */
-
-/* CSS Breadcrumb */
+/* Breadcrumb */
 .breadcrumb-nav {
   background: #444;
   margin-bottom: 20px;
@@ -1016,47 +1016,164 @@ a.start-training-play {
     margin-top: 10px;
 }
 .breadcrumb-nav-link > li + li:before {
-    padding: 0 5px;
-    color: #fff;
-    content: "/\00a0";
+  padding: 0 5px;
+  color: #fff;
+  font-family: 'marmelad';
+  content: "/\00a0";
 }
 .breadcrumb-nav-brand a {
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 1.500em;
+  font-family: 'marmelad';
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.500em;
 }
-.breadcrumb-nav-section a {
-    color: lightgrey;
-    text-decoration: none;
-    font-size: 1.500em;
-}
-.breadcrumb-nav-active {
-    color: lightgrey;
-    text-decoration: none;
-    font-size: 1.500em;
+.breadcrumb-nav-active, .breadcrumb-nav-section a {
+  text-transform: uppercase;
+  color: lightgrey;
+  text-decoration: none;
+  font-size: 1.500em;
 }
 .breadcrumb-nav-right {
-    background: #000;
+  background: #eee;
 }
 .breadcrumb-nav-instructor {
-    padding: 3px;
+  padding: 3px;
 }
-.glyphicon-off {
-    color: #eee;
-    margin-left: 8px;
-    font-size: 1.200em;
+a.breadcrumb-img-link {
+  text-decoration: none;
 }
-.breadcrumb-nav-logout {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.200em;
+.breadcrumb-img {
+  margin-left: -15px;
+  border: 1px solid #999;
+  display: inline-block; 
 }
-.breadcrumb-nav-logout:hover {
-    color: #fff;
-    text-decoration: none;
+.breadcrumb-config-user {
+  display: inline-block;
+  margin-left: 3px;
+  vertical-align: middle;
+}
+.breadcrumb-divisor {
+  color: #000;
+  font-size: 1.600em;
+}
+.breadcrumb-nav-logout, .breadcrumb-nav-admin {
+  color: #444;
+  text-decoration: none;
+  font-size: 1.400em;
+}
+.breadcrumb-nav-logout:hover, .breadcrumb-nav-admin:hover {
+  color: #444;
+  text-decoration: none;
+  font-size: 1.400em;
+}
+.glyphicon-off, .glyphicon-cog {
+  font-size: 1.300em;
+  color: #444;
+  vertical-align: baseline;
 }
 .clear {
   clear: both;
 }
-/* #CSS Breadcrumb */
+/* #Breadcrumb */
+
+/*! Media Queries Menu Vertical */
+
+@media only screen and (max-width: 800px) {
+  .wrap {
+     max-width: 100%;
+     margin: 0;
+  }
+  .vertical {
+    width: 175px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .nav-toggle {
+    position: absolute;
+    top: 0;
+    right: -50px;
+    font-size: 1.400em;
+    text-transform: uppercase;
+    color: lightgrey;
+    cursor: pointer;
+    width: 50px;
+    height: 45px;
+    z-index: 1000;
+    display: block;
+    background: #444;
+    padding: 12px 6px 6px 6px;
+  }
+  .content {
+    width: 100%;
+    position: relative;
+    float: none;
+  }
+  .admin-navbar {
+    background: #444;
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 1252px) {
+  .breadcrumb-nav {
+    display: none;
+  }
+  .mb-config-user {
+    margin-right: 16px;
+  }
+  .mb-bt-off {
+    border: none;
+    border-radius: 0;
+    background: #eee;
+  }
+   .mb-bt-off:hover,
+   .mb-bt-off:focus,
+   .mb-bt-off:active,
+   .mb-bt-off.active {
+    border: none;
+    border-radius: 0;
+    background: #eee;
+  }
+  .mb-bt-cog {
+    border: none;
+    border-radius: 0;
+    background: #eee;
+  }
+   .mb-bt-cog:hover,
+   .mb-bt-cog:focus,
+   .mb-bt-cog:active,
+   .mb-bt-cog.active {
+    border: none;
+    border-radius: 0;
+    background: #eee;
+  }
+  .glyphicon-off, .glyphicon-cog {
+    font-size: 1.000em;
+    color: #444;
+    vertical-align: baseline;
+  }
+  .mb-config-off, .mb-config-cog {
+    font-size: 1.100em;
+    color: #444;
+  }
+}
+@media only screen and (min-width: 1253px) {
+  .mb-config-user {
+    display: none;
+  }
+}
+@media only screen and (min-width:320px) and (max-width: 809px) {
+.content-timer {
+  margin-top: 10%;
+  }
+}
+@media only screen and (max-height: 568px) {
+  .mb-profile-img {
+    display: none;
+  }
+  .content-timer {
+    margin-top: 2%;
+  }
+}
+/*! Media Queries Menu Vertical */

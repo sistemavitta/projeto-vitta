@@ -10,7 +10,6 @@
 
 {% block js %}
     <script src="{{STATIC_URL}}js/libs/bootstrap-tabcollapse.js"></script>
-    <script src="{{STATIC_URL}}js/libs/spinner.js"></script>
     <script src="{{STATIC_URL}}js/libs/toggle.js"></script>
     <script src="{{STATIC_URL}}js/libs/jquery.runner-min.js"></script>
     <script type="text/javascript">
@@ -60,37 +59,53 @@
 {% block content-base %}
 
     {% include "administration/menu-vertical.html" %}
-        <div class="container-fluid general-content"> <!-- general-content -->
+        <div class="container-fluid content"> <!-- content -->
             <div class="row"> <!-- row -->
                 <div class="col-md-12"> <!-- col-md-12 -->
 
-                    <div class="col-md-12 breadcrumb-nav">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <nav class="breadcrumb-nav-link">
-                                {% block breadcrumb %}
-                                    <li class="breadcrumb-nav-brand">
-                                        <a href="#">Dalton Moraes</a>
-                                    </li>
+                    <div class="btn-group mb-config-user pull-right"> <!-- mb-config-user -->
+                        <a href="{% url 'fechar-ficha' user.pk %}" type="button" class="btn btn-default mb-bt-off"> <!-- mb-bt-off -->
+                            <i class="glyphicon glyphicon-off"></i>
+                            <span class="mb-config-off">Sair</span> <!-- mb-config-off -->
+                        </a> <!-- /.mb-bt-off -->
+                        <a href="/admin/" type="button" class="btn btn-default mb-bt-cog" target="_blank"> <!-- mb-bt-cog -->
+                            <i class="glyphicon glyphicon-cog"></i>
+                            <span class="mb-config-cog">Admin</span> <!-- mb-config-cog -->
+                        </a> <!-- /.mb-bt-cog -->
+                    </div> <!-- /.mb-config-user -->
 
+                    <div class="col-md-12 breadcrumb-nav"> <!-- breadcrumb-nav -->
+                        <div class="row"> <!-- row -->
+                            <div class="col-md-10"> <!-- col-md-10 -->
+                                <nav class="breadcrumb-nav-link"> <!-- breadcrumb-nav-link -->
+                                {% block breadcrumb %}
+                                    <li class="breadcrumb-nav-brand"> <!-- breadcrumb-nav-brand -->
+                                        <a href="#">Dalton Moraes</a>
+                                    </li> <!-- /.breadcrumb-nav-brand -->
                                 {% endblock breadcrumb  %}
-                                </nav>
-                            </div>
-                            <div class="col-md-2 breadcrumb-nav-right">
-                                <nav class="breadcrumb-nav-instructor">
-                                    <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="admin-vertical-link-instructor">
+                                </nav> <!-- /.breadcrumb-nav-link -->
+                            </div> <!-- /.col-md-10 -->
+                            <div class="col-md-2 breadcrumb-nav-right"> <!-- breadcrumb-nav-right -->
+                                <nav class="breadcrumb-nav-instructor"> <!-- breadcrumb-nav-instructor -->
+                                    <a href="{% url 'perfil-detail' usuario.professor.pk %}" class="breadcrumb-img-link">
                                         <img  {% if  user.perfil.image %}
                                             src="{{ user.perfil.image }}-/scale_crop/35x35/center/"
                                         {% else %}
                                             src="holder.js/40x40/text:{{ user.username }} "
                                         {% endif %}
-                                     alt=""  class="img-circle">
-                                    <span class="glyphicon glyphicon-off"></span>
-                                    <a href="{% url 'fechar-ficha' user.pk %}" class="breadcrumb-nav-logout">Sair do Sistema</a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
+                                     alt="" class="breadcrumb-img img-responsive img-circle">
+                                     </a>
+                                    <div class="breadcrumb-config-user">
+                                        <i class="glyphicon glyphicon-off"></i>
+                                        <a href="{% url 'fechar-ficha' user.pk %}" class="breadcrumb-nav-logout">Sair</a>&nbsp;
+                                        <span class="breadcrumb-divisor">|</span>&nbsp;
+                                        <i class="glyphicon glyphicon-cog"></i>
+                                        <a href="/admin/" class="breadcrumb-nav-admin" target="_blank">Admin</a>
+                                    </div>
+                                </nav> <!-- /.breadcrumb-nav-instructor -->
+                            </div> <!-- /.breadcrumb-nav-right -->
+                        </div> <!-- /.row -->
+                    </div> <!-- /.breadcrumb-nav -->
                     <div class="clear">
 
                     </div>
@@ -118,7 +133,7 @@
 
                 </div> <!-- /.col-md-12 -->
             </div> <!-- /.row -->
-        </div> <!-- /.general-content -->
+        </div> <!-- /.content -->
 
 {% endblock content-base %}
 

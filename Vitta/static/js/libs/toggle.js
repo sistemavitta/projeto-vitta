@@ -1,38 +1,39 @@
 function menu() {
-		$('.menubar-toggle').click(function() {
-			if($(".menubar").hasClass("side-fechado")) {
-				$('.menubar').animate({
+		$('.nav-toggle').click(function() {
+			if($(".vertical").hasClass("side-fechado")) {
+				$('.vertical').animate({
 				    left: "0px",
 				}, 100, function() {
-				    $(".menubar").removeClass("side-fechado");
+				    $(".vertical").removeClass("side-fechado");
 				});
-				$('.general-content').animate({
+				$('.content').animate({
 				    left: "175px",
 				}, 100);
 			}
 			else {
-				$('.menubar').animate({
+				$('.vertical').animate({
 				    left: "-175px",
 				}, 100, function() {
-				    $(".menubar").addClass("side-fechado");
+				    $(".vertical").addClass("side-fechado");
 				});
-				$('.general-content').animate({
+				$('.content').animate({
 				    left: "0px",
 				}, 100);
 			}
 		});
 	}
 	
+	//Menu Sidebar
 	$(window).resize(function() {
 		var tamanhoJanela = $(window).width();
-		$(".menubar-toggle").remove();
+		$(".nav-toggle").remove();
 		
-		if (tamanhoJanela < 800) { 
-			$('.menubar').css('left', '-175px').addClass('side-fechado');
-			$('.menubar').append( "<div class='menubar-toggle'>Perfil</div>" );
-      $('.general-content').css("left", 0);
+		if (tamanhoJanela <= 800) { 
+			$('.vertical').css('left', '-175px').addClass('side-fechado');
+			$('.vertical').append( "<div class='nav-toggle'>Perfil</div>" );
+      $('.content').css("left", 0);
 		} else {
-			$('.menubar').css('left', '0px').addClass('side-fechado');
+			$('.vertical').css('left', '0px').addClass('side-fechado');
 		}
 		
 		menu();
@@ -40,13 +41,13 @@ function menu() {
 	
 	$(document).ready(function() {
 		var tamanhoJanela = $(window).width();
-		$(".menubar-toggle").remove();
+		$(".nav-toggle").remove();
 		
-		if (tamanhoJanela < 800) { 
-			$('.menubar').css('left', '-175px').addClass('side-fechado');;
-			$('.menubar').append( "<div class='menubar-toggle'>Menu</div>" );
+		if (tamanhoJanela <= 800) { 
+			$('.vertical').css('left', '-175px').addClass('side-fechado');;
+			$('.vertical').append( "<div class='nav-toggle'>Perfil</div>" );
 		} else {
-			$('.menubar').css('left', '0px').addClass('side-fechado');
+			$('.vertical').css('left', '0px').addClass('side-fechado');
 		}
 		
 		menu();
